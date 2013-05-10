@@ -1,0 +1,32 @@
+# the following two lines give a two-line status, with the current window highlighted
+#hardstatus alwayslastline "%= %3n %t%? [%h]%? %="
+#caption always "%= %-w%L>%{= BW}%n*%t%{-}%52<%+w %L="
+
+shell /bin/zsh
+hardstatus alwayslastline
+hardstatus string '%{= kG}[%{G}%H%? %1`%?%{g}][%= %{= kw}%-w%{+b yk} %n*%t%?(%u)%? %{-}%+w %=%{g}][%{B}%m/%d %{W}%C%A%{g}]'
+
+defscrollback 3000
+
+# default screens
+screen -t root			
+screen -t workspace     mc
+screen -t utils
+screen -t localhost
+screen -t server
+screen -t other
+select 0
+
+bind c screen 1 # window numbering starts at 1 not 0
+bind 0 select 10
+
+# control-left and control-right switch windows
+bindkey ^[[1;5D prev
+bindkey ^[[1;5C next
+
+#keyshortcuts for scroll
+
+bindkey "^[k" eval "copy" "stuff ^b"  # enter copy mode and move up one page
+bindkey "^k" eval "copy" "stuff k"    # enter copy mode and move up one line
+bindkey -m "^[k" stuff ^b             # move up one page
+bindkey -m "^k" stuff k               # move up one line

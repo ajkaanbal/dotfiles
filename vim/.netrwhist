@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/ajkaanbal/.rtorrent'
+let g:netrw_dirhist_2='/home/ajkaanbal/.dropbox'
+let g:netrw_dirhist_3='/home/ajkaanbal/.config/hotot'
+let g:netrw_dirhist_4='/home/ajkaanbal/Documents/dev/tlacuilo/.git'
+let g:netrw_dirhist_5='/home/ajkaanbal/.vim'
+let g:netrw_dirhist_6='/home/ajkaanbal/Dropbox/age/dev/bsc'
