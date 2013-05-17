@@ -17,7 +17,7 @@ set foldlevel=1
 
 "NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
-map <C-o> :NERDTreeToggle<CR>
+nnoremap <F2> :NERDTreeToggle<CR>
 
 set hidden
 nnoremap <S-u> :UndotreeToggle<cr>
