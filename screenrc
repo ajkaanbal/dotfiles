@@ -9,7 +9,7 @@ hardstatus string '%{= kG}[%{G}%H%? %1`%?%{g}][%= %{= kw}%-w%{+b yk} %n*%t%?(%u)
 defscrollback 3000
 
 # default screens
-screen -t root			
+screen -t root
 screen -t workspace     mc
 screen -t utils
 screen -t localhost
@@ -30,3 +30,11 @@ bindkey "^[k" eval "copy" "stuff ^b"  # enter copy mode and move up one page
 bindkey "^k" eval "copy" "stuff k"    # enter copy mode and move up one line
 bindkey -m "^[k" stuff ^b             # move up one page
 bindkey -m "^k" stuff k               # move up one line
+
+#focus windows to navigate liki vi-style.
+bind j focus down
+bind k focus up
+bind h focus left
+bind l focus right
+bind t focus top
+bind b focus bottom
