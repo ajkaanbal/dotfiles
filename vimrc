@@ -69,7 +69,11 @@ set foldlevel=1
 
 "vim NERDTree key mappings:
 autocmd vimenter * if !argc() | NERDTree | endif
+<<<<<<< HEAD
+nnoremap <F2> :NERDTreeToggle<CR>
+=======
 map <F2> :NERDTreeToggle<CR>
+>>>>>>> 9c952fdcc388ebfe84273a10b0b819dcec5e0d3d
 
 
 " Remove all trailing whitespace:
