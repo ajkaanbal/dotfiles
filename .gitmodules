@@ -20,3 +20,7 @@
 [submodule "vim-python"]
     path =  vim/bundle/vim-python
     url = https://github.com/vim-scripts/python.vim--Vasiliev.git
+
+[submodule "auto-pairs"]
+    path =  vim/bundle/auto-pairs
+    url = https://github.com/jiangmiao/auto-pairs

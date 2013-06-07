@@ -24,6 +24,10 @@ colorscheme torte
 set fdm=indent
 set foldminlines=4
 
+"Start search when you typing
+set incsearch
+
+
 
 " Have vim insert line breaks automatically to preserve standard unix
 " " formatting rules.
