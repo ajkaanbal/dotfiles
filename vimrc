@@ -89,6 +89,12 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+"right margin
+set colorcolumn=80
+highlight ColorColumn ctermbg=246 ctermfg=white guibg=#592929
+highlight OverLength ctermbg=246 ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
 " :W to save, :Q to quit (should be default)
 command! W w
 command! Q q
@@ -109,10 +115,10 @@ nnoremap gj j
 set listchars=tab:▸\ ,eol:¬
 
 " Use the `par` program for formatting paragraphs.
-set formatprg=par\ -w79eqr
+"set formatprg=par\ -w79eqr
 
 " Have vim automatically format text as you type.
-set formatoptions+=t
+"set formatoptions+=t
 
 
 " Enable python syntax highlighting (from the ``vim-python`` plugin.)
