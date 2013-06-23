@@ -28,3 +28,6 @@
 [submodule "emmet"]
     path =  vim/bundle/zencoding-vim
     url = http://github.com/mattn/zencoding-vim.git
+[submodule "xterm-color-table.vim"]
+    path =  vim/bundle/xterm-color-table.vim
+    url = https://github.com/guns/xterm-color-table.vim.git

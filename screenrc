@@ -6,6 +6,9 @@ shell /bin/zsh
 hardstatus alwayslastline
 hardstatus string '%{= kG}[%{G}%H%? %1`%?%{g}][%= %{= kw}%-w%{+b yk} %n*%t%?(%u)%? %{-}%+w %=%{g}][%{B}%m/%d %{W}%C%A%{g}]'
 
+#256 color support
+term xterm-256color
+
 defscrollback 3000
 
 # default screens
