@@ -2,6 +2,21 @@
 call pathogen#infect()
 call pathogen#helptags()
 
+"# Only two spaces for html files
+autocmd FileType html :setlocal sw=2 ts=2 sts=2
+autocmd FileType css  :setlocal sw=2 ts=2 sts=2
+
+
+
+
+"#Navigate btween buffers
+nnoremap bh :bfirst<CR>
+nnoremap bj :bnext<CR>
+nnoremap bk :bprevious<CR>
+nnoremap bl :blast<CR>
+nnoremap bn :bnext<Space>
+nnoremap bd :bdelete<CR>
+
 "Some settings based on
 "https://github.com/jackfranklin/dotfiles/blob/master/vim/.vimrc
 
@@ -38,9 +53,6 @@ set autoindent
 "always show the status line
 set laststatus=2
 
-" Set a colorscheme.
-colorscheme torte
-set t_Co=256
 
 "Show search matches as I type
 set showmatch
@@ -57,6 +69,7 @@ set t_ti= t_te=
 "Store temporary files in a central spot
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set udir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " allow backspacing over everything in  insert mode
@@ -89,6 +102,8 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+
+
 " :W to save, :Q to quit (should be default)
 command! W w
 command! Q q
@@ -109,10 +124,10 @@ nnoremap gj j
 set listchars=tab:▸\ ,eol:¬
 
 " Use the `par` program for formatting paragraphs.
-set formatprg=par\ -w79eqr
+"set formatprg=par\ -w79eqr
 
 " Have vim automatically format text as you type.
-set formatoptions+=t
+"set formatoptions+=t
 
 
 " Enable python syntax highlighting (from the ``vim-python`` plugin.)
@@ -179,3 +194,15 @@ au FileType json setlocal equalprg=python\ -m\ json.tool
 
 "nginx conf
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
+
+
+"# Set a colorscheme with backgroun transparent
+set t_Co=256
+colorscheme torte
+highlight Normal ctermbg=none 
+
+"#right margin
+set colorcolumn=80
+highlight ColorColumn ctermbg=246 ctermfg=white guibg=#592929
+highlight OverLength ctermbg=246 ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
