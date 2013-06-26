@@ -17,6 +17,10 @@ nnoremap bl :blast<CR>
 nnoremap bn :bnext<Space>
 nnoremap bd :bdelete<CR>
 
+nnoremap <S-Up> :bprevious<CR>
+nnoremap <S-Down> :bnext<CR>
+
+
 "Some settings based on
 "https://github.com/jackfranklin/dotfiles/blob/master/vim/.vimrc
 
@@ -160,6 +164,9 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+map <S-Right> <C-w>l
+map <S-Left> <C-w>h
 
 " control P
 map <leader>t :CtrlP<cr>
