@@ -208,6 +208,9 @@ set t_Co=256
 colorscheme torte
 highlight Normal ctermbg=none 
 
+"#enable all function in all mode."
+let g:user_zen_mode='a'
+
 "#right margin
 set colorcolumn=80
 highlight ColorColumn ctermbg=246 ctermfg=white guibg=#592929
