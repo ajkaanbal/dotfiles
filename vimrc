@@ -115,10 +115,6 @@ autocmd BufWinLeave * call clearmatches()
 command! W w
 command! Q q
 
-" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
-
 " ~~~ MAPPINGS BELOW ~~~
 " " Make j/k move to next visual line instead of physical line
 " " http://yubinkim.com/?p=6
