@@ -4,7 +4,6 @@ call pathogen#helptags()
 
 "# enable powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-set noshowmode
 "# Only two spaces for html files
 autocmd FileType html :setlocal sw=2 ts=2 sts=2
 autocmd FileType css  :setlocal sw=2 ts=2 sts=2
@@ -20,8 +19,8 @@ nnoremap bl :blast<CR>
 nnoremap bn :bnext<Space>
 nnoremap bd :bdelete<CR>
 
-nnoremap <S-Up> :bprevious<CR>
-nnoremap <S-Down> :bnext<CR>
+nnoremap <S-Left> :bprevious<CR>
+nnoremap <S-Right> :bnext<CR>
 
 
 "Some settings based on
@@ -164,8 +163,10 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-map <S-Right> <C-w>l
-map <S-Left> <C-w>h
+map <M-S-Right> <C-w>l
+map <M-S-Left> <C-w>h
+map <M-S-Up> <C-w>k
+map <M-S-Down> <C-w>j
 
 " control P
 map <leader>t :CtrlP<cr>
@@ -212,3 +213,6 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=246 ctermfg=white guibg=#592929
 highlight OverLength ctermbg=246 ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
+
+"
+set noshowmode
