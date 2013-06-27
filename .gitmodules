@@ -31,3 +31,15 @@
 [submodule "vim/bundle/python-mode"]
 	path = vim/bundle/python-mode
 	url = https://github.com/klen/python-mode.git
+[submodule "vim/bundle/HTML-AutoCloseTag"]
+	path = vim/bundle/HTML-AutoCloseTag
+	url = https://github.com/vim-scripts/HTML-AutoCloseTag.git
+[submodule "vim/bundle/MatchTag"]
+	path = vim/bundle/MatchTag
+	url = https://github.com/gregsexton/MatchTag.git
+[submodule "vim/bundle/vim-javascript"]
+	path = vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "vim/bundle/powerline"]
+	path = vim/bundle/powerline
+	url = https://github.com/Lokaltog/powerline.git

@@ -2,6 +2,9 @@
 call pathogen#infect()
 call pathogen#helptags()
 
+"# enable powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set noshowmode
 "# Only two spaces for html files
 autocmd FileType html :setlocal sw=2 ts=2 sts=2
 autocmd FileType css  :setlocal sw=2 ts=2 sts=2
