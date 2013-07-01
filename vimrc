@@ -10,20 +10,19 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 autocmd FileType html :setlocal sw=2 ts=2 sts=2
 autocmd FileType css  :setlocal sw=2 ts=2 sts=2
 
-
-
-
 "#Navigate btween buffers
 nnoremap bh :bfirst<CR>
 nnoremap bj :bnext<CR>
 nnoremap bk :bprevious<CR>
 nnoremap bl :blast<CR>
 nnoremap bn :bnext<Space>
-nnoremap bd :bdelete<CR>
+nnoremap bd :bdelete!<CR>
 
 nnoremap <S-Left> :bprevious<CR>
 nnoremap <S-Right> :bnext<CR>
 
+"# Split on right by default
+set splitright
 
 "Some settings based on
 "https://github.com/jackfranklin/dotfiles/blob/master/vim/.vimrc
@@ -204,6 +203,10 @@ au FileType json setlocal equalprg=python\ -m\ json.tool
 
 "nginx conf
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
+
+"#  Redefining command-t mapings
+nnoremap <silent> <Leader>t :CommandT<CR>
+nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 
 "# Fast saving
 nmap <leader>w :w!<cr>
