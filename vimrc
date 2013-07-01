@@ -1,6 +1,8 @@
 " pathogen plugins support
-call pathogen#infect()
+execute pathogen#infect()
 call pathogen#helptags()
+syntax on
+filetype plugin indent on
 
 "# enable powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -78,8 +80,9 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set udir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-" allow backspacing over everything in  insert mode
+"Configureder>w :w!<cr> b ackspace so it acts as it should act
 set backspace=indent,eol,start
+set whichwrap+=<,>,h,l
 
 " display incomplete commands
 set showcmd
@@ -202,20 +205,25 @@ au FileType json setlocal equalprg=python\ -m\ json.tool
 "nginx conf
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
 
+"# Fast saving
+nmap <leader>w :w!<cr>
 
 "# Set a colorscheme with backgroun transparent
 set t_Co=256
 colorscheme torte
 highlight Normal ctermbg=none 
 
-"#enable all function in all mode."
-let g:user_zen_mode='a'
+"enable all function in all mode."
+let g:user_zen_mode='a'    
 
 "#right margin
 set colorcolumn=80
-highlight ColorColumn ctermbg=246 ctermfg=white guibg=#592929
+highlight ColorColumn ctermbg=235 ctermfg=white guibg=#592929
 highlight OverLength ctermbg=246 ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
-"
+"# Change to paste mode to avoid akward indentation
+set pastetoggle=<F12>
+
+"#
 set noshowmode
