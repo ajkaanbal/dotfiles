@@ -58,3 +58,6 @@
 [submodule "vim/bundle/vim-obsession"]
 	path = vim/bundle/vim-obsession
 	url = https://github.com/tpope/vim-obsession.git
+[submodule "vim/bundle/vim-session"]
+	path = vim/bundle/vim-session
+	url = https://github.com/xolox/vim-session.git
