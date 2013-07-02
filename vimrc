@@ -157,7 +157,7 @@ set wildmenu
 let mapleader=","
 
 " ignore git, npm modules and jekyll _site
-set wildignore+=*.o,*.obj,.git,node_modules,_site
+set wildignore+=*.o,*.obj,.git,node_modules,_site,*.pyc
 
 "navigate between split windows
 map <C-h> <C-w>h
@@ -210,6 +210,10 @@ nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 
 "# Fast saving
 nmap <leader>w :w!<cr>
+
+"#
+set ssop-=options    " do not store global and local values in a session
+set ssop-=folds      " do not store folds
 
 "# Set a colorscheme with backgroun transparent
 set t_Co=256
