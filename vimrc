@@ -170,9 +170,10 @@ map <M-S-Left> <C-w>h
 map <M-S-Up> <C-w>k
 map <M-S-Down> <C-w>j
 
-" control P
-map <leader>t :CtrlP<cr>
-map <leader>cf :CtrlPClearCache<cr>
+map <C-S-Right> :tabprev<CR>
+map <C-S-Left>  :tabnext<CR>
+map <C-S-Up>    :tabfirst<CR>
+map <C-S-Down>  :tablast<CR>
 
 " navigating tabs
 nnoremap th :tabfirst<CR>
@@ -208,6 +209,9 @@ au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfil
 nnoremap <silent> <Leader>t :CommandT<CR>
 nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 
+"# comman-t settigns
+let g:CommandTMaxHeight=5
+
 "# Fast saving
 nmap <leader>w :w!<cr>
 
@@ -234,3 +238,6 @@ set pastetoggle=<F12>
 
 "#
 set noshowmode
+
+"# Vim-session setting
+:let g:session_autosave = 'no'
