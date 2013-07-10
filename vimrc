@@ -208,9 +208,10 @@ au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfil
 "#  Redefining command-t mapings
 nnoremap <silent> <Leader>t :CommandT<CR>
 nnoremap <silent> <Leader>b :CommandTBuffer<CR>
+nnoremap <silent> <Leader>f :CommandTFlush<CR>
 
 "# comman-t settigns
-let g:CommandTMaxHeight=5
+let g:CommandTMaxHeight=12
 
 "# Fast saving
 nmap <leader>w :w!<cr>
@@ -241,3 +242,7 @@ set noshowmode
 
 "# Vim-session setting
 :let g:session_autosave = 'no'
+
+"# Ruby 
+" ruby path if you are using RVM
+let g:ruby_path = system('rvm current')
