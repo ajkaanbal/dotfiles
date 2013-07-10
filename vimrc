@@ -186,7 +186,6 @@ nnoremap tm :tabm<Space>
 nnoremap td :tabclose<CR>
 
 "vim NERDTree key mappings:
-autocmd vimenter * if !argc() | NERDTree | endif
 nnoremap <F2> :NERDTreeToggle<CR>
 
 " Remove all trailing whitespace:
