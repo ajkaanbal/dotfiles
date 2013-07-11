@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " pathogen plugins support
 execute pathogen#infect()
 call pathogen#helptags()
@@ -125,7 +126,8 @@ nnoremap gk k
 nnoremap gj j
 
 " Use the same symbols as TextMate for tabstops and EOLs.
-set listchars=tab:▸\ ,eol:¬
+set list 
+set listchars=tab:▸\ ,eol:¬,trail:·,precedes:«,extends:»,nbsp:$
 
 " Use the `par` program for formatting paragraphs.
 "set formatprg=par\ -w79eqr
@@ -205,7 +207,7 @@ au FileType json setlocal equalprg=python\ -m\ json.tool
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
 
 "#  Redefining command-t mapings
-nnoremap <silent> <Leader>t :CommandT<CR>
+nnoremap <silent> <Leader>d :CommandT<CR>
 nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 nnoremap <silent> <Leader>f :CommandTFlush<CR>
 
@@ -223,6 +225,10 @@ set ssop-=folds      " do not store folds
 set t_Co=256
 colorscheme torte
 highlight Normal ctermbg=none 
+"# color options to listchars
+hi NonText ctermfg=darkgrey guifg=darkgrey
+hi clear SpecialKey
+hi link SpecialKey NonText
 
 "enable all function in all mode."
 let g:user_zen_mode='a'    
