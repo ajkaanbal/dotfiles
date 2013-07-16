@@ -67,3 +67,9 @@
 [submodule "vim/bundle/vim-table-mode"]
 	path = vim/bundle/vim-table-mode
 	url = https://github.com/dhruvasagar/vim-table-mode.git
+[submodule "vim/bundle/vim-u-dmen"]
+	path = vim/bundle/vim-u-dmen
+	url = https://github.com/dahu/vim-u-dmen.git
+[submodule "vim/bundle/vimple"]
+	path = vim/bundle/vimple
+	url = https://github.com/dahu/vimple.git
