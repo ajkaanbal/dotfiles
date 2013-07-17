@@ -13,8 +13,7 @@ Search skin= and replace by
 2. After ``` dotfiles --sync ``` create symbolic link to .ajkaanbal_mc_skin.inii
     
     ```bash
-    $ ln -s ~/.ajkaanbal_mc_skin.ini
-    ~/.local/share/mc/skins/ajkaanbal.ini
+    $ ln -s ~/.ajkaanbal_mc_skin.ini ~/.local/share/mc/skins/ajkaanbal.ini
     ```
 
 3. Done.
