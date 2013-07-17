@@ -61,3 +61,6 @@
 [submodule "vim/bundle/vim-table-mode"]
 	path = vim/bundle/vim-table-mode
 	url = https://github.com/dhruvasagar/vim-table-mode.git
+[submodule "vim/bundle/unite-vim"]
+	path = vim/bundle/unite-vim
+	url = https://github.com/Shougo/unite.vim.git

@@ -19,6 +19,7 @@ nnoremap bl :blast<CR>
 nnoremap bn :bnext<Space>
 nnoremap bd :bdelete!<CR>
 
+
 nnoremap <S-Left> :bprevious<CR>
 nnoremap <S-Right> :bnext<CR>
 
@@ -206,14 +207,6 @@ au FileType json setlocal equalprg=python\ -m\ json.tool
 "nginx conf
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
 
-"#  Redefining command-t mapings
-nnoremap <silent> <Leader>d :CommandT<CR>
-nnoremap <silent> <Leader>b :CommandTBuffer<CR>
-nnoremap <silent> <Leader>f :CommandTFlush<CR>
-
-"# comman-t settigns
-let g:CommandTMaxHeight=12
-
 "# Fast saving
 nmap <leader>w :w!<cr>
 
@@ -224,7 +217,13 @@ set ssop-=folds      " do not store folds
 "# Set a colorscheme with backgroun transparent
 set t_Co=256
 colorscheme torte
-highlight Normal ctermbg=none 
+"# Pemenu colors
+hi Pmenu ctermfg=255 ctermbg=233
+hi PmenuSel ctermbg=24 ctermfg=255
+hi PmenuSbar ctermbg=233
+hi PmenuThumb ctermbg=238
+
+hi Normal ctermbg=none 
 "# color options to listchars
 hi NonText ctermfg=darkgrey guifg=darkgrey
 hi clear SpecialKey
@@ -251,3 +250,6 @@ set noshowmode
 "# Ruby 
 " ruby path if you are using RVM
 let g:ruby_path = system('rvm current')
+
+"# Unite
+noremap <leader>ls :Unite file_rec<cr>
