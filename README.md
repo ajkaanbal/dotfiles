@@ -10,14 +10,14 @@ MC skin requires:
 Search skin= and replace by
     skin=ajkaanbal
 
-    2. After ``` dotfiles --sync ``` create symbolic link to
-       .ajkaanbal_mc_skin.ini
-           ```bash
-               $ ln -s ~/.ajkaanbal_mc_skin.ini
-               ~/.local/share/mc/skins/ajkaanbal.ini
-                   ```
+2. After ``` dotfiles --sync ``` create symbolic link to .ajkaanbal_mc_skin.inii
+    
+    ```bash
+    $ ln -s ~/.ajkaanbal_mc_skin.ini
+    ~/.local/share/mc/skins/ajkaanbal.ini
+    ```
 
-                   3. Done.
+3. Done.
 
 
 ## Vim Plugins
