@@ -252,4 +252,4 @@ set noshowmode
 let g:ruby_path = system('rvm current')
 
 "# Unite
-noremap <leader>ls :Unite file_rec<cr>
+noremap <leader>ls :Unite -auto-quit -winheight=12 file_rec<cr>
