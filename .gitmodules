@@ -49,15 +49,9 @@
 [submodule "vim/bundle/tcomment"]
 	path = vim/bundle/tcomment
 	url = https://github.com/tomtom/tcomment_vim.git
-[submodule "vim/bundle/command-t"]
-	path = vim/bundle/command-t
-	url = git://git.wincent.com/command-t.git
 [submodule "vim/bundle/vim-quickrun"]
 	path = vim/bundle/vim-quickrun
 	url = https://github.com/thinca/vim-quickrun.git
-[submodule "vim/bundle/vim-obsession"]
-	path = vim/bundle/vim-obsession
-	url = https://github.com/tpope/vim-obsession.git
 [submodule "vim/bundle/vim-session"]
 	path = vim/bundle/vim-session
 	url = https://github.com/xolox/vim-session.git
@@ -67,9 +61,3 @@
 [submodule "vim/bundle/vim-table-mode"]
 	path = vim/bundle/vim-table-mode
 	url = https://github.com/dhruvasagar/vim-table-mode.git
-[submodule "vim/bundle/vim-u-dmen"]
-	path = vim/bundle/vim-u-dmen
-	url = https://github.com/dahu/vim-u-dmen.git
-[submodule "vim/bundle/vimple"]
-	path = vim/bundle/vimple
-	url = https://github.com/dahu/vimple.git
