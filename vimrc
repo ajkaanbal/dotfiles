@@ -12,22 +12,22 @@ autocmd FileType html :setlocal sw=2 ts=2 sts=2
 autocmd FileType css  :setlocal sw=2 ts=2 sts=2
 
 "#Navigate btween buffers
-nnoremap bh :bfirst<CR>
-nnoremap bj :bnext<CR>
-nnoremap bk :bprevious<CR>
-nnoremap bl :blast<CR>
-nnoremap bn :bnext<Space>
-nnoremap bd :bdelete!<CR>
+nnoremap <silent> bh :bfirst<CR>
+nnoremap <silent> bj :bnext<CR>
+nnoremap <silent> bk :bprevious<CR>
+nnoremap <silent> bl :blast<CR>
+nnoremap <silent> bn :bnext<Space>
+nnoremap <silent> bd :bdelete!<CR>
 
+
+" redraw instead of insert/delete
+set ttyfast
 
 nnoremap <S-Left> :bprevious<CR>
 nnoremap <S-Right> :bnext<CR>
 
 "# Split on right by default
 set splitright
-
-"Some settings based on
-"https://github.com/jackfranklin/dotfiles/blob/master/vim/.vimrc
 
 " status bar
 set statusline=%F%m%r%h%w "fullpath and status modified sign
@@ -57,7 +57,9 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
 set autoindent
+set copyindent
 
 "always show the status line
 set laststatus=2
@@ -118,6 +120,14 @@ autocmd BufWinLeave * call clearmatches()
 command! W w
 command! Q q
 
+" avoid common mistakes
+cmap Q q
+cmap WQ wq
+cmap Wq wq
+cmap wQ wq
+cmap w1 w!
+
+
 " ~~~ MAPPINGS BELOW ~~~
 " " Make j/k move to next visual line instead of physical line
 " " http://yubinkim.com/?p=6
@@ -153,14 +163,30 @@ set foldminlines=4
 "use emacs-style tab completiton when selecting files, etc
 set wildmode=longest,list
 
-"make taba completion for files/(buffers act like bash
+" enable autocompletion menu
 set wildmenu
+set wildmode=list:longest:full
+
+set wildignore+=*.o,*.obj,*.pyc
+set wildignore+=.git
+set wildignore+=*.dvi,*.pdf
+set wildignore+=*.jpg,*.png,*.tiff
+set wildignore+=.coverage,coverage.xml,nosetests.xml,.noseids
+
+"" tells VIM where to search for autocompletion
+""  . : current file
+""  w : files in other windows
+""  b : files in loaded buffers, not in a window
+""  t : the `tags` file
+""  i : current and included files
+set complete=.,w,b,t,i
+"
+" " autocompletion visualization
+set completeopt=menuone,longest,preview
 
 "leader key
 let mapleader=","
 
-" ignore git, npm modules and jekyll _site
-set wildignore+=*.o,*.obj,.git,node_modules,_site,*.pyc
 
 "navigate between split windows
 map <C-h> <C-w>h
@@ -208,7 +234,7 @@ au FileType json setlocal equalprg=python\ -m\ json.tool
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
 
 "# Fast saving
-nmap <leader>w :w!<cr>
+nmap <Leader>w :silent! update<CR>
 
 "#
 set ssop-=options    " do not store global and local values in a session
@@ -251,7 +277,12 @@ set noshowmode
 " ruby path if you are using RVM
 let g:ruby_path = system('rvm current')
 
+" NERDCommenter
+let g:NERDCommentWholeLinesInVMode = 1
+
 "# Unite
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+let g:unite_split_rule = 'botright'
 " Start insert.
 let g:unite_enable_start_insert = 1
 let g:unite_enable_short_source_names = 1
@@ -259,6 +290,12 @@ let g:unite_winheight = 12
 
 " Prompt choices.
 let g:unite_prompt = '» '
+
+"# Unite help
+" Execute help.
+nnoremap <C-h>  :<C-u>Unite -start-insert help<CR>
+" " Execute help by cursor keyword.
+nnoremap <silent> g<C-h>  :<C-u>UniteWithCursorWord help<CR>
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
@@ -270,7 +307,16 @@ endfunction"}}}
 nnoremap <leader>lf :<C-u>Unite file_rec/async:!<cr>
 nnoremap <leader>lb :<C-u>Unite buffer<cr>
 nnoremap <leader>lr :<C-u>Unite file_mru<CR>
+nnoremap <leader>lo :<C-u>Unite outline<CR>
 nnoremap <silent> <leader>la :<C-u>Unite buffer file_mru bookmark<CR>
 
 "# jsbeautify
 noremap <leader>jsb :call JsBeautify()<cr>
+
+"#
+inoremap kj <esc>
+
+"#
+set previewwindow
+set winfixheight
+nnoremap <leader>vi :<c-u>e $MYVIMRC<cr>

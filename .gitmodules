@@ -70,3 +70,15 @@
 [submodule "vim/bundle/vim-jsbeautify"]
 	path = vim/bundle/vim-jsbeautify
 	url = https://github.com/maksimr/vim-jsbeautify.git
+[submodule "vim/bundle/nerdcommenter"]
+	path = vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/bundle/unite-help"]
+	path = vim/bundle/unite-help
+	url = https://github.com/tsukkee/unite-help.git
+[submodule "vim/bundle/unite-outline"]
+	path = vim/bundle/unite-outline
+	url = https://github.com/Shougo/unite-outline.git
+[submodule "vim/bundle/vim-wakatime"]
+	path = vim/bundle/vim-wakatime
+	url = https://github.com/wakatime/vim-wakatime.git
