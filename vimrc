@@ -272,3 +272,5 @@ nnoremap <leader>lb :<C-u>Unite buffer<cr>
 nnoremap <leader>lr :<C-u>Unite file_mru<CR>
 nnoremap <silent> <leader>la :<C-u>Unite buffer file_mru bookmark<CR>
 
+"# jsbeautify
+noremap <leader>jsb :call JsBeautify()<cr>
