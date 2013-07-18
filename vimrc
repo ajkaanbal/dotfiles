@@ -252,4 +252,23 @@ set noshowmode
 let g:ruby_path = system('rvm current')
 
 "# Unite
-noremap <leader>ls :Unite -auto-quit -winheight=12 file_rec<cr>
+" Start insert.
+let g:unite_enable_start_insert = 1
+let g:unite_enable_short_source_names = 1
+let g:unite_winheight = 12
+
+" Prompt choices.
+let g:unite_prompt = '» '
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()"{{{
+    " Overwrite settings.
+    "
+    nmap <buffer> <ESC>      <Plug>(unite_exit)
+endfunction"}}}
+
+nnoremap <leader>lf :<C-u>Unite file_rec/async:!<cr>
+nnoremap <leader>lb :<C-u>Unite buffer<cr>
+nnoremap <leader>lr :<C-u>Unite file_mru<CR>
+nnoremap <silent> <leader>la :<C-u>Unite buffer file_mru bookmark<CR>
+
