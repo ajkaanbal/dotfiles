@@ -17,7 +17,7 @@ nnoremap <silent> bj :bnext<CR>
 nnoremap <silent> bk :bprevious<CR>
 nnoremap <silent> bl :blast<CR>
 nnoremap <silent> bn :bnext<Space>
-nnoremap <silent> bd :bdelete!<CR>
+nnoremap <silent> bd :MBEbd<CR>
 
 
 " redraw instead of insert/delete
@@ -281,6 +281,11 @@ let g:ruby_path = system('rvm current')
 let g:NERDCommentWholeLinesInVMode = 1
 
 "# Unite
+
+call unite#custom#source('file_rec/async', 'ignore_pattern', '\(libs\|node_modules\)')
+let g:unite_source_file_rec_max_cache_files = 9000
+
+
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 let g:unite_split_rule = 'botright'
 " Start insert.
