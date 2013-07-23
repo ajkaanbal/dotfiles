@@ -242,7 +242,8 @@ set ssop-=folds      " do not store folds
 
 "# Set a colorscheme with backgroun transparent
 set t_Co=256
-colorscheme torte
+set bg=dark
+colorscheme badwolf
 "# Pemenu colors
 hi Pmenu ctermfg=255 ctermbg=233
 hi PmenuSel ctermbg=24 ctermfg=255
@@ -309,10 +310,10 @@ function! s:unite_my_settings()"{{{
     nmap <buffer> <ESC>      <Plug>(unite_exit)
 endfunction"}}}
 
-nnoremap <leader>lf :<C-u>Unite file_rec/async:!<cr>
-nnoremap <leader>lb :<C-u>Unite buffer<cr>
-nnoremap <leader>lr :<C-u>Unite file_mru<CR>
-nnoremap <leader>lo :<C-u>Unite outline<CR>
+nnoremap <leader>f :<C-u>Unite file_rec/async:!<cr>
+nnoremap <leader>b :<C-u>Unite buffer<cr>
+nnoremap <leader>r :<C-u>Unite file_mru<CR>
+nnoremap <leader>o :<C-u>Unite outline<CR>
 nnoremap <silent> <leader>la :<C-u>Unite buffer file_mru bookmark<CR>
 
 "# jsbeautify
