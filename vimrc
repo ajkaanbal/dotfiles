@@ -17,7 +17,8 @@ nnoremap <silent> bj :bnext<CR>
 nnoremap <silent> bk :bprevious<CR>
 nnoremap <silent> bl :blast<CR>
 nnoremap <silent> bn :bnext<Space>
-nnoremap <silent> bd :MBEbd<CR>
+nnoremap <silent> bd :bdelete<CR>
+nnoremap <silent><leader>bd :MBEbd<CR>
 
 
 " redraw instead of insert/delete
@@ -242,8 +243,9 @@ set ssop-=folds      " do not store folds
 
 "# Set a colorscheme with backgroun transparent
 set t_Co=256
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
 set bg=dark
-colorscheme badwolf
 "# Pemenu colors
 hi Pmenu ctermfg=255 ctermbg=233
 hi PmenuSel ctermbg=24 ctermfg=255
@@ -252,7 +254,7 @@ hi PmenuThumb ctermbg=238
 
 hi Normal ctermbg=none 
 "# color options to listchars
-hi NonText ctermfg=darkgrey guifg=darkgrey
+hi NonText ctermfg=darkgrey guifg=darkgrey ctermbg=none
 hi clear SpecialKey
 hi link SpecialKey NonText
 
@@ -322,6 +324,10 @@ noremap <leader>jsb :call JsBeautify()<cr>
 "#
 inoremap kj <esc>
 
+"# Ultisnips 
+let g:UltiSnipsSnippetsDir='~/.vim/ajksnippets'
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "ajksnippets"]
+let g:UltiSnipsEditSplit="vertical"
 "#
 set previewwindow
 set winfixheight
