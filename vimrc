@@ -245,14 +245,15 @@ set ssop-=folds      " do not store folds
 set t_Co=256
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
-set bg=dark
+"set bg=dark
 "# Pemenu colors
 hi Pmenu ctermfg=255 ctermbg=233
-hi PmenuSel ctermbg=24 ctermfg=255
+hi PmenuSel ctermbg=255 ctermfg=24
 hi PmenuSbar ctermbg=233
 hi PmenuThumb ctermbg=238
 
-hi Normal ctermbg=none 
+hi Normal ctermbg=none
+hi Comment ctermfg=242
 "# color options to listchars
 hi NonText ctermfg=darkgrey guifg=darkgrey ctermbg=none
 hi clear SpecialKey

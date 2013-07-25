@@ -16,8 +16,8 @@ defscrollback 3000
 
 # default screens
 screen -t root
+screen -t mc
 screen -t workspace
-screen -t utils
 screen -t localhost
 screen -t server
 screen -t other
