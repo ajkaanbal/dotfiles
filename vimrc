@@ -18,6 +18,7 @@ nnoremap <silent> bk :bprevious<CR>
 nnoremap <silent> bl :blast<CR>
 nnoremap <silent> bn :bnext<Space>
 nnoremap <silent> bd :bdelete<CR>
+nnoremap <silent> Bd :Bdelete<CR>
 
 
 " redraw instead of insert/delete
@@ -342,5 +343,6 @@ let g:airline_theme='solarized'
 " }}}
 
 " Bufferline {{{
+let g:bufferline_rotate = 1
 let g:bufferline_echo = 0
 " }}}
