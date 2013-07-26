@@ -329,60 +329,18 @@ let g:UltiSnipsSnippetsDir='~/.vim/ajksnippets'
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "ajksnippets"]
 let g:UltiSnipsEditSplit="vertical"
 "#
-"set previewwindow
-set winfixheight
-"nnoremap <leader>vi :<c-u>e $MYVIMRC<cr>
-
-" preview window... to get it to open vert right, or horiz as desired
-function PreviewTag()
-  "by MW
-  set previewheight=25
-  exe "silent! pclose"
-  "if &previewwindow " don't do this in the preview window
-  "  return
-  "endif
-  exe 'pedit ' . expand('~/.vimrc')
-  " if any non False arg, open in simple horiz window so simply return
-  " otherwise, make it vertical
-  exe "silent! wincmd P"
-  if &previewwindow " if we really get there...
-    if has("folding")
-      silent! .foldopen " don't want a closed fold
-    endif
-    wincmd L " move preview window to the left
-    "wincmd p " back to caller
-    if !&previewwindow " got back
-      wincmd _
-      " make caller full size (I use minibufexplorer and for some reason
-      " the window is altered by the preview window split and manipulation
-      " so wincmd _ sets it back... your mileage may vary
-    endif
-  endif
-endfunction
-
-nnoremap <leader>vi :call PreviewTag()<cr>
-
-
-
-
-"#
 " Airline: {{{
 " 
-" let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_fugitive_prefix = '  '
 let g:airline_readonly_symbol = ''
 let g:airline_linecolumn_prefix = ' '
-
- let g:airline_enable_bufferline=1
- let g:airline_enable_unite=1
-"
-"let g:airline_section_c=bufferline
+let g:airline_enable_bufferline=1
+let g:airline_enable_unite=1
 let g:airline_theme='solarized'
-"let g:airline_exclude_preview = 1
-
 " }}}
-"
+
+" Bufferline {{{
 let g:bufferline_echo = 0
+" }}}
