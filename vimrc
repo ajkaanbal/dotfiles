@@ -18,7 +18,6 @@ nnoremap <silent> bk :bprevious<CR>
 nnoremap <silent> bl :blast<CR>
 nnoremap <silent> bn :bnext<Space>
 nnoremap <silent> bd :bdelete<CR>
-nnoremap <silent><leader>bd :MBEbd<CR>
 
 
 " redraw instead of insert/delete
@@ -330,7 +329,7 @@ let g:UltiSnipsSnippetsDir='~/.vim/ajksnippets'
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "ajksnippets"]
 let g:UltiSnipsEditSplit="vertical"
 "#
-set previewwindow
+"set previewwindow
 set winfixheight
 "nnoremap <leader>vi :<c-u>e $MYVIMRC<cr>
 
@@ -362,3 +361,28 @@ function PreviewTag()
 endfunction
 
 nnoremap <leader>vi :call PreviewTag()<cr>
+
+
+
+
+"#
+" Airline: {{{
+" 
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_fugitive_prefix = '  '
+let g:airline_readonly_symbol = ''
+let g:airline_linecolumn_prefix = ' '
+
+ let g:airline_enable_bufferline=1
+ let g:airline_enable_unite=1
+"
+"let g:airline_section_c=bufferline
+let g:airline_theme='solarized'
+"let g:airline_exclude_preview = 1
+
+" }}}
+"
+let g:bufferline_echo = 0
