@@ -79,7 +79,9 @@ set ignorecase smartcase
 set t_ti= t_te=
 
 "Store temporary files in a central spot
-set backup
+set nobackup       ""no backup files
+set nowritebackup  ""only in case you don't want a backup file while editing
+set noswapfile     ""no swap files
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set udir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -236,6 +238,7 @@ au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfil
 
 "# Fast saving
 nmap <Leader>w :silent! update<CR>
+nmap <Leader>W :silent! wa<CR>
 
 "#
 set ssop-=options    " do not store global and local values in a session
