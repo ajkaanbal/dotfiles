@@ -262,6 +262,10 @@ hi NonText ctermfg=darkgrey guifg=darkgrey ctermbg=none
 hi clear SpecialKey
 hi link SpecialKey NonText
 
+
+"# hl Matchit 
+highlight MatchParen cterm=bold ctermfg=255 ctermbg=27 
+
 "enable all function in all mode."
 let g:user_zen_mode='a'    
 
@@ -346,6 +350,10 @@ let g:airline_theme='solarized'
 " }}}
 
 " Bufferline {{{
-let g:bufferline_rotate = 1
 let g:bufferline_echo = 0
 " }}}
+"
+" Vim-css-colors{{{
+let g:cssColorVimDoNotMessMyUpdatetime = 1
+" }}}
+"

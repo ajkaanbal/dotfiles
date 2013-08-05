@@ -103,3 +103,6 @@
 [submodule "vim/bundle/vim-bbye"]
 	path = vim/bundle/vim-bbye
 	url = https://github.com/moll/vim-bbye.git
+[submodule "vim/bundle/vim-css-color"]
+	path = vim/bundle/vim-css-color
+	url = https://github.com/skammer/vim-css-color
