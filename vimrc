@@ -237,8 +237,7 @@ au FileType json setlocal equalprg=python\ -m\ json.tool
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
 
 "# Fast saving
-nmap <Leader>w :silent! update<CR>
-nmap <Leader>W :silent! wa<CR>
+nmap <Leader>w :silent! wa<CR>
 
 "#
 set ssop-=options    " do not store global and local values in a session
