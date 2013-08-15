@@ -293,7 +293,7 @@ let g:NERDCommentWholeLinesInVMode = 1
 
 "# Unite
 
-call unite#custom#source('file_rec/async', 'ignore_pattern', '\(libs\|node_modules\)')
+call unite#custom#source('file,file/new,buffer,file_mru,file_rec,file_rec/async', 'ignore_pattern', '\(libs\|node_modules\|bower_components\|images\|img\)')
 let g:unite_source_file_rec_max_cache_files = 9000
 
 
@@ -321,6 +321,7 @@ function! s:unite_my_settings()"{{{
 endfunction"}}}
 
 nnoremap <leader>f :<C-u>Unite file_rec/async:!<cr>
+nnoremap <leader>p :<C-u>Unite file_rec/async<cr>
 nnoremap <leader>b :<C-u>Unite buffer<cr>
 nnoremap <leader>r :<C-u>Unite file_mru<CR>
 nnoremap <leader>o :<C-u>Unite outline<CR>
