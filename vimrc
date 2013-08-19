@@ -292,7 +292,7 @@ let g:NERDCommentWholeLinesInVMode = 1
 
 "# Unite
 
-call unite#custom#source('file,file/new,buffer,file_mru,file_rec,file_rec/async', 'ignore_pattern', '\(libs\|node_modules\|bower_components\|images\|img\)')
+call unite#custom#source('file,file/new,buffer,file_mru,file_rec,file_rec/async', 'ignore_pattern', '\(libs\|node_modules\|bower_components\|images\|.git\|img\)')
 let g:unite_source_file_rec_max_cache_files = 9000
 
 
@@ -346,7 +346,8 @@ let g:airline_readonly_symbol = ''
 let g:airline_linecolumn_prefix = ' '
 let g:airline_enable_bufferline=1
 let g:airline_enable_unite=1
-let g:airline_theme='solarized'
+let g:airline_theme='powerlineish'
+let g:airline_enable_syntastic = 1
 " }}}
 
 " Bufferline {{{
