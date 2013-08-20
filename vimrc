@@ -197,10 +197,10 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-map <M-S-Right> <C-w>l
-map <M-S-Left> <C-w>h
-map <M-S-Up> <C-w>k
-map <M-S-Down> <C-w>j
+map <M-Right> <C-w>l
+map <M-Left> <C-w>h
+map <M-Up> <C-w>k
+map <M-Down> <C-w>j
 
 map <C-S-Right> :tabprev<CR>
 map <C-S-Left>  :tabnext<CR>
@@ -357,4 +357,12 @@ let g:bufferline_echo = 0
 " Vim-css-colors{{{
 let g:cssColorVimDoNotMessMyUpdatetime = 1
 " }}}
-"
+
+" Tagber {{{
+nmap <F8> :TagbarToggle<CR>
+" }}}
+
+"  Syntastic{{{
+let g:syntastic_javascript_checkers = ['jshint']
+"}}}
+
