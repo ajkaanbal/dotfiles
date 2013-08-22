@@ -197,10 +197,15 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-map <M-Right> <C-w>l
-map <M-Left> <C-w>h
-map <M-Up> <C-w>k
-map <M-Down> <C-w>j
+noremap <silent> <M-Right>  <c-w>l
+noremap <silent> <A-Left>   <c-w>h
+noremap <silent> <A-Up>     <c-w>k
+noremap <silent> <A-Down>   <c-w>j
+
+inoremap <silent> <M-Right>  <c-o><c-w>l
+inoremap <silent> <A-Left>   <c-o><c-w>h
+inoremap <silent> <A-Up>     <c-o><c-w>k
+inoremap <silent> <A-Down>   <c-o><c-w>j
 
 map <C-S-Right> :tabprev<CR>
 map <C-S-Left>  :tabnext<CR>
@@ -280,8 +285,11 @@ set pastetoggle=<F12>
 "#
 set noshowmode
 
-"# Vim-session setting
-:let g:session_autosave = 'no'
+"# Vim-session setting{{{
+let g:session_autosave = 'yes'
+let g:session_autoload = 'yes' 
+let g:session_default_to_last = 1
+"}}}
 
 "# Ruby 
 " ruby path if you are using RVM
@@ -359,6 +367,7 @@ let g:cssColorVimDoNotMessMyUpdatetime = 1
 " }}}
 
 " Tagber {{{
+let g:tagbar_autofocus = 1
 nmap <F8> :TagbarToggle<CR>
 " }}}
 
