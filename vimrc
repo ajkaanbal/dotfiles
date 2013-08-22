@@ -246,7 +246,6 @@ nmap <Leader>w :silent! wa<CR>
 
 "#
 set ssop-=options    " do not store global and local values in a session
-set ssop-=folds      " do not store folds
 
 "# Set a colorscheme with backgroun transparent
 set t_Co=256
