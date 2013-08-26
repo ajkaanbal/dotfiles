@@ -35,7 +35,12 @@ NeoBundle 'Shougo/vimproc', {
             \ }
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
+NeoBundleLazy 'Shougo/unite-help', { 'autoload' : {
+      \ 'unite_sources' : 'help'
+      \ }}
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'bling/vim-bufferline'
@@ -60,12 +65,47 @@ NeoBundleLazy 'jelera/vim-javascript-syntax', { 'autoload' : {
 
 NeoBundleLazy 'othree/javascript-libraries-syntax.vim', { 'autoload': {
       \ 'filetypes': 'javascript'}}
-NeoBundleLazy 'guns/xterm-color-table.vim.git', { 
+NeoBundleLazy 'guns/xterm-color-table.vim.git', {
       \ 'autoload': {
       \   'commands': 'XtermColorTable'
       \ }}
+NeoBundle 'jiangmiao/auto-pairs'
+" from vim.org
+NeoBundleLazy 'matchit.zip', { 'autoload' : {
+      \ 'mappings' : ['%', 'g%']
+      \ }}
+let bundle = neobundle#get('matchit.zip')
+function! bundle.hooks.on_post_source(bundle)
+    silent! execute 'doautocmd Filetype' &filetype
+endfunction
 
+"Neobundle configuration
+call neobundle#config('neosnippet', {
+      \ 'lazy' : 1,
+      \ 'autoload' : {
+      \   'insert' : 1,
+      \   'filetypes' : 'snippet',
+      \   'unite_sources' : ['snippet', 'neosnippet/user', 'neosnippet/runtime'],
+      \ }})
 
+call neobundle#config('vimfiler', {
+      \ 'lazy' : 1,
+      \ 'depends' : 'Shougo/unite.vim',
+      \ 'autoload' : {
+      \    'commands' : [
+      \                  { 'name' : 'VimFiler',
+      \                    'complete' : 'customlist,vimfiler#complete' },
+      \                  { 'name' : 'VimFilerExplorer',
+      \                    'complete' : 'customlist,vimfiler#complete' },
+      \                  { 'name' : 'Edit',
+      \                    'complete' : 'customlist,vimfiler#complete' },
+      \                  { 'name' : 'Write',
+      \                    'complete' : 'customlist,vimfiler#complete' },
+      \                  'Read', 'Source'],
+      \    'mappings' : ['<Plug>(vimfiler_switch)'],
+      \    'explorer' : 1,
+      \ }
+      \ })
 
 filetype plugin indent on
 set ttyfast
@@ -556,6 +596,18 @@ let g:neocomplcache_enable_camel_case_completion = 1
 " Use underbar completion.
 let g:neocomplcache_enable_underbar_completion = 1
 
+" Set auto completion length.
+let g:neocomplcache_auto_completion_start_length = 2
+" Set manual completion length.
+let g:neocomplcache_manual_completion_start_length = 0
+" Set minimum keyword length.
+let g:neocomplcache_min_keyword_length = 3
+
+let g:neocomplcache_enable_cursor_hold_i = 0
+let g:neocomplcache_cursor_hold_i_time = 300
+let g:neocomplcache_enable_insert_char_pre = 0
+let g:neocomplcache_enable_prefetch = 0
+let g:neocomplcache_skip_auto_completion_time = '0.6'
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
@@ -585,6 +637,33 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " Close popup by <Space>.
 inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
 "}}}
+
+" neosnippet {{{
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/snippets'
+"}}}
+
 
 "# Vim-session setting{{{
 let g:session_autosave = 'yes'
@@ -720,27 +799,15 @@ let g:syntastic_javascript_checkers = ['jshint']
 
 "}}}
 
+
+" vimfiler.vim"{{{
+nnoremap    <F2>   :<C-u>VimFilerExplorer<CR>
+"}}}
 "}}}
 
 
 "---------------------------------------------------------------------------
 " KeyMappings: "{{{
-
-"navigate between split windows
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-noremap <silent> <M-Right>  <c-w>l
-noremap <silent> <A-Left>   <c-w>h
-noremap <silent> <A-Up>     <c-w>k
-noremap <silent> <A-Down>   <c-w>j
-
-inoremap <silent> <M-Right>  <c-o><c-w>l
-inoremap <silent> <A-Left>   <c-o><c-w>h
-inoremap <silent> <A-Up>     <c-o><c-w>k
-inoremap <silent> <A-Down>   <c-o><c-w>j
 
 map <C-S-Right> :tabprev<CR>
 map <C-S-Left>  :tabnext<CR>
@@ -774,12 +841,6 @@ nnoremap <silent> Bd :Bdelete<CR>
 nnoremap <S-Left> :bprevious<CR>
 nnoremap <S-Right> :bnext<CR>
 
-"navigate between split windows
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
 noremap <silent> <M-Right>  <c-w>l
 noremap <silent> <A-Left>   <c-w>h
 noremap <silent> <A-Up>     <c-w>k
@@ -790,21 +851,6 @@ inoremap <silent> <A-Left>   <c-o><c-w>h
 inoremap <silent> <A-Up>     <c-o><c-w>k
 inoremap <silent> <A-Down>   <c-o><c-w>j
 
-map <C-S-Right> :tabprev<CR>
-map <C-S-Left>  :tabnext<CR>
-map <C-S-Up>    :tabfirst<CR>
-map <C-S-Down>  :tablast<CR>
-
-" navigating tabs
-nnoremap th :tabfirst<CR>
-nnoremap tj :tabnext<CR>
-nnoremap tk :tabprev<CR>
-nnoremap tl :tablast<CR>
-nnoremap tt :tabedit<Space>
-nnoremap tn :tabnext<Space>
-nnoremap tm :tabm<Space>
-nnoremap td :tabclose<CR>
-
 " Remove all trailing whitespace:
 map <C-R>s :%s/\s\+$//e<CR>
 "
@@ -814,6 +860,18 @@ map <C-R>t :set expandtab<CR>:%retab!<CR>
 " Useful save mappings.
 nnoremap <silent> <Leader><Leader> :<C-u>update<CR>
 nmap     <silent> <Leader>w :<C-u>wa<CR>
+
+
+" Easy escape."{{{
+inoremap jj           <ESC>
+" inoremap <expr> j       getline('.')[col('.') - 2] ==# 'j' ? "\<BS>\<ESC>" : 'j'
+cnoremap <expr> j       getcmdline()[getcmdpos()-2] ==# 'j' ? "\<BS>\<C-c>" : 'j'
+onoremap jj           <ESC>
+
+inoremap j<Space>     j
+onoremap j<Space>     j
+"}}}
+
 
 "# Change to paste mode to avoid akward indentation
 set pastetoggle=<F12>
