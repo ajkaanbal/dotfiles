@@ -33,9 +33,9 @@ NeoBundle 'Shougo/vimproc', {
             \     'unix' : 'make -f make_unix.mak',
             \    },
             \ }
-NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundleLazy 'Shougo/unite-help', { 'autoload' : {
@@ -48,6 +48,10 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'mattn/emmet-vim/'
 NeoBundle 'xolox/vim-session', {'depends': 'xolox/vim-misc'}
+NeoBundleLazy 'moll/vim-bbye', {
+      \ 'autoload': {
+      \   'commands': 'Bdelete'
+      \}}
 NeoBundleLazy 'marijnh/tern_for_vim', {
       \ 'autoload' : {
       \      'filetypes' : 'javascript',
@@ -65,6 +69,8 @@ NeoBundleLazy 'jelera/vim-javascript-syntax', { 'autoload' : {
 
 NeoBundleLazy 'othree/javascript-libraries-syntax.vim', { 'autoload': {
       \ 'filetypes': 'javascript'}}
+NeoBundleLazy 'elzr/vim-json', { 'autoload': {
+      \ 'filetypes': 'json' }}
 NeoBundleLazy 'guns/xterm-color-table.vim.git', {
       \ 'autoload': {
       \   'commands': 'XtermColorTable'
@@ -218,7 +224,7 @@ set infercase
 
 " Enable folding.
 set foldenable
-set foldmethod=marker
+set foldmethod=indent
 
 " Show folding level.
 set foldcolumn=3
@@ -234,7 +240,7 @@ set grepprg=grep\ -inH
 set isfname-==
 
 " Reload .vimrc automatically.
-autocmd MyAutoCmd BufWritePost .vimrc source $MYVIMRC
+autocmd MyAutoCmd BufWritePost vimrc source $MYVIMRC
 
 " Keymapping timeout.
 set timeout timeoutlen=3000 ttimeoutlen=100
@@ -459,6 +465,7 @@ augroup MyAutoCmd
 
   "Fold methods
   autocmd FileType python setlocal foldmethod=indent
+  autocmd MyAutoCmd FileType javascript setlocal foldmethod=indent
   autocmd FileType vim setlocal foldmethod=syntax
 
   " Update filetype.
@@ -467,9 +474,6 @@ augroup MyAutoCmd
   \ |   unlet! b:ftdetect
   \ |   filetype detect
   \ | endif
-
-  autocmd BufRead,BufNewFile * if bufname('%') != '' && &filetype == ''
-        \ | setlocal ft=hybrid | endif
 
   " Improved include pattern.
   autocmd FileType html
@@ -583,66 +587,135 @@ match OverLength /\%81v.\+/
 "---------------------------------------------------------------------------
 " Plugins: "{{{
 
-" Neocomplcache {{{
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+" Neocomplete {{{
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+
+let bundle = neobundle#get('neocomplete.vim')
+function! bundle.hooks.on_source(bundle)
 " Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
+  let g:neocomplete#enable_smart_case = 1
+" Use fuzzy completion.
+  let g:neocomplete#enable_fuzzy_completion = 1
+
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
-
+  let g:neocomplete#sources#syntax#min_keyword_length = 5
 " Set auto completion length.
-let g:neocomplcache_auto_completion_start_length = 2
+  let g:neocomplete#auto_completion_start_length = 2
 " Set manual completion length.
-let g:neocomplcache_manual_completion_start_length = 0
+  let g:neocomplete#manual_completion_start_length = 0
 " Set minimum keyword length.
-let g:neocomplcache_min_keyword_length = 3
+  let g:neocomplete#min_keyword_length = 5
+  let g:neocomplete#enable_cursor_hold_i = 0
+  let g:neocomplcache_enable_cursor_hold_i = 0
+  let g:neocomplcache_cursor_hold_i_time = 300
+  let g:neocomplcache_enable_insert_char_pre = 1
+  let g:neocomplcache_enable_prefetch = 0
+  let g:neocomplcache_skip_auto_completion_time = '0.6'
+  let g:neocomplete#sources#dictionary#dictionaries = {
+        \ 'default' : '',
+        \ 'vimshell' : $HOME.'/.vimshell/command-history',
+        \ }
 
-let g:neocomplcache_enable_cursor_hold_i = 0
-let g:neocomplcache_cursor_hold_i_time = 300
-let g:neocomplcache_enable_insert_char_pre = 0
-let g:neocomplcache_enable_prefetch = 0
-let g:neocomplcache_skip_auto_completion_time = '0.6'
+  let g:neocomplete#enable_auto_delimiter = 1
+  let g:neocomplete#disable_auto_select_buffer_name_pattern =
+        \ '\[Command Line\]'
+  let g:neocomplete#max_list = 100
+  let g:neocomplete#force_overwrite_completefunc = 1
+  if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+  endif
+  if !exists('g:neocomplete#sources#omni#functions')
+    let g:neocomplete#sources#omni#functions = {}
+  endif
+  if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+  endif
+  let g:neocomplete#enable_auto_close_preview = 1
 
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+  let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::\w*'
 
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
+" Define keyword pattern.
+  if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+  endif
+  let g:neocomplete#keyword_patterns._ = '[0-9a-zA-Z:#_]\+'
+  let g:neocomplete#keyword_patterns.perl = '\h\w*->\h\w*\|\h\w*::\w*'
 
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  let g:neocomplete#ignore_source_files = ['tag.vim']
+
+  let g:neocomplete#sources#vim#complete_functions = {
+        \ 'Ref' : 'ref#complete',
+        \ 'Unite' : 'unite#complete_source',
+        \ 'VimShellExecute' :
+        \ 'vimshell#vimshell_execute_complete',
+        \ 'VimShellInteractive' :
+        \ 'vimshell#vimshell_execute_complete',
+        \ 'VimShellTerminal' :
+        \ 'vimshell#vimshell_execute_complete',
+        \ 'VimShell' : 'vimshell#complete',
+        \ 'VimFiler' : 'vimfiler#complete',
+        \ 'Vinarise' : 'vinarise#complete',
+        \}
+  call neocomplete#custom#source('look', 'min_pattern_length', 4)
+
+" mappings."{{{
+" <C-f>, <C-b>: page move.
+  inoremap <expr><C-f> pumvisible() ? "\<PageDown>" : "\<Right>"
+  inoremap <expr><C-b> pumvisible() ? "\<PageUp>" : "\<Left>"
+" <C-y>: paste.
+  inoremap <expr><C-y> pumvisible() ? neocomplete#close_popup() : "\<C-r>\""
+" <C-e>: close popup.
+  inoremap <expr><C-e> pumvisible() ? neocomplete#cancel_popup() : "\<End>"
+" <C-k>: unite completion.
+  imap <C-k> <Plug>(neocomplete_start_unite_complete)
+  inoremap <expr> O &filetype == 'vim' ? "\<C-x>\<C-v>" : "\<C-x>\<C-o>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-" Close popup by <Space>.
-inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
+  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" <C-n>: neocomplete.
+  inoremap <expr><C-n> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>\<Down>"
+" <C-p>: keyword completion.
+  inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
+  inoremap <expr>' pumvisible() ? neocomplete#close_popup() : "'"
+
+  imap <expr> ` pumvisible() ?
+        \ "\<Plug>(neocomplete_start_unite_quick_match)" : '`'
+
+  inoremap <expr><C-x><C-f>
+        \ neocomplete#start_manual_complete('file')
+
+  inoremap <expr><C-g> neocomplete#undo_completion()
+  inoremap <expr><C-l> neocomplete#complete_common_string()
+
+" <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  endfunction
+
+" <TAB>: completion.
+"  inoremap <expr><TAB> pumvisible() ? "\<C-n>" :
+"        \ <SID>check_back_space() ? "\<TAB>" :
+"        \ neocomplete#start_manual_complete()
+"  function! s:check_back_space() "{{{
+"    let col = col('.') - 1
+"    return !col || getline('.')[col - 1] =~ '\s'
+"  endfunction"}}}
+"" <S-TAB>: completion back.
+"  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"}}}
+endfunction
+"}}}
+
+
 "}}}
 
 " neosnippet {{{
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <C-n>     <Plug>(neosnippet_expand_or_jump)
+smap <C-n>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-n>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
@@ -661,7 +734,7 @@ endif
 let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/snippets'
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 "}}}
 
 
@@ -672,50 +745,37 @@ let g:session_default_to_last = 1
 "}}}
 
 
-" Unite{{{
-
 " unite.vim"{{{
-" The prefix key.
-nnoremap    [unite]   <Nop>
-xnoremap    [unite]   <Nop>
-nmap    ,u [unite]
-xmap    ,u [unite]
-
- " Custom filters."{{{
-call unite#custom#source(
-    \ 'buffer,file_rec,file_rec/async,file_mru', 'matchers',
-    \ ['converter_tail', 'matcher_fuzzy'])
-    " \ ['matcher_fuzzy'])
-call unite#custom#source(
-    \ 'file', 'matchers',
-    \ ['matcher_fuzzy', 'matcher_hide_hidden_files'])
-call unite#custom#source(
-    \ 'file_rec/async,file_mru', 'converters',
-    \ ['converter_file_directory'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-"}}}
 
 " Execute help.
 nnoremap <silent> <C-h>  :<C-u>Unite -buffer-name=help help<CR>
 
 " Execute help by cursor keyword.
 nnoremap <silent> g<C-h>  :<C-u>UniteWithCursorWord help<CR>
-nnoremap <silent> n
-      \ :<C-u>UniteResume search -no-start-insert<CR>
-
-let g:unite_source_history_yank_enable = 1
 
 
-let bundle = neobundle#get('unite.vim')
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" Directory partial match.
+call unite#custom#alias('file', 'h', 'left')
+call unite#custom#default_action('directory', 'narrow')
+call unite#custom#default_action('versions/git/status', 'commit')
+
+" Variables.
+let g:unite_source_history_yank_enable = 1
+let g:unite_enable_split_vertically = 0
+let g:unite_winheight = 12
+let g:unite_enable_short_source_names = 1
+
+"let g:unite_cursor_line_highlight = 'TabLineSel'
+let g:unite_source_file_mru_filename_format = ':~:.'
+let g:unite_source_file_mru_limit = 300
+let g:unite_source_directory_mru_limit = 300
 let g:unite_split_rule = 'botright'
 
-"" Start insert.
+" Like Textmate icons.
+let g:unite_marked_icon = '✗'
+let g:unite_prompt = '» '
 let g:unite_enable_start_insert = 1
-let g:unite_enable_short_source_names = 1
-let g:unite_winheight = 12
-
-autocmd FileType unite call s:unite_my_settings()
 
 nnoremap <leader>f :<C-u>Unite file_rec/async:!<cr>
 nnoremap <leader>p :<C-u>Unite file_rec/async<cr>
@@ -724,49 +784,28 @@ nnoremap <leader>r :<C-u>Unite file_mru<CR>
 nnoremap <leader>o :<C-u>Unite outline<CR>
 nnoremap <silent> <leader>la :<C-u>Unite buffer file_mru bookmark<CR>
 
+autocmd MyAutoCmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings() "{{{
-  " Directory partial match.
-  call unite#custom#alias('file', 'h', 'left')
-  call unite#custom#default_action('directory', 'narrow')
-  call unite#custom#default_action('versions/git/status', 'commit')
-
-  " Variables.
-  let g:unite_enable_split_vertically = 0
-  let g:unite_winheight = 20
-  let g:unite_enable_start_insert = 0
-  let g:unite_enable_short_source_names = 1
-
-  let g:unite_cursor_line_highlight = 'TabLineSel'
-  let g:unite_source_file_mru_filename_format = ':~:.'
-  let g:unite_source_file_mru_limit = 300
-  let g:unite_source_directory_mru_limit = 300
-
-  " Like Textmate icons.
-  let g:unite_marked_icon = '✗'
-  let g:unite_prompt = '» '
-  nmap <buffer> <ESC>      <Plug>(unite_exit)
-
-  if executable('ag')
+nmap <buffer> <ESC>      <Plug>(unite_exit)
+if executable('ag')
     " Use ag in unite grep source.
     let g:unite_source_grep_command = 'ag'
     let g:unite_source_grep_default_opts =
-          \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
-          \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+        \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
+        \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
     let g:unite_source_grep_recursive_opt = ''
-  elseif executable('jvgrep')
+elseif executable('jvgrep')
     " For jvgrep.
     let g:unite_source_grep_command = 'jvgrep'
     let g:unite_source_grep_default_opts = '--exclude ''\.(git|svn|hg|bzr)'''
     let g:unite_source_grep_recursive_opt = '-R'
-  elseif executable('ack-grep')
+elseif executable('ack-grep')
     " For ack.
     let g:unite_source_grep_command = 'ack-grep'
     let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
     let g:unite_source_grep_recursive_opt = ''
-  endif
-  endfunction
-
-unlet bundle
+endif
+endfunction
 "}}}
 
 
@@ -777,7 +816,7 @@ let g:airline_right_sep = ''
 let g:airline_branch_prefix = '  '
 let g:airline_readonly_symbol = ''
 let g:airline_linecolumn_prefix = ' '
-let g:airline_enable_bufferline=0
+let g:airline_enable_bufferline=1
 let g:airline_enable_unite=1
 let g:airline_theme='powerlineish'
 let g:airline_enable_syntastic = 1
@@ -785,7 +824,7 @@ let g:airline_enable_syntastic = 1
 
 
 " Bufferline {{{
-let g:bufferline_echo = 1
+let g:bufferline_echo = 0
 "}}}
 
 " Tagbar {{{
