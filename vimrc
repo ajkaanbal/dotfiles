@@ -114,6 +114,7 @@ call neobundle#config('vimfiler', {
       \ })
 
 filetype plugin indent on
+set lazyredraw
 set ttyfast
 
 " Enable syntax color.
@@ -601,17 +602,14 @@ function! bundle.hooks.on_source(bundle)
 " Set minimum syntax keyword length.
   let g:neocomplete#sources#syntax#min_keyword_length = 5
 " Set auto completion length.
-  let g:neocomplete#auto_completion_start_length = 2
+  let g:neocomplete#auto_completion_start_length = 4
 " Set manual completion length.
   let g:neocomplete#manual_completion_start_length = 0
 " Set minimum keyword length.
   let g:neocomplete#min_keyword_length = 5
-  let g:neocomplete#enable_cursor_hold_i = 0
-  let g:neocomplcache_enable_cursor_hold_i = 0
-  let g:neocomplcache_cursor_hold_i_time = 300
-  let g:neocomplcache_enable_insert_char_pre = 1
-  let g:neocomplcache_enable_prefetch = 0
-  let g:neocomplcache_skip_auto_completion_time = '0.6'
+  let g:neocomplete#enable_insert_char_pre = 1
+  let g:neocomplete#enable_prefetch = 0
+  let g:neocomplete#skip_auto_completion_time = '0.6'
   let g:neocomplete#sources#dictionary#dictionaries = {
         \ 'default' : '',
         \ 'vimshell' : $HOME.'/.vimshell/command-history',
@@ -756,9 +754,7 @@ nnoremap <silent> g<C-h>  :<C-u>UniteWithCursorWord help<CR>
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " Directory partial match.
-call unite#custom#alias('file', 'h', 'left')
 call unite#custom#default_action('directory', 'narrow')
-call unite#custom#default_action('versions/git/status', 'commit')
 
 " Variables.
 let g:unite_source_history_yank_enable = 1
@@ -766,7 +762,6 @@ let g:unite_enable_split_vertically = 0
 let g:unite_winheight = 12
 let g:unite_enable_short_source_names = 1
 
-"let g:unite_cursor_line_highlight = 'TabLineSel'
 let g:unite_source_file_mru_filename_format = ':~:.'
 let g:unite_source_file_mru_limit = 300
 let g:unite_source_directory_mru_limit = 300
@@ -791,18 +786,7 @@ if executable('ag')
     " Use ag in unite grep source.
     let g:unite_source_grep_command = 'ag'
     let g:unite_source_grep_default_opts =
-        \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
-        \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-    let g:unite_source_grep_recursive_opt = ''
-elseif executable('jvgrep')
-    " For jvgrep.
-    let g:unite_source_grep_command = 'jvgrep'
-    let g:unite_source_grep_default_opts = '--exclude ''\.(git|svn|hg|bzr)'''
-    let g:unite_source_grep_recursive_opt = '-R'
-elseif executable('ack-grep')
-    " For ack.
-    let g:unite_source_grep_command = 'ack-grep'
-    let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
+    \ '--line-numbers --nocolor --nogroup'
     let g:unite_source_grep_recursive_opt = ''
 endif
 endfunction
@@ -898,7 +882,7 @@ map <C-R>t :set expandtab<CR>:%retab!<CR>
 
 " Useful save mappings.
 nnoremap <silent> <Leader><Leader> :<C-u>update<CR>
-nmap     <silent> <Leader>w :<C-u>wa<CR>
+nnoremap <silent> <Leader>w        :<C-u>wa<CR>
 
 
 " Easy escape."{{{
