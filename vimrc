@@ -63,14 +63,17 @@ NeoBundleLazy 'itchyny/thumbnail.vim', {
       \ 'autoload' : {
       \   'commands' : 'Thumbnail'
       \ }}
-NeoBundleLazy 'jelera/vim-javascript-syntax', { 'autoload' : {
+NeoBundleLazy 'othree/vim-javascript-syntax', { 'autoload' : {
       \ 'filetypes' : 'javascript',
       \ }}
-
 NeoBundleLazy 'othree/javascript-libraries-syntax.vim', { 'autoload': {
       \ 'filetypes': 'javascript'}}
 NeoBundleLazy 'elzr/vim-json', { 'autoload': {
       \ 'filetypes': 'json' }}
+NeoBundleLazy 'skammer/vim-css-color', {
+\ 'autoload' : {
+\   'filetypes': 'css'
+\ }}
 NeoBundleLazy 'guns/xterm-color-table.vim.git', {
       \ 'autoload': {
       \   'commands': 'XtermColorTable'
