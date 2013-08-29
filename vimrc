@@ -234,10 +234,6 @@ set infercase
 set foldenable
 set foldmethod=indent
 
-" Show folding level.
-set foldcolumn=3
-
-
 set fillchars=vert:\|
 set commentstring=%s
 
