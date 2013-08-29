@@ -788,6 +788,9 @@ nnoremap <silent> <leader>la :<C-u>Unite buffer file_mru bookmark<CR>
 
 autocmd MyAutoCmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings() "{{{
+
+" Clear searching highlight
+let @/ = ""
 nmap <buffer> <ESC>      <Plug>(unite_exit)
 if executable('ag')
     " Use ag in unite grep source.
@@ -861,6 +864,7 @@ nnoremap td :tabclose<CR>
 " Remove all trailing whitespace:
 map <silent> <leader><Space> :%s/\s\+$//e<CR>
 "
+
 
 " " Convert all tabs appropriately:
 map <C-R>t :set expandtab<CR>:%retab!<CR>
