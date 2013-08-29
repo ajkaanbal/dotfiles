@@ -3,6 +3,7 @@
 "----------------------------------------------------------------------------
 
 
+"---------------------------------------------------------------------------
 " Initialize: "{{{
 
 " No 'vi' compatible commands.
@@ -41,6 +42,9 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundleLazy 'Shougo/unite-help', { 'autoload' : {
       \ 'unite_sources' : 'help'
       \ }}
+NeoBundleLazy 'Shougo/unite-outline', { 'autoload': {
+      \ 'unite_sources': 'outline'
+      \  }}
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'bling/vim-bufferline'
@@ -79,6 +83,9 @@ NeoBundleLazy 'guns/xterm-color-table.vim.git', {
       \   'commands': 'XtermColorTable'
       \ }}
 NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+
 " from vim.org
 NeoBundleLazy 'matchit.zip', { 'autoload' : {
       \ 'mappings' : ['%', 'g%']
@@ -470,7 +477,7 @@ augroup MyAutoCmd
   "Fold methods
   autocmd FileType python setlocal foldmethod=indent
   autocmd MyAutoCmd FileType javascript setlocal foldmethod=indent
-  autocmd FileType vim setlocal foldmethod=syntax
+  autocmd FileType vim setlocal foldmethod=marker
 
   " Update filetype.
   autocmd BufWritePost *
@@ -558,9 +565,6 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-
-
-
 
 "# Pemenu colors
 hi Pmenu ctermfg=255 ctermbg=236
@@ -709,9 +713,6 @@ function! bundle.hooks.on_source(bundle)
 endfunction
 "}}}
 
-
-"}}}
-
 " neosnippet {{{
 " Plugin key-mappings.
 imap <C-n>     <Plug>(neosnippet_expand_or_jump)
@@ -836,6 +837,7 @@ let g:syntastic_javascript_checkers = ['jshint']
 " vimfiler.vim"{{{
 nnoremap    <F2>   :<C-u>VimFilerExplorer<CR>
 "}}}
+
 "}}}
 
 
@@ -907,12 +909,12 @@ inoremap j<Space>     j
 onoremap j<Space>     j
 "}}}
 
-
 "# Change to paste mode to avoid akward indentation
 set pastetoggle=<F12>
 "}}}
 
 
+"---------------------------------------------------------------------------
 " Others: {{{
 
 "Session options
@@ -921,8 +923,6 @@ set ssop+=folds
 
 " ruby path if you are using RVM
 let g:ruby_path = system('rvm current')
-
-" }}}
 
 " }}}
 
