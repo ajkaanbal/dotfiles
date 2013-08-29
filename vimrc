@@ -115,6 +115,10 @@ call neobundle#config('vimfiler', {
       \    'explorer' : 1,
       \ }
       \ })
+"local plugins vim
+if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
+endif
 
 filetype plugin indent on
 set lazyredraw
@@ -851,8 +855,9 @@ nnoremap tm :tabm<Space>
 nnoremap td :tabclose<CR>
 
 " Remove all trailing whitespace:
-map <C-R>s :%s/\s\+$//e<CR>
+map <silent> <leader><Space> :%s/\s\+$//e<CR>
 "
+
 " " Convert all tabs appropriately:
 map <C-R>t :set expandtab<CR>:%retab!<CR>
 
@@ -912,6 +917,7 @@ set ssop+=folds
 
 " ruby path if you are using RVM
 let g:ruby_path = system('rvm current')
+
 " }}}
 
 " }}}
