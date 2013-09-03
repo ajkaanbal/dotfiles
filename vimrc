@@ -82,10 +82,15 @@ NeoBundleLazy 'guns/xterm-color-table.vim.git', {
       \ 'autoload': {
       \   'commands': 'XtermColorTable'
       \ }}
+NeoBundleLazy 'klen/python-mode', {
+\ 'autoload' : {
+\   'filetypes': 'python'
+\ }}
+
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
-
+NeoBundle 'scrooloose/nerdcommenter'
 " from vim.org
 NeoBundleLazy 'matchit.zip', { 'autoload' : {
       \ 'mappings' : ['%', 'g%']
@@ -907,10 +912,13 @@ onoremap jj           <ESC>
 
 inoremap j<Space>     j
 onoremap j<Space>     j
+
 "}}}
 
 "# Change to paste mode to avoid akward indentation
 set pastetoggle=<F12>
+" Redraw. 
+nnoremap <silent> <C-l> :<C-u>redraw!<CR>
 "}}}
 
 
