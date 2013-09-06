@@ -51,6 +51,10 @@ NeoBundle 'bling/vim-bufferline'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'mattn/emmet-vim/'
+NeoBundleLazy 'othree/html5.vim', {
+\ 'autoload' : {
+\   'filetypes': ['html','htmldjango']
+\ }}
 NeoBundle 'xolox/vim-session', {'depends': 'xolox/vim-misc'}
 NeoBundleLazy 'moll/vim-bbye', {
       \ 'autoload': {
@@ -99,6 +103,11 @@ let bundle = neobundle#get('matchit.zip')
 function! bundle.hooks.on_post_source(bundle)
     silent! execute 'doautocmd Filetype' &filetype
 endfunction
+
+NeoBundleLazy 'django.vim', {
+\ 'autoload' : {
+\   'filetypes': ['htmldjango','django']
+\ }}
 
 "Neobundle configuration
 call neobundle#config('neosnippet', {
@@ -500,6 +509,7 @@ augroup MyAutoCmd
   "Pretty json
   autocmd FileType json setlocal equalprg=python\ -m\ json.tool
   autocmd FileType html setlocal sw=2 ts=2 sts=2
+  autocmd FileType htmldjango setlocal sw=2 ts=2 sts=2
   autocmd FileType css  setlocal sw=2 ts=2 sts=2
 augroup END
 
@@ -835,6 +845,32 @@ let g:syntastic_style_warning_symbol = '≈'
 let g:syntastic_javascript_checkers = ['jshint']
 "}}}
 
+"django {{{
+" a better htmldjango detection
+augroup filetypedetect
+    " removes current htmldjango detection located at $VIMRUNTIME/filetype.vim
+    au! BufNewFile,BufRead *.html
+    au BufNewFile,BufRead *.html call FThtml()
+
+    func! FThtml()
+        let n = 1
+        while n < 10 && n < line("$")
+        if getline(n) =~ '\<DTD\s\+XHTML\s'
+        setf xhtml
+        return
+        endif
+        if getline(n) =~ '{%\|{{\|{#'
+        setf htmldjango
+        return
+        endif
+        let n = n + 1
+        endwhile
+        setf html
+    endfunc
+augroup END
+"}}}
+
+
 "}}}
 
 
@@ -927,6 +963,12 @@ if &term =~ '^screen'
     execute "set <xRight>=\e[1;*C"
     execute "set <xLeft>=\e[1;*D"
 endif
+
+"indent with tab and shift tab
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
 
 "}}}
 
