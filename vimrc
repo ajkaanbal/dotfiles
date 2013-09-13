@@ -870,6 +870,11 @@ augroup filetypedetect
 augroup END
 "}}}
 
+" python-mode{{{
+let g:pymode_run_key = '<leader>pr'
+let g:pymode_breakpoint_key = '<leader>pb'
+"}}}
+
 
 "}}}
 
