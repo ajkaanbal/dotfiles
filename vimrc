@@ -757,8 +757,7 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 "# Vim-session setting{{{
 let g:session_autosave = 'yes'
-let g:session_autoload = 'yes'
-let g:session_default_to_last = 1
+let g:session_autoload = 'no'
 "}}}
 
 
