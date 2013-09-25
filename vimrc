@@ -255,6 +255,9 @@ set infercase
 " Enable folding.
 set foldenable
 set foldmethod=indent
+set foldlevelstart=20
+
+
 
 set fillchars=vert:\|
 set commentstring=%s
@@ -769,8 +772,15 @@ nnoremap <silent> <C-h>  :<C-u>Unite -buffer-name=help help<CR>
 " Execute help by cursor keyword.
 nnoremap <silent> g<C-h>  :<C-u>UniteWithCursorWord help<CR>
 
+"Match candidates by filename
+call unite#custom#source(
+        \ 'buffer,file_rec/async,file_rec,file_mru', 'matchers',
+        \ ['converter_tail', 'matcher_default'])
+call unite#custom#source(
+        \ 'buffer,file_rec/async,file_rec,file_mru', 'converters',
+        \ ['converter_file_directory'])
 
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#custom#profile('files', 'filters', 'sorter_rank')
 " Directory partial match.
 call unite#custom#default_action('directory', 'narrow')
 
