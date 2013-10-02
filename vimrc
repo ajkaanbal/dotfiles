@@ -47,7 +47,6 @@ NeoBundleLazy 'Shougo/unite-outline', { 'autoload': {
       \  }}
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'bling/vim-bufferline'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'mattn/emmet-vim/'
@@ -337,7 +336,7 @@ set laststatus=2
 " Height of command line.
 set cmdheight=1
 
-" Not show command on statusline.
+" Not show command on STAtusline.
 set noshowcmd
 
 " Not show mode.
@@ -826,21 +825,43 @@ endfunction
 
 " Airline: {{{
 "
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" powerline symbols
 let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
-let g:airline_branch_prefix = '  '
-let g:airline_readonly_symbol = ''
-let g:airline_linecolumn_prefix = ' '
-let g:airline_enable_bufferline=1
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
 let g:airline_enable_unite=1
-let g:airline_theme='powerlineish'
+let g:airline_theme='luna'
 let g:airline_enable_syntastic = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#fnamemod = ':p:t'
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
 " }}}
-
-
-" Bufferline {{{
-let g:bufferline_echo = 0
-"}}}
 
 " Tagbar {{{
 let g:tagbar_autofocus = 1
@@ -966,7 +987,9 @@ onoremap j<Space>     j
 "}}}
 
 "# Change to paste mode to avoid akward indentation
+nnoremap <F12> :set invpaste paste?<CR>
 set pastetoggle=<F12>
+set showmode
 " Redraw. 
 nnoremap <silent> <C-l> :<C-u>redraw!<CR>
 
