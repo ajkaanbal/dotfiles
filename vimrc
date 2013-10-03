@@ -851,7 +851,7 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 let g:airline_enable_unite=1
-let g:airline_theme='luna'
+let g:airline_theme='ubaryd'
 let g:airline_enable_syntastic = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
