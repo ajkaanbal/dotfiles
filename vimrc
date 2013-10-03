@@ -77,7 +77,7 @@ NeoBundleLazy 'othree/javascript-libraries-syntax.vim', { 'autoload': {
       \ 'filetypes': 'javascript'}}
 NeoBundleLazy 'elzr/vim-json', { 'autoload': {
       \ 'filetypes': 'json' }}
-NeoBundleLazy 'skammer/vim-css-color', {
+NeoBundleLazy 'chrisbra/color_highlight', {
 \ 'autoload' : {
 \   'filetypes': 'css'
 \ }}
@@ -762,6 +762,9 @@ let g:session_autosave = 'yes'
 let g:session_autoload = 'no'
 "}}}
 
+" color_highlight {{{
+let g:colorizer_auto_filetype='css'
+"}}}
 
 " unite.vim"{{{
 
