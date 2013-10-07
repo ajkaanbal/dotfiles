@@ -803,10 +803,13 @@ let g:unite_prompt = '» '
 let g:unite_enable_start_insert = 1
 
 nnoremap <leader>f :<C-u>Unite file_rec/async:!<cr>
+inoremap <leader>f <ESC>:<C-u>Unite file_rec/async:!<cr>
 nnoremap <leader>p :<C-u>Unite file_rec/async<cr>
 nnoremap <leader>b :<C-u>Unite buffer<cr>
+inoremap <leader>b <ESC>:<C-u>Unite buffer<cr>
 nnoremap <leader>r :<C-u>Unite file_mru<CR>
 nnoremap <leader>o :<C-u>Unite outline<CR>
+nnoremap <leader>/ :<C-u>Unite grep:.:file<CR>
 nnoremap <silent> <leader>la :<C-u>Unite buffer file_mru bookmark<CR>
 
 autocmd MyAutoCmd FileType unite call s:unite_my_settings()
@@ -854,7 +857,7 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 let g:airline_enable_unite=1
-let g:airline_theme='ubaryd'
+let g:airline_theme='lucius'
 let g:airline_enable_syntastic = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
