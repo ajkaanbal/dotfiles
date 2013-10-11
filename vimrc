@@ -54,6 +54,10 @@ NeoBundleLazy 'othree/html5.vim', {
 \ 'autoload' : {
 \   'filetypes': ['html','htmldjango']
 \ }}
+NeoBundleLazy 'gregsexton/MatchTag', {
+\ 'autoload' : {
+\   'filetypes': ['html', 'htmldjango']
+\ }}
 NeoBundle 'xolox/vim-session', {'depends': 'xolox/vim-misc'}
 NeoBundleLazy 'moll/vim-bbye', {
       \ 'autoload': {
@@ -880,31 +884,6 @@ let g:syntastic_style_error_symbol = '✠'
 let g:syntastic_warning_symbol = '∆'
 let g:syntastic_style_warning_symbol = '≈'
 let g:syntastic_javascript_checkers = ['jshint']
-"}}}
-
-"django {{{
-" a better htmldjango detection
-augroup filetypedetect
-    " removes current htmldjango detection located at $VIMRUNTIME/filetype.vim
-    au! BufNewFile,BufRead *.html
-    au BufNewFile,BufRead *.html call FThtml()
-
-    func! FThtml()
-        let n = 1
-        while n < 10 && n < line("$")
-        if getline(n) =~ '\<DTD\s\+XHTML\s'
-        setf xhtml
-        return
-        endif
-        if getline(n) =~ '{%\|{{\|{#'
-        setf htmldjango
-        return
-        endif
-        let n = n + 1
-        endwhile
-        setf html
-    endfunc
-augroup END
 "}}}
 
 " python-mode{{{
