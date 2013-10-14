@@ -686,6 +686,11 @@ function! bundle.hooks.on_source(bundle)
         \}
   call neocomplete#custom#source('look', 'min_pattern_length', 4)
 
+  if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+  endif
+  let g:neocomplete#sources#omni#input_patterns.python = ''
+
 " mappings."{{{
 " <C-f>, <C-b>: page move.
   inoremap <expr><C-f> pumvisible() ? "\<PageDown>" : "\<Right>"
