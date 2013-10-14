@@ -411,7 +411,7 @@ set report=0
 " Maintain a current line at the time of movement as much as possible.
 set nostartofline
 
-" Splitting a window will put the new window below the current one.
+" Splitting a WINdow will put the new window below the current one.
 set splitbelow
 
 " Splitting a window will put the new window right the current one.
@@ -938,6 +938,9 @@ nnoremap <silent> bd :bdelete<CR>
 nnoremap <silent> Bd :Bdelete<CR>
 nnoremap <S-Left> :bprevious<CR>
 nnoremap <S-Right> :bnext<CR>
+
+inoremap <silent> <S-Left> <esc>:<c-u>bprevious<CR>
+inoremap <silent> <S-Right> <esc>:<c-u>bnext<CR>
 
 noremap <silent> <M-Right>  <c-w>l
 noremap <silent> <A-Left>   <c-w>h
