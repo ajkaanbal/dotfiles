@@ -610,7 +610,9 @@ highlight ColorColumn ctermbg=235 ctermfg=white guibg=#592929
 highlight OverLength ctermbg=246 ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
-
+"# Cursor line
+set cursorline
+hi CursorLine ctermbg=235 cterm=none 
 "}}}
 
 
