@@ -99,6 +99,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'kshenoy/vim-signature'
+NeoBundle 'Yggdroot/indentLine'
 " from vim.org
 NeoBundleLazy 'matchit.zip', { 'autoload' : {
       \ 'mappings' : ['%', 'g%']
@@ -625,10 +626,12 @@ let g:neocomplete#enable_at_startup = 1
 
 let bundle = neobundle#get('neocomplete.vim')
 function! bundle.hooks.on_source(bundle)
+" Disable autocomplete
+  let g:neocomplete#disable_auto_complete = 0
 " Use smartcase.
   let g:neocomplete#enable_smart_case = 1
 " Use fuzzy completion.
-  let g:neocomplete#enable_fuzzy_completion = 1
+  let g:neocomplete#enable_fuzzy_completion = 0
 
 " Set minimum syntax keyword length.
   let g:neocomplete#sources#syntax#min_keyword_length = 5
@@ -727,17 +730,6 @@ function! bundle.hooks.on_source(bundle)
     return pumvisible() ? neocomplete#close_popup() : "\<CR>"
   endfunction
 
-" <TAB>: completion.
-"  inoremap <expr><TAB> pumvisible() ? "\<C-n>" :
-"        \ <SID>check_back_space() ? "\<TAB>" :
-"        \ neocomplete#start_manual_complete()
-"  function! s:check_back_space() "{{{
-"    let col = col('.') - 1
-"    return !col || getline('.')[col - 1] =~ '\s'
-"  endfunction"}}}
-"" <S-TAB>: completion back.
-"  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-"}}}
 endfunction
 "}}}
 
@@ -904,6 +896,10 @@ let g:pymode_breakpoint_key = '<leader>pb'
 
 " vimfiler.vim"{{{
 nnoremap    <F2>   :<C-u>VimFilerExplorer<CR>
+"}}}
+
+"indentLine {{{
+let g:indentLine_color_term = 235
 "}}}
 
 "}}}
