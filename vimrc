@@ -100,6 +100,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'junegunn/vim-easy-align'
 " from vim.org
 NeoBundleLazy 'matchit.zip', { 'autoload' : {
       \ 'mappings' : ['%', 'g%']
@@ -900,6 +901,10 @@ nnoremap    <F2>   :<C-u>VimFilerExplorer<CR>
 
 "indentLine {{{
 let g:indentLine_color_term = 235
+"}}}
+
+" Easyalign {{{
+vnoremap <silent> <Enter> :EasyAlign<Enter>
 "}}}
 
 "}}}
