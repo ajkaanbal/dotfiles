@@ -884,11 +884,18 @@ let g:syntastic_style_error_symbol = '✠'
 let g:syntastic_warning_symbol = '∆'
 let g:syntastic_style_warning_symbol = '≈'
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_loc_list_height = 3
+let g:syntastic_quiet_warnings = 1
+let g:syntastic_aggregate_errors = 1
 "}}}
 
 " python-mode{{{
 let g:pymode_run_key = '<leader>pr'
 let g:pymode_breakpoint_key = '<leader>pb'
+let g:pymode_lint_write = 0
+let g:pymode_lint = 0
 "}}}
 
 
