@@ -896,6 +896,7 @@ let g:pymode_run_key = '<leader>pr'
 let g:pymode_breakpoint_key = '<leader>pb'
 let g:pymode_lint_write = 0
 let g:pymode_lint = 0
+let g:pymode_rope = 0
 "}}}
 
 
