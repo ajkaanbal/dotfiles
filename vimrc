@@ -629,6 +629,8 @@ let bundle = neobundle#get('neocomplete.vim')
 function! bundle.hooks.on_source(bundle)
 " Disable autocomplete
   let g:neocomplete#disable_auto_complete = 0
+  " Disable AutoComplPop.
+  let g:acp_enableAtStartup = 0
 " Use smartcase.
   let g:neocomplete#enable_smart_case = 1
 " Use fuzzy completion.
@@ -653,7 +655,7 @@ function! bundle.hooks.on_source(bundle)
   let g:neocomplete#enable_auto_delimiter = 1
   let g:neocomplete#disable_auto_select_buffer_name_pattern =
         \ '\[Command Line\]'
-  let g:neocomplete#max_list = 100
+  let g:neocomplete#max_list = 20
   let g:neocomplete#force_overwrite_completefunc = 1
   if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
@@ -664,31 +666,20 @@ function! bundle.hooks.on_source(bundle)
   if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
   endif
-  let g:neocomplete#enable_auto_close_preview = 1
-
-  let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::\w*'
+  let g:neocomplete#enable_auto_close_preview = 0
 
 " Define keyword pattern.
   if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
   endif
   let g:neocomplete#keyword_patterns._ = '[0-9a-zA-Z:#_]\+'
-  let g:neocomplete#keyword_patterns.perl = '\h\w*->\h\w*\|\h\w*::\w*'
 
   let g:neocomplete#ignore_source_files = ['tag.vim']
 
   let g:neocomplete#sources#vim#complete_functions = {
         \ 'Ref' : 'ref#complete',
         \ 'Unite' : 'unite#complete_source',
-        \ 'VimShellExecute' :
-        \ 'vimshell#vimshell_execute_complete',
-        \ 'VimShellInteractive' :
-        \ 'vimshell#vimshell_execute_complete',
-        \ 'VimShellTerminal' :
-        \ 'vimshell#vimshell_execute_complete',
-        \ 'VimShell' : 'vimshell#complete',
         \ 'VimFiler' : 'vimfiler#complete',
-        \ 'Vinarise' : 'vinarise#complete',
         \}
   call neocomplete#custom#source('look', 'min_pattern_length', 4)
 
