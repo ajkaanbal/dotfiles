@@ -89,7 +89,11 @@ NeoBundleLazy 'guns/xterm-color-table.vim.git', {
       \ 'autoload': {
       \   'commands': 'XtermColorTable'
       \ }}
-NeoBundleLazy 'klen/python-mode', {
+NeoBundleLazy 'hdima/python-syntax', {
+\ 'autoload' : {
+\   'filetypes': 'python'
+\ }}
+NeoBundleLazy 'davidhalter/jedi-vim', {
 \ 'autoload' : {
 \   'filetypes': 'python'
 \ }}
@@ -101,6 +105,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'vim-indent-object'
 " from vim.org
 NeoBundleLazy 'matchit.zip', { 'autoload' : {
       \ 'mappings' : ['%', 'g%']
@@ -645,7 +650,7 @@ function! bundle.hooks.on_source(bundle)
 " Set minimum keyword length.
   let g:neocomplete#min_keyword_length = 5
   let g:neocomplete#enable_insert_char_pre = 1
-  let g:neocomplete#enable_prefetch = 0
+  let g:neocomplete#enable_prefetch = 1
   let g:neocomplete#skip_auto_completion_time = '0.6'
   let g:neocomplete#sources#dictionary#dictionaries = {
         \ 'default' : '',
@@ -882,14 +887,6 @@ let g:syntastic_quiet_warnings = 1
 let g:syntastic_aggregate_errors = 1
 "}}}
 
-" python-mode{{{
-let g:pymode_run_key = '<leader>pr'
-let g:pymode_breakpoint_key = '<leader>pb'
-let g:pymode_lint_write = 0
-let g:pymode_lint = 0
-let g:pymode_rope = 0
-"}}}
-
 
 "}}}
 
@@ -905,6 +902,13 @@ let g:indentLine_color_term = 235
 " Easyalign {{{
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 "}}}
+
+" python-jedi {{{
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+"}}}
+
 
 "}}}
 
