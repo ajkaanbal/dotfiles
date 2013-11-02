@@ -1,6 +1,4 @@
 "----------------------------------------------------------------------------
-" ajkaanbal .vimrc
-"----------------------------------------------------------------------------
 
 
 "---------------------------------------------------------------------------
@@ -492,13 +490,14 @@ augroup MyAutoCmd
   " Enable omni completion.
   autocmd FileType c setlocal omnifunc=ccomplete#Complete
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType python set omnifunc=pythoncomplete#Complete
+  autocmd FileType python set omnifunc=jedi#completions
   autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+  autocmd FileType python setlocal completeopt-=preview
   if has('python3')
     autocmd FileType python setlocal omnifunc=python3complete#Complete
   else
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType python setlocal omnifunc=jedi#completions
   endif
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
@@ -650,7 +649,6 @@ function! bundle.hooks.on_source(bundle)
 " Set minimum keyword length.
   let g:neocomplete#min_keyword_length = 5
   let g:neocomplete#enable_insert_char_pre = 1
-  let g:neocomplete#enable_prefetch = 1
   let g:neocomplete#skip_auto_completion_time = '0.6'
   let g:neocomplete#sources#dictionary#dictionaries = {
         \ 'default' : '',
@@ -691,7 +689,7 @@ function! bundle.hooks.on_source(bundle)
   if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
   endif
-  let g:neocomplete#sources#omni#input_patterns.python = ''
+  let g:neocomplete#force_omni_input_patterns.python = '[^. \t]\.\w*'
 
 " mappings."{{{
 " <C-f>, <C-b>: page move.
