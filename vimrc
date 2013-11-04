@@ -104,6 +104,7 @@ NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'vim-indent-object'
+NeoBundle 'matze/vim-move'
 " from vim.org
 NeoBundleLazy 'matchit.zip', { 'autoload' : {
       \ 'mappings' : ['%', 'g%']
@@ -176,6 +177,15 @@ set fileformat=unix
 set fileformats=unix,dos,mac
 "}}}
 
+" Alt-key detection.
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+
+set timeout ttimeoutlen=50
 
 "---------------------------------------------------------------------------
 " Search:"{{{
@@ -699,8 +709,6 @@ function! bundle.hooks.on_source(bundle)
   inoremap <expr><C-y> pumvisible() ? neocomplete#close_popup() : "\<C-r>\""
 " <C-e>: close popup.
   inoremap <expr><C-e> pumvisible() ? neocomplete#cancel_popup() : "\<End>"
-" <C-k>: unite completion.
-  imap <C-k> <Plug>(neocomplete_start_unite_complete)
 " <C-h>, <BS>: close popup and delete backword char.
   inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
   inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
@@ -906,7 +914,6 @@ let g:jedi#auto_vim_configuration = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 "}}}
-
 
 "}}}
 
