@@ -1,6 +1,3 @@
-"----------------------------------------------------------------------------
-
-
 "---------------------------------------------------------------------------
 " Initialize: "{{{
 
@@ -176,6 +173,7 @@ set fileformat=unix
 " " Automatic recognition of a new line.
 set fileformats=unix,dos,mac
 "}}}
+
 
 "---------------------------------------------------------------------------
 " Search:"{{{
@@ -363,10 +361,6 @@ let &statusline="%F%m%r%h%w" "fullpath and status modified sign
      \ . "%="
      \ . "[%l\/%L:\%v]" "line number and column number
 
-function! s:get_twitter_len()
-  return &filetype !=# 'int-earthquake' || mode() !=# 'i' ? '' :
-        \ '(rest:' . (140 - len(substitute(vimshell#get_cur_text(),'.','x','g'))) . ')'
-endfunction
 
 " Turn down a long line appointed in 'breakat'
 set linebreak
@@ -437,9 +431,6 @@ set noequalalways
 " Adjust window size of preview and help.
 set previewheight=8
 set helpheight=12
-
-" Don't redraw while macro executing.
-"set lazyredraw
 
 " When a line is long, do not omit it in @.
 set display=lastline
@@ -576,11 +567,6 @@ function! s:set_syntax_of_user_defined_commands()
 
   execute 'syntax keyword vimCommand ' . command_names
 endfunction
-
-" Clear modeline highlight.
-autocmd MyAutoCmd VimEnter *
-      \ highlight ModeMsg guifg=bg guibg=bg | highlight WarningMsg guifg=bg
-
 
 "highlight modifications
 set t_Co=256
