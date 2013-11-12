@@ -573,12 +573,12 @@ set t_Co=256
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
 
-highlight ExtraWhitespace ctermbg=red guibg=red
+highlight ExtraWhitespace ctermbg=9
 match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+autocmd BufWinEnter *.* match ExtraWhitespace /\s\+$/
+autocmd InsertEnter *.* match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave *.* match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave *.* call clearmatches()
 
 "# Pemenu colors
 hi Pmenu ctermfg=255 ctermbg=236
@@ -759,12 +759,11 @@ nnoremap <silent> g<C-h>  :<C-u>UniteWithCursorWord help<CR>
 "Match candidates by filename
 call unite#custom#source(
         \ 'buffer,file_rec/async,file_rec,file_mru', 'matchers',
-        \ ['converter_tail', 'matcher_default'])
+        \ ['converter_tail', 'matcher_regexp'])
 call unite#custom#source(
         \ 'buffer,file_rec/async,file_rec,file_mru', 'converters',
         \ ['converter_file_directory'])
 
-call unite#custom#profile('files', 'filters', 'sorter_rank')
 " Directory partial match.
 call unite#custom#default_action('directory', 'narrow')
 
