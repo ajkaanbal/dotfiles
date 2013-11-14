@@ -1,0 +1,30 @@
+" Neobundle {{{
+if has('vim_starting')
+   set nocompatible               " Be iMproved
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+ endif
+
+ call neobundle#rc(expand('~/.vim/bundle/'))
+
+ " Let NeoBundle manage NeoBundle
+ NeoBundleFetch 'Shougo/neobundle.vim'
+
+ " Recommended to install
+ " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+ NeoBundle 'Shougo/vimproc'
+"}}}
+
+"My bundles. {{{
+NeoBundle 'w0ng/vim-hybrid'
+"}}}
+
+" Basics {{{
+set nu
+"}}}
+
+" Color scheme {{{ 
+syntax on
+set t_Co=256
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
+"}}}
