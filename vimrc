@@ -935,8 +935,6 @@ nnoremap td :tabclose<CR>
 
 " Remove all trailing whitespace:
 map <silent> <leader><Space> :%s/\s\+$//e<CR>
-"
-
 
 " " Convert all tabs appropriately:
 map <C-R>t :set expandtab<CR>:%retab!<CR>
@@ -965,9 +963,6 @@ inoremap <silent> <A-Left>   <c-o><c-w>h
 inoremap <silent> <A-Up>     <c-o><c-w>k
 inoremap <silent> <A-Down>   <c-o><c-w>j
 
-" Remove all trailing whitespace:
-map <C-R>s :%s/\s\+$//e<CR>
-"
 " " Convert all tabs appropriately:
 map <C-R>t :set expandtab<CR>:%retab!<CR>
 
