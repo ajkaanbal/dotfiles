@@ -29,7 +29,12 @@ NeoBundle 'Shougo/vimproc', {
             \     'unix' : 'make -f make_unix.mak',
             \    },
             \ }
-NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/context_filetype.vim'
+NeoBundle 'Shougo/neocomplete.vim', {
+    \ 'depends' : 'Shougo/context_filetype.vim',
+    \ 'disabled' : !has('lua'),
+    \ 'vim_version' : '7.3.885'
+    \ }
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/unite.vim'
@@ -123,7 +128,12 @@ call neobundle#config('unite.vim', {
 \       'commands' : [{ 'name' : 'Unite',
 \                       'complete' : 'customlist,unite#complete_source'}]
 \   }})
-call neobundle#config('neosnippet', {
+call neobundle#config('neocomplete.vim', {
+\ 'lazy' : 1,
+\ 'autoload' : {
+\   'insert' : 1,
+\ }})
+call neobundle#config('neosnippet.vim', {
       \ 'lazy' : 1,
       \ 'autoload' : {
       \   'insert' : 1,
@@ -1015,3 +1025,7 @@ let g:ruby_path = system('rvm current')
 " }}}
 
 
+if !has('vim_starting')
+    " Call on_source hook when reloading .vimrc.
+    call neobundle#call_hook('on_source')
+endif
