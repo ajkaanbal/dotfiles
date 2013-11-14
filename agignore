@@ -1,4 +1,5 @@
 .git
+.agignore
 .hg
 .svn
 .bzr
