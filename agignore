@@ -1,0 +1,6 @@
+.git
+.hg
+.svn
+.bzr
+*.gif
+*.png
