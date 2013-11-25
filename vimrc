@@ -627,6 +627,33 @@ hi CursorLine ctermbg=235 cterm=none
 "---------------------------------------------------------------------------
 " Plugins: "{{{
 
+" neosnippet {{{
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+"}}}
+
+
 " Neocomplete {{{
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
@@ -634,7 +661,7 @@ let g:neocomplete#enable_at_startup = 1
 let bundle = neobundle#get('neocomplete.vim')
 function! bundle.hooks.on_source(bundle)
 " Disable autocomplete
-  let g:neocomplete#disable_auto_complete = 0
+  let g:neocomplete#disable_auto_complete = 1
   " Disable AutoComplPop.
   let g:acp_enableAtStartup = 0
 " Use smartcase.
@@ -642,10 +669,6 @@ function! bundle.hooks.on_source(bundle)
 " Use fuzzy completion.
   let g:neocomplete#enable_fuzzy_completion = 0
 
-" Set minimum syntax keyword length.
-  let g:neocomplete#sources#syntax#min_keyword_length = 5
-" Set auto completion length.
-  let g:neocomplete#auto_completion_start_length = 4
 " Set manual completion length.
   let g:neocomplete#manual_completion_start_length = 0
 " Set minimum keyword length.
@@ -718,6 +741,16 @@ function! bundle.hooks.on_source(bundle)
 
   inoremap <expr><C-g> neocomplete#undo_completion()
   inoremap <expr><C-l> neocomplete#complete_common_string()
+   " <TAB>: completion.
+  inoremap <expr><TAB> pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ neocomplete#start_manual_complete()
+  function! s:check_back_space() "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~ '\s'
+  endfunction"}}}
+  "" <S-TAB>: completion back.
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " <CR>: close popup and save indent.
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -728,31 +761,6 @@ function! bundle.hooks.on_source(bundle)
 endfunction
 "}}}
 
-" neosnippet {{{
-" Plugin key-mappings.
-imap <C-n>     <Plug>(neosnippet_expand_or_jump)
-smap <C-n>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-n>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-"}}}
 
 
 "# Vim-session setting{{{
