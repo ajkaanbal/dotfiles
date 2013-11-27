@@ -107,6 +107,7 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'vim-indent-object'
 NeoBundle 'matze/vim-move'
+NeoBundle 'Lokaltog/vim-easymotion'
 " from vim.org
 NeoBundleLazy 'matchit.zip', { 'autoload' : {
       \ 'mappings' : ['%', 'g%']
@@ -714,7 +715,8 @@ function! bundle.hooks.on_source(bundle)
   if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
   endif
-  let g:neocomplete#force_omni_input_patterns.python = '[^. \t]\.\w*'
+  let g:neocomplete#force_omni_input_patterns.python = 
+  \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'')'
 
 " mappings."{{{
 " <C-f>, <C-b>: page move.
