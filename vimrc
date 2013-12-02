@@ -108,6 +108,10 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'vim-indent-object'
 NeoBundle 'matze/vim-move'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundleLazy 'mbbill/undotree', {
+\ 'autoload': {
+\    'commands': 'UndotreeToggle'
+\ }}
 " from vim.org
 NeoBundleLazy 'matchit.zip', { 'autoload' : {
       \ 'mappings' : ['%', 'g%']
@@ -920,6 +924,10 @@ let g:jedi#show_call_signatures = 0
 
 " vim-move {{{
 let g:move_key_modifier = 'C'
+"}}}
+
+" undotoggle {{{
+nnoremap <F5> :UndotreeToggle<cr>
 "}}}
 
 "}}}
