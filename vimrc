@@ -282,7 +282,7 @@ set infercase
 " Enable folding.
 set foldenable
 set foldmethod=indent
-set foldlevelstart=20
+set foldlevelstart=4
 
 
 
