@@ -625,7 +625,7 @@ match OverLength /\%81v.\+/
 
 "# Cursor line
 set cursorline
-hi CursorLine ctermbg=235 cterm=none 
+hi CursorLine ctermbg=235 cterm=none
 "}}}
 
 
@@ -719,7 +719,7 @@ function! bundle.hooks.on_source(bundle)
   if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
   endif
-  let g:neocomplete#force_omni_input_patterns.python = 
+  let g:neocomplete#force_omni_input_patterns.python =
   \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'')'
 
 " mappings."{{{
@@ -985,6 +985,7 @@ inoremap <silent> <A-Down>   <c-o><c-w>j
 map <C-R>t :set expandtab<CR>:%retab!<CR>
 
 " Useful save mappings.
+inoremap <silent> <Leader><Leader>  <C-o>:<C-u>update<CR>
 nnoremap <silent> <Leader><Leader> :<C-u>update<CR>
 nnoremap <silent> <Leader>w        :<C-u>wa<CR>
 
@@ -1004,7 +1005,7 @@ onoremap j<Space>     j
 nnoremap <F12> :set invpaste paste?<CR>
 set pastetoggle=<F12>
 set showmode
-" Redraw. 
+" Redraw.
 nnoremap <silent> <C-l> :<C-u>redraw!<CR>
 
 "Tmux integration
