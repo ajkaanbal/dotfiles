@@ -1,5 +1,5 @@
-"---------------------------------------------------------------------------
 " Initialize: "{{{
+"---------------------------------------------------------------------------
 
 " No 'vi' compatible commands.
 set nocompatible
@@ -30,6 +30,7 @@ NeoBundle 'Shougo/vimproc', {
             \    },
             \ }
 NeoBundle 'Shougo/context_filetype.vim'
+NeoBundle 'Shougo/echodoc.vim'
 NeoBundle 'Shougo/neocomplete.vim', {
     \ 'depends' : 'Shougo/context_filetype.vim',
     \ 'disabled' : !has('lua'),
@@ -362,7 +363,7 @@ set whichwrap+=h,l,<,>,[,],b,s,~
 set laststatus=2
 
 " Height of command line.
-set cmdheight=1
+set cmdheight=2
 
 " show command on STAtusline.
 set showcmd
@@ -412,7 +413,8 @@ set wildoptions=tagfile
 set spelllang=en_us
 
 " Completion setting.
-set completeopt=menuone,longest,preview
+set completeopt=menuone,longest
+set completeopt-=preview
 
 " tells VIM where to search for autocompletion
 "  . : current file
@@ -658,6 +660,9 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 "}}}
 
+"echodoc {{{
+let g:echodoc_enable_at_startup = 1
+"}}}
 
 " Neocomplete {{{
 " Use neocomplete.
