@@ -130,6 +130,12 @@ NeoBundleLazy 'django.vim', {
 \   'filetypes': ['htmldjango','django']
 \ }}
 
+NeoBundleLazy 'lambdalisue/vim-django-support', {
+\ 'autoload': {
+\   'filetypes': ['python']
+\}}
+
+
 "Neobundle configuration
 call neobundle#config('unite.vim', {
 \   'lazy': 1,
