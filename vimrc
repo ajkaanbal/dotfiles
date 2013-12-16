@@ -30,7 +30,10 @@ NeoBundle 'Shougo/vimproc', {
             \    },
             \ }
 NeoBundle 'Shougo/context_filetype.vim'
-NeoBundle 'Shougo/echodoc.vim'
+NeoBundleLazy 'Shougo/echodoc.vim', {
+\  'autoload': {
+\    'insert': 1
+\}}
 NeoBundle 'Shougo/neocomplete.vim', {
     \ 'depends' : 'Shougo/context_filetype.vim',
     \ 'disabled' : !has('lua'),
@@ -671,7 +674,7 @@ let g:neocomplete#enable_at_startup = 1
 let bundle = neobundle#get('neocomplete.vim')
 function! bundle.hooks.on_source(bundle)
 " Disable autocomplete
-  let g:neocomplete#disable_auto_complete = 1
+  let g:neocomplete#disable_auto_complete = 0
   " Disable AutoComplPop.
   let g:acp_enableAtStartup = 0
 " Use smartcase.
@@ -724,7 +727,7 @@ function! bundle.hooks.on_source(bundle)
   if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
   endif
-  let g:neocomplete#force_omni_input_patterns.python =
+  let g:neocomplete#sources#omni#input_patterns.python =
   \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'')'
 
 " mappings."{{{
@@ -922,6 +925,7 @@ vnoremap <silent> <Enter> :EasyAlign<Enter>
 
 " python-jedi {{{
 let g:jedi#auto_vim_configuration = 0
+let g:jedi#completions_enable = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#show_call_signatures = 0
