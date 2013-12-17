@@ -43,12 +43,6 @@ NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
-NeoBundleLazy 'Shougo/unite-help', { 'autoload' : {
-      \ 'unite_sources' : 'help'
-      \ }}
-NeoBundleLazy 'Shougo/unite-outline', { 'autoload': {
-      \ 'unite_sources': 'outline'
-      \  }}
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'majutsushi/tagbar'
@@ -67,17 +61,6 @@ NeoBundleLazy 'moll/vim-bbye', {
       \ 'autoload': {
       \   'commands': 'Bdelete'
       \}}
-NeoBundleLazy 'marijnh/tern_for_vim', {
-      \ 'autoload' : {
-      \      'filetypes' : 'javascript',
-      \ },
-      \ 'build' : {
-      \      'unix': 'npm install',
-      \}}
-NeoBundleLazy 'itchyny/thumbnail.vim', {
-      \ 'autoload' : {
-      \   'commands' : 'Thumbnail'
-      \ }}
 NeoBundleLazy 'othree/vim-javascript-syntax', { 'autoload' : {
       \ 'filetypes' : 'javascript',
       \ }}
