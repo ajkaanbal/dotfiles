@@ -680,7 +680,7 @@ let g:neocomplete#enable_at_startup = 1
 let bundle = neobundle#get('neocomplete.vim')
 function! bundle.hooks.on_source(bundle)
 " Disable autocomplete
-  let g:neocomplete#disable_auto_complete = 0
+  let g:neocomplete#disable_auto_complete = 1
   " Disable AutoComplPop.
   let g:acp_enableAtStartup = 0
 " Use smartcase.
