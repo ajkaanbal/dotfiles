@@ -823,7 +823,7 @@ inoremap <leader>b <ESC>:<C-u>Unite buffer<cr>
 nnoremap <leader>r :<C-u>Unite file_mru<CR>
 nnoremap <leader>o :<C-u>Unite outline<CR>
 nnoremap <leader>/ :<C-u>Unite grep:.:file<CR>
-nnoremap <silent> <leader>la :<C-u>Unite buffer file_mru bookmark<CR>
+nnoremap <silent> <leader>a :<C-u>Unite buffer file_mru bookmark<CR>
 
 autocmd MyAutoCmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings() "{{{
@@ -960,13 +960,21 @@ map <silent> <leader><Space> :%s/\s\+$//e<CR>
 map <C-R>t :set expandtab<CR>:%retab!<CR>
 
 "#Navigate btween buffers
-nnoremap <silent> bh :bfirst<CR>
-nnoremap <silent> bj :bnext<CR>
-nnoremap <silent> bk :bprevious<CR>
-nnoremap <silent> bl :blast<CR>
-nnoremap <silent> bn :bnext<Space>
-nnoremap <silent> bd :bdelete<CR>
-nnoremap <silent> Bd :Bdelete<CR>
+nnoremap <silent><leader>0 :bfirst<CR>
+nnoremap <silent><leader>l :bnext<CR>
+nnoremap <silent><leader>h :bprevious<CR>
+nnoremap <silent><leader>$ :blast<CR>
+nnoremap <silent><leader>1 :b1<CR>
+nnoremap <silent><leader>2 :b2<CR>
+nnoremap <silent><leader>3 :b3<CR>
+nnoremap <silent><leader>4 :b4<CR>
+nnoremap <silent><leader>5 :b5<CR>
+nnoremap <silent><leader>6 :b6<CR>
+nnoremap <silent><leader>7 :b7<CR>
+nnoremap <silent><leader>8 :b8<CR>
+nnoremap <silent><leader>9 :b9<CR>
+nnoremap <silent><leader>d :bdelete<CR>
+nnoremap <silent><leader>D :Bdelete<CR>
 nnoremap <S-Left> :bprevious<CR>
 nnoremap <S-Right> :bnext<CR>
 
