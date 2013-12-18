@@ -995,8 +995,8 @@ inoremap <silent> <A-Down>   <c-o><c-w>j
 map <C-R>t :set expandtab<CR>:%retab!<CR>
 
 " Useful save mappings.
-inoremap <silent> <Leader><Leader>  <C-o>:<C-u>update<CR>
-nnoremap <silent> <Leader><Leader> :<C-u>update<CR>
+inoremap <silent> <Leader>u  <C-o>:<C-u>update<CR>
+nnoremap <silent> <Leader>u :<C-u>update<CR>
 nnoremap <silent> <Leader>w        :<C-u>wa<CR>
 
 
