@@ -821,7 +821,6 @@ nnoremap <leader>p :<C-u>Unite file_rec/async<cr>
 nnoremap <leader>b :<C-u>Unite buffer<cr>
 inoremap <leader>b <ESC>:<C-u>Unite buffer<cr>
 nnoremap <leader>r :<C-u>Unite file_mru<CR>
-nnoremap <leader>o :<C-u>Unite outline<CR>
 nnoremap <leader>/ :<C-u>Unite grep:.:file<CR>
 nnoremap <silent> <leader>a :<C-u>Unite buffer file_mru bookmark<CR>
 
