@@ -788,12 +788,6 @@ let g:colorizer_auto_filetype='css'
 
 " unite.vim"{{{
 
-" Execute help.
-nnoremap <silent> <C-h>  :<C-u>Unite -buffer-name=help help<CR>
-
-" Execute help by cursor keyword.
-nnoremap <silent> g<C-h>  :<C-u>UniteWithCursorWord help<CR>
-
 call unite#custom#source('file_rec', 'sorters', 'sorter_reverse')
 "Match candidates by filename
 call unite#custom#source(
