@@ -520,7 +520,7 @@ augroup MyAutoCmd
 
   "Fold methods
   autocmd FileType python setlocal foldmethod=indent
-  autocmd MyAutoCmd FileType javascript setlocal foldmethod=indent
+  autocmd FileType javascript setlocal foldmethod=syntax
   autocmd FileType vim setlocal foldmethod=marker
 
   " Update filetype.
