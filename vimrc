@@ -1001,13 +1001,9 @@ nnoremap <silent> <Leader>w        :<C-u>wa<CR>
 
 
 " Easy escape."{{{
-inoremap jj           <ESC>
-" inoremap <expr> j       getline('.')[col('.') - 2] ==# 'j' ? "\<BS>\<ESC>" : 'j'
+inoremap jj           <Esc>`^
 cnoremap <expr> j       getcmdline()[getcmdpos()-2] ==# 'j' ? "\<BS>\<C-c>" : 'j'
-onoremap jj           <ESC>
-
-inoremap j<Space>     j
-onoremap j<Space>     j
+onoremap jj           <ESC>`^
 
 "}}}
 
