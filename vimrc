@@ -1010,7 +1010,6 @@ onoremap jj           <ESC>`^
 "# Change to paste mode to avoid akward indentation
 nnoremap <F12> :set invpaste paste?<CR>
 set pastetoggle=<F12>
-set showmode
 " Redraw.
 nnoremap <silent> <C-l> :<C-u>redraw!<CR>
 
