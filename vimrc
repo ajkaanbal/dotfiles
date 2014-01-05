@@ -304,7 +304,6 @@ set updatetime=1000
 " No swap files, no backups.
 set nobackup
 set nowritebackup
-set noswapfile
 
 " Enable virtualedit in visual block mode.
 set virtualedit=block
