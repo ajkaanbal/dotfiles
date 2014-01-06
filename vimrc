@@ -895,7 +895,7 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_loc_list_height = 3
-let g:syntastic_quiet_warnings = 1
+let g:syntastic_quiet_messages = {'level': 'warnings'}
 let g:syntastic_aggregate_errors = 1
 "}}}
 
