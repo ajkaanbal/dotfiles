@@ -335,13 +335,6 @@ function! s:mkdir_as_necessary(dir, force)
   endif
 endfunction
 
-"leave insert mode after 5 seconds inactivity
-"automatically leave insert mode after 'updatetime' milliseconds of inaction
-au CursorHoldI * stopinsert
-" set 'updatetime' to 5 seconds when in insert mode
-au MyAutoCmd InsertEnter * let updaterestore=&updatetime | set updatetime=5000
-au MyAutoCmd InsertLeave * let &updatetime=updaterestore
-
 "}}}
 
 
