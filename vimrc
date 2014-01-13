@@ -40,6 +40,7 @@ NeoBundle 'Shougo/neocomplete.vim', {
     \ 'vim_version' : '7.3.885'
     \ }
 NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
