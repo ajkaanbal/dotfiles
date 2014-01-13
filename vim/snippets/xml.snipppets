@@ -1,0 +1,182 @@
+# Xml element
+snippet <xml
+abbr    <?xml ?> element
+prev_word   '^'
+	<?xml version="1.0" encoding="utf-8"?>
+
+# Android Button
+snippet <Button
+abbr    Android <Button /> element
+prev_word   '^'
+	<Button android:id="@+id/${1:id}"
+		android:layout_width="${2:wrap_content}"
+		android:layout_height="${3:wrap_content}"
+		android:text="@string/${4:text}" />
+# Android menu
+snippet <menu
+abbr    Android <menu /> element
+prev_word   '^'
+	<menu xmlns:android="http://schemas.android.com/apk/res/android">
+		${0}
+	</menu>
+
+# Android menu item
+snippet <itemMenu
+abbr    Android <item /> element in <menu />
+prev_word   '^'
+	<item android:id="@+id/${1:item}"
+		android:title="@string/${2:item}"
+		android:icon="@drawable/${3:ic_menu_item}" />
+
+# Android string 
+snippet <string
+abbr    Android <string /> element in <resources />
+prev_word   '^'
+    <string name="${1}">${2}</string>
+
+# Android layout
+snippet <layout
+abbr    Android <Layout /> element in <resources />
+prev_word   '^'
+	<${1:Relative}Layout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="${2:match_parent}"
+		android:layout_height="${3:match_parent}">
+		${0}
+	</$1Layout>
+
+# Android TextView
+snippet <TextView
+abbr    Android <TextView /> element in layout xml.
+prev_word   '^'
+	<TextView android:id="@+id/${1:text}"
+		android:layout_width="${2:wrap_content}"
+		android:layout_height="${3:wrap_content}"
+		android:text="@string/${4:text}"
+		android:textAppearance="${5:@android:style/TextAppearance}" />
+
+# AndroidManifest service
+snippet <service
+abbr    Android <service> element in AndroidManifest.xml
+prev_word   '^'
+	<service android:name=".${1:ServiceName}"
+		android:label="@string/${2:service_label}" />
+
+snippet     <activity
+abbr        Android <activity> element in AndroidManifest.xml
+prev_word   '^'
+	<activity android:name=".${1:Activity}"
+		android:label="@string/${2:app_name}" />
+
+snippet     <viewgroup
+abbr        Android <ViewGroup> element in layout xml.
+prev_word   '^'
+	<${1:ViewGroup} android:id="@+id/${2:radio_group}"
+		android:layout_width="${3:wrap_content}"
+		android:layout_height="${4:wrap_content}">
+		${0}
+	</$1>
+
+snippet     <view
+abbr        Android <SomeView> element in layout xml.
+prev_word   '^'
+	<${1:View} android:id="@+id/${2:view_id}"
+		android:layout_width="${3:wrap_content}"
+		android:layout_height="${4:wrap_content}" />
+
+snippet     <PreferenceScreen
+abbr        Android <PreferenceScreen> element in preferences xml.
+prev_word   '^'
+	<PreferenceScreen
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:key="${1:preference_screen}">
+	</PreferenceScreen>
+
+snippet     <CheckBoxPreference
+abbr        Android <CheckboxPreference> element in preferences xml.
+prev_word   '^'
+	<CheckBoxPreference
+		android:key="${1:checkbox}"
+		android:title="${1:Checkbox}" />
+
+snippet     <ListPreference
+abbr        Android <ListPreference> element in preferences xml.
+prev_word   '^'
+	<ListPreference
+		android:key="${1:list}"
+		android:title="R.string.${2:list_title}""
+		android:entries="${3:R.string.titles}"
+		android:entryValues="${4:R.string.values}" />
+
+snippet     <selectorDrawable
+abbr        Android drawable <selector> element
+prev_word   '^'
+	<selector xmlns:android="http://schemas.android.com/apk/res/android"
+		android:constantSize="${1:false}"
+		android:dither="${2:true}"
+		android:variablePadding="${3:false}">
+		${0}
+	</selector>
+
+snippet     <itemDrawable
+abbr        Android StateListDrawable <item /> element
+prev_word   '^'
+	<item android:drawable="@drawable/${1:drawable_resource}"
+		android:state_pressed="${2:false}"
+		android:state_focused="${3:false}"
+		android:state_selected="${4:false}"
+		android:state_active="${5:false}"
+		android:state_checkable="${6:false}"
+		android:state_checked="${7:false}"
+		android:state_enabled="${8:false}"
+		android:state_window_focused="${9:false}" /> 
+
+snippet     <itemColor
+abbr        Android ColorStateList <item /> element
+prev_word   '^'
+	<item android:color="${1}"
+		android:state_pressed="${2:false}"
+		android:state_focused="${3:false}"
+		android:state_selected="${4:false}"
+		android:state_active="${5:false}"
+		android:state_checkable="${6:false}"
+		android:state_checked="${7:false}"
+		android:state_enabled="${8:false}"
+		android:state_window_focused="${9:false}" /> 
+
+snippet     <uses-permission
+abbr        Android <uses-permission /> in AndroidManifest.xml
+prev_word   '^'
+	<uses-permission android:name="android.permission.${0}" />
+
+snippet     <intent-filter-LAUNCHER
+abbr        Android intent-filter for launcher
+prev_word   '^'
+	<intent-filter>
+		<action android:name="android.intent.action.MAIN" />
+		<category android:name="android.intent.category.LAUNCHER" />
+	</intent-filter>
+
+snippet     <intent-filter-mixi
+abbr        Android intent-filter for mixi
+prev_word   '^'
+	<intent-filter>
+		<action android:name="android.intent.action.VIEW" />
+		<category android:name="android.intent.category.DEFAULT" />
+		<category android:name="android.intent.cateogry.BROWSABLE" />
+		<data android:scheme="${1:mixiapp-}" />
+	</intent-filter>
+
+snippet     xmlns:android
+abbr        Android xmlns
+	xmlns:android="http://schemas.android.com/apk/res/android"${0}
+
+
+# Android EditText
+snippet <EditText
+abbr    Android <EditText /> element in layout xml.
+prev_word   '^'
+	<EditText android:id="@+id/${1:text}"
+		android:layout_width="${2:wrap_content}"
+		android:layout_height="${3:wrap_content}"
+		android:hint="@string/${4:edit_message}"
+		 />
