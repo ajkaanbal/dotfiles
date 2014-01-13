@@ -48,6 +48,9 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'mattn/emmet-vim/'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-indent'
 NeoBundleLazy 'othree/html5.vim', {
 \ 'autoload' : {
 \   'filetypes': ['html','htmldjango']
@@ -96,7 +99,6 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'vim-indent-object'
 NeoBundle 'matze/vim-move'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundleLazy 'mbbill/undotree', {
