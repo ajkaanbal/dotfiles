@@ -634,22 +634,17 @@ hi CursorLine ctermbg=235 cterm=none
 
 " neosnippet {{{
 " Plugin key-mappings.
-imap <silent>L <Plug>(neosnippet_jump_or_expand)
-smap <silent>L <Plug>(neosnippet_jump_or_expand)
-xmap <silent>L <Plug>(neosnippet_start_unite_snippet_target)
-imap <silent>K <Plug>(neosnippet_expand_or_jump)
-smap <silent>K <Plug>(neosnippet_expand_or_jump)
-imap <silent>G <Plug>(neosnippet_expand)
-imap <silent>S <Plug>(neosnippet_start_unite_snippet)
-
+imap <C-k> <Plug>(neosnippet_jump_or_expand)
+smap <C-k> <Plug>(neosnippet_jump_or_expand)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: pumvisible() ? "\<C-n>" : "\<TAB>"
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: "\<TAB>"
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
