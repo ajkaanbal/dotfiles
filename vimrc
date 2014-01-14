@@ -653,9 +653,9 @@ endif
 
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
-
+let g:snippets_dir='~/.vim/bundle/vim-snippets/snippets'
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+let g:neosnippet#snippets_directory='~/.vim/snippets'
 "}}}
 
 "echodoc {{{
