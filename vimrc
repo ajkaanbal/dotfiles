@@ -634,9 +634,14 @@ hi CursorLine ctermbg=235 cterm=none
 
 " neosnippet {{{
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <silent>L <Plug>(neosnippet_jump_or_expand)
+smap <silent>L <Plug>(neosnippet_jump_or_expand)
+xmap <silent>L <Plug>(neosnippet_start_unite_snippet_target)
+imap <silent>K <Plug>(neosnippet_expand_or_jump)
+smap <silent>K <Plug>(neosnippet_expand_or_jump)
+imap <silent>G <Plug>(neosnippet_expand)
+imap <silent>S <Plug>(neosnippet_start_unite_snippet)
+
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
