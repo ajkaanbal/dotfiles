@@ -395,8 +395,15 @@ set t_vb=
 set novisualbell
 
 " Display candidate supplement.
-set nowildmenu
+set wildmenu
 set wildmode=list:longest,full
+set wildignore& " A file that matches with one of these patterns is ignored
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.bak,*.?~,*.??~,*.???~,*.~      " Backup files
+set wildignore+=*.luac                           " Lua byte code
+set wildignore+=*.jar                            " Java archives
+set wildignore+=*.pyc                            " Python byte code
+set wildignore+=*.stats                          " Pylint stats
 
 " Increase history amount.
 set history=500
