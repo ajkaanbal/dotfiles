@@ -101,7 +101,7 @@ NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'matze/vim-move'
-NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'haya14busa/vim-easymotion'
 NeoBundleLazy 'mbbill/undotree', {
 \ 'autoload': {
 \    'commands': 'UndotreeToggle'
@@ -308,8 +308,8 @@ set updatetime=1000
 set nobackup
 set nowritebackup
 
-" Enable virtualedit in visual block mode.
-set virtualedit=block
+" Enable virtualedit in visual block mode and cursor beyond the last char
+set virtualedit=block,onemore
 
 " Set keyword help.
 set keywordprg=:help
