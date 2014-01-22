@@ -10,8 +10,6 @@ if !1 | finish | endif
 " Use ',' instead of '\'.
 " Use <Leader> in global plugin.
 let g:mapleader = ','
-" Use <LocalLeader> in filetype plugin.
-let g:maplocalleader = 'm'
 
 " Set augroup.
 augroup MyAutoCmd
@@ -25,20 +23,16 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
-            \ 'build' : {
-            \     'unix' : 'make -f make_unix.mak',
-            \    },
-            \ }
+\ 'build' : {
+\     'unix' : 'make -f make_unix.mak',
+\    },
+\ }
 NeoBundle 'Shougo/context_filetype.vim'
-NeoBundleLazy 'Shougo/echodoc.vim', {
-\  'autoload': {
-\    'insert': 1
-\}}
 NeoBundle 'Shougo/neocomplete.vim', {
-    \ 'depends' : 'Shougo/context_filetype.vim',
-    \ 'disabled' : !has('lua'),
-    \ 'vim_version' : '7.3.885'
-    \ }
+\ 'depends' : 'Shougo/context_filetype.vim',
+\ 'disabled' : !has('lua'),
+\ 'vim_version' : '7.3.885'
+\ }
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'honza/vim-snippets'
@@ -144,31 +138,31 @@ call neobundle#config('neocomplete.vim', {
 \   'insert' : 1,
 \ }})
 call neobundle#config('neosnippet.vim', {
-      \ 'lazy' : 1,
-      \ 'autoload' : {
-      \   'insert' : 1,
-      \   'filetypes' : 'snippet',
-      \   'unite_sources' : ['snippet', 'neosnippet/user', 'neosnippet/runtime'],
-      \ }})
+\ 'lazy' : 1,
+\ 'autoload' : {
+\   'insert' : 1,
+\   'filetypes' : 'snippet',
+\   'unite_sources' : ['snippet', 'neosnippet/user', 'neosnippet/runtime'],
+\ }})
 
 call neobundle#config('vimfiler', {
-      \ 'lazy' : 1,
-      \ 'depends' : 'Shougo/unite.vim',
-      \ 'autoload' : {
-      \    'commands' : [
-      \                  { 'name' : 'VimFiler',
-      \                    'complete' : 'customlist,vimfiler#complete' },
-      \                  { 'name' : 'VimFilerExplorer',
-      \                    'complete' : 'customlist,vimfiler#complete' },
-      \                  { 'name' : 'Edit',
-      \                    'complete' : 'customlist,vimfiler#complete' },
-      \                  { 'name' : 'Write',
-      \                    'complete' : 'customlist,vimfiler#complete' },
-      \                  'Read', 'Source'],
-      \    'mappings' : ['<Plug>(vimfiler_switch)'],
-      \    'explorer' : 1,
-      \ }
-      \ })
+\ 'lazy' : 1,
+\ 'depends' : 'Shougo/unite.vim',
+\ 'autoload' : {
+\    'commands' : [
+\                  { 'name' : 'VimFiler',
+\                    'complete' : 'customlist,vimfiler#complete' },
+\                  { 'name' : 'VimFilerExplorer',
+\                    'complete' : 'customlist,vimfiler#complete' },
+\                  { 'name' : 'Edit',
+\                    'complete' : 'customlist,vimfiler#complete' },
+\                  { 'name' : 'Write',
+\                    'complete' : 'customlist,vimfiler#complete' },
+\                  'Read', 'Source'],
+\    'mappings' : ['<Plug>(vimfiler_switch)'],
+\    'explorer' : 1,
+\ }
+\ })
 "local plugins vim
 if filereadable(expand('~/.vimrc.local'))
     source ~/.vimrc.local
@@ -309,7 +303,7 @@ set timeout timeoutlen=3000 ttimeoutlen=100
 " CursorHold time.
 set updatetime=1000
 
-" No swap files, no backups.
+" No backups.
 set nobackup
 set nowritebackup
 
@@ -329,20 +323,6 @@ autocmd MyAutoCmd InsertLeave *
 
 " Update diff.
 autocmd MyAutoCmd InsertLeave * if &l:diff | diffupdate | endif
-
-" Make directory automatically.
-" --------------------------------------
-" http://vim-users.jp/2011/02/hack202/
-autocmd MyAutoCmd BufWritePre *
-      \ call s:mkdir_as_necessary(expand('<afile>:p:h'), v:cmdbang)
-function! s:mkdir_as_necessary(dir, force)
-  if !isdirectory(a:dir) && &l:buftype == '' &&
-        \ (a:force || input(printf('"%s" does not exist. Create? [y/N]',
-        \              a:dir)) =~? '^y\%[es]$')
-    call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
-  endif
-endfunction
-
 "}}}
 
 
@@ -478,7 +458,6 @@ autocmd MyAutoCmd FileType *
 if v:version >= 703
   " For conceal.
   set conceallevel=2 concealcursor=iv
-
   set colorcolumn=79
 endif
 
@@ -499,17 +478,6 @@ augroup MyAutoCmd
   " Auto reload VimScript.
   autocmd BufWritePost,FileWritePost *.vim if &autoread
         \ | source <afile> | echo 'source ' . bufname('%') | endif
-
-  " Close help and git window by pressing q.
-  autocmd FileType help,git-status,git-log,qf,J6uil_say,vimconsole,
-        \gitcommit,quickrun,qfreplace,ref,vcs-commit,vcs-status
-        \ nnoremap <buffer><silent> q :<C-u>call <sid>smart_close()<CR>
-  autocmd FileType * if (&readonly || !&modifiable) && !hasmapto('q', 'n')
-        \ | nnoremap <buffer><silent> q :<C-u>call <sid>smart_close()<CR>| endif
-
-  autocmd FileType gitcommit,qfreplace setlocal nofoldenable
-
-  autocmd FileType ref nnoremap <buffer> <TAB> <C-w>w
 
   " Enable omni completion.
   autocmd FileType c setlocal omnifunc=ccomplete#Complete
@@ -541,7 +509,6 @@ augroup MyAutoCmd
   autocmd FileType html
         \ setlocal includeexpr=substitute(v:fname,'^\\/','','') |
         \ setlocal path+=./;/
-  autocmd FileType apache setlocal path+=./;/
 
   "Pretty json
   autocmd FileType json setlocal equalprg=python\ -m\ json.tool
@@ -549,9 +516,6 @@ augroup MyAutoCmd
   autocmd FileType htmldjango setlocal sw=2 ts=2 sts=2
   autocmd FileType css  setlocal sw=2 ts=2 sts=2
 augroup END
-
-" PHP
-let g:php_folding = 0
 
 " Python
 let g:python_highlight_all = 1
@@ -658,20 +622,11 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: "\<TAB>"
 
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:snippets_dir='~/.vim/bundle/vim-snippets/snippets'
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/snippets'
-"}}}
-
-"echodoc {{{
-let g:echodoc_enable_at_startup = 1
 "}}}
 
 " Neocomplete {{{
@@ -781,7 +736,6 @@ function! bundle.hooks.on_source(bundle)
 
 endfunction
 "}}}
-
 
 
 "# Vim-session setting{{{
@@ -1094,7 +1048,7 @@ set ssop-=options    " do not store global and local values in a session
 set ssop+=folds
 
 " ruby path if you are using RVM
-let g:ruby_path = system('rvm current')
+"let g:ruby_path = system('rvm current')
 
 " }}}
 
