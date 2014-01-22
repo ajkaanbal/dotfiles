@@ -5,3 +5,6 @@
 .bzr
 *.gif
 *.png
+
+node_modules
+jam
