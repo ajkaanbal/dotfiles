@@ -123,7 +123,7 @@ NeoBundleLazy 'lambdalisue/vim-django-support', {
 \   'filetypes': ['python']
 \}}
 NeoBundle 'benmills/vimux'
-NeoBundle 'autoswap.vim'
+NeoBundle 'ajkaanbal/autoswap.vim'
 
 "Neobundle configuration
 call neobundle#config('unite.vim', {
