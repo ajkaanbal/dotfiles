@@ -78,6 +78,10 @@ NeoBundleLazy 'chrisbra/color_highlight', {
 \ 'autoload' : {
 \   'filetypes': 'css'
 \ }}
+NeoBundleLazy 'wavded/vim-stylus', {
+\ 'autoload' : {
+\   'filetypes': 'stylus'
+\ }}
 NeoBundleLazy 'guns/xterm-color-table.vim.git', {
       \ 'autoload': {
       \   'commands': 'XtermColorTable'
@@ -515,6 +519,7 @@ augroup MyAutoCmd
   autocmd FileType html setlocal sw=2 ts=2 sts=2
   autocmd FileType htmldjango setlocal sw=2 ts=2 sts=2
   autocmd FileType css  setlocal sw=2 ts=2 sts=2
+  autocmd FileType stylus  setlocal sw=2 ts=2 sts=2
 augroup END
 
 " Python
