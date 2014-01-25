@@ -85,5 +85,5 @@ bindkey '^N' history-substring-search-down
 # Ruby RVM
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm"
-rvm use
+rvm use >& /dev/null
 
