@@ -307,9 +307,15 @@ set timeout timeoutlen=3000 ttimeoutlen=100
 " CursorHold time.
 set updatetime=1000
 
-" No backups.
-set nobackup
-set nowritebackup
+"backups and persistance settings
+set undodir=~/.vim/tmp/undo
+set backupdir=~/.vim/tmp/backup
+
+set backup
+set writebackup
+
+set undofile
+set undolevels=100
 
 " Enable virtualedit in visual block mode and cursor beyond the last char
 set virtualedit=block,onemore
