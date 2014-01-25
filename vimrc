@@ -292,9 +292,6 @@ set foldlevelstart=4
 set fillchars=vert:\|
 set commentstring=%s
 
-" Use grep.
-set grepprg=grep\ -inH
-
 " Exclude = from isfilename.
 set isfname-==
 
@@ -794,7 +791,7 @@ nnoremap <leader>p :<C-u>Unite file_rec/async<cr>
 nnoremap <leader>b :<C-u>Unite buffer<cr>
 inoremap <leader>b <ESC>:<C-u>Unite buffer<cr>
 nnoremap <leader>r :<C-u>Unite file_mru<CR>
-nnoremap <leader>/ :<C-u>Unite grep:.:file<CR>
+nnoremap <leader>/ :<C-u>Unite grep:$buffers<CR>
 nnoremap <silent> <leader>a :<C-u>Unite buffer file_mru bookmark<CR>
 
 autocmd MyAutoCmd FileType unite call s:unite_my_settings()
