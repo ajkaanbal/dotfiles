@@ -5,15 +5,24 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-
-#ZSH_THEME="fino"
 ZSH_THEME="ajkaanbal"
-#ZSH_THEME="trapd00r"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias reloadeditor='cd /opt/bin/ReloadEditor/ && java -jar reload-editor.jar &'
+alias memrss='while read command percent rss; do if [[ "${command}" != "COMMAND" ]]; then rss="$(bc <<< "scale=2;${rss}/1024")"; fi; printf "%-26s%-8s%s\n" "${command}" "${percent}" "${rss}"; done < <(ps -A --sort -rss -o comm,pmem,rss | head -n 11)'
+alias tree='tree -C'
+alias pwdc='pwd | tr -d "\n" | xsel -b'
+alias ccat='pygmentize -g'
+alias tm='tmux attach'
+alias xm='xmodmap ~/.Xmodmap'
+alias vi='vim -u ~/.vimrcmin'
 
+tmux_send_message(){
+    tmux send-keys -t ajkaanbal:$1.0 C-z $2
+}
+alias tsk=tmux_send_message
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -29,30 +38,31 @@ DISABLE_AUTO_TITLE="true"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
+#settings for hihglight plugin
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git virtualenv history-substring-search zsh-syntax-highlighting git tmux wd autosuggestions)
+plugins=(git virtualenv vagrant zsh-syntax-highlighting history-substring-search web-search tmux yum wd autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-HOMEBIN=/home/ajkaanbal/.local/bin
+HOMEBIN=$HOME/.local/bin
 export PATH=$HOMEBIN:/usr/lib64/qt-3.3/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin
 
-# Custom alisa
-alias memrss='while read command percent rss; do if [[ "${command}" != "COMMAND" ]]; then rss="$(bc <<< "scale=2;${rss}/1024")"; fi; printf "%-26s%-8s%s\n" "${command}" "${percent}" "${rss}"; done < <(ps -A --sort -rss -o comm,pmem,rss | head -n 11)'
-
-alias pwdc='pwd | tr -d "\n" | xsel -b'
-alias tree='tree -C'
-alias tm='tmux attach'
-tmux_send_message(){
-    tmux send-keys -t ajkaanbal:$1.0 C-z $2
-}
-alias tsk=tmux_send_message
-
-#Vimgolf
-alias vimg='vim -u ~/.vimgolf.vimrc'
+setopt BANG_HIST # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE # Don't record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS # Don't write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS # Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY # Don't execute immediately upon history expansion.
 
 
 # Android-sdk
@@ -63,6 +73,7 @@ PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS
 #Virtual env wrapper
 export WORKON_HOME=~/.pyenvs
 source /usr/bin/virtualenvwrapper.sh
+#Autoenv
 source /usr/bin/activate.sh
 
 #java vars
@@ -75,6 +86,19 @@ export JDK_HOME
 #alias m='f -e mplayer' # quick opening files with mplayer
 #alias o='a -e xdg-open' # quick opening files with xdg-open
 
+#java
+export JAVA_HOME="/usr/java/jdk1.7.0_40"
+
+#scala
+SCALA_HOME="$HOME/.local/scala"
+export PATH="$SCALA_HOME/bin:$PATH"
+
+#NODEJS
+NODE_PATH="$HOME/.local/node"
+export PATH="$NODE_PATH/bin:$PATH"
+#Editor
+export EDITOR=~/.local/bin/vim
+# bind UP and DOWN arrow keys
 #History search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
