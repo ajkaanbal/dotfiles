@@ -219,7 +219,7 @@ set hlsearch
 set wrapscan
 
 " Clear last searching highlight
-nnoremap <S-l> :let @/ = ""<cr>
+nnoremap <C-S-l> :let @/ = ""<cr>
 "}}}
 
 
