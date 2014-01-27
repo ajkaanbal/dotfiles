@@ -219,7 +219,7 @@ set hlsearch
 set wrapscan
 
 " Clear last searching highlight
-nnoremap <C-S-l> :let @/ = ""<cr>
+nnoremap <C-L> :let @/ = ""<cr>
 "}}}
 
 
@@ -388,7 +388,7 @@ set novisualbell
 
 " Display candidate supplement.
 set wildmenu
-set wildmode=list:longest,full
+set wildmode=longest,full
 set wildignore& " A file that matches with one of these patterns is ignored
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.bak,*.?~,*.??~,*.???~,*.~      " Backup files
