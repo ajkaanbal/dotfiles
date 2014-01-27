@@ -219,7 +219,7 @@ set hlsearch
 set wrapscan
 
 " Clear last searching highlight
-nnoremap <C-L> :let @/ = ""<cr>
+nnoremap <silent><space>l :<c-u>let @/ = ""<return><esc>
 "}}}
 
 
@@ -862,7 +862,7 @@ let g:syntastic_style_error_symbol = '✠'
 let g:syntastic_warning_symbol = '∆'
 let g:syntastic_style_warning_symbol = '≈'
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['frosted', 'pylint']
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_loc_list_height = 3
 let g:syntastic_quiet_messages = {'level': 'warnings'}
@@ -1049,8 +1049,6 @@ onoremap jj           <ESC>`^
 "# Change to paste mode to avoid akward indentation
 nnoremap <F12> :set invpaste paste?<CR>
 set pastetoggle=<F12>
-" Redraw.
-nnoremap <silent> <C-l> :<C-u>redraw!<CR>
 
 "Tmux integration
 if &term =~ '^screen'
