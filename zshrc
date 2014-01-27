@@ -32,7 +32,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git virtualenv history-substring-search zsh-syntax-highlighting git tmux)
+plugins=(git virtualenv history-substring-search zsh-syntax-highlighting git tmux wd autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,3 +87,13 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm"
 rvm use >& /dev/null
 
+# Enable autosuggestions automatically
+zle-line-init() {
+        zle autosuggest-start
+
+}
+zle -N zle-line-init
+
+# use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
+# zsh-autosuggestions is designed to be unobtrusive)
+bindkey '^T' autosuggest-toggle
