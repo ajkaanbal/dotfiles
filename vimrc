@@ -10,6 +10,7 @@ if !1 | finish | endif
 " Use ',' instead of '\'.
 " Use <Leader> in global plugin.
 let g:mapleader = ','
+let g:maplocalleader = '-'
 
 " Set augroup.
 augroup MyAutoCmd
@@ -57,6 +58,10 @@ NeoBundleLazy 'othree/html5.vim', {
 NeoBundleLazy 'gregsexton/MatchTag', {
 \ 'autoload' : {
 \   'filetypes': ['html', 'htmldjango']
+\ }}
+NeoBundleLazy 'othree/xml.vim', {
+\ 'autoload' : {
+\   'filetypes': ['xml', 'html']
 \ }}
 NeoBundle 'xolox/vim-session', {'depends': 'xolox/vim-misc'}
 NeoBundleLazy 'moll/vim-bbye', {
@@ -1010,20 +1015,6 @@ noremap <silent> <M-Right>  <c-w>l
 noremap <silent> <A-Left>   <c-w>h
 noremap <silent> <A-Up>     <c-w>k
 noremap <silent> <A-Down>   <c-w>j
-
-"window operations
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sh <C-w>h
-nnoremap sl <C-w>l
-nnoremap sc <C-w>c
-nnoremap sn <C-w>n
-nnoremap sv <C-w>v
-nnoremap ss <C-w>s
-nnoremap sJ <C-w>J
-nnoremap sK <C-w>K
-nnoremap sH <C-w>H
-nnoremap sL <C-w>L
 
 inoremap <silent> <M-Right>  <c-o><c-w>l
 inoremap <silent> <A-Left>   <c-o><c-w>h
