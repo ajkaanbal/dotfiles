@@ -802,6 +802,9 @@ nnoremap <silent> <leader>a :<C-u>Unite buffer file_mru bookmark<CR>
 autocmd MyAutoCmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings() "{{{
 
+"Split-right with C-v
+imap <silent><buffer><expr> <C-v>  unite#do_action('right')
+
 " Clear searching highlight
 let @/ = ""
 nmap <buffer> <ESC>      <Plug>(unite_exit)
