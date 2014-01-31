@@ -133,6 +133,7 @@ NeoBundleLazy 'lambdalisue/vim-django-support', {
 \}}
 NeoBundle 'benmills/vimux'
 NeoBundle 'ajkaanbal/autoswap.vim'
+NeoBundle 'ajkaanbal/vim-togglecursor' 
 
 "Neobundle configuration
 call neobundle#config('unite.vim', {
@@ -940,30 +941,6 @@ vmap <Leader>vs "vy :call VimuxSlime()<CR>
 
 " Select current paragraph and send it to tmux
 nmap <Leader>vs vip<Leader>vs<CR>
-
-"}}}
-"tmux cursor toggle{{{
-augroup ToggleCursor
-    let gnome_terminal_profile_uuid =
-        \system('gsettings get org.gnome.Terminal.ProfilesList default')
-    let gnome_terminal_profile_uuid =
-        \substitute(gnome_terminal_profile_uuid, "'", "", "g")
-    let gnome_terminal_profile_uuid =
-        \substitute(gnome_terminal_profile_uuid, "\n", "", "g")
-    au InsertEnter * silent execute "!gsettings set
-        \ org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:
-        \/:".gnome_terminal_profile_uuid."/ cursor-shape ibeam"
-    au InsertLeave * silent execute "!gsettings set
-        \ org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:
-        \/:".gnome_terminal_profile_uuid."/ cursor-shape block"
-    au VimLeave * silent execute "!gsettings set org.gnome.Terminal.Legacy.
-        \Profile:/org/gnome/terminal/legacy/profiles:/
-        \:".gnome_terminal_profile_uuid."/ cursor-shape block"
-    au VimEnter * silent execute "!gsettings set org.gnome.Terminal.Legacy.
-        \Profile:/org/gnome/terminal/legacy/profiles:/
-        \:".gnome_terminal_profile_uuid."/ cursor-shape block"
-augroup END
-"}}}
 
 "}}}
 
