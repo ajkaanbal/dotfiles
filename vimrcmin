@@ -1,30 +1,76 @@
-" Neobundle {{{
+" Initialize: "{{{
+
+" Vim not vi.
+set nocompatible
+
+"We need a coolest (and useful) mapleader.  
+let g:mapleader = ','
+
+
+" Default bundle directory. .vim directory must exist.
+let s:neobundle_dir = expand('~/.vim/bundle')
 if has('vim_starting')
-   set nocompatible               " Be iMproved
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
- endif
+  "Load neobundle or download if not exist
+  if finddir('neobundle.vim', '.;') != ''
+    execute 'set runtimepath=^=' . finddir('neobundle.vim', '.;')
+  elseif &runtimepath !~ '/neobundle.vim'
+    if !isdirectory(s:neobundle_dir.'/neobundle.vim')
+      execute '!git clone https://github.com/Shougo/neobundle.vim.git '.s:neobundle_dir.'/neobundle.vim'
+      echo 'Neobundle ready!'
+    endif
+    execute 'set runtimepath^=' . s:neobundle_dir.'/neobundle.vim'
+  endif
+endif
 
- call neobundle#rc(expand('~/.vim/bundle/'))
+"Now, initializes Neobundle.
+call neobundle#rc(s:neobundle_dir)
 
- " Let NeoBundle manage NeoBundle
- NeoBundleFetch 'Shougo/neobundle.vim'
 
- " Recommended to install
- " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
- NeoBundle 'Shougo/vimproc'
-"}}}
+"Plugins, plugins everywhere {{{
+  "Let Neobundle manage Neobundle
+  NeoBundleFetch 'Shougo/neobundle.vim'
 
-"My bundles. {{{
-NeoBundle 'w0ng/vim-hybrid'
-"}}}
+  "Highly recomended. For asynchronous plugins.
+  NeoBundle 'Shougo/vimproc', { 'build': { 'unix': 'make -f make_unix.mak' } }
 
-" Basics {{{
-set nu
-"}}}
+  "A decent syntax colours
+  NeoBundle 'w0ng/vim-hybrid'
+"end plugin list }}}
 
-" Color scheme {{{ 
-syntax on
+" Plugins by filetype and enable indent. Required for Neobundle.
+filetype plugin indent on
+
+" Coloritos
+syntax enable
+" Terminal setting to allow to use `muchos coloritos`
 set t_Co=256
-let g:hybrid_use_Xresources = 1
-colorscheme hybrid
-"}}}
+
+"Check if every bundle listing is installed.
+NeoBundleCheck
+" end-initialization }}}
+
+
+" Edit {{{
+  
+" end-edit}}}
+
+
+" View {{{
+  set number
+" end-view}}}
+
+
+" Plugins settings: {{{
+  " vim-hybrid {{{
+   let bundle = neobundle#get('vim-hybrid')
+   function! bundle.hooks.on_source(bundle)
+      " Use predefined colors in ~/.Xresources (also in dotfiles)
+      let g:hybrid_use_Xresources = 1
+   endfunction
+   function! bundle.hooks.on_post_source(bundle)
+    colorscheme hybrid
+    " Custom colors for this color scheme
+    highlight Comment ctermfg=242
+   endfunction 
+  " }}}
+" end-plugins-settings}}}
