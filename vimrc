@@ -991,15 +991,12 @@ nnoremap <S-Right> :bnext<CR>
 inoremap <silent> <S-Left> <esc>:<c-u>bprevious<CR>
 inoremap <silent> <S-Right> <esc>:<c-u>bnext<CR>
 
-noremap <silent> <M-Right>  <c-w>l
-noremap <silent> <A-Left>   <c-w>h
-noremap <silent> <A-Up>     <c-w>k
-noremap <silent> <A-Down>   <c-w>j
+"Window operations
+nnoremap <silent><C-j> <C-w>j
+nnoremap <silent><C-k> <C-w>k
+nnoremap <silent><C-h> <C-w>h
+nnoremap <silent><C-l> <C-w>l
 
-inoremap <silent> <M-Right>  <c-o><c-w>l
-inoremap <silent> <A-Left>   <c-o><c-w>h
-inoremap <silent> <A-Up>     <c-o><c-w>k
-inoremap <silent> <A-Down>   <c-o><c-w>j
 
 " " Convert all tabs appropriately:
 map <C-R>t :set expandtab<CR>:%retab!<CR>
