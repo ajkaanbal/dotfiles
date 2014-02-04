@@ -63,10 +63,6 @@ NeoBundleCheck
 " Plugins settings: {{{
   " vim-hybrid {{{
    let bundle = neobundle#get('vim-hybrid')
-   function! bundle.hooks.on_source(bundle)
-      " Use predefined colors in ~/.Xresources (also in dotfiles)
-      let g:hybrid_use_Xresources = 1
-   endfunction
    function! bundle.hooks.on_post_source(bundle)
     colorscheme hybrid
     " Custom colors for this color scheme
