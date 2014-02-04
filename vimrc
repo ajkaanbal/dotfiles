@@ -41,7 +41,10 @@ NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'mattn/emmet-vim/'
+NeoBundleLazy 'mattn/emmet-vim/',{
+\ 'autoload' : {
+\   'filetypes': ['html', 'htmldjango']
+\ }}
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-indent'
