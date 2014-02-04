@@ -30,9 +30,7 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'Shougo/neocomplete.vim', {
-\ 'depends' : 'Shougo/context_filetype.vim',
 \ 'disabled' : !has('lua'),
-\ 'vim_version' : '7.3.885'
 \ }
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -595,8 +593,6 @@ hi Pmenu ctermfg=255 ctermbg=236
 hi PmenuSel ctermbg=255 ctermfg=24
 hi PmenuSbar ctermbg=233
 hi PmenuThumb ctermbg=238
-hi Normal ctermbg=none
-hi Comment ctermfg=242
 
 "# color options to listchars
 hi NonText ctermfg=darkgrey guifg=darkgrey ctermbg=none
@@ -614,7 +610,6 @@ match OverLength /\%81v.\+/
 
 "# Cursor line
 set cursorline
-hi CursorLine ctermbg=235 cterm=none
 "}}}
 
 
