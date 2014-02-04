@@ -620,9 +620,9 @@ set cursorline
 
 " neosnippet {{{
 " Plugin key-mappings.
-imap <C-k> <Plug>(neosnippet_jump_or_expand)
-smap <C-k> <Plug>(neosnippet_jump_or_expand)
-xmap <C-k> <Plug>(neosnippet_expand_target)
+imap <C-j> <Plug>(neosnippet_jump_or_expand)
+smap <C-j> <Plug>(neosnippet_jump_or_expand)
+xmap <C-j> <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
