@@ -466,10 +466,9 @@ set display+=uhex
 autocmd MyAutoCmd FileType *
       \ setl formatoptions-=ro | setl formatoptions+=mM
 
-if v:version >= 703
+if has('conceal')
   " For conceal.
-  set conceallevel=2 concealcursor=iv
-  set colorcolumn=79
+  set conceallevel=2 concealcursor=nvi
 endif
 
 " View setting.
