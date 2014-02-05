@@ -104,7 +104,7 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'junegunn/vim-easy-align'
