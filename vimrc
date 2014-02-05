@@ -80,9 +80,9 @@ NeoBundleLazy 'othree/javascript-libraries-syntax.vim', { 'autoload': {
       \ 'filetypes': 'javascript'}}
 NeoBundleLazy 'elzr/vim-json', { 'autoload': {
       \ 'filetypes': 'json' }}
-NeoBundleLazy 'chrisbra/color_highlight', {
+NeoBundleLazy 'chrisbra/Colorizer', {
 \ 'autoload' : {
-\   'filetypes': 'css'
+\   'filetypes': ['css', 'stylus']
 \ }}
 NeoBundleLazy 'wavded/vim-stylus', {
 \ 'autoload' : {
@@ -756,7 +756,7 @@ let g:session_autoload = 'no'
 "}}}
 
 " color_highlight {{{
-let g:colorizer_auto_filetype='css'
+let g:colorizer_auto_filetype='css,stylus'
 "}}}
 
 " unite.vim"{{{
