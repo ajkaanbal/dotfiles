@@ -132,9 +132,11 @@ NeoBundleLazy 'lambdalisue/vim-django-support', {
 \ 'autoload': {
 \   'filetypes': ['python']
 \}}
+NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'benmills/vimux'
 NeoBundle 'ajkaanbal/autoswap.vim'
 NeoBundle 'ajkaanbal/vim-togglecursor' 
+
 
 "Neobundle configuration
 call neobundle#config('unite.vim', {
