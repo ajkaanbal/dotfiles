@@ -132,6 +132,8 @@ NeoBundleLazy 'lambdalisue/vim-django-support', {
 \ 'autoload': {
 \   'filetypes': ['python']
 \}}
+
+NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'benmills/vimux'
 NeoBundle 'ajkaanbal/autoswap.vim'
@@ -586,11 +588,6 @@ set t_Co=256
 colorscheme hybrid
 
 highlight ExtraWhitespace ctermbg=9
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter *.* match ExtraWhitespace /\s\+$/
-autocmd InsertEnter *.* match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave *.* match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave *.* call clearmatches()
 
 "# Pemenu colors
 hi Pmenu ctermfg=255 ctermbg=236
@@ -962,7 +959,7 @@ nnoremap tm :tabm<Space>
 nnoremap td :tabclose<CR>
 
 " Remove all trailing whitespace:
-map <silent> <leader><Space> :%s/\s\+$//e<CR>
+nnoremap <silent> d<space> :StripWhitespace<esc>
 
 " " Convert all tabs appropriately:
 map <C-R>t :set expandtab<CR>:%retab!<CR>
