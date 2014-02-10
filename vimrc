@@ -107,6 +107,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'sdanielf/vim-stdtabs'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'matze/vim-move'
 NeoBundle 'haya14busa/vim-easymotion'
@@ -529,9 +530,7 @@ augroup MyAutoCmd
 
   "Pretty json
   autocmd FileType json setlocal equalprg=python\ -m\ json.tool
-  autocmd FileType html setlocal sw=2 ts=2 sts=2
   autocmd FileType htmldjango setlocal sw=2 ts=2 sts=2
-  autocmd FileType css  setlocal sw=2 ts=2 sts=2
   autocmd FileType stylus  setlocal sw=2 ts=2 sts=2
 augroup END
 
