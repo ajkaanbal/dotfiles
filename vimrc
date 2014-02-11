@@ -529,7 +529,7 @@ augroup MyAutoCmd
         \ setlocal path+=./;/
 
   "Pretty json
-  autocmd FileType json setlocal equalprg=python\ -m\ json.tool
+  autocmd FileType json setlocal equalprg=json_reformat
   autocmd FileType htmldjango setlocal sw=2 ts=2 sts=2
   autocmd FileType stylus  setlocal sw=2 ts=2 sts=2
 augroup END
@@ -622,14 +622,6 @@ imap <C-j> <Plug>(neosnippet_jump_or_expand)
 smap <C-j> <Plug>(neosnippet_jump_or_expand)
 xmap <C-j> <Plug>(neosnippet_expand_target)
 
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:snippets_dir='~/.vim/bundle/vim-snippets/snippets'
@@ -649,23 +641,12 @@ function! bundle.hooks.on_source(bundle)
   let g:acp_enableAtStartup = 0
 " Use smartcase.
   let g:neocomplete#enable_smart_case = 1
-" Use fuzzy completion.
-  let g:neocomplete#enable_fuzzy_completion = 0
 
-" Set manual completion length.
-  let g:neocomplete#manual_completion_start_length = 0
-" Set minimum keyword length.
-  let g:neocomplete#min_keyword_length = 5
-  let g:neocomplete#enable_insert_char_pre = 1
-  let g:neocomplete#skip_auto_completion_time = '0.6'
   let g:neocomplete#sources#dictionary#dictionaries = {
         \ 'default' : '',
         \ 'vimshell' : $HOME.'/.vimshell/command-history',
         \ }
 
-  let g:neocomplete#enable_auto_delimiter = 1
-  let g:neocomplete#disable_auto_select_buffer_name_pattern =
-        \ '\[Command Line\]'
   let g:neocomplete#max_list = 20
   let g:neocomplete#force_overwrite_completefunc = 1
   if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -683,48 +664,32 @@ function! bundle.hooks.on_source(bundle)
   if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
   endif
-  let g:neocomplete#keyword_patterns._ = '[0-9a-zA-Z:#_]\+'
+  let g:neocomplete#keyword_patterns._ = '\h\w*'
 
   let g:neocomplete#ignore_source_files = ['tag.vim']
 
+  if !exists('g:neocomplete#sources#vim#complete_functions')
+      let g:neocomplete#sources#vim#complete_functions = {}
+  endif
   let g:neocomplete#sources#vim#complete_functions = {
         \ 'Ref' : 'ref#complete',
-        \ 'Unite' : 'unite#complete_source',
         \ 'VimFiler' : 'vimfiler#complete',
         \}
-  call neocomplete#custom#source('look', 'min_pattern_length', 4)
 
   if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
   endif
   let g:neocomplete#sources#omni#input_patterns.python =
-  \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'')'
+  \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
 " mappings."{{{
-" <C-f>, <C-b>: page move.
-  inoremap <expr><C-f> pumvisible() ? "\<PageDown>" : "\<Right>"
-  inoremap <expr><C-b> pumvisible() ? "\<PageUp>" : "\<Left>"
 " <C-y>: paste.
   inoremap <expr><C-y> pumvisible() ? neocomplete#close_popup() : "\<C-r>\""
 " <C-e>: close popup.
   inoremap <expr><C-e> pumvisible() ? neocomplete#cancel_popup() : "\<End>"
-" <C-h>, <BS>: close popup and delete backword char.
-  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" <C-n>: neocomplete.
-  inoremap <expr><C-n> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>\<Down>"
-" <C-p>: keyword completion.
-  inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
-  inoremap <expr>' pumvisible() ? neocomplete#close_popup() : "'"
-
-  imap <expr> ` pumvisible() ?
-        \ "\<Plug>(neocomplete_start_unite_quick_match)" : '`'
-
   inoremap <expr><C-x><C-f>
         \ neocomplete#start_manual_complete('file')
 
-  inoremap <expr><C-g> neocomplete#undo_completion()
-  inoremap <expr><C-l> neocomplete#complete_common_string()
    " <TAB>: completion.
   inoremap <expr><TAB> pumvisible() ? "\<C-n>" :
         \ <SID>check_back_space() ? "\<TAB>" :
@@ -733,8 +698,6 @@ function! bundle.hooks.on_source(bundle)
     let col = col('.') - 1
     return !col || getline('.')[col - 1] =~ '\s'
   endfunction"}}}
-  "" <S-TAB>: completion back.
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " <CR>: close popup and save indent.
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
