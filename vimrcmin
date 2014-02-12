@@ -61,6 +61,9 @@ NeoBundleCheck
   set number
   set nowrap
   set listchars=extends:»
+  set splitbelow
+  set splitright
+
 " end-view}}}
 
 
