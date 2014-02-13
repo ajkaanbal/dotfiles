@@ -476,7 +476,7 @@ autocmd MyAutoCmd FileType *
 
 if has('conceal')
   " For conceal.
-  set conceallevel=2 concealcursor=nvi
+  set conceallevel=2 concealcursor="nvi"
 endif
 
 " View setting.
@@ -865,7 +865,12 @@ endif
 "}}}
 
 "indentLine {{{
-let g:indentLine_color_term = 235
+let g:indentLine_color_term = 236
+let bundle = neobundle#get('indentLine')
+function! bundle.hooks.on_post_source(bundle)
+    set concealcursor="inc"
+endfunction
+unlet bundle
 "}}}
 
 " Easyalign {{{
@@ -922,6 +927,7 @@ nmap <Leader>vs vip<Leader>vs<CR>
 
 "}}}
 
+"}}}
 
 "---------------------------------------------------------------------------
 " KeyMappings: "{{{
