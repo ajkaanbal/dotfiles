@@ -765,6 +765,10 @@ imap <silent><buffer><expr> <C-v>  unite#do_action('right')
 
 " Clear searching highlight
 let @/ = ""
+
+" Disable whitespace highlighting
+execute 'DisableWhitespace'
+
 nmap <buffer> <ESC>      <Plug>(unite_exit)
 if executable('ag')
     " Use ag in unite grep source.
