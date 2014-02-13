@@ -138,7 +138,7 @@ NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'benmills/vimux'
 NeoBundle 'ajkaanbal/autoswap.vim'
-NeoBundle 'ajkaanbal/vim-togglecursor' 
+NeoBundle 'ajkaanbal/vim-togglecursor'
 
 
 "Neobundle configuration
@@ -844,7 +844,24 @@ let g:syntastic_aggregate_errors = 1
 
 
 " vimfiler.vim"{{{
-nnoremap    <F2>   :<C-u>VimFilerExplorer<CR>
+if neobundle#tap('vimfiler')
+    nnoremap    <F2>   :<C-u>VimFilerExplorer<CR>
+    let g:vimfiler_as_default_explorer = 1
+
+    function! neobundle#tapped.hooks.on_source(bundle)
+        let g:vimfiler_tree_leaf_icon = ' '
+        let g:vimfiler_tree_opened_icon = '▾'
+        let g:vimfiler_tree_closed_icon = '▸'
+        let g:vimfiler_file_icon = ' '
+        let g:vimfiler_readonly_file_icon = '✗'
+        let g:vimfiler_marked_file_icon = '✓'
+    endfunction
+
+    autocmd MyAutoCmd FileType vimfiler call s:vimfiler_settings()
+    function! s:vimfiler_settings()
+        execute 'DisableWhitespace'
+    endfunction
+endif
 "}}}
 
 "indentLine {{{
