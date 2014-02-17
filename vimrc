@@ -109,7 +109,6 @@ NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'sdanielf/vim-stdtabs'
 NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'matze/vim-move'
 NeoBundle 'haya14busa/vim-easymotion'
 NeoBundleLazy 'mbbill/undotree', {
 \ 'autoload': {
@@ -139,6 +138,7 @@ NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'benmills/vimux'
 NeoBundle 'ajkaanbal/autoswap.vim'
 NeoBundle 'ajkaanbal/vim-togglecursor'
+NeoBundle 'tpope/vim-unimpaired'
 
 
 "Neobundle configuration
@@ -883,10 +883,6 @@ let g:jedi#completions_enable = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#show_call_signatures = 0
-"}}}
-
-" vim-move {{{
-let g:move_key_modifier = 'C'
 "}}}
 
 " undotoggle {{{
