@@ -946,9 +946,6 @@ nnoremap td :tabclose<CR>
 " Remove all trailing whitespace:
 nnoremap <silent> d<space> :StripWhitespace<esc>
 
-" " Convert all tabs appropriately:
-map <C-R>t :set expandtab<CR>:%retab!<CR>
-
 "#Navigate btween buffers
 nnoremap <silent><leader>0 :bfirst<CR>
 nnoremap <silent><leader>l :bnext<CR>
@@ -976,10 +973,6 @@ nnoremap <silent><C-j> <C-w>j
 nnoremap <silent><C-k> <C-w>k
 nnoremap <silent><C-h> <C-w>h
 nnoremap <silent><C-l> <C-w>l
-
-
-" " Convert all tabs appropriately:
-map <C-R>t :set expandtab<CR>:%retab!<CR>
 
 " Useful save mappings.
 inoremap <silent> <Leader>u  <C-o>:<C-u>update<CR>
