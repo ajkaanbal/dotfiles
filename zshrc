@@ -51,6 +51,8 @@ source $ZSH/oh-my-zsh.sh
 HOMEBIN=$HOME/.local/bin
 export PATH=$HOMEBIN:/usr/lib64/qt-3.3/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin
 
+export HISTSIZE=100000
+export SAVEHIST=100000
 setopt BANG_HIST # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY # Write to the history file immediately, not when the shell exits.
