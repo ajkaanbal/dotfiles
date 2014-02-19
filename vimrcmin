@@ -6,37 +6,48 @@ set nocompatible
 "We need a coolest (and useful) mapleader.  
 let g:mapleader = ','
 
+" Define Augroup as good practice to prevent double code execution on reload
+" vimrc
+augroup MyAutoCmd
+  autocmd!
+augroup END
 
-" Default bundle directory. .vim directory must exist.
-let s:neobundle_dir = expand('~/.vim/bundle')
-if has('vim_starting')
-  "Load neobundle or download if not exist
-  if finddir('neobundle.vim', '.;') != ''
-    execute 'set runtimepath=^=' . finddir('neobundle.vim', '.;')
-  elseif &runtimepath !~ '/neobundle.vim'
-    if !isdirectory(s:neobundle_dir.'/neobundle.vim')
-      execute '!git clone https://github.com/Shougo/neobundle.vim.git '.s:neobundle_dir.'/neobundle.vim'
-      echo 'Neobundle ready!'
+" Check for neobundle and install it if doesn't exist {{{
+  " Default bundle directory. .vim directory must exist.
+  let s:neobundle_dir = expand('~/.vim/bundle')
+  if has('vim_starting')
+    "Load neobundle or download if not exist
+    if finddir('neobundle.vim', '.;') != ''
+      execute 'set runtimepath=^=' . finddir('neobundle.vim', '.;')
+    elseif &runtimepath !~ '/neobundle.vim'
+      if !isdirectory(s:neobundle_dir.'/neobundle.vim')
+        execute '!git clone https://github.com/Shougo/neobundle.vim.git '.s:neobundle_dir.'/neobundle.vim'
+        echo 'Neobundle ready!'
+      endif
+      execute 'set runtimepath^=' . s:neobundle_dir.'/neobundle.vim'
     endif
-    execute 'set runtimepath^=' . s:neobundle_dir.'/neobundle.vim'
   endif
-endif
 
 "Now, initializes Neobundle.
 call neobundle#rc(s:neobundle_dir)
-
+"}}}
 
 "Plugins, plugins everywhere {{{
   "Let Neobundle manage Neobundle
   NeoBundleFetch 'Shougo/neobundle.vim'
 
   "Highly recomended. For asynchronous plugins.
-  NeoBundle 'Shougo/vimproc', { 'build': { 'unix': 'make -f make_unix.mak' } }
+  NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make -f make_unix.mak'}}
 
   NeoBundle 'Shougo/neocomplete.vim', { 'disabled' : !has('lua') }
 
   "A decent syntax colours
   NeoBundle 'w0ng/vim-hybrid'
+
+  " For web. Front-end {{{
+  NeoBundleLazy 'wavded/vim-stylus', {'autoload': {'filetypes': 'stylus'}}
+  " }}}
+
 "end plugin list }}}
 
 " Plugins by filetype and enable indent. Required for Neobundle.
@@ -51,21 +62,34 @@ set t_Co=256
 NeoBundleCheck
 " end-initialization }}}
 
+" Encoding {{{
+set encoding=utf8
+" }}}
 
 " Edit {{{
-  
+  "options needed for whitespaces instead tabs
+  set tabstop=4
+  set shiftwidth=4
+  set expandtab
 " end-edit}}}
-
 
 " View {{{
   set number
   set nowrap
-  set listchars=extends:»
+  set showcmd
+  set list  
+  set listchars=tab:▸\ ,trail:·,extends:»,precedes:«,nbsp:%,eol:¬
   set splitbelow
   set splitright
 
 " end-view}}}
 
+" Syntax {{{
+  augroup MyAutoCmd
+    autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
+    autocmd FileType html setlocal foldmethod=indent tabstop=2 shiftwidth=2
+  augroup END 
+" }}}
 
 " Plugins settings: {{{
   " vim-hybrid {{{
@@ -73,7 +97,7 @@ NeoBundleCheck
    function! bundle.hooks.on_post_source(bundle)
     colorscheme hybrid
     " Custom colors for this color scheme
-    highlight Comment ctermfg=242
+    "highlight Comment ctermfg=242
    endfunction 
   " }}}
 " end-plugins-settings}}}
