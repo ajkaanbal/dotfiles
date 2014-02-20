@@ -139,7 +139,7 @@ NeoBundle 'benmills/vimux'
 NeoBundle 'ajkaanbal/autoswap.vim'
 NeoBundle 'ajkaanbal/vim-togglecursor'
 NeoBundle 'tpope/vim-unimpaired'
-
+NeoBundle 'laurentgoudet/vim-howdoi'
 
 "Neobundle configuration
 call neobundle#config('unite.vim', {
@@ -925,6 +925,9 @@ nmap <Leader>vs vip<Leader>vs<CR>
 
 "}}}
 
+" Howdoi {{{
+map <C-x><C-H> <Plug>Howdoi
+"}}}
 "---------------------------------------------------------------------------
 " KeyMappings: "{{{
 
