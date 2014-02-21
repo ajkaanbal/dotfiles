@@ -81,6 +81,7 @@ set encoding=utf8
   set listchars=tab:▸\ ,trail:·,extends:»,precedes:«,nbsp:%,eol:¬
   set splitbelow
   set splitright
+  set foldlevel=5
 
 " end-view}}}
 
