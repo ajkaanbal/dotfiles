@@ -140,6 +140,8 @@ NeoBundle 'ajkaanbal/autoswap.vim'
 NeoBundle 'ajkaanbal/vim-togglecursor'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'laurentgoudet/vim-howdoi'
+NeoBundleLazy 'ekalinin/Dockerfile.vim',
+\{'autoload': {'filetypes': 'Dockerfile'}}
 
 "Neobundle configuration
 call neobundle#config('unite.vim', {
