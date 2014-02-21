@@ -136,6 +136,7 @@ NeoBundleLazy 'lambdalisue/vim-django-support', {
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'benmills/vimux'
+NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'ajkaanbal/autoswap.vim'
 NeoBundle 'ajkaanbal/vim-togglecursor'
 NeoBundle 'tpope/vim-unimpaired'
