@@ -433,7 +433,7 @@ set completeopt-=preview
 "  b : files in loaded buffers, not in a window
 "  t : the `tags` file
 "  i : current and included files
-set complete=.,w,b,t,i
+set complete=.,w,b,u,t,i
 
 " Set popup menu max height.
 set pumheight=20
@@ -612,6 +612,11 @@ match OverLength /\%81v.\+/
 
 "# Cursor line
 set cursorline
+augroup cline
+  autocmd!
+  autocmd WinLeave,InsertEnter * set nocursorline
+  autocmd WinEnter,InsertLeave * set cursorline
+augroup END
 "}}}
 
 
