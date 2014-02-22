@@ -2,8 +2,7 @@ Control-p: history-search-backward
 Control-n: history-search-forward
 "\e[A": history-search-backward
 "\e[B": history-search-forward
-"\el": clear-screen
-Meta-l: clear-screen
+Control-space: clear-screen
 set show-all-if-ambiguous on
 set completion-ignore-case on
 

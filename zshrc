@@ -125,4 +125,4 @@ zle -N zle-line-init
 bindkey '^T' autosuggest-toggle
 
 #remap keybind for clear screen
-bindkey '^[l' clear-screen
+bindkey '^@' clear-screen
