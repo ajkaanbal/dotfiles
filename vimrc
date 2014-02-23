@@ -101,7 +101,7 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
 \   'filetypes': 'python'
 \ }}
 
-NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tomtom/tcomment_vim'
