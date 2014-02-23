@@ -47,6 +47,9 @@ call neobundle#rc(s:neobundle_dir)
   " For web. Front-end {{{
   NeoBundleLazy 'wavded/vim-stylus', {'autoload': {'filetypes': 'stylus'}}
   " }}}
+  " Utils {{{
+  NeoBundle 'christoomey/vim-tmux-navigator'
+  "}}}
 
 "end plugin list }}}
 
