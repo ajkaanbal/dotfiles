@@ -56,7 +56,7 @@ NeoBundleLazy 'othree/html5.vim', {
 \ 'autoload' : {
 \   'filetypes': ['html','htmldjango']
 \ }}
-NeoBundleLazy 'gregsexton/MatchTag', {
+NeoBundleLazy 'Valloric/MatchTagAlways', {
 \ 'autoload' : {
 \   'filetypes': ['html', 'htmldjango']
 \ }}
