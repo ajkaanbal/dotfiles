@@ -356,7 +356,7 @@ set number
 
 " Show <TAB> and <CR>
 set list
-set listchars=tab:▸\ ,trail:·,extends:»,precedes:«,nbsp:%;eol:¬
+set listchars=tab:▸\ ,trail:·,extends:»,precedes:«,nbsp:%,eol:¬
 
 " Do not wrap long line.
 set nowrap
