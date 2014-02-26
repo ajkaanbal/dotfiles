@@ -536,6 +536,10 @@ augroup MyAutoCmd
   autocmd FileType json setlocal equalprg=json_reformat
   autocmd FileType htmldjango setlocal sw=2 ts=2 sts=2
   autocmd FileType stylus  setlocal sw=2 ts=2 sts=2
+
+  " Close help buffer with q
+  autocmd FileType help :nnoremap <buffer> <silent> q :<C-u>bdelete<CR>
+  autocmd CmdwinEnter * map <buffer> <silent> q :<C-u>q<CR>
 augroup END
 
 " Python
@@ -944,6 +948,9 @@ nmap <leader>gV :Gitv!  --all<cr>
 vmap <leader>gV :Gitv!  --all<cr>
 "}}}
 "---------------------------------------------------------------------------
+"}}}
+
+"---------------------------------------------------------------------------
 " KeyMappings: "{{{
 
 map <C-S-Right> :tabprev<CR>
@@ -996,7 +1003,7 @@ nnoremap <silent><C-l> <C-w>l
 inoremap <silent> <Leader>u  <C-o>:<C-u>update<CR>
 nnoremap <silent> <Leader>u :<C-u>update<CR>
 nnoremap <silent> <Leader>w        :<C-u>wa<CR>
-
+map ' `
 
 " Easy escape."{{{
 inoremap jj           <Esc>`^
@@ -1026,7 +1033,6 @@ vnoremap <S-Tab> <gv
 
 "}}}
 
-
 "---------------------------------------------------------------------------
 " Others: {{{
 
@@ -1038,7 +1044,6 @@ set ssop+=folds
 "let g:ruby_path = system('rvm current')
 
 " }}}
-
 
 if !has('vim_starting')
     " Call on_source hook when reloading .vimrc.
