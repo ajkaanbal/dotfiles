@@ -103,6 +103,7 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
 
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'gregsexton/gitv'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'kshenoy/vim-signature'
@@ -935,6 +936,12 @@ nmap <Leader>vs vip<Leader>vs<CR>
 
 " Howdoi {{{
 map <C-x><C-H> <Plug>Howdoi
+"}}}
+
+" gitv {{{
+nmap <leader>gv :Gitv   --all<cr>
+nmap <leader>gV :Gitv!  --all<cr>
+vmap <leader>gV :Gitv!  --all<cr>
 "}}}
 "---------------------------------------------------------------------------
 " KeyMappings: "{{{
