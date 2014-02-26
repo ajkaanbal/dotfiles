@@ -144,7 +144,7 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'laurentgoudet/vim-howdoi'
 NeoBundleLazy 'ekalinin/Dockerfile.vim',
 \{'autoload': {'filetypes': 'Dockerfile'}}
-
+NeoBundle 'evanmiller/nginx-vim-syntax', {'autoload': {'filetypes': 'nginx'}}
 "Neobundle configuration
 call neobundle#config('unite.vim', {
 \   'lazy': 1,
