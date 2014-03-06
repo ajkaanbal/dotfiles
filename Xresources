@@ -1,0 +1,71 @@
+URxvt.scrollBar: off
+! Fonts
+#define fonts \
+    xft:Sauce Code Powerline:pixelsize=12, \
+    xft:DejaVu Sans Mono for Powerline:size=9, \
+    xft:Liberation Mono Powerline:size=9, \
+    xft:Droid Sans Mono for Powerline:size=9, \
+    xft:Inconsolata for Powerline:size=9
+
+URxvt.font: fonts
+
+URxvt*termName:screen-256color
+URxvt.jumpScroll: false
+URxvt.saveLines: 32
+URxvt.letterSpace: -1
+URxvt.internalBorder: 0
+URxvt*loginShell: true
+
+!to know with xdyinfo | grep dots
+Xft.dpi: 96
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+URxvt.perl-lib: ~/.local/urxvt/urxvt-perls
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+
+! Tomorrow Night
+
+!MISC
+URxvt.background:  #262626
+URxvt.foreground:  #A8A8A8
+
+URxvt.colorBD:     #9B8AA8
+URxvt.colorIT:     #9B8AA8
+URxvt.colorUL:     #B29EB8
+
+!BLK
+URxvt.color0:      #404040
+URxvt.color8:      #767676
+
+!WHT
+URxvt.color7:      #D0D0D0
+URxvt.color15:     #FFFFFF
+
+!RED
+URxvt.color1:  #D0689D
+URxvt.color9:  #FFA0D5
+
+!GRN
+URxvt.color2:  #5E9A34
+URxvt.color10: #95D16B
+
+!YEL
+URxvt.color3:  #AE8250
+URxvt.color11: #E4B885
+
+!BLU
+URxvt.color4:  #698FC2
+URxvt.color12: #9EC5F9
+
+!MAG
+URxvt.color5:  #B171DC
+URxvt.color13: #E8A8FF
+
+!CYN
+URxvt.color6:  #2E9E6C
+URxvt.color14: #6CD5A3
+
