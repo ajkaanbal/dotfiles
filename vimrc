@@ -134,6 +134,7 @@ NeoBundleLazy 'lambdalisue/vim-django-support', {
 \   'filetypes': ['python']
 \}}
 
+NeoBundleLazy 'artnez/vim-wipeout', {'autoload': {'commands': 'Wipeout'}}
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'benmills/vimux'
