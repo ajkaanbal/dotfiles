@@ -17,14 +17,14 @@ URxvt.scrollBar: off
     xft:Inconsolata for Powerline:size=9
 URxvt.font: fonts
 URxvt.boldFont: fonts
-URxvt*termName:screen-256color
+URxvt*termName:rxvt-256color
 URxvt.jumpScroll: false
 URxvt.saveLines: 32
 URxvt.letterSpace: -1
 URxvt.internalBorder: 0
 URxvt*loginShell: true
 URxvt.intensityStyles: false
-
+URxvt.cursorBlink: true
 !Copy to clipboard using Ctrl-Shift-c
 URxvt.perl-ext-common:  default,clipboard,keyboard-select,fullscreen
 URxvt.iso14755 : false
@@ -40,9 +40,9 @@ URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.F11: perl:fullscreen:switch
 
 ! Tango color palette
-URxvt*background:         #2e3436
+URxvt*background:         #262626
 URxvt*foreground:         #eeeeec
-URxvt*cursorColor:        #8ae234
+URxvt*cursorColor:        #606060
 ! foreground color for underline
 URxvt*colorUL:            #8ae234
 ! line color for underline

@@ -127,3 +127,6 @@ bindkey '^T' autosuggest-toggle
 
 #remap keybind for clear screen
 bindkey '^@' clear-screen
+
+#coloritos
+eval `dircolors $HOME/.dir_colors`
