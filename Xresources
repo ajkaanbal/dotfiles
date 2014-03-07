@@ -38,57 +38,39 @@ URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
 !Fullscreen
 URxvt.keysym.F11: perl:fullscreen:switch
-! Tomorrow Night
 
-!TomorrowNight
-#define t_background        #1d1f21
-#define t_current_line      #282a2e
-#define t_selection         #373b41
-#define t_foreground        #c5c8c6
-#define t_comment       #969896
-#define t_red       #cc6666
-#define t_orange        #de935f
-#define t_yellow            #f0c674
-#define t_green         #b5bd68
-#define t_aqua          #8abeb7
-#define t_blue          #81a2be
-#define t_purple            #b294bb
-
-*.foreground:   t_foreground
-*.background:   t_background
-*.cursorColor:  #aeafad
-
-! Black / Grey
-*.color0:       #000000
-*.color8:       #666666
-
-! Red / Bright Red
-*.color1:       t_red
-*.color9:       #FF3334
-
-! Green + Bright Green
-*.color2:       t_green
-*.color10:      #9ec400
-
-! Yellow (Orange) + Bright Yellow (Yellow)
-*.color3:       t_orange
-*.color11:      t_yellow
-
-! Blue + Bright Blue
-*.color4:       t_blue
-*.color12:      t_blue
-
-! Magenta (Purple) + Bright Magenta
-*.color5:       t_purple
-*.color13:      #b777e0
-
-! Cyan (Aqua) + Bright Cyan
-*.color6:       t_aqua
-*.color14:      #54ced6
-
-! Light Grey (Selection) + White (Current Line)
-*.color7:       t_selectrue
-*.color15:      t_current_line
+! Tango color palette
+URxvt*background:         #2e3436
+URxvt*foreground:         #eeeeec
+URxvt*cursorColor:        #8ae234
+! foreground color for underline
+URxvt*colorUL:            #8ae234
+! line color for underline
+URxvt*underlineColor:     #92659a
+! black dark/light
+URxvt*color0:             #2e3436
+URxvt*color8:             #6e706b
+! red dark/light
+URxvt*color1:             #cc0000
+URxvt*color9:             #ef2929
+! green dark/light
+URxvt*color2:             #4e9a06
+URxvt*color10:            #8ae234
+! yellow dark/light
+URxvt*color3:             #edd400
+URxvt*color11:            #fce94f
+! blue dark/light
+URxvt*color4:             #3465a4
+URxvt*color12:            #729fcf
+! magenta dark/light
+URxvt*color5:             #92659a
+URxvt*color13:            #c19fbe
+! cyan dark/light
+URxvt*color6:             #07c7ca
+URxvt*color14:            #63e9e9
+! white dark/light
+URxvt*color7:             #d3d7cf
+URxvt*color15:            #eeeeec
 
 !Color to man pages
 URxvt.colorIT:      #87af5f
