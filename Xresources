@@ -89,3 +89,8 @@ URxvt.keysym.F11: perl:fullscreen:switch
 ! Light Grey (Selection) + White (Current Line)
 *.color7:       t_selectrue
 *.color15:      t_current_line
+
+!Color to man pages
+URxvt.colorIT:      #87af5f
+URxvt.colorBD:      #d7d7d7
+URxvt.colorUL:      #87afd7
