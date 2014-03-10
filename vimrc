@@ -146,6 +146,7 @@ NeoBundle 'laurentgoudet/vim-howdoi'
 NeoBundleLazy 'ekalinin/Dockerfile.vim',
 \{'autoload': {'filetypes': 'Dockerfile'}}
 NeoBundle 'evanmiller/nginx-vim-syntax', {'autoload': {'filetypes': 'nginx'}}
+NeoBundle 'LeafCage/yankround.vim'
 "Neobundle configuration
 call neobundle#config('unite.vim', {
 \   'lazy': 1,
@@ -949,6 +950,18 @@ nmap <leader>gV :Gitv!  --all<cr>
 vmap <leader>gV :Gitv!  --all<cr>
 "}}}
 "---------------------------------------------------------------------------
+
+" yankround {{{
+nmap p <Plug>(yankround-p)
+xmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+xmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+"}}}
+
 "}}}
 
 "---------------------------------------------------------------------------
