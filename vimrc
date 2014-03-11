@@ -4,6 +4,7 @@
 " No 'vi' compatible commands.
 set nocompatible
 
+
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
@@ -142,6 +143,7 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'ajkaanbal/autoswap.vim'
 NeoBundle 'ajkaanbal/vim-togglecursor'
 NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'laurentgoudet/vim-howdoi'
 NeoBundleLazy 'ekalinin/Dockerfile.vim',
 \{'autoload': {'filetypes': 'Dockerfile'}}
@@ -317,7 +319,7 @@ set isfname-==
 autocmd MyAutoCmd BufWritePost vimrc source $MYVIMRC
 
 " Keymapping timeout.
-set timeout timeoutlen=3000 ttimeoutlen=100
+set timeout timeoutlen=1200 ttimeoutlen=50
 
 " CursorHold time.
 set updatetime=1000
