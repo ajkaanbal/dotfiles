@@ -1,6 +1,5 @@
 # dotfiles
 
-
 ## MC
 
 
@@ -16,18 +15,3 @@ Search skin= and replace by
     $ ln -s ~/.ajkaanbal_mc_skin.ini ~/.local/share/mc/skins/ajkaanbal.ini
     ```
 
-3. Done.
-
-
-## Vim Plugins
-
-Most of plugins are git submodules. 
-
-### Fuzzyfinder
-
-For use fuzzyfinder just clone it from bitbucket repository into vim/bundle
-
-```bash
-$ cd ~/.vim/bundle
-$ hg clone https://bitbucket.org/ns9tks/vim-l9
-$ hg clone https://bitbucket.org/ns9tks/vim-fuzzyfinder```
