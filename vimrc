@@ -18,9 +18,21 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+" Check for neobundle and install it if doesn't exist {{{
+  " Default bundle directory. .vim directory must exist.
+  let s:neobundle_dir = expand('~/.vim/bundle')
+  if has('vim_starting')
+    "Load neobundle or download if not exist
+    if finddir('neobundle.vim', '.;') != ''
+      execute 'set runtimepath=^=' . finddir('neobundle.vim', '.;')
+    elseif &runtimepath !~ '/neobundle.vim'
+      if !isdirectory(s:neobundle_dir.'/neobundle.vim')
+        execute '!git clone https://github.com/Shougo/neobundle.vim.git '.s:neobundle_dir.'/neobundle.vim'
+        echo 'Neobundle ready!'
+      endif
+      execute 'set runtimepath^=' . s:neobundle_dir.'/neobundle.vim'
+    endif
+  endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
