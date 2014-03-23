@@ -124,6 +124,7 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'sdanielf/vim-stdtabs'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'haya14busa/vim-easymotion'
+NeoBundle 'wikitopian/hardmode'
 NeoBundleLazy 'mbbill/undotree', {
 \ 'autoload': {
 \    'commands': 'UndotreeToggle'
@@ -959,6 +960,11 @@ nmap <leader>gv :Gitv   --all<cr>
 nmap <leader>gV :Gitv!  --all<cr>
 vmap <leader>gV :Gitv!  --all<cr>
 "}}}
+
+" hardmode {{{
+autocmd MyAutoCmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+nnoremap <leader>th <Esc>:call ToggleHardMode()<CR>
+" }}}
 "---------------------------------------------------------------------------
 
 " yankround {{{
