@@ -125,6 +125,7 @@ NeoBundle 'sdanielf/vim-stdtabs'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'wikitopian/hardmode'
+NeoBundle 'wellle/targets.vim'
 NeoBundleLazy 'mbbill/undotree', {
 \ 'autoload': {
 \    'commands': 'UndotreeToggle'
