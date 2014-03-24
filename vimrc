@@ -123,7 +123,7 @@ NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'sdanielf/vim-stdtabs'
 NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'haya14busa/vim-easymotion'
+NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'wikitopian/hardmode'
 NeoBundleLazy 'mbbill/undotree', {
 \ 'autoload': {
