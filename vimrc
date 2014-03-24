@@ -1056,8 +1056,6 @@ if &term =~ '^screen'
 endif
 
 "indent with tab and shift tab
-nnoremap <Tab> >>_
-nnoremap <S-Tab> <<_
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
