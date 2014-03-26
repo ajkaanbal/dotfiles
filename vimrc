@@ -253,7 +253,7 @@ set hlsearch
 set wrapscan
 
 " Clear last searching highlight
-nnoremap <silent><space>l :<c-u>let @/ = ""<return><esc>
+nnoremap <silent><space><space> :<c-u>let @/ = ""<return><esc>
 "}}}
 
 
