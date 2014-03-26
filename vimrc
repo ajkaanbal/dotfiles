@@ -870,6 +870,10 @@ let g:syntastic_quiet_messages = {'level': 'warnings'}
 let g:syntastic_aggregate_errors = 1
 "}}}
 
+" easy-motion{{{
+    "Bi-directional find motion
+    nmap s <Plug>(easymotion-s)
+"}}}
 
 "}}}
 
