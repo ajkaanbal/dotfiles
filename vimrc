@@ -62,6 +62,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundleLazy 'kana/vim-textobj-django-template', {
+\ 'depends': 'mjbrownie/django-template-textobjects',
 \ 'autoload' : {
 \   'filetypes': ['html', 'htmldjango']
 \ }}
