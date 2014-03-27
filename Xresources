@@ -80,15 +80,20 @@ URxvt.keysym.F11: perl:fullscreen:switch
 
 ! xterm ----------------------------------------------------------------------
 
-xterm*faceName:          fonts
+xterm*faceName: Sauce Code Powerline,DejaVu Sans Mono for Powerline
+xterm*fontWarnings: 2
+xterm*faceSize: 9 
 xterm*allowBoldFonts: false
+xterm*assumeAllChars: true
 
-xterm*renderFont: true
+xterm*wideChars: true
+xterm*showMissingGlyphs: true
 xterm*selectToClipboard: true
 xterm*dynamicColors:      true
 xterm*cursorBlink:        true
 xterm*locale: UTF-8
 xterm*utf8:               3
+xterm*utf8Fonts: 2
 xterm*eightBitInput:      true
 xterm*saveLines:          512
 xterm*scrollKey:          true
@@ -97,8 +102,10 @@ xterm*scrollBar:          false
 xterm*rightScrollBar:     true
 xterm*jumpScroll:         true
 xterm*multiScroll:        true
-xterm*toolBar:            false+
+xterm*toolBar:            false
 XTerm*TrimSelection: true
+!! Multiple fonts in xterm
+xterm*font2:            5x7
 ! copy and paste with clipboard
 xterm*translations: #override \
     Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
