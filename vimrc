@@ -59,6 +59,7 @@ NeoBundleLazy 'mattn/emmet-vim/',{
 \   'filetypes': ['html', 'htmldjango']
 \ }}
 NeoBundle 'tpope/vim-repeat'
+NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundleLazy 'kana/vim-textobj-django-template', {
@@ -145,7 +146,7 @@ function! bundle.hooks.on_post_source(bundle)
     silent! execute 'doautocmd Filetype' &filetype
 endfunction
 
-NeoBundleLazy 'django.vim', {
+NeoBundleLazy 'amadeus/django.vim', {
 \ 'autoload' : {
 \   'filetypes': ['htmldjango','django']
 \ }}
