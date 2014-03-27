@@ -11,7 +11,6 @@ if !1 | finish | endif
 " Use ',' instead of '\'.
 " Use <Leader> in global plugin.
 let g:mapleader = ','
-let g:maplocalleader = '-'
 
 " Set augroup.
 augroup MyAutoCmd
@@ -77,7 +76,7 @@ NeoBundleLazy 'Valloric/MatchTagAlways', {
 \ }}
 NeoBundleLazy 'othree/xml.vim', {
 \ 'autoload' : {
-\   'filetypes': ['xml', 'html']
+\   'filetypes': ['xml', 'html', 'htmldjango']
 \ }}
 NeoBundle 'xolox/vim-session', {'depends': 'xolox/vim-misc'}
 NeoBundleLazy 'moll/vim-bbye', {
