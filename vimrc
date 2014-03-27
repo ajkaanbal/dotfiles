@@ -117,6 +117,7 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
 
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tomtom/tcomment_vim'
@@ -376,7 +377,7 @@ set number
 
 " Show <TAB> and <CR>
 set list
-set listchars=tab:▸\ ,trail:·,extends:»,precedes:«,nbsp:%,eol:¬
+set listchars=tab:▶\ ,trail:·,extends:»,precedes:«,nbsp:%,eol:¬
 
 " Do not wrap long line.
 set nowrap
@@ -747,7 +748,7 @@ let g:session_autoload = 'no'
 "}}}
 
 " color_highlight {{{
-let g:colorizer_auto_filetype='css,stylus'
+let g:colorizer_auto_color = 0
 "}}}
 
 " unite.vim"{{{
@@ -974,7 +975,7 @@ vmap <leader>gV :Gitv!  --all<cr>
 "}}}
 
 " hardmode {{{
-autocmd MyAutoCmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+" autocmd MyAutoCmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>th <Esc>:call ToggleHardMode()<CR>
 " }}}
 "---------------------------------------------------------------------------
@@ -990,6 +991,13 @@ nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
 "}}}
 
+" gitgutter {{{
+  nmap [h <Plug>GitGutterPrevHunk
+  nmap ]h <Plug>GitGutterNextHunk
+  nmap <Leader>ghs <Plug>GitGutterStageHunk
+  nmap <Leader>ghr <Plug>GitGutterRevertHunk
+  nmap <Leader>ghp <Plug>GitGutterPreviewHunk
+" }}}
 "}}}
 
 "---------------------------------------------------------------------------
