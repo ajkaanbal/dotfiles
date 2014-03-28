@@ -41,44 +41,82 @@ URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.F11: perl:fullscreen:switch
 
 ! Tango color palette
-*background:         #262626
-*foreground:         #eeeeec
-*cursorColor:        #606060
+URxvt*background:         #262626
+URxvt*foreground:         #eeeeec
+URxvt*cursorColor:        #606060
 ! foreground color for underline
-*colorUL:            #8ae234
+URxvt*colorUL:            #8ae234
 ! line color for underline
-*underlineColor:     #92659a
+URxvt*underlineColor:     #92659a
 ! black dark/light
-*color0:             #2e3436
-*color8:             #6e706b
+URxvt*color0:             #2e3436
+URxvt*color8:             #6e706b
 ! red dark/light
-*color1:             #cc0000
-*color9:             #ef2929
+URxvt*color1:             #cc0000
+URxvt*color9:             #ef2929
 ! green dark/light
-*color2:             #4e9a06
-*color10:            #8ae234
+URxvt*color2:             #4e9a06
+URxvt*color10:            #8ae234
 ! yellow dark/light
-*color3:             #edd400
-*color11:            #fce94f
+URxvt*color3:             #edd400
+URxvt*color11:            #fce94f
 ! blue dark/light
-*color4:             #3465a4
-*color12:            #729fcf
+URxvt*color4:             #3465a4
+URxvt*color12:            #729fcf
 ! magenta dark/light
-*color5:             #92659a
-*color13:            #c19fbe
+URxvt*color5:             #92659a
+URxvt*color13:            #c19fbe
 ! cyan dark/light
-*color6:             #07c7ca
-*color14:            #63e9e9
+URxvt*color6:             #07c7ca
+URxvt*color14:            #63e9e9
 ! white dark/light
-*color7:             #d3d7cf
-*color15:            #eeeeec
-
+URxvt*color7:             #d3d7cf
+URxvt*color15:            #eeeeec
 !Color to man pages
-*.colorIT:      #87af5f
-*.colorBD:      #d7d7d7
-*.colorUL:      #87afd7
+URxvt*.colorIT:      #87af5f
+URxvt*.colorBD:      #d7d7d7
+URxvt*.colorUL:      #87afd7
+
 
 ! xterm ----------------------------------------------------------------------
+! Colors for xterm
+
+! Tango color palette
+xterm*background:         #262626
+xterm*foreground:         #eeeeec
+xterm*cursorColor:        #606060
+! foreground color for underline
+xterm*colorUL:            #8ae234
+! line color for underline
+xterm*underlineColor:     #92659a
+! black dark/light
+xterm*color0:             #2e3436
+xterm*color8:             #6e706b
+! red dark/light
+xterm*color1:             #cc0000
+xterm*color9:             #ef2929
+! green dark/light
+xterm*color2:             #4e9a06
+xterm*color10:            #8ae234
+! yellow dark/light
+xterm*color3:             #edd400
+xterm*color11:            #fce94f
+! blue dark/light
+xterm*color4:             #3465a4
+xterm*color12:            #729fcf
+! magenta dark/light
+xterm*color5:             #92659a
+xterm*color13:            #c19fbe
+! cyan dark/light
+xterm*color6:             #07c7ca
+xterm*color14:            #63e9e9
+! white dark/light
+xterm*color7:             #d3d7cf
+xterm*color15:            #eeeeec
+!Color to man pages
+xterm*.colorIT:      #87af5f
+xterm*.colorBD:      #d7d7d7
+xterm*.colorUL:      #87afd7
 
 xterm*faceName: Sauce Code Powerline,DejaVu Sans Mono for Powerline
 xterm*fontWarnings: 2
