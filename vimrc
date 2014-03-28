@@ -32,6 +32,7 @@ augroup END
       execute 'set runtimepath^=' . s:neobundle_dir.'/neobundle.vim'
     endif
   endif
+"}}}
 
 call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -758,9 +759,14 @@ call unite#custom#source('file_rec', 'sorters', 'sorter_reverse')
 call unite#custom#source(
         \ 'buffer,file_rec/async,file_rec,file_mru', 'matchers',
         \ ['converter_tail', 'matcher_regexp'])
+
 call unite#custom#source(
-        \ 'buffer,file_rec/async,file_rec,file_mru', 'converters',
+        \ 'buffer', 'converters',
         \ ['converter_file_directory'])
+
+call unite#custom#source('file_rec/async,file_rec,file_mru', 'filters',
+\ ['converter_relative_word', 'matcher_default',
+\  'sorter_default', 'converter_relative_abbr'])
 
 " Directory partial match.
 call unite#custom#default_action('directory', 'narrow')
