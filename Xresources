@@ -18,7 +18,6 @@ URxvt.scrollBar: off
 URxvt.font: fonts
 URxvt.boldFont: fonts
 xterm*xftAntialias: true
-URxvt*termName:rxvt-256color
 URxvt.jumpScroll: false
 URxvt.saveLines: 32
 URxvt.letterSpace: -1
