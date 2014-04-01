@@ -158,7 +158,7 @@ NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'benmills/vimux'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'ajkaanbal/autoswap.vim'
-NeoBundle 'ajkaanbal/vim-togglecursor'
+NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'laurentgoudet/vim-howdoi'
@@ -322,7 +322,7 @@ set infercase
 " Enable folding.
 set foldenable
 set foldmethod=indent
-set foldlevelstart=4
+set foldlevelstart=6
 
 
 
@@ -793,7 +793,7 @@ nnoremap <leader>p :<C-u>Unite file_rec/async<cr>
 nnoremap <leader>b :<C-u>Unite buffer<cr>
 inoremap <leader>b <ESC>:<C-u>Unite buffer<cr>
 nnoremap <leader>r :<C-u>Unite file_mru<CR>
-nnoremap <leader>/ :<C-u>Unite grep:$buffers<CR>
+nnoremap <leader>/ :<C-u>Unite grep:.<CR>
 nnoremap <silent> <leader>a :<C-u>Unite buffer file_mru bookmark<CR>
 
 autocmd MyAutoCmd FileType unite call s:unite_my_settings()
