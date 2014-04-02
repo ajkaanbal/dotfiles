@@ -30,8 +30,7 @@ NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'Shougo/neocomplete.vim', {
 \ 'disabled' : !has('lua'),
 \ }
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
@@ -162,13 +161,6 @@ call neobundle#config('neocomplete.vim', {
 \ 'lazy' : 1,
 \ 'autoload' : {
 \   'insert' : 1,
-\ }})
-call neobundle#config('neosnippet.vim', {
-\ 'lazy' : 1,
-\ 'autoload' : {
-\   'insert' : 1,
-\   'filetypes' : 'snippet',
-\   'unite_sources' : ['snippet', 'neosnippet/user', 'neosnippet/runtime'],
 \ }})
 
 call neobundle#config('vimfiler', {
@@ -635,17 +627,14 @@ augroup END
 "---------------------------------------------------------------------------
 " Plugins: "{{{
 
-" neosnippet {{{
-" Plugin key-mappings.
-imap <C-j> <Plug>(neosnippet_jump_or_expand)
-smap <C-j> <Plug>(neosnippet_jump_or_expand)
-xmap <C-j> <Plug>(neosnippet_expand_target)
+" UltiSnips {{{
 
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:snippets_dir='~/.vim/bundle/vim-snippets/snippets'
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/snippets'
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 "}}}
 
 " Neocomplete {{{
