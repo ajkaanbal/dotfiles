@@ -33,6 +33,7 @@ NeoBundle 'Shougo/neocomplete.vim', {
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim'}
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'bling/vim-airline'
@@ -1018,7 +1019,7 @@ nnoremap <silent><leader>7 :b7<CR>
 nnoremap <silent><leader>8 :b8<CR>
 nnoremap <silent><leader>9 :b9<CR>
 nnoremap <silent><leader>d :bdelete<CR>
-nnoremap <silent><leader>D :Bdelete<CR>
+nnoremap <silent><leader>D :<c-u>Bdelete<CR>
 nnoremap <S-Left> :bprevious<CR>
 nnoremap <S-Right> :bnext<CR>
 
