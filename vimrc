@@ -539,6 +539,21 @@ augroup MyAutoCmd
   " Close help buffer with q
   autocmd FileType help :nnoremap <buffer> <silent> q :<C-u>bdelete<CR>
   autocmd CmdwinEnter * map <buffer> <silent> q :<C-u>q<CR>
+
+  "functions
+    fun! <SID>DetectHTMLDjango()
+      let n = 1
+      while n < 20 && n < line("$")
+        if getline(n) =~ '{%\s*\(extends\|block\|comment\|ssi\|if\|for\| blocktrans\)\>'
+          set ft=htmldjango
+          return
+        endif
+        let n = n + 1
+      endwhile
+    endfun
+
+    "autocmds
+    autocmd BufNewFile,BufRead *.html call <SID>DetectHTMLDjango()
 augroup END
 
 " Python
