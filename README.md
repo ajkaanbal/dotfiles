@@ -14,4 +14,7 @@ Search skin= and replace by
     ```bash
     $ ln -s ~/.ajkaanbal_mc_skin.ini ~/.local/share/mc/skins/ajkaanbal.ini
     ```
-
+## global git ignore
+    ```bash
+    git config --global core.excludesfile ~/.gitignore
+    ```
