@@ -1052,6 +1052,11 @@ nnoremap <silent><C-k> <C-w>k
 nnoremap <silent><C-h> <C-w>h
 nnoremap <silent><C-l> <C-w>l
 
+inoremap <silent><C-l> <esc><C-w>l
+inoremap <silent><C-k> <esc><C-w>k
+inoremap <silent><C-h> <esc><C-w>h
+inoremap <silent><C-l> <esc><C-w>l
+
 " Useful save mappings.
 inoremap <silent> <Leader>u  <C-o>:<C-u>update<CR>
 nnoremap <silent> <Leader>u :<C-u>update<CR>
