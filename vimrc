@@ -52,6 +52,11 @@ NeoBundleLazy 'kana/vim-textobj-django-template', {
 \ 'autoload' : {
 \   'filetypes': ['html', 'htmldjango']
 \ }}
+NeoBundleLazy 'bps/vim-textobj-python', {
+\ 'depends': 'kana/vim-textobj-user',
+\ 'autoload' : {
+\   'filetypes': 'python'
+\ }}
 NeoBundleLazy 'othree/html5.vim', {
 \ 'autoload' : {
 \   'filetypes': ['html','htmldjango']
