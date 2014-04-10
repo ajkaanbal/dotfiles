@@ -39,3 +39,4 @@ Thumbs.db
 # Others #
 ##########
 .fabricrc
+.env
