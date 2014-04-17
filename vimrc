@@ -785,6 +785,7 @@ let g:unite_prompt = '» '
 let g:unite_enable_start_insert = 1
 
 nnoremap <leader>f :<C-u>Unite file_rec/async:!<cr>
+nnoremap <leader>c :<C-u>UniteWithCursorWord file_rec/async:!<cr>
 inoremap <leader>f <ESC>:<C-u>Unite file_rec/async:!<cr>
 nnoremap <leader>p :<C-u>Unite file_rec/async<cr>
 nnoremap <leader>b :<C-u>Unite buffer<cr>
@@ -932,6 +933,7 @@ nnoremap <F5> :UndotreeToggle<cr>
 "}}}
 
 " vimux {{{
+let g:VimuxRunnerIndex=1
 "using mappings described in docs
 map <Leader>vz :VimuxZoomRunner<CR>
 " Prompt for a command to run
