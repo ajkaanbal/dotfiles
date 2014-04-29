@@ -1068,9 +1068,7 @@ inoremap <silent><C-h> <esc><C-w>h
 inoremap <silent><C-l> <esc><C-w>l
 
 " Useful save mappings.
-inoremap <silent> <Leader>u  <C-o>:<C-u>update<CR>
-nnoremap <silent> <Leader>u :<C-u>update<CR>
-nnoremap <silent> <Leader>w        :<C-u>wa<CR>
+nnoremap <silent> <CR> :<C-u>update<CR>
 map ' `
 
 " Easy escape."{{{
