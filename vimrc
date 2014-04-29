@@ -1002,6 +1002,15 @@ nmap <C-n> <Plug>(yankround-next)
   nmap <Leader>ghr <Plug>GitGutterRevertHunk
   nmap <Leader>ghp <Plug>GitGutterPreviewHunk
 " }}}
+" matchtagalways {{{
+   let g:mta_filetypes = {
+           \ 'html' : 1,
+           \ 'xhtml' : 1,
+           \ 'xml' : 1,
+           \ 'jinja' : 1,
+           \ 'htmldjango' : 1,
+           \}
+"}}}
 "}}}
 
 "---------------------------------------------------------------------------
