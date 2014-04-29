@@ -48,7 +48,7 @@ NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundleLazy 'kana/vim-textobj-django-template', {
-\ 'depends': 'mjbrownie/django-template-textobjects',
+\ 'depends': 'kana/vim-textobj-user',
 \ 'autoload' : {
 \   'filetypes': ['html', 'htmldjango']
 \ }}
@@ -761,7 +761,7 @@ call unite#custom#source(
         \ 'buffer', 'converters',
         \ ['converter_file_directory'])
 
-call unite#custom#source('file_rec/async,file_rec,file_mru', 'filters',
+call unite#custom#source('file_rec/async,file_rec,file_mru,buffer', 'filters',
 \ ['converter_relative_word', 'matcher_default',
 \  'sorter_default', 'converter_relative_abbr'])
 
@@ -786,10 +786,8 @@ let g:unite_enable_start_insert = 1
 
 nnoremap <leader>f :<C-u>Unite file_rec/async:!<cr>
 nnoremap <leader>c :<C-u>UniteWithCursorWord file_rec/async:!<cr>
-inoremap <leader>f <ESC>:<C-u>Unite file_rec/async:!<cr>
 nnoremap <leader>p :<C-u>Unite file_rec/async<cr>
 nnoremap <leader>b :<C-u>Unite buffer<cr>
-inoremap <leader>b <ESC>:<C-u>Unite buffer<cr>
 nnoremap <leader>r :<C-u>Unite file_mru<CR>
 nnoremap <leader>/ :<C-u>Unite grep:.<CR>
 nnoremap <silent> <leader>a :<C-u>Unite buffer file_mru bookmark<CR>
