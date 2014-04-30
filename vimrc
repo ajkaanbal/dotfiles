@@ -32,12 +32,26 @@ NeoBundle 'Shougo/neocomplete.vim', {
 \ }
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
-NeoBundle 'Shougo/unite.vim'
+NeoBundleLazy 'Shougo/unite.vim', {
+\  'autoload': {'commands': ['Unite']}
+\}
 NeoBundle 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim'}
-NeoBundle 'Shougo/vimfiler'
+NeoBundleLazy 'Shougo/vimfiler', {
+\ 'depends' : 'Shougo/unite.vim',
+\ 'autoload' : {
+\    'commands' : [{ 'name' : 'VimFiler',
+\                    'complete' : 'customlist,vimfiler#complete' },
+\                  'VimFilerExplorer',
+\                  'Edit', 'Read', 'Source', 'Write'],
+\    'mappings' : ['<Plug>(vimfiler_'],
+\    'explorer' : 1,
+\ }
+\ }
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'majutsushi/tagbar'
+NeoBundleLazy 'majutsushi/tagbar', {
+\  'autoload': { 'commands': 'TagbarToggle'}
+\}
 NeoBundle 'scrooloose/syntastic'
 NeoBundleLazy 'mattn/emmet-vim/',{
 \ 'autoload' : {
@@ -130,7 +144,7 @@ NeoBundleLazy 'mbbill/undotree', {
 \ }}
 " from vim.org
 NeoBundleLazy 'matchit.zip', { 'autoload' : {
-      \ 'mappings' : ['%', 'g%']
+      \ 'mappings' : [['nxo', '%', 'g%']]
       \ }}
 let bundle = neobundle#get('matchit.zip')
 function! bundle.hooks.on_post_source(bundle)
