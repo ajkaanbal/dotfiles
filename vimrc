@@ -27,8 +27,10 @@ NeoBundle 'Shougo/vimproc', {
 \    },
 \ }
 NeoBundle 'Shougo/context_filetype.vim'
-NeoBundle 'Shougo/neocomplete.vim', {
-\ 'disabled' : !has('lua'),
+NeoBundle 'Valloric/YouCompleteMe', {
+\ 'build' : {
+\     'unix' : './install.sh',
+\    },
 \ }
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
@@ -177,12 +179,13 @@ call neobundle#config('unite.vim', {
 \       'commands' : [{ 'name' : 'Unite',
 \                       'complete' : 'customlist,unite#complete_source'}]
 \   }})
-call neobundle#config('neocomplete.vim', {
-\ 'lazy' : 1,
-\ 'autoload' : {
-\   'insert' : 1,
-\ }})
 
+" call neobundle#config('neocomplete.vim', {
+" \ 'lazy' : 1,
+" \ 'autoload' : {
+" \   'insert' : 1,
+" \ }})
+"
 call neobundle#config('vimfiler', {
 \ 'lazy' : 1,
 \ 'depends' : 'Shougo/unite.vim',
@@ -673,86 +676,6 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsSnippetsDir="~/.vim/snippets"
 "}}}
-
-" Neocomplete {{{
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-
-let bundle = neobundle#get('neocomplete.vim')
-function! bundle.hooks.on_source(bundle)
-" Disable autocomplete
-  let g:neocomplete#disable_auto_complete = 1
-  " Disable AutoComplPop.
-  let g:acp_enableAtStartup = 0
-" Use smartcase.
-  let g:neocomplete#enable_smart_case = 1
-
-  let g:neocomplete#sources#dictionary#dictionaries = {
-        \ 'default' : '',
-        \ 'vimshell' : $HOME.'/.vimshell/command-history',
-        \ }
-
-  let g:neocomplete#max_list = 20
-  let g:neocomplete#force_overwrite_completefunc = 1
-  if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-  endif
-  if !exists('g:neocomplete#sources#omni#functions')
-    let g:neocomplete#sources#omni#functions = {}
-  endif
-  if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-  endif
-  let g:neocomplete#enable_auto_close_preview = 0
-
-" Define keyword pattern.
-  if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-  endif
-  let g:neocomplete#keyword_patterns._ = '\h\w*'
-
-  let g:neocomplete#ignore_source_files = ['tag.vim']
-
-  if !exists('g:neocomplete#sources#vim#complete_functions')
-      let g:neocomplete#sources#vim#complete_functions = {}
-  endif
-  let g:neocomplete#sources#vim#complete_functions = {
-        \ 'Ref' : 'ref#complete',
-        \ 'VimFiler' : 'vimfiler#complete',
-        \}
-
-  if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-  endif
-  let g:neocomplete#sources#omni#input_patterns.python =
-  \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-
-" mappings."{{{
-" <C-y>: paste.
-  inoremap <expr><C-y> pumvisible() ? neocomplete#close_popup() : "\<C-r>\""
-" <C-e>: close popup.
-  inoremap <expr><C-e> pumvisible() ? neocomplete#cancel_popup() : "\<End>"
-  inoremap <expr><C-x><C-f>
-        \ neocomplete#start_manual_complete('file')
-
-   " <TAB>: completion.
-  inoremap <expr><TAB> pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ neocomplete#start_manual_complete()
-  function! s:check_back_space() "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1] =~ '\s'
-  endfunction"}}}
-
-" <CR>: close popup and save indent.
-  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function()
-    return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-  endfunction
-
-endfunction
-"}}}
-
 
 "# Vim-session setting{{{
 let g:session_autosave = 'yes'
