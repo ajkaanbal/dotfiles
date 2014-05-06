@@ -514,7 +514,7 @@ set viewdir=~/.vim/view viewoptions-=options viewoptions+=slash,unix
 " Syntax:"{{{
 "
 " Enable smart indent.
-set autoindent smartindent
+set autoindent
 
 augroup MyAutoCmd
 
@@ -854,14 +854,15 @@ vnoremap <silent> <Enter> :EasyAlign<Enter>
 "}}}
 
 " python-jedi {{{
-let g:jedi#auto_initialization = 0
+let g:jedi#auto_initialization = 1
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#completions_enable = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#show_call_signatures = 0
-let g:jedi#goto_definitions_command = "<leader>gd"
-let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#goto_definitions_command = "gd"
+let g:jedi#rename_command = 'gr'
+let g:jedi#use_tabs_not_buffers = 1
 "}}}
 
 " undotoggle {{{
@@ -986,7 +987,7 @@ nnoremap <silent><leader>7 :b7<CR>
 nnoremap <silent><leader>8 :b8<CR>
 nnoremap <silent><leader>9 :b9<CR>
 nnoremap <silent><leader>d :bdelete<CR>
-nnoremap <silent><leader>D :<c-u>Bdelete<CR>
+nnoremap <silent>Q :<c-u>Bdelete<CR>
 nnoremap <S-Left> :bprevious<CR>
 nnoremap <S-Right> :bnext<CR>
 
