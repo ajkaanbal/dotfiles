@@ -956,45 +956,14 @@ nmap <C-n> <Plug>(yankround-next)
 "---------------------------------------------------------------------------
 " KeyMappings: "{{{
 
-map <C-S-Right> :tabprev<CR>
-map <C-S-Left>  :tabnext<CR>
-map <C-S-Up>    :tabfirst<CR>
-map <C-S-Down>  :tablast<CR>
-
-" navigating tabs
-nnoremap th :tabfirst<CR>
-nnoremap tj :tabnext<CR>
-nnoremap tk :tabprev<CR>
-nnoremap tl :tablast<CR>
-nnoremap tt :tabedit<Space>
-nnoremap tn :tabnext<Space>
-nnoremap tm :tabm<Space>
-nnoremap td :tabclose<CR>
-
 " Remove all trailing whitespace:
 nnoremap <silent> d<space> :StripWhitespace<esc>
 
 "#Navigate btween buffers
-nnoremap <silent><leader>0 :bfirst<CR>
 nnoremap <silent><leader>l :bnext<CR>
 nnoremap <silent><leader>h :bprevious<CR>
-nnoremap <silent><leader>$ :blast<CR>
-nnoremap <silent><leader>1 :b1<CR>
-nnoremap <silent><leader>2 :b2<CR>
-nnoremap <silent><leader>3 :b3<CR>
-nnoremap <silent><leader>4 :b4<CR>
-nnoremap <silent><leader>5 :b5<CR>
-nnoremap <silent><leader>6 :b6<CR>
-nnoremap <silent><leader>7 :b7<CR>
-nnoremap <silent><leader>8 :b8<CR>
-nnoremap <silent><leader>9 :b9<CR>
-nnoremap <silent><leader>d :bdelete<CR>
+nnoremap <C-T> <C-^>
 nnoremap <silent>Q :<c-u>Bdelete<CR>
-nnoremap <S-Left> :bprevious<CR>
-nnoremap <S-Right> :bnext<CR>
-
-inoremap <silent> <S-Left> <esc>:<c-u>bprevious<CR>
-inoremap <silent> <S-Right> <esc>:<c-u>bnext<CR>
 
 "Window operations
 nnoremap <silent><C-j> <C-w>j
@@ -1044,8 +1013,6 @@ vnoremap <S-Tab> <gv
 set ssop-=options    " do not store global and local values in a session
 set ssop+=folds
 
-" ruby path if you are using RVM
-"let g:ruby_path = system('rvm current')
 
 " }}}
 
