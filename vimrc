@@ -37,6 +37,7 @@ NeoBundle 'honza/vim-snippets'
 NeoBundleLazy 'Shougo/unite.vim', {
 \  'autoload': {'commands': ['Unite']}
 \}
+NeoBundle 'sgoranson/unite-mark', {'depends': 'Shougo/unite.vim'}
 NeoBundle 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim'}
 NeoBundleLazy 'Shougo/vimfiler', {
 \ 'depends' : 'Shougo/unite.vim',
@@ -721,13 +722,14 @@ let g:unite_marked_icon = '✗'
 let g:unite_prompt = '» '
 let g:unite_enable_start_insert = 1
 
-nnoremap <leader>f :<C-u>Unite file_rec/async:!<cr>
-nnoremap <leader>c :<C-u>UniteWithCursorWord file_rec/async:!<cr>
-nnoremap <leader>p :<C-u>Unite file_rec/async<cr>
-nnoremap <leader>b :<C-u>Unite buffer<cr>
-nnoremap <leader>r :<C-u>Unite file_mru<CR>
-nnoremap <leader>/ :<C-u>Unite grep:.<CR>
-nnoremap <silent> <leader>a :<C-u>Unite buffer file_mru bookmark<CR>
+nnoremap <C-@>f :<C-u>Unite file_rec/async:!<cr>
+nnoremap <C-@>c :<C-u>UniteWithCursorWord file_rec/async:!<cr>
+nnoremap <C-@>p :<C-u>Unite file_rec/async<cr>
+nnoremap <C-@>b :<C-u>Unite buffer<cr>
+nnoremap <C-@>r :<C-u>Unite file_mru<CR>
+nnoremap <C-@>m :<C-u>Unite mark<CR>
+nnoremap <C-@>/ :<C-u>Unite grep:.<CR>
+nnoremap <C-@>a :<C-u>Unite buffer file_mru bookmark<CR>
 
 autocmd MyAutoCmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings() "{{{
