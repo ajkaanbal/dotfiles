@@ -723,8 +723,10 @@ nnoremap <C-@>f :<C-u>Unite file_rec/async:!<cr>
 nnoremap <C-@>c :<C-u>UniteWithCursorWord file_rec/async:!<cr>
 nnoremap <C-@>p :<C-u>Unite file_rec/async<cr>
 nnoremap <C-@>b :<C-u>Unite buffer<cr>
+nnoremap <C-@>t :<C-u>Unite tab<cr>
 nnoremap <C-@>r :<C-u>Unite file_mru<CR>
 nnoremap <C-@>m :<C-u>Unite mark<CR>
+nnoremap <C-@>k :<C-u>Unite bookmark<CR>
 nnoremap <C-@>/ :<C-u>Unite grep:.<CR>
 nnoremap <C-@>a :<C-u>Unite buffer file_mru bookmark<CR>
 
@@ -931,9 +933,9 @@ nmap <C-n> <Plug>(yankround-next)
 " gitgutter {{{
   nmap [h <Plug>GitGutterPrevHunk
   nmap ]h <Plug>GitGutterNextHunk
-  nmap <Leader>ghs <Plug>GitGutterStageHunk
-  nmap <Leader>ghr <Plug>GitGutterRevertHunk
-  nmap <Leader>ghp <Plug>GitGutterPreviewHunk
+  nmap ghs <Plug>GitGutterStageHunk
+  nmap ghr <Plug>GitGutterRevertHunk
+  nmap ghp <Plug>GitGutterPreviewHunk
 " }}}
 " matchtagalways {{{
    let g:mta_filetypes = {
