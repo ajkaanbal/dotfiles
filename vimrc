@@ -26,7 +26,6 @@ NeoBundle 'Shougo/vimproc', {
 \     'unix' : 'make -f make_unix.mak',
 \    },
 \ }
-NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'Valloric/YouCompleteMe', {
 \ 'build' : {
 \     'unix' : './install.sh',
@@ -134,7 +133,6 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'sdanielf/vim-stdtabs'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'wikitopian/hardmode'
 NeoBundle 'wellle/targets.vim'
 NeoBundleLazy 'https://raw.githubusercontent.com/JessicaKMcIntosh/Vim/master/syntax/sql.vim', {
 \   'type': 'raw',
@@ -168,7 +166,6 @@ NeoBundle 'ajkaanbal/autoswap.vim'
 NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'laurentgoudet/vim-howdoi'
 NeoBundleLazy 'ekalinin/Dockerfile.vim',
 \{'autoload': {'filetypes': 'Dockerfile'}}
 NeoBundle 'evanmiller/nginx-vim-syntax', {'autoload': {'filetypes': 'nginx'}}
@@ -906,10 +903,6 @@ nmap <Leader>vs vip<Leader>vs<CR>
 
 "}}}
 
-"}}}
-
-" Howdoi {{{
-map <C-x><C-H> <Plug>Howdoi
 "}}}
 
 " gitv {{{
