@@ -125,7 +125,7 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
 \   'filetypes': 'python'
 \ }}
 
-NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'Raimondi/delimitMate' " Automatic closing quotes,...
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'gregsexton/gitv'
@@ -133,7 +133,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'sdanielf/vim-stdtabs'
+NeoBundle 'sdanielf/vim-stdtabs' " common indents
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'wellle/targets.vim'
@@ -172,7 +172,6 @@ NeoBundle 'tpope/vim-eunuch'
 NeoBundleLazy 'ekalinin/Dockerfile.vim',
 \{'autoload': {'filetypes': 'Dockerfile'}}
 NeoBundle 'evanmiller/nginx-vim-syntax', {'autoload': {'filetypes': 'nginx'}}
-NeoBundle 'LeafCage/yankround.vim'
 "Neobundle configuration
 call neobundle#config('unite.vim', {
 \   'lazy': 1,
@@ -873,6 +872,11 @@ let g:jedi#use_tabs_not_buffers = 1
 " undotoggle {{{
 nnoremap <F5> :UndotreeToggle<cr>
 "}}}
+"
+" delimitMate {{{
+  let delimitMate_expand_cr = 2
+  let delimitMate_expand_space = 1
+" }}}
 
 " vimux {{{
 let g:VimuxRunnerIndex=1
@@ -1017,4 +1021,4 @@ if !has('vim_starting')
     call neobundle#call_hook('on_source')
 endif
 
-" vim:foldmethod=marker
+" vim:foldmethod=marker shiftwidth=2 tabstop=2
