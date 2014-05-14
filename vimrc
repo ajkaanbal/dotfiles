@@ -64,11 +64,13 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-indent'
-NeoBundleLazy 'kana/vim-textobj-django-template', {
-\ 'depends': 'kana/vim-textobj-user',
-\ 'autoload' : {
-\   'filetypes': ['html', 'htmldjango']
-\ }}
+
+" NeoBundleLazy 'mjbrownie/django-template-textobjects', {
+" \ 'depends': 'kana/vim-textobj-user',
+" \ 'autoload' : {
+" \   'filetypes': ['html', 'htmldjango']
+" \ }}
+
 NeoBundleLazy 'bps/vim-textobj-python', {
 \ 'depends': 'kana/vim-textobj-user',
 \ 'autoload' : {
@@ -370,7 +372,7 @@ autocmd MyAutoCmd InsertLeave * if &l:diff | diffupdate | endif
 
 
 "---------------------------------------------------------------------------
-"" View:"{{{
+"" View:{{{
 
 " Show line number.
 set number
@@ -720,7 +722,7 @@ let g:unite_marked_icon = '✗'
 let g:unite_prompt = '» '
 let g:unite_enable_start_insert = 1
 
-nnoremap <C-@>f :<C-u>Unite file_rec/async:!<cr>
+nnoremap <C-@>f :<C-u>Unite file_rec/async:!<CR><CR>
 nnoremap <C-@>p :<C-u>Unite file_rec/async<cr>
 nnoremap <C-@>b :<C-u>Unite buffer<cr>
 nnoremap <C-@>t :<C-u>Unite tab<cr>
@@ -809,22 +811,20 @@ let g:syntastic_style_error_symbol = '✠'
 let g:syntastic_warning_symbol = '∆'
 let g:syntastic_style_warning_symbol = '≈'
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_python_checkers = ['frosted', 'pylint']
+let g:syntastic_python_checkers = ['frosted', 'pylint','flake8']
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_loc_list_height = 3
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 let g:syntastic_aggregate_errors = 1
 "}}}
 
-" easy-motion{{{
+" easy-motion {{{
     "Bi-directional find motion
     nmap s <Plug>(easymotion-s)
 "}}}
 
-"}}}
 
-
-" vimfiler.vim"{{{
+" vimfiler.vim {{{
 if neobundle#tap('vimfiler')
     nnoremap    <F2>   :<C-u>VimFilerExplorer<CR>
     let g:vimfiler_as_default_explorer = 1
@@ -917,12 +917,6 @@ nmap <leader>gV :Gitv!  --all<cr>
 vmap <leader>gV :Gitv!  --all<cr>
 "}}}
 
-" hardmode {{{
-" autocmd MyAutoCmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-nnoremap <leader>th <Esc>:call ToggleHardMode()<CR>
-" }}}
-"---------------------------------------------------------------------------
-
 " yankround {{{
 nmap p <Plug>(yankround-p)
 xmap p <Plug>(yankround-p)
@@ -952,6 +946,7 @@ nmap <C-n> <Plug>(yankround-next)
 "}}}
 "}}}
 
+
 "---------------------------------------------------------------------------
 " KeyMappings: "{{{
 
@@ -959,8 +954,8 @@ nmap <C-n> <Plug>(yankround-next)
 nnoremap <silent> d<space> :StripWhitespace<esc>
 
 "#Navigate btween buffers
-nnoremap <silent><leader>l :bnext<CR>
-nnoremap <silent><leader>h :bprevious<CR>
+nnoremap <silent>gb :bnext<CR>
+nnoremap <silent>gB :bprevious<CR>
 nnoremap <C-T> <C-^>
 nnoremap <silent>Q :<c-u>Bdelete<CR>
 
@@ -1005,6 +1000,7 @@ vnoremap <S-Tab> <gv
 
 "}}}
 
+
 "---------------------------------------------------------------------------
 " Others: {{{
 
@@ -1014,6 +1010,7 @@ set ssop+=folds
 
 
 " }}}
+
 
 if !has('vim_starting')
     " Call on_source hook when reloading .vimrc.
