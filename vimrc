@@ -721,7 +721,7 @@ let g:unite_marked_icon = '✗'
 let g:unite_prompt = '» '
 let g:unite_enable_start_insert = 1
 
-nnoremap <C-@>f :<C-u>Unite file_rec/async:!<CR><CR>
+nnoremap <C-@>f :<C-u>Unite file_rec/async:!<CR>
 nnoremap <C-@>p :<C-u>Unite file_rec/async<cr>
 nnoremap <C-@>b :<C-u>Unite buffer<cr>
 nnoremap <C-@>t :<C-u>Unite tab<cr>
