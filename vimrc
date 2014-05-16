@@ -921,17 +921,6 @@ nmap <leader>gV :Gitv!  --all<cr>
 vmap <leader>gV :Gitv!  --all<cr>
 "}}}
 
-" yankround {{{
-nmap p <Plug>(yankround-p)
-xmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap gp <Plug>(yankround-gp)
-xmap gp <Plug>(yankround-gp)
-nmap gP <Plug>(yankround-gP)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
-"}}}
-
 " gitgutter {{{
   nmap [h <Plug>GitGutterPrevHunk
   nmap ]h <Plug>GitGutterNextHunk
