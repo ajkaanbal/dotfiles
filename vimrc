@@ -58,7 +58,7 @@ NeoBundleLazy 'majutsushi/tagbar', {
 NeoBundle 'scrooloose/syntastic'
 NeoBundleLazy 'mattn/emmet-vim/',{
 \ 'autoload' : {
-\   'filetypes': ['html', 'htmldjango']
+\   'filetypes': ['html', 'htmldjango', 'xhtml']
 \ }}
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'kana/vim-textobj-entire'
@@ -367,6 +367,9 @@ autocmd MyAutoCmd InsertLeave *
 
 " Update diff.
 autocmd MyAutoCmd InsertLeave * if &l:diff | diffupdate | endif
+
+" remove highlight search
+autocmd MyAutoCmd InsertEnter * let @/ = ""
 "}}}
 
 
@@ -854,7 +857,7 @@ unlet bundle
 "}}}
 
 " Easyalign {{{
-vnoremap <silent> <Enter> :EasyAlign<Enter>
+vnoremap <silent> <space> :EasyAlign<Enter>
 "}}}
 
 " python-jedi {{{
@@ -880,45 +883,18 @@ nnoremap <F5> :UndotreeToggle<cr>
 
 " vimux {{{
 let g:VimuxRunnerIndex=1
-"using mappings described in docs
-map <Leader>vz :VimuxZoomRunner<CR>
-" Prompt for a command to run
-map <Leader>vp :VimuxPromptCommand<CR>
-
-" Run last command executed by VimuxRunCommand
-map <Leader>vl :VimuxRunLastCommand<CR>
-
-" Inspect runner pane
-map <Leader>vi :VimuxInspectRunner<CR>
-
-" Close vim tmux runner opened by VimuxRunCommand
-map <Leader>vq :VimuxCloseRunner<CR>
-
-" Interrupt any command running in the runner pane
-map <Leader>vx :VimuxInterruptRunner<CR>
-
-" Zoom the runner pane (use <bind-key> z to restore runner pane)
-map <Leader>vz :call VimuxZoomRunner()<CR>
-
 function! VimuxSlime()
     call VimuxSendText(@v)
     call VimuxSendKeys("Enter")
 endfunction
 
 " If text is selected, save it in the v buffer and send that buffer it to tmux
-vmap <Leader>vs "vy :call VimuxSlime()<CR>
-
-" Select current paragraph and send it to tmux
-nmap <Leader>vs vip<Leader>vs<CR>
-
+vnoremap <Enter> "vy :call VimuxSlime()<CR>
 "}}}
 
 "}}}
 
 " gitv {{{
-nmap <leader>gv :Gitv   --all<cr>
-nmap <leader>gV :Gitv!  --all<cr>
-vmap <leader>gV :Gitv!  --all<cr>
 "}}}
 
 " gitgutter {{{
