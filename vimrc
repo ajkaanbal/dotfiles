@@ -370,6 +370,10 @@ autocmd MyAutoCmd InsertLeave * if &l:diff | diffupdate | endif
 
 " remove highlight search
 autocmd MyAutoCmd InsertEnter * let @/ = ""
+
+" auto update files
+autocmd MyAutoCmd BufLeave,FocusLost * silent! update
+
 "}}}
 
 
