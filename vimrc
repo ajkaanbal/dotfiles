@@ -64,13 +64,11 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-indent'
-
-" NeoBundleLazy 'mjbrownie/django-template-textobjects', {
-" \ 'depends': 'kana/vim-textobj-user',
-" \ 'autoload' : {
-" \   'filetypes': ['html', 'htmldjango']
-" \ }}
-
+NeoBundleLazy 'mjbrownie/django-template-textobjects', {
+\ 'depends': 'kana/vim-textobj-user',
+\ 'autoload' : {
+\   'filetypes': ['html', 'htmldjango']
+\ }}
 NeoBundleLazy 'bps/vim-textobj-python', {
 \ 'depends': 'kana/vim-textobj-user',
 \ 'autoload' : {
