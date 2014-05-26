@@ -40,3 +40,6 @@ Thumbs.db
 ##########
 .fabricrc
 .env
+
+#Python
+.coverage
