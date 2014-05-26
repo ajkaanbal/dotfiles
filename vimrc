@@ -811,8 +811,8 @@ nmap <F8> :TagbarToggle<CR>
 
 "  Syntastic{{{
 let g:syntastic_error_symbol = '✗'
-let g:syntastic_style_error_symbol = '✠'
-let g:syntastic_warning_symbol = '∆'
+let g:syntastic_style_error_symbol = '☢'
+let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_warning_symbol = '≈'
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['frosted', 'pylint','flake8']
@@ -820,6 +820,10 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_loc_list_height = 3
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 let g:syntastic_aggregate_errors = 1
+
+highlight SyntasticStyleErrorSign cterm=bold ctermfg=166
+highlight SyntasticErrorSign cterm=bold ctermfg=1
+
 "}}}
 
 " easy-motion {{{
