@@ -738,7 +738,7 @@ nnoremap <C-@>c :<C-u>Unite change<CR>
 nnoremap <C-@>o :<C-u>Unite outline<CR>
 nnoremap <C-@>/ :<C-u>Unite grep:.<CR>
 nnoremap <C-@>a :<C-u>Unite buffer file_mru bookmark<CR>
-nnoremap <C-@>* :<C-u>UniteWithCursorWord file_rec/async:!<cr>
+nnoremap <C-@>* :<C-u>UniteWithCursorWord grep:.<cr>
 
 autocmd MyAutoCmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings() "{{{
