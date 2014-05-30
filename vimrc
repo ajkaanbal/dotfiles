@@ -50,6 +50,10 @@ NeoBundleLazy 'Shougo/vimfiler', {
 \    'explorer' : 1,
 \ }
 \ }
+NeoBundleLazy 'thinca/vim-ref', {
+\ 'commands' : 'Ref',
+\ 'unite_sources' : 'ref',
+\ }
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'bling/vim-airline'
 NeoBundleLazy 'majutsushi/tagbar', {
@@ -919,6 +923,22 @@ vnoremap <Enter> "vy :call VimuxSlime()<CR>
            \ 'htmldjango' : 1,
            \}
 "}}}
+
+"{{{ vim-ref
+if neobundle#tap('vim-ref') 
+  function! neobundle#hooks.on_source(bundle)
+    let g:ref_cache_dir = expand('~/.cache/ref')
+    let g:ref_use_vimproc = 1
+
+    autocmd MyAutoCmd FileType ref call s:ref_my_settings()
+    function! s:ref_my_settings() "{{{
+      " Overwrite settings.
+      nnoremap <buffer> q <C-w>c
+    endfunction"}}}
+  endfunction
+endif
+"}}}
+
 "}}}
 
 
