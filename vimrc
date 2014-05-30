@@ -383,7 +383,12 @@ autocmd MyAutoCmd BufLeave,FocusLost * silent! update
 "" View:{{{
 
 " Show line number.
-set number
+set relativenumber
+augroup RelativeNumber
+  autocmd!
+  autocmd WinLeave,InsertEnter * set norelativenumber number
+  autocmd WinEnter,InsertLeave * set relativenumber
+augroup END
 
 " Show <TAB> and <CR>
 set list
