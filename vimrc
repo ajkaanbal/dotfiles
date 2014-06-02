@@ -735,19 +735,19 @@ let g:unite_marked_icon = '✗'
 let g:unite_prompt = '» '
 let g:unite_enable_start_insert = 1
 
-nnoremap <C-@>f :<C-u>Unite file_rec/async:!<CR>
-nnoremap <C-@>p :<C-u>Unite file_rec/async<cr>
-nnoremap <C-@>b :<C-u>Unite buffer<cr>
-nnoremap <C-@>t :<C-u>Unite tab<cr>
-nnoremap <C-@>r :<C-u>Unite file_mru<CR>
-nnoremap <C-@>m :<C-u>Unite mark<CR>
-nnoremap <C-@>k :<C-u>Unite bookmark<CR>
-nnoremap <C-@>j :<C-u>Unite jump<CR>
-nnoremap <C-@>c :<C-u>Unite change<CR>
-nnoremap <C-@>o :<C-u>Unite outline<CR>
-nnoremap <C-@>/ :<C-u>Unite grep:.<CR>
-nnoremap <C-@>a :<C-u>Unite buffer file_mru bookmark<CR>
-nnoremap <C-@>* :<C-u>UniteWithCursorWord grep:.<cr>
+nnoremap <C-@>f :<C-u>Unite file_rec/async:! -prompt-direction=top<CR>
+nnoremap <C-@>p :<C-u>Unite file_rec/async -prompt-direction=top<cr>
+nnoremap <C-@>b :<C-u>Unite buffer -prompt-direction=top<cr>
+nnoremap <C-@>t :<C-u>Unite tab -prompt-direction=top<cr>
+nnoremap <C-@>r :<C-u>Unite file_mru -prompt-direction=top<CR>
+nnoremap <C-@>m :<C-u>Unite mark -prompt-direction=top<CR>
+nnoremap <C-@>k :<C-u>Unite bookmark -prompt-direction=top<CR>
+nnoremap <C-@>j :<C-u>Unite jump -prompt-direction=top<CR>
+nnoremap <C-@>c :<C-u>Unite change -prompt-direction=top<CR>
+nnoremap <C-@>o :<C-u>Unite outline -prompt-direction=top<CR>
+nnoremap <C-@>/ :<C-u>Unite grep:. -prompt-direction=top<CR>
+nnoremap <C-@>a :<C-u>Unite buffer file_mru bookmark -prompt-direction=top<CR>
+nnoremap <C-@>* :<C-u>UniteWithCursorWord grep:. -prompt-direction=top<cr>
 
 autocmd MyAutoCmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings() "{{{
