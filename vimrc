@@ -918,7 +918,13 @@ vnoremap <Enter> "vy :call VimuxSlime()<CR>
   nmap ghs <Plug>GitGutterStageHunk
   nmap ghr <Plug>GitGutterRevertHunk
   nmap ghp <Plug>GitGutterPreviewHunk
+
+  let g:gitgutter_sign_added = '✜'
+  let g:gitgutter_sign_modified = '✎'
+  let g:gitgutter_sign_removed = '✄'
+  let g:gitgutter_sign_modified_removed = '✎✄'
 " }}}
+
 " matchtagalways {{{
    let g:mta_filetypes = {
            \ 'html' : 1,
