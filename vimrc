@@ -50,10 +50,7 @@ NeoBundleLazy 'Shougo/vimfiler', {
 \    'explorer' : 1,
 \ }
 \ }
-NeoBundleLazy 'thinca/vim-ref', {
-\ 'commands' : 'Ref',
-\ 'unite_sources' : 'ref',
-\ }
+NeoBundleLazy 'thinca/vim-ref', { 'autoload': { 'filetypes': ['python']} }
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'bling/vim-airline'
 NeoBundleLazy 'majutsushi/tagbar', {
@@ -122,10 +119,11 @@ NeoBundleLazy 'hdima/python-syntax', {
 \ 'autoload' : {
 \   'filetypes': 'python'
 \ }}
-NeoBundleLazy 'davidhalter/jedi-vim', {
-\ 'autoload' : {
-\   'filetypes': 'python'
-\ }}
+
+" NeoBundleLazy 'davidhalter/jedi-vim', {
+" \ 'autoload' : {
+" \   'filetypes': 'python'
+" \ }}
 
 NeoBundle 'Raimondi/delimitMate' " Automatic closing quotes,...
 NeoBundle 'tpope/vim-fugitive'
@@ -539,14 +537,14 @@ augroup MyAutoCmd
   " Enable omni completion.
   autocmd FileType c setlocal omnifunc=ccomplete#Complete
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType python set omnifunc=jedi#completions
+  " autocmd FileType python set omnifunc=jedi#completions
   autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
   autocmd FileType python setlocal completeopt-=preview
   if has('python3')
     autocmd FileType python setlocal omnifunc=python3complete#Complete
   else
-    autocmd FileType python setlocal omnifunc=jedi#completions
+    " autocmd FileType python setlocal omnifunc=jedi#completions
   endif
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
@@ -875,17 +873,17 @@ unlet bundle
 vnoremap <silent> <space> :EasyAlign<Enter>
 "}}}
 
-" python-jedi {{{
-let g:jedi#auto_initialization = 1
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#completions_enable = 0
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#show_call_signatures = 0
-let g:jedi#goto_definitions_command = "gd"
-let g:jedi#rename_command = 'gr'
-let g:jedi#use_tabs_not_buffers = 1
-"}}}
+" " python-jedi {{{
+" let g:jedi#auto_initialization = 1
+" let g:jedi#auto_vim_configuration = 0
+" let g:jedi#completions_enable = 0
+" let g:jedi#popup_on_dot = 0
+" let g:jedi#popup_select_first = 0
+" let g:jedi#show_call_signatures = 0
+" let g:jedi#goto_definitions_command = "gd"
+" let g:jedi#rename_command = 'gr'
+" let g:jedi#use_tabs_not_buffers = 1
+" "}}}
 
 " undotoggle {{{
 nnoremap <F5> :UndotreeToggle<cr>
