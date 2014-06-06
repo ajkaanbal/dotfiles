@@ -26,11 +26,7 @@ NeoBundle 'Shougo/vimproc', {
 \     'unix' : 'make -f make_unix.mak',
 \    },
 \ }
-NeoBundle 'Valloric/YouCompleteMe', {
-\ 'build' : {
-\     'unix' : './install.sh',
-\    },
-\ }
+NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundleLazy 'Shougo/unite.vim', {
