@@ -89,9 +89,6 @@ NeoBundleLazy 'moll/vim-bbye', {
       \   'commands': 'Bdelete'
       \}}
 
-NeoBundleLazy 'pangloss/vim-javascript', { 'autoload' : {
-      \ 'filetypes' : 'javascript',
-      \ }}
 NeoBundleLazy 'othree/vim-javascript-syntax', { 'autoload' : {
       \ 'filetypes' : 'javascript',
       \ }}
@@ -115,11 +112,6 @@ NeoBundleLazy 'hdima/python-syntax', {
 \ 'autoload' : {
 \   'filetypes': 'python'
 \ }}
-
-" NeoBundleLazy 'davidhalter/jedi-vim', {
-" \ 'autoload' : {
-" \   'filetypes': 'python'
-" \ }}
 
 NeoBundle 'Raimondi/delimitMate' " Automatic closing quotes,...
 NeoBundle 'tpope/vim-fugitive'
@@ -165,9 +157,7 @@ NeoBundle 'ajkaanbal/autoswap.vim'
 NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-eunuch'
-NeoBundleLazy 'ekalinin/Dockerfile.vim',
-\{'autoload': {'filetypes': 'Dockerfile'}}
-NeoBundle 'evanmiller/nginx-vim-syntax', {'autoload': {'filetypes': 'nginx'}}
+NeoBundle 'sheerun/vim-polyglot'
 "Neobundle configuration
 call neobundle#config('unite.vim', {
 \   'lazy': 1,
