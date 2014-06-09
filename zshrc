@@ -49,7 +49,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colored-man git virtualenv autoenv vagrant zsh-syntax-highlighting history-substring-search web-search tmux yum wd autosuggestions docker)
+plugins=(colored-man git virtualenv autoenv vagrant zsh-syntax-highlighting history-substring-search web-search tmux yum wd autosuggestions docker ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -135,3 +135,7 @@ bindkey '^@' clear-screen
 
 #coloritos
 eval `dircolors $HOME/.dir_colors`
+
+# zsh-agent
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+zstyle :omz:plugins:ssh-agent identities id_rsa jkop-ajkaanbal jkop-github
