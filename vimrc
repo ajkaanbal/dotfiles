@@ -98,7 +98,8 @@ NeoBundleLazy 'elzr/vim-json', { 'autoload': {
       \ 'filetypes': 'json' }}
 NeoBundleLazy 'chrisbra/Colorizer', {
 \ 'autoload' : {
-\   'filetypes': ['css', 'stylus']
+\   'filetypes': ['css', 'stylus'],
+\   'commands': 'ColorHighlight'
 \ }}
 NeoBundleLazy 'wavded/vim-stylus', {
 \ 'autoload' : {
