@@ -50,7 +50,7 @@ default_shade_color black
 default_outline_color DarkGrey
 
 # Text alignment, other possible values are commented
-alignment top_left
+alignment top_right
 
 # Gap between borders of screen and text
 gap_x 24
@@ -103,7 +103,7 @@ ${color #ffcb48}DATA$color
    ${color #98c2c7}Upload:$color  ${upspeed em1}kb/s${color #98c2c7}
    Download:$color  ${downspeed em1}kb/s
 
-Time
+${color #ffcb48}TIME$color
 ${color #ffcb48}
 ${alignc} ${time %H:%M}
 ${alignc} ${time %d %b %Y}
