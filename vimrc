@@ -108,10 +108,11 @@ NeoBundleLazy 'guns/xterm-color-table.vim.git', {
       \ 'autoload': {
       \   'commands': 'XtermColorTable'
       \ }}
-NeoBundleLazy 'hdima/python-syntax', {
-\ 'autoload' : {
-\   'filetypes': 'python'
-\ }}
+
+" NeoBundleLazy 'hdima/python-syntax', {
+" \ 'autoload' : {
+" \   'filetypes': 'python'
+" \ }}
 
 NeoBundle 'Raimondi/delimitMate' " Automatic closing quotes,...
 NeoBundle 'tpope/vim-fugitive'
@@ -157,7 +158,10 @@ NeoBundle 'ajkaanbal/autoswap.vim'
 NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-eunuch'
+" Plugins for syntax highlight
 NeoBundle 'sheerun/vim-polyglot'
+NeoBundleLazy 'smancill/conky-syntax.vim',
+\ {'autoload':{ 'filetypes': 'conkyrc'}}
 "Neobundle configuration
 call neobundle#config('unite.vim', {
 \   'lazy': 1,
