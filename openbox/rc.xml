@@ -294,6 +294,12 @@
       <direction>down</direction>
     </action>
   </keybind>
+  <!-- key for manage desktop -->
+  <keybind key="C-S-l">
+    <action name="Execute">
+      <command>xlock -mousemotion +description -mode random -font "-misc-liberation mono-medium-r-normal--0-0-0-0-m-0-iso8859-2"</command>
+    </action>
+  </keybind>
 
   <!-- Keybindings for running applications -->
   <keybind key="W-e">
