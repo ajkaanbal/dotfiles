@@ -561,6 +561,7 @@ augroup MyAutoCmd
   autocmd FileType htmldjango setlocal sw=2 ts=2 sts=2
   autocmd FileType stylus  setlocal sw=2 ts=2 sts=2
   autocmd FileType xml  setlocal sw=2 ts=2 sts=2
+  autocmd FileType yaml  setlocal sw=2 ts=2 sts=2
 
   " Close help buffer with q
   autocmd FileType help :nnoremap <buffer> <silent> q :<C-u>bdelete<CR>
