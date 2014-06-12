@@ -300,6 +300,18 @@
       <command>xlock -mousemotion +description -mode random -font "-misc-liberation mono-medium-r-normal--0-0-0-0-m-0-iso8859-2"</command>
     </action>
   </keybind>
+  <!-- Media keys   -->
+
+  <keybind key="C-Up">
+    <action name="Execute">
+      <command>amixer set Master 5%+ > /dev/null</command>
+    </action>
+  </keybind>
+  <keybind key="C-Down">
+    <action name="Execute">
+      <command>amixer set Master 5%- > /dev/null</command>
+    </action>
+  </keybind>
 
   <!-- Keybindings for running applications -->
   <keybind key="W-e">
