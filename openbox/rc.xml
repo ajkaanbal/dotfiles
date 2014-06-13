@@ -302,12 +302,12 @@
   </keybind>
   <!-- Media keys   -->
 
-  <keybind key="C-Up">
+  <keybind key="W-Up">
     <action name="Execute">
       <command>amixer set Master 5%+ > /dev/null</command>
     </action>
   </keybind>
-  <keybind key="C-Down">
+  <keybind key="W-Down">
     <action name="Execute">
       <command>amixer set Master 5%- > /dev/null</command>
     </action>
