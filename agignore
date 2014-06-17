@@ -7,5 +7,6 @@
 *.png
 
 node_modules
+bower_components
 jam
 migrations
