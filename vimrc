@@ -759,6 +759,9 @@ if executable('ag')
     let g:unite_source_grep_default_opts =
     \ '--line-numbers --nocolor --nogroup --all-text'
     let g:unite_source_grep_recursive_opt = ''
+
+    "ignore what there is in .gitignore or .hgignore
+    let g:unite_source_rec_async_command='ag --follow --nocolor --nogroup -g ""'
 endif
 endfunction
 "}}}
