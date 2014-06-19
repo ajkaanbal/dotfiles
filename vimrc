@@ -869,18 +869,6 @@ unlet bundle
 vnoremap <silent> <space> :EasyAlign<Enter>
 "}}}
 
-" " python-jedi {{{
-" let g:jedi#auto_initialization = 1
-" let g:jedi#auto_vim_configuration = 0
-" let g:jedi#completions_enable = 0
-" let g:jedi#popup_on_dot = 0
-" let g:jedi#popup_select_first = 0
-" let g:jedi#show_call_signatures = 0
-" let g:jedi#goto_definitions_command = "gd"
-" let g:jedi#rename_command = 'gr'
-" let g:jedi#use_tabs_not_buffers = 1
-" "}}}
-
 " undotoggle {{{
 nnoremap <F5> :UndotreeToggle<cr>
 "}}}
