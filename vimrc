@@ -725,6 +725,17 @@ let g:unite_split_rule = 'botright'
 let g:unite_marked_icon = '✗'
 let g:unite_prompt = '» '
 let g:unite_enable_start_insert = 1
+if executable('ag')
+    " Use ag in unite grep source.
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts =
+    \ '--line-numbers --nocolor --nogroup --all-text'
+    let g:unite_source_grep_recursive_opt = ''
+
+    "ignore what there is in .gitignore or .hgignore
+    let g:unite_source_rec_async_command='ag --follow --nocolor --nogroup -g ""'
+endif
+
 
 nnoremap <C-@>f :<C-u>Unite file_rec/async:! -prompt-direction=top<CR>
 nnoremap <C-@>p :<C-u>Unite file_rec/async -prompt-direction=top<cr>
@@ -742,29 +753,17 @@ nnoremap <C-@>* :<C-u>UniteWithCursorWord grep:. -prompt-direction=top<cr>
 
 autocmd MyAutoCmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings() "{{{
+    "Split-right with C-v
+    imap <silent><buffer><expr> <C-v>  unite#do_action('right')
 
-"Split-right with C-v
-imap <silent><buffer><expr> <C-v>  unite#do_action('right')
+    " Clear searching highlight
+    let @/ = ""
 
-" Clear searching highlight
-let @/ = ""
+    " Disable whitespace highlighting
+    execute 'DisableWhitespace'
 
-" Disable whitespace highlighting
-execute 'DisableWhitespace'
-
-nmap <buffer> <ESC>      <Plug>(unite_exit)
-if executable('ag')
-    " Use ag in unite grep source.
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts =
-    \ '--line-numbers --nocolor --nogroup --all-text'
-    let g:unite_source_grep_recursive_opt = ''
-
-    "ignore what there is in .gitignore or .hgignore
-    let g:unite_source_rec_async_command='ag --follow --nocolor --nogroup -g ""'
-endif
-endfunction
-"}}}
+    nmap <buffer> <ESC>      <Plug>(unite_exit)
+endfunction "}}}
 
 
 " Airline: {{{
