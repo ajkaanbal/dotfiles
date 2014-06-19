@@ -930,7 +930,7 @@ vnoremap <Enter> "vy :call VimuxSlime()<CR>
 "}}}
 
 "{{{ vim-ref
-if neobundle#tap('vim-ref') 
+if neobundle#tap('vim-ref')
   function! neobundle#hooks.on_source(bundle)
     let g:ref_cache_dir = expand('~/.cache/ref')
     let g:ref_use_vimproc = 1
@@ -997,6 +997,9 @@ endif
 "indent with tab and shift tab
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
+
+cnoremap <C-P> <up>
+cnoremap <C-N> <down>
 
 "}}}
 
