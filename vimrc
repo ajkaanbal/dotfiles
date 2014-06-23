@@ -997,7 +997,7 @@ cnoremap <C-N> <down>
 "Session options
 set ssop-=options    " do not store global and local values in a session
 set ssop+=folds
-
+set path+=**
 
 " }}}
 

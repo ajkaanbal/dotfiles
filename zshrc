@@ -95,7 +95,7 @@ export JDK_HOME
 #alias o='a -e xdg-open' # quick opening files with xdg-open
 
 #java
-export JAVA_HOME="/usr/java/jdk1.7.0_40"
+export JAVA_HOME="/usr/java/jdk1.7.0_60"
 
 #scala
 SCALA_HOME="$HOME/.local/scala"
