@@ -355,7 +355,21 @@
       <command>urxvt256c-ml</command>
     </action>
   </keybind>
-
+  <keybind key="C-A-g">
+    <action name="Execute">
+      <command>wmctrl -a Chrome</command>
+    </action>
+  </keybind>
+  <keybind key="C-A-t">
+    <action name="Execute">
+      <command>wmctrl -a urxvt</command>
+    </action>
+  </keybind>
+  <keybind key="C-A-f">
+    <action name="Execute">
+      <command>wmctrl -a Pentadactyl</command>
+    </action>
+  </keybind>
   <keybind key="W-F12">
     <action name="Reconfigure" />
   </keybind>
