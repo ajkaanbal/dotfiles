@@ -5,6 +5,7 @@
 -- replace nulls
 \pset null ¤
 \pset border 2
+\pset format wrapped
 \set VERBOSITY verbose
 -- show execution times
 \timing
