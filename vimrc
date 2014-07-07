@@ -161,6 +161,7 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-eunuch'
 " Plugins for syntax highlight
 NeoBundle 'sheerun/vim-polyglot'
+NeoBundle 'amdt/vim-niji' " Rainbow parentheses
 NeoBundleLazy 'smancill/conky-syntax.vim',
 \ {'autoload':{ 'filetypes': 'conkyrc'}}
 "Neobundle configuration
@@ -921,18 +922,22 @@ if neobundle#tap('vim-ref')
   function! neobundle#hooks.on_source(bundle)
     let g:ref_cache_dir = expand('~/.cache/ref')
     let g:ref_use_vimproc = 1
+    let g:ref_pydoc_complete_head = 1
 
     autocmd MyAutoCmd FileType ref call s:ref_my_settings()
     function! s:ref_my_settings() "{{{
       " Overwrite settings.
       nnoremap <buffer> q <C-w>c
-    endfunction"}}}
+    endfunction
   endfunction
 endif
 "}}}
 
+"{{{ vim-niji
+  let g:niji_matching_filetypes = ['lisp', 'ruby', 'python']
 "}}}
 
+"}}}
 
 "---------------------------------------------------------------------------
 " KeyMappings: "{{{
