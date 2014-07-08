@@ -866,7 +866,7 @@ unlet bundle
 "}}}
 
 " Easyalign {{{
-vnoremap <silent> <space> :EasyAlign<Enter>
+vnoremap <silent> <Enter> :EasyAlign<Enter>
 "}}}
 
 " undotoggle {{{
@@ -886,7 +886,7 @@ function! VimuxSlime()
 endfunction
 
 " If text is selected, save it in the v buffer and send that buffer it to tmux
-vnoremap <Enter> "vy :call VimuxSlime()<CR>
+vnoremap <C-@> "vy :call VimuxSlime()<CR>
 "}}}
 
 "}}}
