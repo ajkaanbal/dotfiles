@@ -157,7 +157,6 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-eunuch'
 " Plugins for syntax highlight
 NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'amdt/vim-niji' " Rainbow parentheses
 NeoBundleLazy 'smancill/conky-syntax.vim',
 \ {'autoload':{ 'filetypes': 'conkyrc'}}
 "Neobundle configuration
