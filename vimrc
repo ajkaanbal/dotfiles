@@ -132,10 +132,6 @@ NeoBundleLazy 'https://raw.githubusercontent.com/JessicaKMcIntosh/Vim/master/syn
 \   'script_type': 'syntax',
 \   'autoload': {'filetypes': ['sql']}
 \}
-NeoBundleLazy 'mbbill/undotree', {
-\ 'autoload': {
-\    'commands': 'UndotreeToggle'
-\ }}
 " from vim.org
 NeoBundleLazy 'matchit.zip', { 'autoload' : {
       \ 'mappings' : [['nxo', '%', 'g%']]
@@ -332,16 +328,6 @@ set timeout timeoutlen=1200 ttimeoutlen=50
 
 " CursorHold time.
 set updatetime=1000
-
-"backups and persistance settings
-set undodir=~/.vim/tmp/undo
-set backupdir=~/.vim/tmp/backup
-
-set backup
-set writebackup
-
-set undofile
-set undolevels=100
 
 " Enable virtualedit in visual block mode and cursor beyond the last char
 set virtualedit=block,onemore
@@ -869,10 +855,6 @@ unlet bundle
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 "}}}
 
-" undotoggle {{{
-nnoremap <F5> :UndotreeToggle<cr>
-"}}}
-"
 " delimitMate {{{
   let delimitMate_expand_cr = 2
   let delimitMate_expand_space = 1
