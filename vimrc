@@ -32,8 +32,14 @@ NeoBundle 'honza/vim-snippets'
 NeoBundleLazy 'Shougo/unite.vim', {
 \  'autoload': {'commands': ['Unite']}
 \}
-NeoBundle 'sgoranson/unite-mark', {'depends': 'Shougo/unite.vim'}
-NeoBundle 'Shougo/unite-outline', {'depends': 'Shougo/unite.vim'}
+NeoBundleLazy 'sgoranson/unite-mark',
+\{ 'depends': 'Shougo/unite.vim',
+\  'autoload': {'commands': ['Unite']}
+\}
+NeoBundleLazy 'Shougo/unite-outline',
+\{ 'depends': 'Shougo/unite.vim',
+\  'autoload': {'commands': ['Unite']}
+\}
 NeoBundle 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim'}
 NeoBundleLazy 'Shougo/vimfiler', {
 \ 'depends' : 'Shougo/unite.vim',
@@ -110,11 +116,6 @@ NeoBundleLazy 'guns/xterm-color-table.vim.git', {
       \   'commands': 'XtermColorTable'
       \ }}
 
-" NeoBundleLazy 'hdima/python-syntax', {
-" \ 'autoload' : {
-" \   'filetypes': 'python'
-" \ }}
-
 NeoBundle 'Raimondi/delimitMate' " Automatic closing quotes,...
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
@@ -169,12 +170,6 @@ call neobundle#config('unite.vim', {
 \                       'complete' : 'customlist,unite#complete_source'}]
 \   }})
 
-" call neobundle#config('neocomplete.vim', {
-" \ 'lazy' : 1,
-" \ 'autoload' : {
-" \   'insert' : 1,
-" \ }})
-"
 call neobundle#config('vimfiler', {
 \ 'lazy' : 1,
 \ 'depends' : 'Shougo/unite.vim',
@@ -197,6 +192,7 @@ call neobundle#config('vimfiler', {
 if filereadable(expand('~/.vimrc.local'))
     source ~/.vimrc.local
 endif
+
 
 filetype plugin indent on
 set lazyredraw
