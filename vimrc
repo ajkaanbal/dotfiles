@@ -848,6 +848,10 @@ endfunction
 unlet bundle
 "}}}
 
+" YouCompleteme {{{
+    nnoremap gD :<c-u>YcmCompleter GoTo<cr>
+"}}}
+
 " Easyalign {{{
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 "}}}
