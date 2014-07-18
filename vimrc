@@ -861,6 +861,10 @@ vnoremap <silent> <Enter> :EasyAlign<Enter>
   let delimitMate_expand_space = 1
 " }}}
 
+" tcomment {{{
+  let g:tcommentTextObjectInlineComment=''
+"}}}
+
 " vimux {{{
 let g:VimuxRunnerIndex=1
 function! VimuxSlime()
