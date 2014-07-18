@@ -41,7 +41,8 @@ load-plugins=
 # PyLint's module importation is unreliable
 # F0401 = Unable to import module
 # E1120 No value passed for parameter 'cls' infunction call
-disable=F0401,E1120
+# E1002 Use of super on and old style class
+disable=F0401,E1120,E1002
 
 
 [REPORTS]
