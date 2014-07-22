@@ -136,7 +136,6 @@ bindkey '^@' clear-screen
 # unbind some keys used in tmux
 bindkey -r '^[l'
 bindkey -r '^[h'
-bindkey -r '^[l'
 
 #coloritos
 eval `dircolors $HOME/.dir_colors`
