@@ -938,12 +938,6 @@ nnoremap <silent>gB :bprevious<CR>
 nnoremap <C-T> <C-^>
 nnoremap <silent>Q :<c-u>Bdelete<CR>
 
-"Window operations
-nnoremap <silent><C-j> <C-w>j
-nnoremap <silent><C-k> <C-w>k
-nnoremap <silent><C-h> <C-w>h
-nnoremap <silent><C-l> <C-w>l
-
 inoremap <silent><C-l> <esc><C-w>l
 inoremap <silent><C-k> <esc><C-w>k
 inoremap <silent><C-h> <esc><C-w>h
