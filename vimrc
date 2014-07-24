@@ -565,6 +565,9 @@ augroup MyAutoCmd
 
     "autocmds
     autocmd BufNewFile,BufRead *.html call <SID>DetectHTMLDjango()
+
+    " My commands
+    command -nargs=+ Run :cexpr system('<args>') | copen
 augroup END
 
 " Python
@@ -973,6 +976,8 @@ vnoremap <S-Tab> <gv
 
 cnoremap <C-P> <up>
 cnoremap <C-N> <down>
+
+nnoremap <silent> <C-W>z :wincmd z<Bar>cclose<Bar>lclose<CR>
 
 "}}}
 
