@@ -367,7 +367,7 @@
   </keybind>
   <keybind key="C-A-f">
     <action name="Execute">
-      <command>wmctrl -a Pentadactyl</command>
+      <command>wmctrl -a Firefox</command>
     </action>
   </keybind>
   <keybind key="W-F12">
