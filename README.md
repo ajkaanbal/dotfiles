@@ -18,6 +18,10 @@ Search skin= and replace by
     ```bash
     $ln -s ~/.openbox ~/.config/openbox
 
+4. Tmux plugin Manager
+
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 ## global git ignore
     ```bash
     git config --global core.excludesfile ~/.gitignore
