@@ -310,7 +310,12 @@
   <!-- key for manage desktop -->
   <keybind key="C-S-l">
     <action name="Execute">
-      <command>xlock -mousemotion +description -mode random -font "-misc-liberation mono-medium-r-normal--0-0-0-0-m-0-iso8859-2"</command>
+      <command>xlock -mousemotion +description -mode space -font "-misc-liberation mono-medium-r-normal--0-0-0-0-m-0-iso8859-2"</command>
+    </action>
+  </keybind>
+  <keybind key="C-S-s">
+    <action name="Execute">
+      <command>pm-suspend</command>
     </action>
   </keybind>
   <!-- Media keys   -->
@@ -368,6 +373,11 @@
   <keybind key="C-A-f">
     <action name="Execute">
       <command>wmctrl -a Firefox</command>
+    </action>
+  </keybind>
+  <keybind key="C-A-s">
+    <action name="Execute">
+      <command>wmctrl -a "- Skype™"</command>
     </action>
   </keybind>
   <keybind key="W-F12">
