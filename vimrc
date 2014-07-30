@@ -568,7 +568,7 @@ augroup MyAutoCmd
     autocmd BufNewFile,BufRead *.html call <SID>DetectHTMLDjango()
 
     " My commands
-    command -nargs=+ Run :cexpr system('<args>') | copen
+    command! -nargs=+ Run :cexpr system('<args>') | copen
 augroup END
 
 " Python
@@ -949,7 +949,9 @@ inoremap <silent><C-h> <esc><C-w>h
 inoremap <silent><C-l> <esc><C-w>l
 
 " Useful save mappings.
+autocmd MyAutoCmd InsertLeave <buffer> update
 nnoremap <silent> <CR> :<C-u>update<CR>
+
 map ' `
 
 " Easy escape."{{{
