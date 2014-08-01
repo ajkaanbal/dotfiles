@@ -127,6 +127,7 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'sdanielf/vim-stdtabs' " common indents
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'tommcdo/vim-exchange'
 NeoBundleLazy 'wellle/targets.vim', {
 \ 'autoload': { 'filetypes': ['python','javascript'] }
 \}
