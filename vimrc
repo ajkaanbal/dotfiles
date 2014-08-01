@@ -349,7 +349,7 @@ autocmd MyAutoCmd InsertLeave * if &l:diff | diffupdate | endif
 autocmd MyAutoCmd InsertEnter * let @/ = ""
 
 " auto update files
-autocmd MyAutoCmd BufLeave,FocusLost * silent! update
+autocmd MyAutoCmd InsertLeave,BufLeave,FocusLost * silent! update
 
 "}}}
 
@@ -950,7 +950,6 @@ inoremap <silent><C-h> <esc><C-w>h
 inoremap <silent><C-l> <esc><C-w>l
 
 " Useful save mappings.
-autocmd MyAutoCmd InsertLeave <buffer> update
 nnoremap <silent> <CR> :<C-u>update<CR>
 
 map ' `
