@@ -62,18 +62,25 @@ sub on_start {
 
 	if ($self->x_resource('matcher.pattern')) {
 		@{$self->{pattern}} = ($self->x_resource('matcher.pattern'));
-	} elsif ($self->x_resource('matcher.pattern.1')) {
-		my $current = 1;
+	} elsif ($self->x_resource('matcher.pattern.0')) {
+		my $current = 0;
 
-		while ($self->x_resource("matcher.pattern.$current")) {
-			push @{$self->{pattern}}, $self->x_resource("matcher.pattern.$current");
+		while (defined (my $res = $self->x_resource("matcher.pattern.$current"))) {
+			$res = $self->locale_decode($res);
+			utf8::encode $res;
+			push @{$self->{pattern}}, qr($res)x;
 			$current++;
 		}
 	} else {
-		@{$self->{pattern}} = qr{(
-			(?:https?://|ftp://|news://|git://|mailto:|file://|www\.)
-			[\w\-\@;\/?:&=%\$_.+!*\x27(),~#]+[\w\-\@;\/?&=%\$_+!*\x27()~]
-		)}x;
+		@{$self->{pattern}} = qr{
+			(?:https?://|ftp://|news://|mailto:|file://|\bwww\.)
+			[\w\-\@;\/?:&=%\$.+!*\x27,~#]*
+			(
+				\([\w\-\@;\/?:&=%\$.+!*\x27,~#]*\)   # Allow a pair of matched parentheses
+				|                                    #
+				[\w\-\@;\/?:&=%\$+*~]                # exclude some trailing characters (heuristic)
+			)+
+		}x;
 	}
 
 	()
@@ -90,8 +97,7 @@ sub line_update {
 	for my $pattern (@{$self->{pattern}}) {
 		while ($text =~ /$pattern/g) {
 			my $url = $&;
-			my ($beg, $end) = ($-[1], $+[1] - 1);
-			--$end if $url =~ /["')]$/;
+			my ($beg, $end) = ($-[0], $+[0] - 1);
 
 			for (@{$rend}[$beg .. $end]) {
 				$_ |= urxvt::RS_Uline;
@@ -122,7 +128,8 @@ sub key_press {
 	my ($self, $event, $keysym) = @_;
 	my $char = chr($keysym);
 
-	if ($keysym == 0xff1b || lc($char) eq 'q') {
+	if ($keysym == 0xff1b || lc($char) eq 'q' ||
+	    (lc($char) eq 'c' && $event->{state} & urxvt::ControlMask)) {
 		deactivate($self);
 	} elsif ($keysym == 0xff0d || $char eq 'o') {
 		$self->exec_async(@{$self->{browser}}, ${$self->{found}[$self->{n}]}[4]);
@@ -233,7 +240,6 @@ sub select_next {
 
 				do {
 					my ($beg, $end) = ($-[0], $+[0]);
-					--$end if $& =~ /['")]$/;
 					push @{$self->{found}}, [$line->coord_of($beg),
 							$line->coord_of($end), substr($text, $beg, $end - $beg)];
 				} while ($text =~ /$pattern/g);

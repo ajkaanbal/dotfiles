@@ -26,12 +26,13 @@ URxvt*loginShell: true
 URxvt.intensityStyles: false
 URxvt.cursorBlink: true
 !Copy to clipboard using Ctrl-Shift-c
-URxvt.perl-ext-common:  default,clipboard,keyboard-select,fullscreen
+URxvt.perl-ext-common:  default,clipboard,keyboard-select,fullscreen,url-select
 URxvt.iso14755 : false
 URxvt.clipboard.autocopy: true
 URxvt.keysym.C-C: perl:clipboard:copy
 URxvt.keysym.C-V: perl:clipboard:paste
 URxvt.keysym.C-A-V: perl:clipboard:paste_escaped
+URxvt.keysym.C-u: perl:url-select:select_next
 
 !keyboard select mode
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
