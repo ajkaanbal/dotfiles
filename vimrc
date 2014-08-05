@@ -980,8 +980,17 @@ vnoremap <S-Tab> <gv
 
 cnoremap <C-P> <up>
 cnoremap <C-N> <down>
+cnoremap <C-a> <home>
+cnoremap <C-e> <end>
 
 nnoremap <silent> <C-W>z :wincmd z<Bar>cclose<Bar>lclose<CR>
+nnoremap D dd
+
+"Search matches in the middle of the window
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap <C-o> <C-o>zz
+nnoremap <C-i> <C-i>zz
 
 "}}}
 

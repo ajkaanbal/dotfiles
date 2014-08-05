@@ -52,7 +52,7 @@ NeoBundleCheck
 " end-initialization }}}
 
 " Encoding {{{
-set encoding=utf8
+  set encoding=utf8
 " }}}
 
 " Edit {{{
@@ -73,6 +73,10 @@ set encoding=utf8
   set foldlevel=5
 
 " end-view}}}
+
+" Utils {{{
+  set path+=**
+" }}}
 
 " Syntax {{{
   augroup MyAutoCmd
