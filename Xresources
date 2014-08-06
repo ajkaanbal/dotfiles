@@ -19,7 +19,7 @@ URxvt.font: fonts
 URxvt.boldFont: fonts
 xterm*xftAntialias: true
 URxvt.jumpScroll: false
-URxvt.saveLines: 32
+URxvt.saveLines: 10000
 URxvt.letterSpace: -1
 URxvt.internalBorder: 0
 URxvt*loginShell: true
