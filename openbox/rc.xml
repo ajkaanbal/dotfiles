@@ -380,6 +380,11 @@
       <command>wmctrl -a "- Skype™"</command>
     </action>
   </keybind>
+  <keybind key="A-F2">
+    <action name="Execute">
+      <command>gmrun</command>
+    </action>
+  </keybind>
   <keybind key="W-F12">
     <action name="Reconfigure" />
   </keybind>
