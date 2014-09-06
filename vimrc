@@ -131,11 +131,11 @@ NeoBundle 'tommcdo/vim-exchange'
 NeoBundleLazy 'wellle/targets.vim', {
 \ 'autoload': { 'filetypes': ['python','javascript'] }
 \}
-NeoBundleLazy 'https://raw.githubusercontent.com/JessicaKMcIntosh/Vim/master/syntax/sql.vim', {
-\   'type': 'raw',
-\   'script_type': 'syntax',
-\   'autoload': {'filetypes': ['sql']}
+
+NeoBundleLazy 'krisajenkins/dbext.vim', {
+\ 'autoload': {'filetypes': 'sql'}
 \}
+
 " from vim.org
 NeoBundleLazy 'matchit.zip', { 'autoload' : {
       \ 'mappings' : [['nxo', '%', 'g%']]
@@ -437,7 +437,7 @@ set spelllang=en_us
 
 " Completion setting.
 set completeopt=menuone,longest
-set completeopt-=preview
+set completeopt+=preview
 
 " tells VIM where to search for autocompletion
 "  . : current file
@@ -445,7 +445,7 @@ set completeopt-=preview
 "  b : files in loaded buffers, not in a window
 "  t : the `tags` file
 "  i : current and included files
-set complete=.,w,b,u,t,i
+set complete=.,k,w,b,u,t,i
 
 " Set popup menu max height.
 set pumheight=20
@@ -882,9 +882,6 @@ endfunction
 vnoremap <C-@> "vy :call VimuxSlime()<CR>
 "}}}
 
-"}}}
-
-" gitv {{{
 "}}}
 
 " gitgutter {{{
