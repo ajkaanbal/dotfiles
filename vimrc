@@ -339,7 +339,7 @@ autocmd MyAutoCmd WinEnter * checktime
 
 " Disable paste.
 autocmd MyAutoCmd InsertLeave *
-      \ if &paste | set nopaste mouse=a | echo 'nopaste' | endif |
+      \ if &paste | set nopaste | echo 'nopaste' | endif |
       \ if &l:diff | diffupdate | endif
 
 " Update diff.
