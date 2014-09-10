@@ -692,7 +692,7 @@ call unite#custom#source(
         \ 'buffer', 'converters',
         \ ['converter_file_directory'])
 
-call unite#custom#source('file_rec/async,file_rec,file_mru,buffer', 'filters',
+call unite#custom#source('file_rec/async,file_rec,file_mru,buffer', 'converters',
 \ ['converter_relative_word', 'matcher_default',
 \  'sorter_default', 'converter_relative_abbr'])
 
