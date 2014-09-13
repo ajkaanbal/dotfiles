@@ -442,10 +442,11 @@ set completeopt+=preview
 " tells VIM where to search for autocompletion
 "  . : current file
 "  w : files in other windows
+"  k : files in other windows
 "  b : files in loaded buffers, not in a window
 "  t : the `tags` file
 "  i : current and included files
-set complete=.,k,w,b,u,t,i
+set complete=.,k,b,u,t,i
 
 " Set popup menu max height.
 set pumheight=20
