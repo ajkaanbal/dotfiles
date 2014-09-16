@@ -928,6 +928,10 @@ endif
   let g:niji_matching_filetypes = ['lisp', 'ruby', 'python']
 "}}}
 
+"{{{ dbext
+  let g:dbext_default_window_use_horiz = 0  " Use vertical split
+"}}}
+
 "}}}
 
 "---------------------------------------------------------------------------
