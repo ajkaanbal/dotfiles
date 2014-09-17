@@ -136,6 +136,10 @@ NeoBundleLazy 'krisajenkins/dbext.vim', {
 \ 'autoload': {'filetypes': 'sql'}
 \}
 
+NeoBundleLazy 'shmup/vim-sql-syntax', {
+\ 'autoload': {'filetypes': 'sql'}
+\}
+
 " from vim.org
 NeoBundleLazy 'matchit.zip', { 'autoload' : {
       \ 'mappings' : [['nxo', '%', 'g%']]
