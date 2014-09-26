@@ -25,4 +25,5 @@ Search skin= and replace by
 ## global git ignore
     ```bash
     git config --global core.excludesfile ~/.gitignore
+    git config --global alias.trash '!mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash'
     ```
