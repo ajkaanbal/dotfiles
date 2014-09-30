@@ -158,6 +158,7 @@ NeoBundleLazy 'artnez/vim-wipeout', {'autoload': {'commands': 'Wipeout'}}
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'benmills/vimux'
+NeoBundle 'krisajenkins/vim-pipe'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'wellle/tmux-complete.vim'
 NeoBundle 'ajkaanbal/autoswap.vim'
@@ -817,6 +818,10 @@ let g:syntastic_loc_list_height = 3
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 let g:syntastic_aggregate_errors = 1
 
+let g:syntastic_mode_map = { "mode": "pasive",
+                            \ "active_filetypes": ["ruby", "php"],
+                            \ "passive_filetypes": ["python"] }
+
 highlight SyntasticStyleErrorSign cterm=bold ctermfg=166
 highlight SyntasticErrorSign cterm=bold ctermfg=1
 
@@ -933,7 +938,14 @@ endif
 "}}}
 
 "{{{ dbext
-  let g:dbext_default_window_use_horiz = 0  " Use vertical split
+    let g:dbext_default_window_use_horiz = 1
+    let g:dbext_default_use_sep_result_buffer = 1
+    let g:dbext_default_buffer_lines = 35
+"}}}
+
+"{{{ vim- pipe
+    autocmd MyAutoCmd BufNewFile,BufReadPost *.mql setlocal filetype=mongoql | set ft=javascript
+    autocmd MyAutoCmd FileType mongoql let b:vimpipe_command="mongo" | let b:vimpipe_filetype="javascript"
 "}}}
 
 "}}}
