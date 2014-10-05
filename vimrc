@@ -867,6 +867,20 @@ unlet bundle
 
 " YouCompleteme {{{
     nnoremap gD :<c-u>YcmCompleter GoTo<cr>
+    let g:ycm_filetype_blacklist = {
+        \ 'tagbar' : 1,
+        \ 'qf' : 1,
+        \ 'notes' : 1,
+        \ 'markdown' : 1,
+        \ 'unite' : 1,
+        \ 'text' : 1,
+        \ 'vimwiki' : 1,
+        \ 'pandoc' : 1,
+        \ 'infolog' : 1,
+        \ 'mail' : 1,
+        \ 'sql' : 1
+        \}
+
 "}}}
 
 " Easyalign {{{
