@@ -19,7 +19,7 @@ augroup END
 
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
 \ 'build' : {
@@ -200,6 +200,7 @@ if filereadable(expand('~/.vimrc.local'))
     source ~/.vimrc.local
 endif
 
+call neobundle#end()
 
 filetype plugin indent on
 set lazyredraw
