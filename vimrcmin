@@ -17,7 +17,7 @@ augroup END
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 "Now, initializes Neobundle.
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 "}}}
 
 "Plugins, plugins everywhere {{{
@@ -38,6 +38,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   "}}}
 
 "end plugin list }}}
+call neobundle#end()
 
 " Plugins by filetype and enable indent. Required for Neobundle.
 filetype plugin indent on
