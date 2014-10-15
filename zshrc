@@ -104,6 +104,11 @@ export PATH="$SCALA_HOME/bin:$PATH"
 #NODEJS
 NODE_PATH="$HOME/.local/node"
 export PATH="$NODE_PATH/bin:$PATH"
+
+#GO
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 #Editor
 export EDITOR=~/.local/bin/vim
 # bind UP and DOWN arrow keys
