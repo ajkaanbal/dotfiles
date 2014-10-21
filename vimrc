@@ -756,7 +756,7 @@ function! s:unite_my_settings() "{{{
     let @/ = ""
 
     " Disable whitespace highlighting
-    execute 'DisableWhitespace'
+    execute 'silent DisableWhitespace'
 
     nmap <buffer> <ESC>      <Plug>(unite_exit)
 endfunction "}}}
