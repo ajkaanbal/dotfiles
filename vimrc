@@ -351,9 +351,6 @@ autocmd MyAutoCmd InsertLeave *
 " Update diff.
 autocmd MyAutoCmd InsertLeave * if &l:diff | diffupdate | endif
 
-" remove highlight search
-autocmd MyAutoCmd InsertEnter * let @/ = ""
-
 " auto update files
 autocmd MyAutoCmd InsertLeave,BufLeave,FocusLost * silent! update
 
