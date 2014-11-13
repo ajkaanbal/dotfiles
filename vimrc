@@ -688,9 +688,17 @@ let g:colorizer_auto_color = 0
 
 call unite#custom#source('file_rec', 'sorters', 'sorter_reverse')
 "Match candidates by filename
+
 call unite#custom#source(
-        \ 'buffer,file_rec/async,file_rec,file_mru', 'matchers',
-        \ ['converter_tail', 'matcher_regexp'])
+    \ 'buffer,file_rec,file_rec/async,file_rec/git', 'matchers',
+    \ ['converter_relative_word', 'matcher_fuzzy',
+    \ 'matcher_project_ignore_files'])
+call unite#custom#source(
+    \ 'file_mru', 'matchers',
+    \ ['matcher_project_files', 'matcher_fuzzy', 'matcher_hide_hidden_files'])
+
+call unite#custom#source('buffer,file,file_rec,file_rec/async',
+    \ 'sorters', 'sorter_selecta')
 
 call unite#custom#source(
         \ 'buffer', 'converters',
