@@ -116,7 +116,7 @@ NeoBundleLazy 'guns/xterm-color-table.vim.git', {
       \   'commands': 'XtermColorTable'
       \ }}
 
-NeoBundle 'ohama/lexima.vim' " Automatic closing quotes,...
+NeoBundle 'cohama/lexima.vim' " Automatic closing quotes,...
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'gregsexton/gitv'
