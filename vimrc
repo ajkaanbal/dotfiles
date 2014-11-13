@@ -116,7 +116,7 @@ NeoBundleLazy 'guns/xterm-color-table.vim.git', {
       \   'commands': 'XtermColorTable'
       \ }}
 
-NeoBundle 'Raimondi/delimitMate' " Automatic closing quotes,...
+NeoBundle 'ohama/lexima.vim' " Automatic closing quotes,...
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'gregsexton/gitv'
@@ -883,11 +883,6 @@ unlet bundle
 " Easyalign {{{
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 "}}}
-
-" delimitMate {{{
-  let delimitMate_expand_cr = 2
-  let delimitMate_expand_space = 1
-" }}}
 
 " tcomment {{{
   let g:tcommentTextObjectInlineComment=''
