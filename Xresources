@@ -35,7 +35,7 @@ URxvt.keysym.C-A-V: perl:clipboard:paste_escaped
 URxvt.keysym.M-u: perl:url-select:select_next
 
 URxvt.keysym.C-plus:     perl:font-size:increase
-URxvt.keysym.C-minus:   perl:font-size:decrease
+URxvt.keysym.C-underscore:   perl:font-size:decrease
 URxvt.keysym.C-S-Up:   perl:font-size:incglobal
 URxvt.keysym.C-S-Down: perl:font-size:decglobal
 
@@ -125,7 +125,7 @@ xterm*.colorUL:      #87afd7
 
 xterm*faceName: Sauce Code Powerline,DejaVu Sans Mono for Powerline
 xterm*fontWarnings: 2
-xterm*faceSize: 9 
+xterm*faceSize: 9
 xterm*allowBoldFonts: false
 xterm*assumeAllChars: true
 
