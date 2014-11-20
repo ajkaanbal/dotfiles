@@ -166,7 +166,9 @@ NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-eunuch'
 " Plugins for syntax highlight
-NeoBundle 'sheerun/vim-polyglot'
+NeoBundleLazy 'sheerun/vim-polyglot',
+\ {'autoload':{ 'filetypes': 'scala'}}
+NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundleLazy 'smancill/conky-syntax.vim',
 \ {'autoload':{ 'filetypes': 'conkyrc'}}
 "Neobundle configuration
