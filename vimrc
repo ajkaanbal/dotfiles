@@ -165,6 +165,7 @@ NeoBundle 'ajkaanbal/autoswap.vim'
 NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'haya14busa/incsearch.vim'
 " Plugins for syntax highlight
 NeoBundleLazy 'sheerun/vim-polyglot',
 \ {'autoload':{ 'filetypes': 'scala'}}
