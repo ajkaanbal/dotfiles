@@ -9,3 +9,13 @@ endsnippet
 snippet p
 print('Value of $1 is {}'.format(${1:${VISUAL}}))
 endsnippet
+
+snippet view
+class $1($2):
+    """ $3 """
+endsnippet
+
+snippet tview
+class $1(TemplateView):
+    """ $2 """
+endsnippet
