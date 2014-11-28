@@ -826,14 +826,12 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_loc_list_height = 3
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 let g:syntastic_aggregate_errors = 1
-
-let g:syntastic_mode_map = { "mode": "pasive",
-                            \ "active_filetypes": ["ruby", "php"],
-                            \ "passive_filetypes": ["python"] }
+let g:syntastic_check_on_open = 1
 
 highlight SyntasticStyleErrorSign cterm=bold ctermfg=166
 highlight SyntasticErrorSign cterm=bold ctermfg=1
 
+nnoremap <silent><F5> :<C-u>SyntasticToggleMode<CR>
 "}}}
 
 " easy-motion {{{
@@ -986,7 +984,7 @@ inoremap <silent><C-h> <esc><C-w>h
 inoremap <silent><C-l> <esc><C-w>l
 
 " Useful save mappings.
-nnoremap <silent> <CR> :<C-u>update<CR>
+nnoremap <silent> <CR> :<C-u>w<CR>
 
 map ' `
 
