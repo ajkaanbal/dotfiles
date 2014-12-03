@@ -96,6 +96,7 @@ export JDK_HOME
 
 #java
 export JAVA_HOME="/usr/java/jdk1.7.0_60"
+export PATH="$JAVA_HOME/bin:$PATH"
 
 #scala
 SCALA_HOME="$HOME/.local/scala"
