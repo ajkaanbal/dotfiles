@@ -49,7 +49,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colored-man git virtualenv autoenv vagrant zsh-syntax-highlighting history-substring-search web-search tmux yum wd docker ssh-agent)
+plugins=(colored-man git virtualenv autoenv vagrant zsh-syntax-highlighting history-substring-search web-search tmux yum wd docker ssh-agent autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -74,8 +74,8 @@ setopt HIST_VERIFY # Don't execute immediately upon history expansion.
 
 
 # Android-sdk
-export ANDROID_TOOLS="$HOME/.local/adt/sdk/tools"
-export ANDROID_PLATFORM_TOOLS="$HOME/.local/adt/sdk/platform-tools/"
+export ANDROID_TOOLS="/home/rvilchis/.local/android-sdk-linux/tools"
+export ANDROID_PLATFORM_TOOLS="/home/rvilchis/.local/android-sdk-linux/platforms/"
 PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS
 
 #Virtual env wrapper
@@ -141,3 +141,17 @@ eval `dircolors $HOME/.dir_colors`
 # zsh-agent
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa jkop-ajkaanbal jkop-github
+
+# Setup zsh-autosuggestions
+source /home/rvilchis/.oh-my-zsh/plugins/autosuggestions/autosuggestions.zsh
+
+# Enable autosuggestions automatically
+zle-line-init() {
+    zle autosuggest-start
+}
+
+zle -N zle-line-init
+
+# use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
+# zsh-autosuggestions is designed to be unobtrusive)
+bindkey '^T' autosuggest-toggle
