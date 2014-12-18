@@ -142,9 +142,6 @@ eval `dircolors $HOME/.dir_colors`
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa jkop-ajkaanbal jkop-github
 
-# Setup zsh-autosuggestions
-source /home/rvilchis/.oh-my-zsh/plugins/autosuggestions/autosuggestions.zsh
-
 # Enable autosuggestions automatically
 zle-line-init() {
     zle autosuggest-start
