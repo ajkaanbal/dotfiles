@@ -172,6 +172,7 @@ NeoBundleLazy 'sheerun/vim-polyglot',
 NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundleLazy 'smancill/conky-syntax.vim',
 \ {'autoload':{ 'filetypes': 'conkyrc'}}
+NeoBundle 'wakatime/vim-wakatime'
 "Neobundle configuration
 call neobundle#config('unite.vim', {
 \   'lazy': 1,
