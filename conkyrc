@@ -69,6 +69,7 @@ override_utf8_locale yes
 
 TEXT
 ${color #ffcb48}$nodename$color      ${color #828282}$sysname $kernel on
+Battery: ${battery_percent BAT0}% [$battery_time] ${alignr}${battery_bar 8,70 BAT0}
 
 ${color #ffcb48}PROCESSING$color
    ${color #98c2c7}CPU:$color     ${execi 5 sensors}MHz       $cpu%
