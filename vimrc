@@ -865,11 +865,8 @@ endif
 "indentLine {{{
 let g:indentLine_faster = 1
 let g:indentLine_color_term = 236
-let bundle = neobundle#get('indentLine')
-function! bundle.hooks.on_post_source(bundle)
-    set concealcursor="inc"
-endfunction
-unlet bundle
+let g:indentLine_noConcealCursor = "nc"
+
 "}}}
 
 " YouCompleteme {{{
