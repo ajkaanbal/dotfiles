@@ -70,6 +70,9 @@ override_utf8_locale yes
 TEXT
 ${color #ffcb48}$nodename$color      ${color #828282}$sysname $kernel on
 Battery: ${battery_percent BAT0}% [$battery_time] ${alignr}${battery_bar 8,70 BAT0}
+${color slate grey}Dropbox status: ${color slate grey}${exec dropbox status | sed -n 1p}
+${execibar 60 du -c ~/Dropbox | awk  '/total/ {print $1/10485.76/7.8}' }
+${exec du -c ~/Dropbox | awk  'BEGIN{Size=7.8} /total/ {Used=$1/1048576;printf "Size: %.2f GB",Size;printf " Used: %.2f GB",Used;printf " Free: %.2f GB\n", Size-Used}'}
 
 ${color #ffcb48}PROCESSING$color
    ${color #98c2c7}CPU:$color     ${execi 5 sensors}MHz       $cpu%
