@@ -100,6 +100,8 @@ NeoBundleLazy 'othree/yajs.vim', { 'autoload' : {
       \ }}
 NeoBundleLazy 'othree/javascript-libraries-syntax.vim', { 'autoload': {
       \ 'filetypes': 'javascript'}}
+NeoBundleLazy 'briancollins/vim-jst', { 'autoload': {
+      \ 'filetypes': 'jst'}}
 NeoBundleLazy 'elzr/vim-json', { 'autoload': {
       \ 'filetypes': 'json' }}
 NeoBundleLazy 'chrisbra/Colorizer', {
