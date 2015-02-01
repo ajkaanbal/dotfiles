@@ -42,7 +42,13 @@
     "YConn",
     "YJson",
     "WebTracking",
-    "Raphael"
+    "Raphael",
+    "describe",
+    "it",
+    "before",
+    "beforeEach",
+    "after",
+    "afterEach"
   ],
   "regexp" : true,
   "rhino" : false,
