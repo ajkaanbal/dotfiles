@@ -431,6 +431,8 @@ set wildignore+=*.luac                           " Lua byte code
 set wildignore+=*.jar                            " Java archives
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.stats                          " Pylint stats
+set wildignore+=**/node_module/**                " node modules
+set wildignore+=**/bower/**                      " bower modules
 
 " Increase history amount.
 set history=500
