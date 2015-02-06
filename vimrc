@@ -176,6 +176,7 @@ NeoBundleLazy 'smancill/conky-syntax.vim',
 \ {'autoload':{ 'filetypes': 'conkyrc'}}
 NeoBundle 'wakatime/vim-wakatime'
 "Neobundle configuration
+
 call neobundle#config('unite.vim', {
 \   'lazy': 1,
 \   'autoload': {
@@ -201,6 +202,7 @@ call neobundle#config('vimfiler', {
 \    'explorer' : 1,
 \ }
 \ })
+
 "local plugins vim
 if filereadable(expand('~/.vimrc.local'))
     source ~/.vimrc.local
@@ -694,53 +696,43 @@ let g:colorizer_auto_color = 0
 
 " unite.vim"{{{
 
-call unite#custom#source('file_rec', 'sorters', 'sorter_reverse')
-"Match candidates by filename
-
+" Custom filters."{{{
 call unite#custom#source(
-    \ 'buffer,file_rec,file_rec/async,file_rec/git', 'matchers',
-    \ ['converter_relative_word', 'matcher_fuzzy',
-    \ 'matcher_project_ignore_files'])
+      \ 'buffer,file_rec,file_rec/async,file_rec/git', 'matchers',
+      \ ['converter_relative_word', 'matcher_fuzzy',
+      \  'matcher_project_ignore_files'])
 call unite#custom#source(
-    \ 'file_mru', 'matchers',
-    \ ['matcher_project_files', 'matcher_fuzzy', 'matcher_hide_hidden_files'])
-
-call unite#custom#source('buffer,file,file_rec,file_rec/async',
-    \ 'sorters', 'sorter_selecta')
-
-call unite#custom#source(
-        \ 'buffer', 'converters',
-        \ ['converter_file_directory'])
-
-call unite#custom#source('file_rec/async,file_rec,file_mru,buffer', 'converters',
-\ ['converter_relative_word', 'matcher_default',
-\  'sorter_default', 'converter_relative_abbr'])
-
-" Directory partial match.
-call unite#custom#default_action('directory', 'narrow')
+      \ 'file_mru', 'matchers',
+      \ ['matcher_project_files', 'matcher_fuzzy',
+      \  'matcher_hide_hidden_files', 'matcher_hide_current_file'])
+call unite#custom#source('file_rec/async,file_rec,file_mru', 'converters',
+      \ ['converter_relative_word', 'matcher_default',
+      \  'sorter_default', 'converter_relative_abbr'])
+call unite#filters#sorter_default#use(['sorter_selecta'])
+"}}}
 
 " Variables.
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_split_vertically = 0
 let g:unite_winheight = 12
 let g:unite_enable_short_source_names = 1
-
 let g:unite_source_file_mru_filename_format = ':~:.'
 let g:unite_source_file_mru_limit = 300
 let g:unite_source_directory_mru_limit = 300
 let g:unite_split_rule = 'botright'
-
 " Like Textmate icons.
 let g:unite_marked_icon = '✗'
 let g:unite_prompt = '» '
 let g:unite_enable_start_insert = 1
 if executable('ag')
+    " Directory partial match.
+    call unite#custom#default_action('directory', 'narrow')
+
     " Use ag in unite grep source.
     let g:unite_source_grep_command = 'ag'
     let g:unite_source_grep_default_opts =
     \ '--line-numbers --nocolor --nogroup --all-text'
     let g:unite_source_grep_recursive_opt = ''
-
     "ignore what there is in .gitignore or .hgignore
     let g:unite_source_rec_async_command='ag --follow --nocolor --nogroup -g ""'
 endif
