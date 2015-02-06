@@ -554,7 +554,8 @@ augroup MyAutoCmd
   " Improved include pattern.
   autocmd FileType html
         \ setlocal includeexpr=substitute(v:fname,'^\\/','','') |
-        \ setlocal path+=./;/
+        \ setlocal path+=./;/ |
+        \ setlocal foldlevelstart=15
 
   "Pretty json
   autocmd FileType json setlocal equalprg=json_reformat
