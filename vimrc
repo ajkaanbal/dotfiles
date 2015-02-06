@@ -696,21 +696,6 @@ let g:colorizer_auto_color = 0
 
 " unite.vim"{{{
 
-" Custom filters."{{{
-call unite#custom#source(
-      \ 'buffer,file_rec,file_rec/async,file_rec/git', 'matchers',
-      \ ['converter_relative_word', 'matcher_fuzzy',
-      \  'matcher_project_ignore_files'])
-call unite#custom#source(
-      \ 'file_mru', 'matchers',
-      \ ['matcher_project_files', 'matcher_fuzzy',
-      \  'matcher_hide_hidden_files', 'matcher_hide_current_file'])
-call unite#custom#source('file_rec/async,file_rec,file_mru', 'converters',
-      \ ['converter_relative_word', 'matcher_default',
-      \  'sorter_default', 'converter_relative_abbr'])
-call unite#filters#sorter_default#use(['sorter_selecta'])
-"}}}
-
 " Variables.
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_split_vertically = 0
