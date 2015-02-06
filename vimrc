@@ -847,6 +847,7 @@ endif
 let g:indentLine_faster = 1
 let g:indentLine_color_term = 236
 let g:indentLine_noConcealCursor = "nc"
+let g:indentLine_char ='┆'
 
 "}}}
 
