@@ -852,6 +852,14 @@ let g:indentLine_char ='┆'
 
 "}}}
 
+" splitjoin {{{
+  let g:splitjoin_split_mapping = ''
+  let g:splitjoin_join_mapping = ''
+
+  nnoremap gJ :silent SplitjoinJoin<cr>
+  nnoremap gS :silent SplitjoinSplit<cr>
+"}}}
+
 " YouCompleteme {{{
     nnoremap gD :<c-u>YcmCompleter GoTo<cr>
     let g:ycm_filetype_blacklist = {
