@@ -25,6 +25,10 @@ function httpless {
     # 'httpless example.org'
         http --pretty=all --print=hb "$@" | less -R;
 }
+function killopenbox {
+  #For now, because YOLO
+  openbox --exit && pkill -KILL openbox
+}
 tmux_send_message(){
     tmux send-keys -t ajkaanbal:$1.0 C-z $2
 }
