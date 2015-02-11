@@ -953,6 +953,10 @@ endif
     autocmd MyAutoCmd FileType mongoql let b:vimpipe_command="mongo" | let b:vimpipe_filetype="javascript"
 "}}}
 
+" tmux-complete {{{
+let g:tmuxcomplete#trigger = 'omnifunc'
+"}}}
+
 "}}}
 
 "---------------------------------------------------------------------------
