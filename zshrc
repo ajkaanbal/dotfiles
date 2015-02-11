@@ -19,6 +19,10 @@ alias tm='tmux attach'
 alias xm='xmodmap ~/.Xmodmap'
 alias vi='vim -u ~/.vimrcmin'
 alias rxvt='urxvt256c-ml'
+#Git
+function guntracked {
+    git ls-files --others --exclude-standard
+}
 
 #Require pip install http
 function httpless {
