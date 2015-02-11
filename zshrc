@@ -118,6 +118,9 @@ export PATH="$NODE_PATH/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+#Ansible
+export ANSIBLE_HOSTS=~/.local/ansible_hosts
+
 #Editor
 export EDITOR=~/.local/bin/vim
 # bind UP and DOWN arrow keys
