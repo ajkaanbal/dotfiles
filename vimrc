@@ -782,7 +782,7 @@ let g:airline_symbols.linenr = ''
 
 let g:airline_enable_unite=1
 let g:airline_theme='lucius'
-let g:airline_enable_syntastic = 1
+let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#fnamemod = ':p:t'
