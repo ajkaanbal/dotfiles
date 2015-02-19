@@ -26,4 +26,5 @@ Search skin= and replace by
     ```bash
     git config --global core.excludesfile ~/.gitignore
     git config --global alias.trash '!mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash'
+    git config --global mergetool.keepBackup false
     ```
