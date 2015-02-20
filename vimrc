@@ -879,7 +879,7 @@ let g:indentLine_char ='┆'
 "}}}
 
 " Easyalign {{{
-vnoremap <silent> <Enter> :EasyAlign<Enter>
+vnoremap <silent> <C-@> :EasyAlign<Enter>
 "}}}
 
 " tcomment {{{
@@ -894,7 +894,10 @@ function! VimuxSlime()
 endfunction
 
 " If text is selected, save it in the v buffer and send that buffer it to tmux
-vnoremap <C-@> "vy :call VimuxSlime()<CR>
+vnoremap <Enter> "vy :call VimuxSlime()<CR>
+"I really don't use Replace mode
+nnoremap R V"vy :call VimuxSlime()<CR>
+
 "}}}
 
 "}}}
