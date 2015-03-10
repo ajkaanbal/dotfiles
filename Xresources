@@ -26,7 +26,7 @@ URxvt*loginShell: true
 URxvt.intensityStyles: false
 URxvt.cursorBlink: true
 !Copy to clipboard using Ctrl-Shift-c
-URxvt.perl-ext-common:  default,clipboard,keyboard-select,fullscreen,url-select,font-size
+URxvt.perl-ext-common:  default,clipboard,keyboard-select,fullscreen,url-select,font-size,tabbedex
 URxvt.iso14755 : false
 URxvt.clipboard.autocopy: true
 URxvt.keysym.C-C: perl:clipboard:copy
@@ -81,7 +81,16 @@ URxvt*color15:            #eeeeec
 URxvt*.colorIT:      #87af5f
 URxvt*.colorBD:      #d7d7d7
 URxvt*.colorUL:      #87afd7
-
+!Tab colors
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: 0
+URxvt.tabbed.autohide: false
+URxvt.keysym.Control-t: perl:tabbedex:new_tab
+URxvt.keysym.Control-Tab: perl:tabbedex:next_tab
+URxvt.keysym.Control-Shift-Tab: perl:tabbedex:prev_tab
+URxvt.tabbed.no-tabbedex-keys: true
 
 ! xterm ----------------------------------------------------------------------
 ! Colors for xterm
