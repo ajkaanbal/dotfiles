@@ -82,15 +82,20 @@ URxvt*.colorIT:      #87af5f
 URxvt*.colorBD:      #d7d7d7
 URxvt*.colorUL:      #87afd7
 !Tab colors
-URxvt.tabbed.tabbar-fg: 2
-URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg: 3
-URxvt.tabbed.tab-bg: 0
+URxvt.tabbed.tabbar-fg: 244
+URxvt.tabbed.tabbar-bg: 234
+URxvt.tabbed.title-fg: 238
+URxvt.tabbed.title-bg: 234
+URxvt.tabbed.bell-fg: 253
+URxvt.tabbed.bell-bg: 166
+URxvt.tabbed.bell-tab-fg: 253
+URxvt.tabbed.bell-tab-bg: 166
+URxvt.tabbed.tab-fg: 235
+URxvt.tabbed.tab-bg: 172
 URxvt.tabbed.autohide: false
 URxvt.keysym.Control-t: perl:tabbedex:new_tab
-URxvt.keysym.Control-Tab: perl:tabbedex:next_tab
-URxvt.keysym.Control-Shift-Tab: perl:tabbedex:prev_tab
-URxvt.tabbed.no-tabbedex-keys: true
+URxvt.keysym.M-Shift-L: perl:tabbedex:next_tab
+URxvt.keysym.M-Shift-H: perl:tabbedex:prev_tab
 
 ! xterm ----------------------------------------------------------------------
 ! Colors for xterm
