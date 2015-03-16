@@ -89,9 +89,9 @@ URxvt.tabbed.title-bg: 234
 URxvt.tabbed.bell-fg: 253
 URxvt.tabbed.bell-bg: 166
 URxvt.tabbed.bell-tab-fg: 253
-URxvt.tabbed.bell-tab-bg: 166
-URxvt.tabbed.tab-fg: 235
-URxvt.tabbed.tab-bg: 172
+URxvt.tabbed.bell-tab-bg: 244
+URxvt.tabbed.tab-fg: 249
+URxvt.tabbed.tab-bg: 238
 URxvt.tabbed.autohide: false
 URxvt.keysym.Control-t: perl:tabbedex:new_tab
 URxvt.keysym.M-Shift-L: perl:tabbedex:next_tab
