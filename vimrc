@@ -98,6 +98,9 @@ NeoBundleLazy 'moll/vim-bbye', {
 NeoBundleLazy 'othree/yajs.vim', { 'autoload' : {
       \ 'filetypes' : 'javascript',
       \ }}
+NeoBundleLazy 'marijnh/tern_for_vim', { 'autoload' : {
+      \ 'filetypes' : 'javascript',
+      \ }}
 NeoBundleLazy 'othree/javascript-libraries-syntax.vim', { 'autoload': {
       \ 'filetypes': 'javascript'}}
 NeoBundleLazy 'briancollins/vim-jst', { 'autoload': {
@@ -529,7 +532,8 @@ augroup MyAutoCmd
   autocmd FileType c setlocal omnifunc=ccomplete#Complete
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   " autocmd FileType python set omnifunc=jedi#completions
-  autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+  " autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
   autocmd FileType python setlocal completeopt-=preview
   if has('python3')
