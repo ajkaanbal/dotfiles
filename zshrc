@@ -121,6 +121,10 @@ export PATH=$PATH:$GOPATH/bin
 #Ansible
 export ANSIBLE_HOSTS=~/.local/ansible_hosts
 
+#Composer
+COMPOSER_PATH=~/.composer/vendor/bin
+export PATH=$PATH:$COMPOSER_PATH
+
 #Editor
 export EDITOR=~/.local/bin/vim
 # bind UP and DOWN arrow keys
