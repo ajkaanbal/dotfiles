@@ -533,7 +533,7 @@ augroup MyAutoCmd
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   " autocmd FileType python set omnifunc=jedi#completions
   " autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
+  autocmd FileType javascript setlocal omnifunc=tern#Complete | setlocal completeopt-=preview
   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
   autocmd FileType python setlocal completeopt-=preview
   if has('python3')
@@ -545,7 +545,7 @@ augroup MyAutoCmd
 
   "Fold methods
   autocmd FileType python setlocal foldmethod=indent
-  autocmd FileType javascript setlocal foldmethod=syntax
+  autocmd FileType javascript setlocal foldmethod=indent
   autocmd FileType vim setlocal foldmethod=marker
 
   " Update filetype.
