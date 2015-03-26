@@ -44,6 +44,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'ajkaanbal/autoswap.vim'
   NeoBundle 'wakatime/vim-wakatime'
   NeoBundle 'Valloric/YouCompleteMe'
+  NeoBundle 'ntpeters/vim-better-whitespace'
   NeoBundleLazy 'Shougo/unite.vim', { 'autoload': {'commands': ['Unite']} }
   "}}}
 
