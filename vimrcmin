@@ -8,7 +8,7 @@ let g:mapleader = ','
 
 " Define Augroup as good practice to prevent double code execution on reload
 " vimrc
-augroup MyAutoCmd
+augroup VIMRC
   autocmd!
 augroup END
 
@@ -32,9 +32,18 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
   " For web. Front-end {{{
   NeoBundleLazy 'wavded/vim-stylus', {'autoload': {'filetypes': 'stylus'}}
+  NeoBundleLazy 'othree/yajs.vim', { 'autoload' : {'filetypes' : 'javascript' }}
   " }}}
   " Utils {{{
   NeoBundle 'christoomey/vim-tmux-navigator'
+  NeoBundle 'tpope/vim-sensible' 
+  NeoBundle 'jszakmeister/vim-togglecursor'
+  NeoBundle 'tpope/vim-vinegar'
+  NeoBundle 'tpope/vim-unimpaired'
+  NeoBundle 'tpope/vim-surround'
+  NeoBundle 'ajkaanbal/autoswap.vim'
+  NeoBundle 'wakatime/vim-wakatime'
+  NeoBundle 'Valloric/YouCompleteMe'
   "}}}
 
 "end plugin list }}}
@@ -80,9 +89,10 @@ NeoBundleCheck
 " }}}
 
 " Syntax {{{
-  augroup MyAutoCmd
+  augroup VIMRC
     autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
     autocmd FileType html setlocal foldmethod=indent tabstop=2 shiftwidth=2
+    autocmd FileType javascript setlocal omnifunc=tern#Complete | setlocal completeopt-=preview
   augroup END 
 " }}}
 
@@ -96,3 +106,7 @@ NeoBundleCheck
    endfunction 
   " }}}
 " end-plugins-settings}}}
+
+" HELP {{
+" ]p - to paste with indent
+" }}}

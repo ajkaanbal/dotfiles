@@ -24,6 +24,12 @@
     "A decent syntax colours
       NeoBundle 'w0ng/vim-hybrid'
 
+    " Javascript {{{
+      NeoBundleLazy 'othree/yajs.vim', { 'autoload' : {'filetypes' : 'javascript' }}
+    " }}}
+
+      NeoBundleLazy 'wavded/vim-stylus', {'autoload': {'filetypes': 'stylus'}}
+
     " Utils {{{
       "Highly recomended. For asynchronous plugins (like neobundle).
       NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make -f make_unix.mak'}}
@@ -38,6 +44,14 @@
       " I want a decent session manager
       NeoBundle 'xolox/vim-session', {'depends': 'xolox/vim-misc'}
       "NeoBundle 'bling/vim-airline'
+
+      NeoBundle 'tpope/vim-sensible' 
+      NeoBundle 'tpope/vim-vinegar'
+      NeoBundle 'tpope/vim-unimpaired'
+      NeoBundle 'tpope/vim-surround'
+      NeoBundle 'ajkaanbal/autoswap.vim'
+      NeoBundle 'wakatime/vim-wakatime'
+      NeoBundle 'Valloric/YouCompleteMe'
     "}}}
 
   "end plugin list }}}
@@ -56,15 +70,6 @@
 
 " end-initialization }}}
  
-" Plugins settings {{{
-
-  " Vim-session setting {{{
-    let g:session_autosave = 'yes'
-    let g:session_autoload = 'no'
-  " }}}
-  
-" }}}
-
 " Encoding {{{
   set encoding=utf8
 " }}}
@@ -75,6 +80,13 @@
   set shiftwidth=4
   set expandtab
 " end-edit}}}
+
+" KeyMappings: "{{{
+
+  " Useful save mappings.
+  nnoremap <silent> <CR> :<C-u>w<CR>
+
+" end-keymapping}}}
 
 " View {{{
   set number
@@ -92,6 +104,14 @@
   set path+=**
 " }}}
 
+" Syntax {{{
+  augroup VIMRC
+    autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
+    autocmd FileType html setlocal foldmethod=indent tabstop=2 shiftwidth=2
+    autocmd FileType javascript setlocal omnifunc=tern#Complete | setlocal completeopt-=preview
+  augroup END 
+" }}}
+
 " Plugins settings: {{{
   " vim-hybrid {{{
    let bundle = neobundle#get('vim-hybrid')
@@ -101,4 +121,11 @@
     "highlight Comment ctermfg=242
    endfunction 
   " }}}
+
+  " Vim-session setting {{{
+    let g:session_autosave = 'yes'
+    let g:session_autoload = 'no'
+  " }}}
+  
 " end-plugins-settings}}}
+
