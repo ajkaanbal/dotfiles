@@ -36,28 +36,10 @@ NeoBundleLazy 'sgoranson/unite-mark',
 \{ 'depends': 'Shougo/unite.vim',
 \  'autoload': {'commands': ['Unite']}
 \}
-NeoBundleLazy 'Shougo/unite-outline',
-\{ 'depends': 'Shougo/unite.vim',
-\  'autoload': {'commands': ['Unite']}
-\}
 NeoBundle 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim'}
-NeoBundleLazy 'Shougo/vimfiler', {
-\ 'depends' : 'Shougo/unite.vim',
-\ 'autoload' : {
-\    'commands' : [{ 'name' : 'VimFiler',
-\                    'complete' : 'customlist,vimfiler#complete' },
-\                  'VimFilerExplorer',
-\                  'Edit', 'Read', 'Source', 'Write'],
-\    'mappings' : ['<Plug>(vimfiler_'],
-\    'explorer' : 1,
-\ }
-\ }
 NeoBundleLazy 'thinca/vim-ref', { 'autoload': { 'filetypes': ['python']} }
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'bling/vim-airline'
-NeoBundleLazy 'majutsushi/tagbar', {
-\  'autoload': { 'commands': 'TagbarToggle'}
-\}
 NeoBundle 'scrooloose/syntastic'
 NeoBundleLazy 'mattn/emmet-vim/',{
 \ 'autoload' : {
@@ -123,11 +105,12 @@ NeoBundleLazy 'guns/xterm-color-table.vim.git', {
 
 NeoBundle 'cohama/lexima.vim' " Automatic closing quotes,...
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'kshenoy/vim-signature'
+NeoBundle 'kshenoy/vim-signature' " show marks
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'sdanielf/vim-stdtabs' " common indents
 NeoBundle 'junegunn/vim-easy-align'
@@ -175,8 +158,6 @@ NeoBundle 'haya14busa/incsearch.vim'
 NeoBundleLazy 'sheerun/vim-polyglot',
 \ {'autoload':{ 'filetypes': 'scala'}}
 NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundleLazy 'smancill/conky-syntax.vim',
-\ {'autoload':{ 'filetypes': 'conkyrc'}}
 NeoBundle 'wakatime/vim-wakatime'
 NeoBundle 'chase/vim-ansible-yaml'
 "Neobundle configuration
@@ -187,25 +168,6 @@ call neobundle#config('unite.vim', {
 \       'commands' : [{ 'name' : 'Unite',
 \                       'complete' : 'customlist,unite#complete_source'}]
 \   }})
-
-call neobundle#config('vimfiler', {
-\ 'lazy' : 1,
-\ 'depends' : 'Shougo/unite.vim',
-\ 'autoload' : {
-\    'commands' : [
-\                  { 'name' : 'VimFiler',
-\                    'complete' : 'customlist,vimfiler#complete' },
-\                  { 'name' : 'VimFilerExplorer',
-\                    'complete' : 'customlist,vimfiler#complete' },
-\                  { 'name' : 'Edit',
-\                    'complete' : 'customlist,vimfiler#complete' },
-\                  { 'name' : 'Write',
-\                    'complete' : 'customlist,vimfiler#complete' },
-\                  'Read', 'Source'],
-\    'mappings' : ['<Plug>(vimfiler_switch)'],
-\    'explorer' : 1,
-\ }
-\ })
 
 "local plugins vim
 if filereadable(expand('~/.vimrc.local'))
@@ -827,28 +789,6 @@ nnoremap <silent><F5> :<C-u>SyntasticToggleMode<CR>
     nmap s <Plug>(easymotion-s)
 "}}}
 
-
-" vimfiler.vim {{{
-if neobundle#tap('vimfiler')
-    nnoremap    <F2>   :<C-u>VimFilerExplorer<CR>
-    let g:vimfiler_as_default_explorer = 1
-
-    function! neobundle#tapped.hooks.on_source(bundle)
-        let g:vimfiler_tree_leaf_icon = ' '
-        let g:vimfiler_tree_opened_icon = '▾'
-        let g:vimfiler_tree_closed_icon = '▸'
-        let g:vimfiler_file_icon = ' '
-        let g:vimfiler_readonly_file_icon = '✗'
-        let g:vimfiler_marked_file_icon = '✓'
-    endfunction
-
-    autocmd MyAutoCmd FileType vimfiler call s:vimfiler_settings()
-    function! s:vimfiler_settings()
-        execute 'DisableWhitespace'
-    endfunction
-endif
-"}}}
-
 "indentLine {{{
 let g:indentLine_faster = 1
 let g:indentLine_color_term = 236
@@ -986,6 +926,7 @@ inoremap <silent><C-l> <esc><C-w>l
 
 " Useful save mappings.
 nnoremap <silent> <CR> :<C-u>w<CR>
+nnoremap p ]p
 
 map ' `
 
