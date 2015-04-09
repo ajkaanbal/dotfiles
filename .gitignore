@@ -6,6 +6,7 @@ Session.vim
 *~
 vim/sessions
 vim/bundle
+vim/autoload
 vim/view
 vim/tmp
 fonts

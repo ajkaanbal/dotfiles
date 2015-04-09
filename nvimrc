@@ -1,75 +1,30 @@
-" Initialize: "{{{
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+call plug#begin('~/.vim/bundle')
 
-  "We need a coolest (and useful) mapleader.  
-  let g:mapleader = ','
 
-  " Define Augroup as good practice to prevent double code execution on reload
-  " vimrc
-  augroup nvimcmd
-    autocmd!
-  augroup end
+Plug 'tpope/vim-sensible' 
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
+Plug 'ajkaanbal/autoswap.vim'
+Plug 'wakatime/vim-wakatime'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'jszakmeister/vim-togglecursor'
+Plug 'Shougo/unite.vim', { 'on': 'Unite' }
+Plug 'w0ng/vim-hybrid'
+Plug 'othree/yajs.vim', { 'for' : 'javascript' }
+Plug 'marijnh/tern_for_vim', { 'for' : 'javascript' }
+Plug 'wavded/vim-stylus', { 'for': 'stylus' }
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
 
-  " Default bundle directory. .vim directory must exist. (NeoBundle must be
-  " installed
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+call plug#end()
 
-  "Now, initializes Neobundle.
-    call neobundle#begin(expand('~/.vim/bundle/'))
-  "}}}
-
-  "Plugins, plugins everywhere {{{
-    "Let Neobundle manage Neobundle
-    NeoBundleFetch 'Shougo/neobundle.vim'
-
-    "A decent syntax colours
-      NeoBundle 'w0ng/vim-hybrid'
-
-    " Javascript {{{
-      NeoBundleLazy 'othree/yajs.vim', { 'autoload' : {'filetypes' : 'javascript' }}
-    " }}}
-
-      NeoBundleLazy 'wavded/vim-stylus', {'autoload': {'filetypes': 'stylus'}}
-
-    " Utils {{{
-      "Highly recomended. For asynchronous plugins (like neobundle).
-      NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make -f make_unix.mak'}}
-
-      " Because always use tmux. Move between tmux-panes and vim-windows with
-      " with C-[hjkl]
-      NeoBundle 'christoomey/vim-tmux-navigator'
-
-      " Just change cursor when insert mode
-      NeoBundle 'jszakmeister/vim-togglecursor'
-
-      " I want a decent session manager
-      NeoBundle 'xolox/vim-session', {'depends': 'xolox/vim-misc'}
-      "NeoBundle 'bling/vim-airline'
-
-      NeoBundle 'tpope/vim-sensible' 
-      NeoBundle 'tpope/vim-vinegar'
-      NeoBundle 'tpope/vim-unimpaired'
-      NeoBundle 'tpope/vim-surround'
-      NeoBundle 'ajkaanbal/autoswap.vim'
-      NeoBundle 'wakatime/vim-wakatime'
-      NeoBundle 'Valloric/YouCompleteMe'
-    "}}}
-
-  "end plugin list }}}
-  call neobundle#end()
-
-  " Plugins by filetype and enable indent. Required for Neobundle.
-  filetype plugin indent on
-
-  " Coloritos
-  syntax enable
-  " Terminal setting to allow to use `muchos coloritos`
-  set t_Co=256
-
-  "Check if every bundle listing is installed.
-  NeoBundleCheck
-
-" end-initialization }}}
- 
 " Encoding {{{
   set encoding=utf8
 " }}}
@@ -89,6 +44,7 @@
 " end-keymapping}}}
 
 " View {{{
+  colorscheme hybrid
   set number
   set nowrap
   set showcmd
@@ -113,14 +69,6 @@
 " }}}
 
 " Plugins settings: {{{
-  " vim-hybrid {{{
-   let bundle = neobundle#get('vim-hybrid')
-   function! bundle.hooks.on_post_source(bundle)
-    colorscheme hybrid
-    " Custom colors for this color scheme
-    "highlight Comment ctermfg=242
-   endfunction 
-  " }}}
 
   " Vim-session setting {{{
     let g:session_autosave = 'yes'
