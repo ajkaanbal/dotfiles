@@ -6,6 +6,8 @@ globals:
     angular: true
     moment: true
     _: true
+plugins:
+    - angular
 rules:
     indent: false
     brace-style: [2, "1tbs"]
@@ -21,7 +23,7 @@ rules:
     space-after-keywords: [2, "always"]
     space-before-blocks: 2
     spaced-line-comment: [2, "always", { exceptions: ["-"]}]
-    strict: [2, "global"]
+    strict: [2, "function"]
     valid-jsdoc: [2, { prefer: { "return": "returns"}}]
     wrap-iife: 2
     quotes: [2, "single"]
