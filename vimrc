@@ -763,11 +763,6 @@ let g:airline#extensions#tabline#right_alt_sep = ''
 
 " }}}
 
-" Tagbar {{{
-let g:tagbar_autofocus = 1
-nmap <F8> :TagbarToggle<CR>
-" }}}
-
 "  Syntastic{{{
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_style_error_symbol = '☢'
