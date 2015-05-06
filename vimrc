@@ -124,6 +124,9 @@ NeoBundleLazy 'krisajenkins/dbext.vim', {
 \ 'autoload': {'filetypes': 'sql'}
 \}
 
+NeoBundleLazy 'fatih/vim-go', {
+\ 'autoload': {'filetypes': 'go'}
+\}
 NeoBundleLazy 'shmup/vim-sql-syntax', {
 \ 'autoload': {'filetypes': 'sql'}
 \}
