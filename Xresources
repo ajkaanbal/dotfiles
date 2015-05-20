@@ -7,7 +7,6 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-URxvt.termName: rxvt
 URxvt.scrollBar: off
 ! Fonts
 #define fonts \
