@@ -37,6 +37,9 @@ tmux_send_message(){
     tmux send-keys -t ajkaanbal:$1.0 C-z $2
 }
 alias tsk=tmux_send_message
+function w3img(){
+    w3m -o imgdisplay=/usr/libexec/w3m/w3mimgdisplay $1
+}
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
