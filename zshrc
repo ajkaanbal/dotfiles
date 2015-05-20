@@ -127,6 +127,10 @@ export ANSIBLE_HOSTS=~/.local/ansible_hosts
 COMPOSER_PATH=~/.composer/vendor/bin
 export PATH=$PATH:$COMPOSER_PATH
 
+#w3 image renderer
+W3MIMGDISPLAY_PATH=/usr/libexec/w3m/w3mimgdisplay
+export W3MIMGDISPLAY_PATH
+
 #Editor
 export EDITOR=~/.local/bin/vim
 # bind UP and DOWN arrow keys
