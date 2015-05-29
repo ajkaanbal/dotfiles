@@ -32,12 +32,12 @@ NeoBundle 'honza/vim-snippets'
 NeoBundleLazy 'Shougo/unite.vim', {
 \  'autoload': {'commands': ['Unite']}
 \}
-NeoBundleLazy 'sgoranson/unite-mark',
-\{ 'depends': 'Shougo/unite.vim',
-\  'autoload': {'commands': ['Unite']}
-\}
-NeoBundle 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim'}
-NeoBundleLazy 'thinca/vim-ref', { 'autoload': { 'filetypes': ['python']} }
+" NeoBundleLazy 'sgoranson/unite-mark',
+" \{ 'depends': 'Shougo/unite.vim',
+" \  'autoload': {'commands': ['Unite']}
+" \}
+" NeoBundle 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim'}
+" NeoBundleLazy 'thinca/vim-ref', { 'autoload': { 'filetypes': ['python']} }
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'scrooloose/syntastic'
@@ -107,22 +107,22 @@ NeoBundle 'cohama/lexima.vim' " Automatic closing quotes,...
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'gregsexton/gitv'
+" NeoBundle 'gregsexton/gitv'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'kshenoy/vim-signature' " show marks
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'sdanielf/vim-stdtabs' " common indents
-NeoBundle 'junegunn/vim-easy-align'
+" NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'tommcdo/vim-exchange'
+" NeoBundle 'tommcdo/vim-exchange'
 NeoBundleLazy 'wellle/targets.vim', {
 \ 'autoload': { 'filetypes': ['python','javascript'] }
 \}
 
-NeoBundleLazy 'krisajenkins/dbext.vim', {
-\ 'autoload': {'filetypes': 'sql'}
-\}
+" NeoBundleLazy 'krisajenkins/dbext.vim', {
+" \ 'autoload': {'filetypes': 'sql'}
+" \}
 
 NeoBundleLazy 'fatih/vim-go', {
 \ 'autoload': {'filetypes': 'go'}
@@ -149,7 +149,7 @@ NeoBundleLazy 'artnez/vim-wipeout', {'autoload': {'commands': 'Wipeout'}}
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'benmills/vimux'
-NeoBundle 'krisajenkins/vim-pipe'
+" NeoBundle 'krisajenkins/vim-pipe'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'wellle/tmux-complete.vim'
 NeoBundle 'ajkaanbal/autoswap.vim'
@@ -158,11 +158,13 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'haya14busa/incsearch.vim'
 " Plugins for syntax highlight
-NeoBundleLazy 'sheerun/vim-polyglot',
-\ {'autoload':{ 'filetypes': 'scala'}}
+" NeoBundleLazy 'sheerun/vim-polyglot',
+" \ {'autoload':{ 'filetypes': 'scala'}}
 NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'wakatime/vim-wakatime'
 NeoBundle 'chase/vim-ansible-yaml'
+NeoBundle 'ConradIrwin/vim-bracketed-paste'
+NeoBundle 'sickill/vim-pasta'
 "Neobundle configuration
 
 call neobundle#config('unite.vim', {
@@ -924,7 +926,6 @@ inoremap <silent><C-l> <esc><C-w>l
 
 " Useful save mappings.
 nnoremap <silent> <CR> :<C-u>w<CR>
-nnoremap p ]p
 
 map ' `
 
