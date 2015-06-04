@@ -805,6 +805,10 @@ let g:indentLine_char ='┆'
   nnoremap gS :silent SplitjoinSplit<cr>
 "}}}
 
+" vim-togglecursor{{{
+let g:togglecursor_force='xterm'
+"}}}
+
 " YouCompleteme {{{
     nnoremap gD :<c-u>YcmCompleter GoTo<cr>
     let g:ycm_filetype_blacklist = {
