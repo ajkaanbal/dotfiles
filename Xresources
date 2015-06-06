@@ -1,4 +1,4 @@
-!to know with xdyinfo | grep dots
+!to know with xdyinfo | grep dotsG
 Xft.dpi: 96
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
@@ -167,3 +167,4 @@ xterm*font2:            5x7
 xterm*translations: #override \
     Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
     Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
+Emacs.font: Source Code Pro-9
