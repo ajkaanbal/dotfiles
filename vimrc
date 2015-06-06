@@ -784,6 +784,11 @@ highlight SyntasticErrorSign cterm=bold ctermfg=1
 nnoremap <silent><F5> :<C-u>SyntasticToggleMode<CR>
 "}}}
 
+" netrw {{{
+let g:netrw_liststyle=3
+autocmd FileType netrw setl bufhidden=wipe
+"}}}
+
 " easy-motion {{{
     "Bi-directional find motion
     nmap s <Plug>(easymotion-s)
