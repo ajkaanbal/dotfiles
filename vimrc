@@ -26,9 +26,12 @@ NeoBundle 'Shougo/vimproc', {
 \     'unix' : 'make -f make_unix.mak',
 \    },
 \ }
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
+NeoBundleLazy 'Valloric/YouCompleteMe',
+\{'autoload': {'filetypes': ['javascript','python']}}
+NeoBundleLazy 'SirVer/ultisnips',
+\{'autoload': {'filetypes': ['javascript','python']}}
+NeoBundleLazy 'honza/vim-snippets',
+\{'autoload': {'filetypes': ['javascript','python']}}
 NeoBundleLazy 'Shougo/unite.vim', {
 \  'autoload': {'commands': ['Unite']}
 \}
@@ -39,16 +42,20 @@ NeoBundleLazy 'Shougo/unite.vim', {
 " NeoBundle 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim'}
 " NeoBundleLazy 'thinca/vim-ref', { 'autoload': { 'filetypes': ['python']} }
 NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'scrooloose/syntastic'
+NeoBundleLazy 'bling/vim-airline',
+\{'autoload': {'filetypes': ['javascript','python']}}
+NeoBundleLazy 'scrooloose/syntastic',
+\{'autoload': {'filetypes': ['javascript','python']}}
 NeoBundleLazy 'mattn/emmet-vim/',{
 \ 'autoload' : {
 \   'filetypes': ['html', 'htmldjango', 'xhtml']
 \ }}
-NeoBundle 'tpope/vim-repeat'
+NeoBundleLazy 'tpope/vim-repeat',
+\{'autoload': {'filetypes': ['javascript','python']}}
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-indent'
+NeoBundleLazy 'kana/vim-textobj-indent',
+\{'autoload': {'filetypes': ['javascript','python']}}
 " NeoBundleLazy 'mjbrownie/django-template-textobjects', {
 " \ 'depends': 'kana/vim-textobj-user',
 " \ 'autoload' : {
@@ -103,18 +110,22 @@ NeoBundleLazy 'guns/xterm-color-table.vim.git', {
       \   'commands': 'XtermColorTable'
       \ }}
 
-NeoBundle 'cohama/lexima.vim' " Automatic closing quotes,...
+NeoBundleLazy 'cohama/lexima.vim', " Automatic closing quotes,...
+\{'autoload': {'filetypes': ['javascript','python']}}
 " NeoBundle 'tpope/vim-fugitive'
 " NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'airblade/vim-gitgutter'
 " NeoBundle 'gregsexton/gitv'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'kshenoy/vim-signature' " show marks
-NeoBundle 'Yggdroot/indentLine'
+NeoBundleLazy 'kshenoy/vim-signature' " show marks
+\{'autoload': {'filetypes': ['javascript','python']}}
+NeoBundleLazy 'Yggdroot/indentLine',
+\{'autoload': {'filetypes': ['javascript','python', 'html', 'css']}}
 NeoBundle 'sdanielf/vim-stdtabs' " common indents
 " NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundleLazy 'Lokaltog/vim-easymotion',
+\{'autoload': {'filetypes': ['javascript','python']}}
 " NeoBundle 'tommcdo/vim-exchange'
 NeoBundleLazy 'wellle/targets.vim', {
 \ 'autoload': { 'filetypes': ['python','javascript'] }
@@ -358,7 +369,7 @@ set nowrap
 set whichwrap+=h,l,<,>,[,],b,s,~
 
 " Always display statusline.
-set laststatus=2
+set laststatus=0
 
 " Height of command line.
 set cmdheight=1
@@ -762,7 +773,6 @@ let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
-
 " }}}
 
 "  Syntastic{{{
