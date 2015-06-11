@@ -49,16 +49,16 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-indent'
-NeoBundleLazy 'mjbrownie/django-template-textobjects', {
-\ 'depends': 'kana/vim-textobj-user',
-\ 'autoload' : {
-\   'filetypes': ['html', 'htmldjango']
-\ }}
-NeoBundleLazy 'bps/vim-textobj-python', {
-\ 'depends': 'kana/vim-textobj-user',
-\ 'autoload' : {
-\   'filetypes': 'python'
-\ }}
+" NeoBundleLazy 'mjbrownie/django-template-textobjects', {
+" \ 'depends': 'kana/vim-textobj-user',
+" \ 'autoload' : {
+" \   'filetypes': ['html', 'htmldjango']
+" \ }}
+" NeoBundleLazy 'bps/vim-textobj-python', {
+" \ 'depends': 'kana/vim-textobj-user',
+" \ 'autoload' : {
+" \   'filetypes': 'python'
+" \ }}
 NeoBundleLazy 'othree/html5.vim', {
 \ 'autoload' : {
 \   'filetypes': ['html','htmldjango']
@@ -85,8 +85,8 @@ NeoBundleLazy 'marijnh/tern_for_vim', { 'autoload' : {
       \ }}
 NeoBundleLazy 'othree/javascript-libraries-syntax.vim', { 'autoload': {
       \ 'filetypes': 'javascript'}}
-NeoBundleLazy 'briancollins/vim-jst', { 'autoload': {
-      \ 'filetypes': 'jst'}}
+" NeoBundleLazy 'briancollins/vim-jst', { 'autoload': {
+      " \ 'filetypes': 'jst'}}
 NeoBundleLazy 'elzr/vim-json', { 'autoload': {
       \ 'filetypes': 'json' }}
 NeoBundleLazy 'chrisbra/Colorizer', {
@@ -104,8 +104,8 @@ NeoBundleLazy 'guns/xterm-color-table.vim.git', {
       \ }}
 
 NeoBundle 'cohama/lexima.vim' " Automatic closing quotes,...
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-vinegar'
+" NeoBundle 'tpope/vim-fugitive'
+" NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'airblade/vim-gitgutter'
 " NeoBundle 'gregsexton/gitv'
 NeoBundle 'tpope/vim-surround'
@@ -124,9 +124,9 @@ NeoBundleLazy 'wellle/targets.vim', {
 " \ 'autoload': {'filetypes': 'sql'}
 " \}
 
-NeoBundleLazy 'fatih/vim-go', {
-\ 'autoload': {'filetypes': 'go'}
-\}
+" NeoBundleLazy 'fatih/vim-go', {
+" \ 'autoload': {'filetypes': 'go'}
+" \}
 NeoBundleLazy 'shmup/vim-sql-syntax', {
 \ 'autoload': {'filetypes': 'sql'}
 \}
@@ -140,10 +140,10 @@ function! bundle.hooks.on_post_source(bundle)
     silent! execute 'doautocmd Filetype' &filetype
 endfunction
 
-NeoBundleLazy 'amadeus/django.vim', {
-\ 'autoload' : {
-\   'filetypes': ['htmldjango','django']
-\ }}
+" NeoBundleLazy 'amadeus/django.vim', {
+" \ 'autoload' : {
+" \   'filetypes': ['htmldjango','django']
+" \ }}
 
 NeoBundleLazy 'artnez/vim-wipeout', {'autoload': {'commands': 'Wipeout'}}
 NeoBundle 'ntpeters/vim-better-whitespace'
@@ -151,7 +151,7 @@ NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'benmills/vimux'
 " NeoBundle 'krisajenkins/vim-pipe'
 NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'wellle/tmux-complete.vim'
+" NeoBundle 'wellle/tmux-complete.vim'
 NeoBundle 'ajkaanbal/autoswap.vim'
 NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'tpope/vim-unimpaired'
@@ -160,9 +160,9 @@ NeoBundle 'haya14busa/incsearch.vim'
 " Plugins for syntax highlight
 " NeoBundleLazy 'sheerun/vim-polyglot',
 " \ {'autoload':{ 'filetypes': 'scala'}}
-NeoBundle 'hynek/vim-python-pep8-indent'
+" NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'wakatime/vim-wakatime'
-NeoBundle 'chase/vim-ansible-yaml'
+" NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'sickill/vim-pasta'
 "Neobundle configuration
