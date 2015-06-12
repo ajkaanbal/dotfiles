@@ -28,8 +28,7 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 NeoBundleLazy 'Valloric/YouCompleteMe',
 \{'autoload': {'filetypes': ['javascript','python']}}
-NeoBundleLazy 'SirVer/ultisnips',
-\{'autoload': {'filetypes': ['javascript','python']}}
+NeoBundle 'SirVer/ultisnips'
 NeoBundleLazy 'honza/vim-snippets',
 \{'autoload': {'filetypes': ['javascript','python']}}
 NeoBundleLazy 'Shougo/unite.vim', {
