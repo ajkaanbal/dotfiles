@@ -109,8 +109,7 @@ NeoBundleLazy 'guns/xterm-color-table.vim.git', {
       \   'commands': 'XtermColorTable'
       \ }}
 
-NeoBundleLazy 'cohama/lexima.vim', " Automatic closing quotes,...
-\{'autoload': {'filetypes': ['javascript','python']}}
+NeoBundle 'cohama/lexima.vim' " Automatic closing quotes,...
 " NeoBundle 'tpope/vim-fugitive'
 " NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'airblade/vim-gitgutter'
