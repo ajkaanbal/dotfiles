@@ -116,8 +116,7 @@ NeoBundle 'airblade/vim-gitgutter'
 " NeoBundle 'gregsexton/gitv'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tomtom/tcomment_vim'
-NeoBundleLazy 'kshenoy/vim-signature' " show marks
-\{'autoload': {'filetypes': ['javascript','python']}}
+NeoBundle 'kshenoy/vim-signature' " show marks
 NeoBundleLazy 'Yggdroot/indentLine',
 \{'autoload': {'filetypes': ['javascript','python', 'html', 'css']}}
 NeoBundle 'sdanielf/vim-stdtabs' " common indents
