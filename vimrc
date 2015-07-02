@@ -156,7 +156,7 @@ endfunction
 NeoBundleLazy 'artnez/vim-wipeout', {'autoload': {'commands': 'Wipeout'}}
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'AndrewRadev/splitjoin.vim'
-NeoBundle 'benmills/vimux'
+NeoBundle 'christoomey/vim-tmux-runner'
 " NeoBundle 'krisajenkins/vim-pipe'
 NeoBundle 'christoomey/vim-tmux-navigator'
 " NeoBundle 'wellle/tmux-complete.vim'
@@ -847,18 +847,9 @@ vnoremap <silent> <C-@> :EasyAlign<Enter>
   let g:tcommentTextObjectInlineComment=''
 "}}}
 
-" vimux {{{
-let g:VimuxRunnerIndex=1
-function! VimuxSlime()
-    call VimuxSendText(@v)
-    call VimuxSendKeys("Enter")
-endfunction
-
-" If text is selected, save it in the v buffer and send that buffer it to tmux
-vnoremap <Enter> "vy :call VimuxSlime()<CR>
-"I really don't use Replace mode
-nnoremap R V"vy :call VimuxSlime()<CR>
-
+" vim-tmux-runner {{{
+nnoremap R :VtrSendLinesToRunner<CR>
+vnoremap <Enter> :VtrSendLinesToRunner<cr>
 "}}}
 
 "}}}
