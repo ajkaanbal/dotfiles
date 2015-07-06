@@ -171,7 +171,7 @@ NeoBundle 'haya14busa/incsearch.vim'
 " NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'wakatime/vim-wakatime'
 " NeoBundle 'chase/vim-ansible-yaml'
-NeoBundle 'ConradIrwin/vim-bracketed-paste'
+NeoBundle 'wincent/terminus'
 NeoBundle 'sickill/vim-pasta'
 "Neobundle configuration
 
