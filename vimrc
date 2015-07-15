@@ -933,6 +933,10 @@ inoremap <silent><C-l> <esc><C-w>l
 
 " Useful save mappings.
 nnoremap <silent> <CR> :<C-u>w<CR>
+augroup saveMap
+    autocmd! CmdwinEnter *  nunmap <CR>
+    autocmd! CmdwinLeave *  nnoremap <silent> <CR> :<C-u>w<CR>
+augroup END
 
 map ' `
 
