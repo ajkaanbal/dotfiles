@@ -1,0 +1,496 @@
+Version 0.1.0
+ - mouse disabled
+ - youcomplete enabled by default
+ - tmuxcomplete
+ - nice formatter
+ - fix restore <CR> mapping on command line window
+ - no more set paste
+ - bye vimux, hi tmux-runner
+ - sails snippets
+ - Reorder tmux windows with Alt + [Left|Right]
+ - Como es que no conocía extract
+ - git faster plugin
+ - Merge branch 'master' of github.com:ajkaanbal/dotfiles
+ - enable vim-signature by default
+ - tmux clusters
+ - sails log snippet
+ - no lazy mode for lexima
+ - no lazy mode for ultisnips
+ - wii, fastest vim
+ - cleanup
+ - no emacs menu
+ - hi emacs
+ - Merge branch 'master' of github.com:ajkaanbal/dotfiles
+ - wipe netrw buffer
+ - vim-togglecursor
+ - mocha snippets
+ - update
+ - image render in terminal
+ - Merge branch 'master' of github.com:ajkaanbal/dotfiles
+ - update
+ - image viewer in terminal
+ - urxvt name
+ - z
+ - cleanup
+ - go
+ - eslint based on https://github.com/feross/standard
+ - linter
+ - new linter
+ - preset
+ - vim: lets try jscs
+ - java
+ - nvim: some settings
+ - use vim-plug with nvim
+ - update js snippet
+ - snipets, snipets
+ - snipets, snipets
+ - cleanup
+ - better whitespace
+ - mappings
+ - min
+ - ansible
+ - autocomplete for js
+ - autocomplete for js
+ - because php
+ - coloritos
+ - just uxrvt tabs
+ - tabs, tabs
+ - vim: send current line to tmux pane with R and visual block with Enter
+ - git settings: no backup
+ - ok, lets try nvim
+ - tmux: changing the format date in status line: day/month/year
+ - vim: update airline settings
+ - vim: autocomplete with content of other tmux panes (using c-<space> or c-x c-o)
+ - ansible host
+ - zsh: function to list untracked git files
+ - zsh: exit from openbox (a la mala)
+ - vim: silent splitjoin plugin
+ - vim: such html much nested wow folding
+ - vim: custom indent symbol
+ - vim: Custom unite filters are slow
+ - vim: new unite settings
+ - more js libraries to jslint
+ - tmux: updated
+ - vim: ignore node and bower modules when :find
+ - auto start rxvt daemon
+ - use nvm stable by default
+ - vim: jst syntax
+ - conky: Dropbox status
+ - Ignore other installed fonts
+ - use node version management
+ - ignore vim swap files
+ - vim: fixed conceal cursor on json files
+ - more globals
+ - show battery status
+ - always use wakatime
+ - zsh: update autosugestion
+ - zsh: autosuggestion
+ - java home
+ - vim: use syntastic for javascript with jslint
+ - enable synstastic by default (again)
+ - python django snippets
+ - R
+ - vim: incsearch rules!
+ - vim: better python indent
+ - Decrease fonsize with C-underscore
+ - vim: unite fuzzy search
+ - vim: delimitMate to lexima
+ - vim: delimitMate to lexima
+ - vim: remove clean highlight on insertleave
+ - tmux: switch between sessions with Alt-Shift-[l|h]
+ - vim: unite settings silent
+ - gopath
+ - update vimrc
+ - vim: no use ycm on sql
+ - vim: update neobundle
+ - vim:dbext and vim-pipe settings
+ - vim: sql in uper case
+ - git: alias for git trash and ignore that directory
+ - tmux: Coloritos
+ - vim: sql snippets
+ - urxvt: I can change font-size
+ - vim: better syntax highlighting for sql
+ - vim: settings for dbext
+ - Merge branch 'master' of github.com:ajkaanbal/dotfiles
+ - vim: autocomplete in sql (with dbext)
+ - vim: update unite settings
+ - vim: NO MOUSE!
+ - vim sql power!
+ - tmux: new plugin
+ - tmux: more history
+ - init dependencies file
+ - tmux: plugin to send tmux-buffer to clipboard
+ - alt-f2 works
+ - update autostart script
+ - update keybinding to select urls in urxvt
+ - use urxvt in server mode
+ - let urxvt scroll
+ - select url's in urxvt
+ - vim: updates
+ - vim: fix update on InsertLeave
+ - vim: hi vim-exchange
+ - openbox: shortkey for skype, lock and suspend
+ - vim: update on insertleave
+ - vim: new plugin friend of tmux
+ - vim: indent line plugin faster
+ - tmux: plugin manager and first plugin: tmux-copycat
+ - openbox: update
+ - pylint: update
+ - zsh: remove autosuggestion
+ - vim: show shell command result in quickfix window (:Run )
+ - zshrc: remove duplicate
+ - zshrc: unbind Alt [l|h] keys
+ - vim: update my python snippets
+ - vim: no more neocomplete
+ - vim: ultisnips dir for ulti snippets
+ - remove maps already in plugin vim-tmux-navigator
+ - vim: now, 'ic' work to select class python text object
+ - pylint: django use the super() old format
+ - new python snippet for encoding utf8
+ - vim: goto declaration using YouCompleteMe (replace builtin gD)
+ - vim: update javascript syntax plugin
+ - vim: clean
+ - vim: targets plugin only in python and javascript becaouse break html tag selector example: vit
+ - vim: bye niji
+ - vim: no more backup and undofiles
+ - vim: C-space on visual mode to send to tmux pane
+ - vim: rainbow parentheses
+ - psqlrc update
+ - openbox update
+ - mouseless
+ - openbox: C-up|down for volume
+ - openbox: faster submenu
+ - vim: move between desktops with W-(arrows)
+ - vim: upadte path
+ - vim: reorder unite vars
+ - vim: bye python-jedi
+ - vim: search with prefix in command mode using C-n, C-p
+ - vim: use ag in  Unite file_rec/async
+ - ignore bower components
+ - use Meta key for volume
+ - openbox: volume control with C-[UP|Down]
+ - vim: 2 spaces for yaml tab
+ - update pylintrc
+ - vim: Allow enable Colorizer with ColorHightlight
+ - vim: higlight conky
+ - conky update
+ - another try to conky
+ - Merge branch 'master' of github.com:ajkaanbal/dotfiles
+ - lock screen with Ctrl-Shift-l
+ - love for openbox
+ - zshrc: ssh-agent plugin
+ - vim: replace some language plugins
+ - vim: no build youcompleteme
+ - hello openbox
+ - vim: 2 spaces for xml tab
+ - vim: bye vim-jedi, fix vim-ref
+ - vim: nice utf-8 symbols for gitgutter
+ - vim: I like on top
+ - vim: I like relative numbers
+ - vim: jeloü vim-ref
+ - vim: search word under the cursor
+ - welcome psqlrc
+ - git: ignore file generated by python coverage package
+ - vim: changing the color of syntastic warning style error
+ - vim: django-template objects works again
+ - zsh: function to use with with python httpie
+ - vim: auto update files}
+ - little love to tmux
+ - vim: no more leader \o/
+ - vim: remove unused
+ - -.-
+ - vim: remove unused
+ - vim:updates
+ - vim: adding unite outline
+ - vim: more unite menu
+ - vim: remove unused
+ - vim: no more leader
+ - vim: remap unite maps: no more leader
+ - vim: remaps
+ - vim: bye, bye neocomplete. Hello youcompleteme
+ - vim: lazy loads
+ - vim: save with Enter (CR)
+ - vim: matchtagalways when htmldjango
+ - vim: update unite settings
+ - vim: don't initialize jedi by default
+ - vim, unite, ag: ignore south migration dir
+ - vim: unite search file with cursor word
+ - vim: Move between windows in insert mode with Ctrl-[jklh]
+ - vim: adding python text object: functions and y clases ( use with f, and  c)
+ - vim: update python snippet
+ - tmux: change border color
+ - adding pylint settings
+ - git: global gitignore
+ - tmux: move between sessions with C-a [h|l]
+ - vim: better filetype detection for djangohtml
+ - vimmin:  update neobundle_dir
+ - vim: install dependence for Unite (neomru)
+ - vim: manual neobundle install
+ - vim: update custom snippets
+ - vim: NeoSnippets >>  Ultisnips
+ - vim: static runtimepath for neobundle
+ - vim: start fold level at 6
+ - urxvt: no name
+ - vim: Unite search with relative path
+ - color only for Urxvt and xterm
+ - vim: update
+ - vim: remove local mapleader mapping
+ - Xresources ready for xterm
+ - vim: update some plugins sources
+ - vim: django-template-textobjects works
+ - vim: clear last search with space-space
+ - Xresources for xterm
+ - vim: new map key for easy-motion
+ - vim: sql syntax
+ - vim: plugin to give you more targets(text-objects) to operate on.
+ - vim: update easymotion repo.
+ - vim: no remap <C-i> ( <Tab> ) key
+ - vim: habit breaking, habit making. vim hardmode pluging
+ - vim: ARRGH remove fucking plugin that broke my vim
+ - zsh: Use autoenv plugin
+ - vim: Download neobundle if it doesn't exist
+ - vim: remap go to definition for jedi-vim
+ - update README
+ - fix mate keybinding
+ - vim: update timeoutlen
+ - vim: plugin to use yank history
+ - Patched fonts
+ - My mate settings
+ - Ajustando coloritos
+ - Xresources: change to Tango color scheme
+ - just colored man pages
+ - tmux: changing coloritos
+ - Ready to use rxvt
+ - Xresources to use rxvt, remember use it with rxvt-unicode-256color-ml
+ - vim: remove unnecesary file
+ - vim: Destroy buffers that are no open in any windows
+ - Remove unused
+ - Restore clear-screen with C-l: <prefix> C-l
+ - zsh: adding docker plugin
+ - close help and command line buffer with q
+ - vim: syntax highlight for nginx files
+ - vim: adding gitv plugin to view repository's history
+ - argh ; > ,
+ - vim: I want to see EOL
+ - Merge branch 'master' of github.com:ajkaanbal/dotfiles
+ - tmux: remove map Ctrl+\
+ - Another plugin for MatchTag
+ - Just change plugin for auto-pair.
+ - vimmin: navigation between vim and tmux
+ - clear screen with Ctrl-space
+ - tmux move with alt-l, alt-h
+ - bash clear screen with Alt-l
+ - change bindkey for clear screen, now: Alt-l
+ - seamlessly navigate vim and tmux splits
+ - vim: cursorline only in normal mode
+ - vim: syntax highlight for Dockerfile
+ - vimrcmin: decent foldlevel
+ - vim: howdoi plugin rules!
+ - vimrcmin update
+ - zsh: more history
+ - vim: remove Unnecesary and unused map
+ - vim: Remove vim-move because keymap collision. I will to use unimpaired plugin
+ - vim: fixing conceal settings to edit json files
+ - vim: Disable highligting whitespace in vimfiler buffer, and use other icons
+ - vim: Disable whitespace highlighting in Unite buffer
+ - vimrcmin: split the right way
+ - vim: Remove unnecesary settings for neocomplete
+ - vim: Plugin indentation for languages (html, css, js, python, css)
+ - vim: plugin to handle extra whitespaces
+ - vim: Colorizer stylus
+ - vim: new plugin: splitjoin
+ - vim: I like tcomment, bye nerdcommenter .
+ - vimmin: no wrap
+ - vim: expand snippets with C-j
+ - vim: emmet only on html files
+ - vim: conceal options if has conceal (duh!)
+ - vim: cleaning
+ - vim: don't use Xresources for colorscheme
+ - vim: forget arrows
+ - vim: use plugin for Toggle cursor shape
+ - vim: split right with C-v in Unite
+ - vim: vimrcmin simple and basic vimrc
+ - vim: Don't like mapping s, and xml plugin
+ - vim: trying frosted as python checker, clear search with space-l
+ - zsh: missing opts
+ - vim: Don't like wildmode list
+ - zsh: enable wd and autosuggestioin plugin
+ - vim: different map for clean last search word
+ - zsh: silend rvm use
+ - tmux: send ctr-a to vim with ctrl-a-a
+ - vim: unite grep with buffers
+ - vim: support undo
+ - vim: settings for vimgolf
+ - zshrc in dotfiles
+ - vim: plugin for stylus
+ - vim: without echodoc just one line for cmd
+ - vim: toggle cursor in insert mode (only gnome-terminal)x
+ - vim: autoswap plugin from public repository
+ - vim: ignore viewdir
+ - vim: remove unused
+ - vim: autoswap
+ - ag: ignore node_modules and jam dir
+ - vim: text object for django templates
+ - vim: wildmenu on
+ - vim: easymotion updated
+ - vim: C-k for snippets
+ - vim: adding vimux
+ - vim: mapping for neosnippet
+ - vim: enable snipMate compatibility
+ - vim: adding neosnippets
+ - vim: some useful plugins
+ - vim: some snippets for android xml
+ - vim: trying another keymap for windows commands
+ - vim: bad idea leave insert mode automatic
+ - vim: update sintaxis for syntastic
+ - vim: I need swap files
+ - vim: remove mode view
+ - vim: jj to escape to normal modE and keep the cursor
+ - vim: you deleted Unite help, remember?
+ - vim: syntax foldmethod for JAVascript
+ - vim: leave insert mode  after 5 secons
+ - vim: remove map for unite outline
+ - vim: update with leader u
+ - Merge branch 'master' of github.com:ajkaanbal/dotfiles
+ - tmux: no wait for escape sequence
+ - vim: move between buffer using leader key
+ - tmux: no delay when use esc key
+ - vim: adding javascript plugin
+ - vim: remove unused plugins
+ - vim: NO AUTOCOMPLETE
+ - vim: plugin for django
+ - vim: trying echodoc
+ - vim: echodoc, complement for neocomplete.
+ - tmux: fix: no repeat windows when reloaded
+ - tmux: move using vim keys
+ - vim: Save in insert mode.
+ - vim: fold start level at 5
+ - vim: addding undotree
+ - vim: try easymotion. fix python-jedi omnicompletition.
+ - vim: Disable autocomplete and complete with tab
+ - vim: remove unite ignore pattern.
+ - vim: Unite ignore hidden files.
+ - vim: ignore non-text files for ag.
+ - Ignore files for Silver Searcher (a.k.a ag)
+ - vim: Remove duplicate
+ - Adding minimal vimrc. Faster.
+ - vim: adding some missing config
+ - revisar
+ - enable bash smart history search
+ - vim: prevent highlight whitespaces on Unite buffer (and others) .
+ - vim: I don't want to see funtion usage every time.
+ - vim: clean
+ - vim: move lines or selections with Ctrl-[j,k]
+ - vim: alt-key detection sucks
+ - vim: adding vim-move
+ - vim: enable jedi completions
+ - vim: Remove python-mode, add vim-jedy
+ - vimrc: clean necomplete settings.
+ - vim: disable pymode_rope
+ - vim: disable pymode lint
+ - custom snippets
+ - vim: adding easy align
+ - vim: remove comments and enable indent line plugin.
+ - vim: enable cursorline
+ - disable neocomplete for python.
+ - vim: navigate between buffers even in insert mode.
+ - tmux: disable mouse mode
+ - matchtag for html files. Remove htmldjango detection on vimrc
+ - open unite on insert mode.
+ - vimrc enable showcmd
+ - trying another css color highlighter
+ - ubaryd
+ - Replace bufferline with airline tabline.
+ - vim-unite: match candidates by filename.
+ - I don't like session autoload.
+ - disable window rename on tmux.
+ - I want to see marks
+ - resolve conflict with custom unite map and python-mode
+ - activity notification more discreet colour
+ - django and decent indent with tab key
+ - why map 'O' in insert mode, why?
+ - vim-tmux keybinding integration.
+ - enable copy/paste with prefix key C-c/C-v
+ - I hate C-b
+ - well, tmux rules.
+ - adding nerdcommenter and python-mode.
+ - some missing plugins
+ - Foldcolumn is useless
+ - No search highlight into Unite buffer.
+ - better descriptive symbols for syntastic
+ - enable to install local plugins
+ - javascript syntax from othree and css-color
+ - remove neocomplete settings unused
+ - remove neocomplcache
+ - adding neosnippets
+ - migrating to neobundle.
+ - fix: I want to store folds
+ - I want store folds in vim session
+ - remove unnecesary files, vimrc update
+ - exec xmodmap with Xclients
+ - tagbar
+ - replace zencoding plugin to emmet
+ - only one command for save
+ - adding ignore patterns to unite
+ - vim-css color, improve pair match color.
+ - remove deprecated var
+ - no backup files
+ - plugin to delete buffer without close window.
+ - clean and update.
+ - use airline
+ - ...
+ - javascript libraries syntax
+ - change colorscheme to hybrid
+ - trying with anothes color scheme
+ - xinitrc added
+ - fix screenrc config
+ - Replace buffer delete with Minibuffer option to delete.
+ - :yum:
+ - :yum:
+ - adding jsbeautify
+ - I <3 Unite vim plugin
+ - map for Unite
+ - added unite and improves for Pmenu colors
+ - README update
+ - README update
+ - remove unused plugins. Readme update.
+ - using dmenu.
+ - improves in my custom mc skin.
+ - vim-table and enable list.
+ - update and merge last changes.
+ - added vim table mode
+ - Remove nerdtree at start
+ - shortcut for tab navigation, vim-session settings
+ - dependencie for vim-session
+ - change vim-obsession for vim-session to manage sessions
+ - plugin for manage sessions
+ - adding quickrun plugin
+ - improvements: save, shortcut to paste mode
+ - source code pro fonts and powerline symbols for, doh, powerline
+ - zencoding in all modes
+ - I like move  with arrow
+ - more nice plugins: commant-t, matchit, tcomment and surround
+ - minibuffer on top \o/
+ - vim improvements: powerline, htmlautoclose, vim javasript
+ - vim keyshorcut to move between buffer, zencoding and python support
+ - Merge branch 'master' of https://github.com/ajkaanbal/dotfiles
+ - meh
+ - Adding zencoding support for vim
+ - Merge branch 'master' of https://github.com/ajkaanbal/dotfiles
+ - Adding conky files :D
+ - Removing minibufexpl
+ - improve vim settings
+ - adding auto-pairs vim plugin
+ - nerdtree update ¿?
+ - ...
+ - Merge branch 'master' of https://github.com/ajkaanbal/dotfiles
+ - vim improves from https://github.com/rdegges/vim/blob/master/vimrc
+ - merging
+ - adding file types ignored generated by vim.
+ - update keybinding for vim NerdTree
+ - Update shortcut for NERDTreePlugin
+ - remove netrw log
+ - basic configuration for dotfiles
+ - adding using dotfiles python tool.
+ - Initial commit
+
