@@ -852,6 +852,11 @@ nnoremap R :VtrSendLinesToRunner<CR>
 vnoremap <Enter> :VtrSendLinesToRunner<cr>
 "}}}
 
+" Terminux {{{
+  let g:TerminusMouse=0
+"}}}
+
+
 "}}}
 
 " gitgutter {{{
