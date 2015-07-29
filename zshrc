@@ -63,6 +63,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 plugins=(colored-man git gitfast virtualenv autoenv vagrant zsh-syntax-highlighting history-substring-search web-search tmux yum wd docker ssh-agent autosuggestions nvm z safe-paste extract)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.zshrc.local
 
 # Customize to your needs...
 HOMEBIN=$HOME/.local/bin
