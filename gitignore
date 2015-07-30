@@ -53,3 +53,5 @@ Session.vim
 .netrwhist
 *~
 
+#Enviroment vars
+*.env*
