@@ -707,19 +707,20 @@ if executable('ag')
 endif
 
 
-nnoremap <C-@>f :<C-u>Unite file_rec/async:! -prompt-direction=top<CR>
-nnoremap <C-@>p :<C-u>Unite file_rec/async -prompt-direction=top<cr>
-nnoremap <C-@>b :<C-u>Unite buffer -prompt-direction=top<cr>
-nnoremap <C-@>t :<C-u>Unite tab -prompt-direction=top<cr>
-nnoremap <C-@>r :<C-u>Unite file_mru -prompt-direction=top<CR>
-nnoremap <C-@>m :<C-u>Unite mark -prompt-direction=top<CR>
-nnoremap <C-@>k :<C-u>Unite bookmark -prompt-direction=top<CR>
-nnoremap <C-@>j :<C-u>Unite jump -prompt-direction=top<CR>
-nnoremap <C-@>c :<C-u>Unite change -prompt-direction=top<CR>
-nnoremap <C-@>o :<C-u>Unite outline -prompt-direction=top<CR>
-nnoremap <C-@>/ :<C-u>Unite grep:. -prompt-direction=top<CR>
-nnoremap <C-@>a :<C-u>Unite buffer file_mru bookmark -prompt-direction=top<CR>
-nnoremap <C-@>* :<C-u>UniteWithCursorWord grep:. -prompt-direction=top<cr>
+nnoremap <leader>f :<C-u>Unite file_rec/async:! -prompt-direction=top<CR>
+nnoremap <leader>p :<C-u>Unite file_rec/async -prompt-direction=top<cr>
+nnoremap <leader>b :<C-u>Unite buffer -prompt-direction=top<cr>
+nnoremap <leader>t :<C-u>Unite tab -prompt-direction=top<cr>
+nnoremap <leader>r :<C-u>Unite file_mru -prompt-direction=top<CR>
+nnoremap <leader>m :<C-u>Unite mark -prompt-direction=top<CR>
+nnoremap <leader>k :<C-u>Unite bookmark -prompt-direction=top<CR>
+nnoremap <leader>j :<C-u>Unite jump -prompt-direction=top<CR>
+nnoremap <leader>c :<C-u>Unite change -prompt-direction=top<CR>
+nnoremap <leader>o :<C-u>Unite outline -prompt-direction=top<CR>
+nnoremap <leader>/ :<C-u>Unite grep:. -prompt-direction=top<CR>
+nnoremap <leader>a :<C-u>Unite buffer file_mru bookmark -prompt-direction=top<CR>
+nnoremap <leader>* :<C-u>UniteWithCursorWord grep:. -prompt-direction=top<cr>
+nnoremap <leader><Space> :<C-u>Unite tmuxcomplete<cr>
 
 autocmd MyAutoCmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings() "{{{
