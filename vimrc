@@ -24,6 +24,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
 \ 'build' : {
 \     'unix' : 'make -f make_unix.mak',
+\     'mac': 'make -f make_mac.mak'
 \    },
 \ }
 NeoBundleLazy 'Valloric/YouCompleteMe',
