@@ -161,7 +161,13 @@ bindkey -r '^[l'
 bindkey -r '^[h'
 
 #coloritos
-eval `dircolors $HOME/.dir_colors`
+if whence dircolors >/dev/null; then
+  eval `dircolors $HOME/.dir_colors`
+  zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+else
+  export CLICOLOR=1
+  zstyle ':completion:*:default' list-colors ''
+fi
 
 # zsh-agent
 zstyle :omz:plugins:ssh-agent agent-forwarding on
