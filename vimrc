@@ -121,7 +121,10 @@ NeoBundle 'kshenoy/vim-signature' " show marks
 NeoBundleLazy 'Yggdroot/indentLine',
 \{'autoload': {'filetypes': ['javascript','python', 'html', 'css']}}
 NeoBundle 'sdanielf/vim-stdtabs' " common indents
-" NeoBundle 'junegunn/vim-easy-align'
+NeoBundleLazy 'junegunn/vim-easy-align',{
+\ 'autoload': {
+\   'commands': 'EasyAlign'
+\ }}
 NeoBundleLazy 'Lokaltog/vim-easymotion',
 \{'autoload': {'filetypes': ['javascript','python']}}
 " NeoBundle 'tommcdo/vim-exchange'
