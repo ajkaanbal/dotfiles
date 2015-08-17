@@ -132,6 +132,12 @@ NeoBundleLazy 'wellle/targets.vim', {
 \ 'autoload': { 'filetypes': ['python','javascript'] }
 \}
 
+NeoBundleLazy 'arecarn/crunch.vim', {
+\ 'depends': 'arecarn/selection.vim',
+\ 'autoload': {
+\   'commands': 'Crunch'
+\ }}
+
 " NeoBundleLazy 'krisajenkins/dbext.vim', {
 " \ 'autoload': {'filetypes': 'sql'}
 " \}
