@@ -40,6 +40,10 @@ alias tsk=tmux_send_message
 function w3img(){
     w3m -o imgdisplay=/usr/libexec/w3m/w3mimgdisplay $1
 }
+
+function tmuxtitle(){
+    tmux set-option set-titles-string '#S'
+}
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
