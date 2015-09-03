@@ -123,7 +123,8 @@ export PATH="$NODE_PATH/bin:$PATH"
 
 #GO
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export GOROOT=/home/ajkaanbal/.local/go
+export PATH=$PATH:$GOROOT/bin
 
 #Ansible
 export ANSIBLE_HOSTS=~/.local/ansible_hosts
