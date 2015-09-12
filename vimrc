@@ -552,7 +552,7 @@ augroup MyAutoCmd
   autocmd FileType htmldjango setlocal sw=2 ts=2 sts=2
   autocmd FileType stylus  setlocal sw=2 ts=2 sts=2
   autocmd FileType xml  setlocal sw=2 ts=2 sts=2
-  autocmd FileType html  setlocal sw=2 ts=2 sts=2 equalprg=js-beautify\ -f\ -\ --type\ html\ -s\ 2
+  autocmd FileType html  setlocal sw=2 ts=2 sts=2 " equalprg=js-beautify\ -f\ -\ --type\ html\ -s\ 2
   autocmd FileType yaml  setlocal sw=2 ts=2 sts=2
   autocmd FileType yaml  setlocal sw=2 ts=2 sts=2
   autocmd BufNewFile,BufRead *.ejs set filetype=html
