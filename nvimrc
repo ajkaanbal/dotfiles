@@ -23,6 +23,9 @@ Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'moll/vim-bbye'
+"Plug 'Yggdroot/indentLine',
 
 call plug#end()
 
@@ -77,11 +80,12 @@ call plug#end()
 " end-view}}}
 
 " Utils {{{
-  set path+=**
+  let g:mapleader = ','
 " }}}
 
 " Mappings {{{
   nnoremap <silent> d<space> :StripWhitespace<esc>
+  nnoremap <silent>Q :<c-u>Bdelete<CR>
 " }}}
 
 " Syntax {{{
@@ -117,21 +121,21 @@ call plug#end()
         let g:unite_source_grep_default_opts =
         \ '--line-numbers --nocolor --nogroup --all-text'
         let g:unite_source_grep_recursive_opt = ''
-        let g:unite_source_rec_async_command='ag --follow --nocolor --nogroup -g ""'
+        let g:unite_source_rec_async_command=['ag', '--follow', '--nocolor', '--nogroup', '-g', '']
     endif
-    nnoremap <C-@>f :<C-u>Unite file_rec/async:! -prompt-direction=top<CR>
-    nnoremap <C-@>p :<C-u>Unite file_rec/async -prompt-direction=top<cr>
-    nnoremap <C-@>b :<C-u>Unite buffer -prompt-direction=top<cr>
-    nnoremap <C-@>t :<C-u>Unite tab -prompt-direction=top<cr>
-    nnoremap <C-@>r :<C-u>Unite file_mru -prompt-direction=top<CR>
-    nnoremap <C-@>m :<C-u>Unite mark -prompt-direction=top<CR>
-    nnoremap <C-@>k :<C-u>Unite bookmark -prompt-direction=top<CR>
-    nnoremap <C-@>j :<C-u>Unite jump -prompt-direction=top<CR>
-    nnoremap <C-@>c :<C-u>Unite change -prompt-direction=top<CR>
-    nnoremap <C-@>o :<C-u>Unite outline -prompt-direction=top<CR>
-    nnoremap <C-@>/ :<C-u>Unite grep:. -prompt-direction=top<CR>
-    nnoremap <C-@>a :<C-u>Unite buffer file_mru bookmark -prompt-direction=top<CR>
-    nnoremap <C-@>* :<C-u>UniteWithCursorWord grep:. -prompt-direction=top<cr>
+    nnoremap <leader>f :<C-u>Unite file_rec/neovim:! -prompt-direction=top<CR>
+    nnoremap <leader>p :<C-u>Unite file_rec/async -prompt-direction=top<cr>
+    nnoremap <leader>b :<C-u>Unite buffer -prompt-direction=top<cr>
+    nnoremap <leader>t :<C-u>Unite tab -prompt-direction=top<cr>
+    nnoremap <leader>r :<C-u>Unite file_mru -prompt-direction=top<CR>
+    nnoremap <leader>m :<C-u>Unite mark -prompt-direction=top<CR>
+    nnoremap <leader>k :<C-u>Unite bookmark -prompt-direction=top<CR>
+    nnoremap <leader>j :<C-u>Unite jump -prompt-direction=top<CR>
+    nnoremap <leader>c :<C-u>Unite change -prompt-direction=top<CR>
+    nnoremap <leader>o :<C-u>Unite outline -prompt-direction=top<CR>
+    nnoremap <leader>/ :<C-u>Unite grep:. -prompt-direction=top<CR>
+    nnoremap <leader>a :<C-u>Unite buffer file_mru bookmark -prompt-direction=top<CR>
+    nnoremap <leader>* :<C-u>UniteWithCursorWord grep:. -prompt-direction=top<cr>
     autocmd VIMRC filetype unite call s:unite_my_settings()
     function! s:unite_my_settings()
         imap <silent><buffer><expr> <C-v>  unite#do_action('right')
@@ -143,3 +147,4 @@ call plug#end()
 
 " end-plugins-settings}}}
 
+" vim:foldmethod=marker shiftwidth=2 tabstop=2
