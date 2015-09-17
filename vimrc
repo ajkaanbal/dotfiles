@@ -70,6 +70,10 @@ NeoBundleLazy 'othree/html5.vim', {
 \ 'autoload' : {
 \   'filetypes': ['html','htmldjango']
 \ }}
+NeoBundleLazy 'vim-jade', {
+\ 'autoload' : {
+\   'filetypes': ['jade']
+\ }}
 NeoBundleLazy 'Valloric/MatchTagAlways', {
 \ 'autoload' : {
 \   'filetypes': ['html', 'htmldjango']
