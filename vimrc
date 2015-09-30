@@ -635,6 +635,7 @@ endfunction
 "highlight modifications
 set t_Co=256
 colorscheme hybrid
+set background=dark
 
 highlight ExtraWhitespace ctermbg=9
 
