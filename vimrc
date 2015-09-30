@@ -70,7 +70,7 @@ NeoBundleLazy 'othree/html5.vim', {
 \ 'autoload' : {
 \   'filetypes': ['html','htmldjango']
 \ }}
-NeoBundleLazy 'vim-jade', {
+NeoBundleLazy 'digitaltoad/vim-jade', {
 \ 'autoload' : {
 \   'filetypes': ['jade']
 \ }}
