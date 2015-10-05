@@ -153,7 +153,7 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 rvm use >& /dev/null
 
 # Default node version
-nvm use stable >& /dev/null
+nvm use default >& /dev/null
 
 #R
 export R_LIBS="$HOME/.R"
