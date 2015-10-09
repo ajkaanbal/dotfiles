@@ -187,6 +187,12 @@ NeoBundle 'wakatime/vim-wakatime'
 " NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'wincent/terminus'
 NeoBundle 'sickill/vim-pasta'
+NeoBundleLazy  'pangloss/vim-javascript',
+\ {'autoload': {'filetypees': ['jsx', 'html']}}
+NeoBundleLazy 'mxw/vim-jsx',
+\{ 'depends': 'pangloss/vim-javascript',
+\  'autoload': {'filetypes': ['jsx', 'html']}
+\}
 "Neobundle configuration
 
 call neobundle#config('unite.vim', {
