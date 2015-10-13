@@ -32,14 +32,12 @@ NeoBundleLazy 'Valloric/YouCompleteMe',
 NeoBundle 'SirVer/ultisnips'
 NeoBundleLazy 'honza/vim-snippets',
 \{'autoload': {'filetypes': ['javascript','python']}}
-NeoBundleLazy 'Shougo/unite.vim', {
-\  'autoload': {'commands': ['Unite']}
-\}
+NeoBundle 'Shougo/unite.vim'
 " NeoBundleLazy 'sgoranson/unite-mark',
 " \{ 'depends': 'Shougo/unite.vim',
 " \  'autoload': {'commands': ['Unite']}
 " \}
-NeoBundle 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim'}
+" NeoBundle 'Shougo/neomru.vim', {'depends': 'Shougo/unite.vim'}
 " NeoBundleLazy 'thinca/vim-ref', { 'autoload': { 'filetypes': ['python']} }
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundleLazy 'bling/vim-airline',
