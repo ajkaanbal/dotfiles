@@ -715,8 +715,6 @@ let g:unite_marked_icon = '✗'
 let g:unite_prompt = '» '
 let g:unite_enable_start_insert = 1
 if executable('ag')
-    " Directory partial match.
-    call unite#custom#default_action('directory', 'narrow')
 
     " Use ag in unite grep source.
     let g:unite_source_grep_command = 'ag'
@@ -745,6 +743,9 @@ nnoremap <leader><Space> :<C-u>Unite tmuxcomplete<cr>
 
 autocmd MyAutoCmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings() "{{{
+    " Directory partial match.
+    call unite#custom#default_action('directory', 'narrow')
+
     "Split-right with C-v
     imap <silent><buffer><expr> <C-v>  unite#do_action('right')
 
