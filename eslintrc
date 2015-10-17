@@ -165,7 +165,7 @@
         "react/react-in-jsx-scope": 2,
         "react/self-closing-comp": 2,
         "react/wrap-multilines": 2,
-        "semi": [2, "never"],
+        "semi": [2, "always"],
         "semi-spacing": 0,
         "sort-vars": 0,
         "space-after-keywords": [2, "always"],
@@ -184,6 +184,7 @@
         "vars-on-top": 0,
         "wrap-iife": [2, "any"],
         "wrap-regex": 0,
-        "yoda": [2, "never"]
+        "yoda": [2, "never"],
+        "no-did-mount-set-state": false
     }
 }
