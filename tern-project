@@ -6,6 +6,7 @@
   ],
   "plugins": {
     "node": {},
+    "node-mongodb-native": {},
     "angular": {}
   }
 }

@@ -121,6 +121,10 @@ export PATH="$SCALA_HOME/bin:$PATH"
 NODE_PATH="$HOME/.local/node"
 export PATH="$NODE_PATH/bin:$PATH"
 
+#NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 #GO
 export GOPATH=$HOME/go
 export GOROOT=/home/ajkaanbal/.local/go
