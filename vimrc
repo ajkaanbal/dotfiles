@@ -191,6 +191,7 @@ NeoBundleLazy 'mxw/vim-jsx',
 \{ 'depends': 'pangloss/vim-javascript',
 \  'autoload': {'filetypes': ['jsx', 'html']}
 \}
+NeoBundle  'derekwyatt/vim-scala'
 "Neobundle configuration
 
 call neobundle#config('unite.vim', {
