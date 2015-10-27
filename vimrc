@@ -86,9 +86,9 @@ NeoBundleLazy 'moll/vim-bbye', {
       \   'commands': 'Bdelete'
       \}}
 
-NeoBundleLazy 'othree/yajs.vim', { 'autoload' : {
-      \ 'filetypes' : 'javascript',
-      \ }}
+" NeoBundleLazy 'othree/yajs.vim', { 'autoload' : {
+      " \ 'filetypes' : 'javascript',
+      " \ }}
 NeoBundleLazy 'marijnh/tern_for_vim', { 'autoload' : {
       \ 'filetypes' : 'javascript',
       \ }}
