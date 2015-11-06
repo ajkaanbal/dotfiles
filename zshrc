@@ -64,7 +64,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colored-man git gitfast virtualenv autoenv vagrant zsh-syntax-highlighting history-substring-search web-search tmux yum wd docker ssh-agent autosuggestions nvm z safe-paste extract)
+plugins=(colored-man git gitfast virtualenv vagrant zsh-syntax-highlighting history-substring-search web-search tmux yum wd docker ssh-agent autosuggestions nvm z safe-paste extract zsh-autoenv)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zshrc.local
@@ -97,8 +97,6 @@ PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS
 #Virtual env wrapper
 export WORKON_HOME=~/.pyenvs
 source /usr/bin/virtualenvwrapper.sh
-#Autoenv
-source /usr/bin/activate.sh
 
 #java vars
 export JAVA_HOME="/usr/java/latest"
