@@ -5,7 +5,7 @@ Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
-Xft.rgba: rgb
+Xft.rgba: none
 
 URxvt.scrollBar: off
 ! Fonts
