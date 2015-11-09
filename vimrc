@@ -68,7 +68,7 @@ NeoBundleLazy 'othree/html5.vim', {
 \ 'autoload' : {
 \   'filetypes': ['html','htmldjango']
 \ }}
-NeoBundleLazy 'ajkaanba/vim-jade', {
+NeoBundleLazy 'ajkaanbal/vim-jade', {
 \ 'autoload' : {
 \   'filetypes': ['jade']
 \ }}
