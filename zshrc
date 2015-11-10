@@ -125,7 +125,7 @@ export NVM_DIR="$HOME/.nvm"
 
 #GO
 export GOPATH=$HOME/go
-export GOROOT=/home/ajkaanbal/.local/go
+export GOROOT=$HOME/.local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 #Ansible
