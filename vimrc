@@ -725,8 +725,8 @@ if executable('ag')
 endif
 
 
-nnoremap <leader>f :<C-u>Unite file_rec/async:! -prompt-direction=top<CR>
-nnoremap <leader>p :<C-u>Unite file_rec/async -prompt-direction=top<cr>
+nnoremap <leader>f :<C-u>Unite file_rec/async:! -sync -prompt-direction=top<CR>
+nnoremap <leader>p :<C-u>Unite file_rec/async -sync -prompt-direction=top<cr>
 nnoremap <leader>b :<C-u>Unite buffer -prompt-direction=top<cr>
 nnoremap <leader>t :<C-u>Unite tab -prompt-direction=top<cr>
 nnoremap <leader>r :<C-u>Unite file_mru -prompt-direction=top<CR>
