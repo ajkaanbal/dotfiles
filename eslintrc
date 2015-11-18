@@ -185,6 +185,6 @@
         "wrap-iife": [2, "any"],
         "wrap-regex": 0,
         "yoda": [2, "never"],
-        "no-did-mount-set-state": false
+        "no-did-mount-set-state": 0
     }
 }
