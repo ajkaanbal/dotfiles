@@ -52,6 +52,7 @@ Thumbs.db
 Session.vim
 .netrwhist
 *~
+.tags
 
 #Enviroment vars
 *.env*
