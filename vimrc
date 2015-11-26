@@ -508,6 +508,8 @@ endif
 " View setting.
 set viewdir=~/.vim/view viewoptions-=options viewoptions+=slash,unix
 
+set tags=.tags
+
 "}}}
 
 
