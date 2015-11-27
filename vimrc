@@ -849,6 +849,7 @@ let g:togglecursor_force='xterm'
 "}}}
 
 " YouCompleteme {{{
+    let g:EclimCompletionMethod = 'omnifunc'
     nnoremap gD :<c-u>YcmCompleter GoTo<cr>
     let g:ycm_filetype_blacklist = {
         \ 'tagbar' : 1,
