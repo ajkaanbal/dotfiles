@@ -41,7 +41,7 @@ NeoBundle 'Shougo/unite.vim'
 " NeoBundleLazy 'thinca/vim-ref', { 'autoload': { 'filetypes': ['python']} }
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundleLazy 'bling/vim-airline',
-\{'autoload': {'filetypes': ['javascript','python']}}
+\{'autoload': {'filetypes': ['javascript','python', 'scala', 'java']}}
 NeoBundleLazy 'scrooloose/syntastic',
 \{'autoload': {'filetypes': ['javascript','python']}}
 NeoBundleLazy 'mattn/emmet-vim/',{
