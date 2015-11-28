@@ -27,8 +27,8 @@ NeoBundle 'Shougo/vimproc', {
 \     'mac': 'make -f make_mac.mak'
 \    },
 \ }
-NeoBundleLazy 'Valloric/YouCompleteMe',
-\{'autoload': {'filetypes': ['javascript','python', 'scala', 'java']}}
+NeoBundle 'Valloric/YouCompleteMe',
+" \{'autoload': {'filetypes': ['javascript','python', 'scala', 'java']}}
 NeoBundle 'SirVer/ultisnips'
 NeoBundleLazy 'honza/vim-snippets',
 \{'autoload': {'filetypes': ['javascript','python']}}
