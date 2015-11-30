@@ -184,7 +184,7 @@ NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'wakatime/vim-wakatime'
 " NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'wincent/terminus'
-NeoBundle 'sickill/vim-pasta'
+" NeoBundle 'sickill/vim-pasta'
 NeoBundleLazy  'pangloss/vim-javascript',
 \ {'autoload': {'filetypees': ['jsx', 'html']}}
 NeoBundleLazy 'mxw/vim-jsx',
