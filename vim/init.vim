@@ -1,1 +1,1 @@
-/home/ajkaanbal/Dotfiles/nvimrc
+../nvimrc
