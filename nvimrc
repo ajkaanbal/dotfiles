@@ -12,7 +12,7 @@ Plug 'tpope/vim-surround'
 Plug 'ajkaanbal/autoswap.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jszakmeister/vim-togglecursor'
 Plug 'Shougo/unite.vim', { 'on': 'Unite' }
@@ -25,6 +25,9 @@ Plug 'xolox/vim-session'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'moll/vim-bbye'
+Plug 'bling/vim-airline',
+Plug 'derekwyatt/vim-scala'
+Plug 'airblade/vim-gitgutter'
 "Plug 'Yggdroot/indentLine',
 
 call plug#end()
@@ -49,6 +52,7 @@ call plug#end()
 
 " View {{{
   colorscheme hybrid
+  set background=dark
   set number
   set nowrap
   set showcmd
@@ -123,7 +127,8 @@ call plug#end()
         let g:unite_source_grep_recursive_opt = ''
         let g:unite_source_rec_async_command=['ag', '--follow', '--nocolor', '--nogroup', '-g', '']
     endif
-    nnoremap <leader>f :<C-u>Unite file_rec/neovim:! -prompt-direction=top<CR>
+    nnoremap <leader>f :<C-u>Unite file_rec/async:! -sync -prompt-direction=top<CR>
+    " nnoremap <leader>f :<C-u>Unite file_rec/neovim:! -prompt-direction=top<CR>
     nnoremap <leader>p :<C-u>Unite file_rec/async -prompt-direction=top<cr>
     nnoremap <leader>b :<C-u>Unite buffer -prompt-direction=top<cr>
     nnoremap <leader>t :<C-u>Unite tab -prompt-direction=top<cr>
@@ -143,7 +148,59 @@ call plug#end()
         execute 'silent DisableWhitespace'
         nmap <buffer> <ESC>      <Plug>(unite_exit)
     endfunction
+
+  " Airline {{{
+    if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+    endif
+
+    " unicode symbols
+    let g:airline_left_sep = '»'
+    let g:airline_left_sep = '▶'
+    let g:airline_right_sep = '«'
+    let g:airline_right_sep = '◀'
+    let g:airline_symbols.linenr = '␊'
+    let g:airline_symbols.linenr = '␤'
+    let g:airline_symbols.linenr = '¶'
+    let g:airline_symbols.branch = '⎇'
+    let g:airline_symbols.paste = 'ρ'
+    let g:airline_symbols.whitespace = 'Ξ'
+
+    " powerline symbols
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.readonly = ''
+    let g:airline_symbols.linenr = ''
+
+    let g:airline_enable_unite=1
+    let g:airline_theme='lucius'
+    let g:airline#extensions#syntastic#enabled = 1
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#buffer_nr_show = 1
+    let g:airline#extensions#tabline#fnamemod = ':p:t'
+    let g:airline#extensions#tabline#left_sep = ''
+    let g:airline#extensions#tabline#left_alt_sep = ''
+    let g:airline#extensions#tabline#right_sep = ''
+    let g:airline#extensions#tabline#right_alt_sep = ''
+
   " }}}
+
+  " gitgutter {{{
+    nmap [h <Plug>GitGutterPrevHunk
+    nmap ]h <Plug>GitGutterNextHunk
+    nmap ghs <Plug>GitGutterStageHunk
+    nmap ghr <Plug>GitGutterRevertHunk
+    nmap ghp <Plug>GitGutterPreviewHunk
+
+    let g:gitgutter_sign_added = '✜'
+    let g:gitgutter_sign_modified = '✎'
+    let g:gitgutter_sign_removed = '✄'
+    let g:gitgutter_sign_modified_removed = '✎✄'
+  " }}}
+
 
 " end-plugins-settings}}}
 
