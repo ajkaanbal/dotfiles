@@ -57,3 +57,4 @@ Session.vim
 #Enviroment vars
 *.env*
 .autoenv.zsh
+.tmp
