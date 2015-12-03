@@ -9,13 +9,14 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-eunuch'
 Plug 'ajkaanbal/autoswap.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jszakmeister/vim-togglecursor'
-Plug 'Shougo/unite.vim', { 'on': 'Unite' }
+Plug 'Shougo/unite.vim' | Plug 'Shougo/vimfiler.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'othree/yajs.vim', { 'for' : 'javascript' }
 Plug 'marijnh/tern_for_vim', { 'for' : 'javascript' }
@@ -28,6 +29,12 @@ Plug 'moll/vim-bbye'
 Plug 'bling/vim-airline',
 Plug 'derekwyatt/vim-scala'
 Plug 'airblade/vim-gitgutter'
+Plug 'artnez/vim-wipeout', {'on': 'Wipeout'}
+Plug 'tomtom/tcomment_vim'
+Plug 'cohama/lexima.vim'
+Plug 'majutsushi/tagbar'
+
+
 "Plug 'Yggdroot/indentLine',
 
 call plug#end()
@@ -41,12 +48,18 @@ call plug#end()
   set tabstop=4
   set shiftwidth=4
   set expandtab
+  set tags=.tags
 " end-edit}}}
 
 " KeyMappings: "{{{
 
   " Useful save mappings.
   nnoremap <silent> <CR> :<C-u>w<CR>
+  augroup autosave
+    autocmd! CmdwinEnter *  nunmap <CR>
+    autocmd! CmdwinLeave *  nnoremap <silent> <CR> :<C-u>w<CR>
+    autocmd! InsertLeave,BufLeave,FocusLost * silent! update
+  augroup END
 
 " end-keymapping}}}
 
@@ -90,6 +103,10 @@ call plug#end()
 " Mappings {{{
   nnoremap <silent> d<space> :StripWhitespace<esc>
   nnoremap <silent>Q :<c-u>Bdelete<CR>
+
+  "indent with tab and shift tab
+  vnoremap <Tab> >gv
+  vnoremap <S-Tab> <gv
 " }}}
 
 " Syntax {{{
@@ -201,6 +218,29 @@ call plug#end()
     let g:gitgutter_sign_modified_removed = '✎✄'
   " }}}
 
+  " vimviler {{{
+    let g:vimfiler_tree_leaf_icon = ' '
+    let g:vimfiler_tree_opened_icon = '▾'
+    let g:vimfiler_tree_closed_icon = '▸'
+    let g:vimfiler_file_icon = '-'
+    let g:vimfiler_marked_file_icon = '*'
+    let g:vimfiler_options_direction = 'topright'
+    let g:vimfiler_options_direction = 'topright'
+
+    nnoremap <silent><F2> :<C-u>VimFilerExplorer -find<CR>
+  " }}}
+
+  " Tagbar {{{
+    nnoremap <F8> :<C-u>TagbarToggle<CR>
+  " }}}
+
+  " splitjoin {{{
+    let g:splitjoin_split_mapping = ''
+    let g:splitjoin_join_mapping = ''
+
+    nnoremap gJ :silent SplitjoinJoin<cr>
+    nnoremap gS :silent SplitjoinSplit<cr>
+  "}}}
 
 " end-plugins-settings}}}
 
