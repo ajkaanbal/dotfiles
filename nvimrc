@@ -49,6 +49,8 @@ call plug#end()
   set shiftwidth=4
   set expandtab
   set tags=.tags
+  set wildignorecase
+  set autoindent
 " end-edit}}}
 
 " KeyMappings: "{{{
@@ -60,6 +62,10 @@ call plug#end()
     autocmd! CmdwinLeave *  nnoremap <silent> <CR> :<C-u>w<CR>
     autocmd! InsertLeave,BufLeave,FocusLost * silent! update
   augroup END
+
+  " Close help buffer with q
+  autocmd FileType help :nnoremap <buffer> <silent> q :<C-u>bdelete<CR>
+  autocmd CmdwinEnter * map <buffer> <silent> q :<C-u>q<CR>
 
 " end-keymapping}}}
 
@@ -144,8 +150,8 @@ call plug#end()
         let g:unite_source_grep_recursive_opt = ''
         let g:unite_source_rec_async_command=['ag', '--follow', '--nocolor', '--nogroup', '-g', '']
     endif
-    nnoremap <leader>f :<C-u>Unite file_rec/async:! -sync -prompt-direction=top<CR>
-    " nnoremap <leader>f :<C-u>Unite file_rec/neovim:! -prompt-direction=top<CR>
+    " nnoremap <leader>f :<C-u>Unite file_rec/async:! -sync -prompt-direction=top<CR>
+    nnoremap <leader>f :<C-u>Unite file_rec/neovim:! -prompt-direction=top<CR>
     nnoremap <leader>p :<C-u>Unite file_rec/async -prompt-direction=top<cr>
     nnoremap <leader>b :<C-u>Unite buffer -prompt-direction=top<cr>
     nnoremap <leader>t :<C-u>Unite tab -prompt-direction=top<cr>
