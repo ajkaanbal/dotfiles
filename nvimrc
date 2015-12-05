@@ -33,6 +33,8 @@ Plug 'artnez/vim-wipeout', {'on': 'Wipeout'}
 Plug 'tomtom/tcomment_vim'
 Plug 'cohama/lexima.vim'
 Plug 'majutsushi/tagbar'
+Plug 'SirVer/ultisnips'
+" Plug 'ajkaanbal/vim-scala-utils'
 
 
 "Plug 'Yggdroot/indentLine',
@@ -246,6 +248,19 @@ call plug#end()
 
     nnoremap gJ :silent SplitjoinJoin<cr>
     nnoremap gS :silent SplitjoinSplit<cr>
+  "}}}
+
+  " UltiSnips {{{
+
+    let g:UltiSnipsExpandTrigger="<c-j>"
+    let g:UltiSnipsJumpForwardTrigger="<c-j>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+    " If you want :UltiSnipsEdit to split your window.
+    let g:UltiSnipsEditSplit="vertical"
+    let g:UltiSnipsListSnippets="<c-tab>"
+    " let g:UltiSnipsSnippetsDir="~/Dotfiles/vim/UltiSnips"
+
   "}}}
 
 " end-plugins-settings}}}
