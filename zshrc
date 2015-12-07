@@ -64,7 +64,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colored-man git gitfast virtualenv vagrant zsh-syntax-highlighting history-substring-search web-search tmux yum wd docker ssh-agent autosuggestions nvm z safe-paste extract zsh-autoenv archlinux)
+plugins=(colored-man git gitfast virtualenv vagrant zsh-syntax-highlighting history-substring-search web-search tmux yum wd docker ssh-agent zsh-autosuggestions nvm z safe-paste extract zsh-autoenv archlinux)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zshrc.local
