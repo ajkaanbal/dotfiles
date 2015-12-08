@@ -6,3 +6,4 @@ urxvt256c-mld -q -f -o
 sh ~/.xinitrc &
 sh ~/.autostart.local.sh &
 xmodmap ~/.Xmodmap &
+setxkbmap -option caps:escape &
