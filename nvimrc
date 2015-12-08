@@ -236,7 +236,11 @@ call plug#end()
     let g:vimfiler_options_direction = 'topright'
 
     nnoremap <silent><F2> :<C-u>VimFilerExplorer -find<CR>
-  " }}}
+    call vimfiler#custom#profile('default', 'context', {
+      \ 'safe' : 0,
+      \ })
+
+     "}}}
 
   " Tagbar {{{
     nnoremap <F8> :<C-u>TagbarToggle<CR>
