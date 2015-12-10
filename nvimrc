@@ -34,6 +34,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'cohama/lexima.vim'
 Plug 'majutsushi/tagbar'
 Plug 'SirVer/ultisnips'
+Plug 'ensime/ensime-vim'
 " Plug 'ajkaanbal/vim-scala-utils'
 
 
@@ -265,6 +266,11 @@ call plug#end()
     let g:UltiSnipsListSnippets="<c-tab>"
     " let g:UltiSnipsSnippetsDir="~/Dotfiles/vim/UltiSnips"
 
+  "}}}
+
+  " Ensime {{{
+    autocmd FileType scala nnoremap gD :<c-u>EnDeclaration<cr>
+    autocmd FileType scala nnoremap gB :<c-u>EnDocBrowse<cr>
   "}}}
 
 " end-plugins-settings}}}
