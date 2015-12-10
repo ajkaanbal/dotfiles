@@ -71,7 +71,8 @@ source $HOME/.zshrc.local
 
 # Customize to your needs...
 HOMEBIN=$HOME/.local/bin
-export PATH=$HOMEBIN:/usr/lib64/qt-3.3/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin
+# export PATH=$HOMEBIN:/usr/lib64/qt-3.3/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin
+export PATH=$HOMEBIN:$PATH
 
 export HISTSIZE=100000
 export SAVEHIST=100000
