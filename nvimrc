@@ -35,6 +35,7 @@ Plug 'cohama/lexima.vim'
 Plug 'majutsushi/tagbar'
 Plug 'SirVer/ultisnips'
 Plug 'ensime/ensime-vim'
+Plug 'christoomey/vim-tmux-runner'
 " Plug 'ajkaanbal/vim-scala-utils'
 
 
@@ -271,6 +272,11 @@ call plug#end()
   " Ensime {{{
     autocmd FileType scala nnoremap gD :<c-u>EnDeclaration<cr>
     autocmd FileType scala nnoremap gB :<c-u>EnDocBrowse<cr>
+  "}}}
+
+  " vim-tmux-runner {{{
+    nnoremap R :VtrSendLinesToRunner<CR>
+    vnoremap <Enter> :VtrSendLinesToRunner<cr>
   "}}}
 
 " end-plugins-settings}}}
