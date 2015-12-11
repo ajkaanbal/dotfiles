@@ -53,6 +53,7 @@ Session.vim
 .netrwhist
 *~
 .tags
+.ensime*
 
 #Enviroment vars
 *.env*
