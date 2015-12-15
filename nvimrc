@@ -72,6 +72,9 @@ call plug#end()
   autocmd FileType help :nnoremap <buffer> <silent> q :<C-u>bdelete<CR>
   autocmd CmdwinEnter * map <buffer> <silent> q :<C-u>q<CR>
 
+  " Clear last searching highlight
+  nnoremap <silent><space><space> :<c-u>let @/ = ""<return><esc>
+
 " end-keymapping}}}
 
 " View {{{
