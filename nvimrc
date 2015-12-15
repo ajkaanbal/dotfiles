@@ -36,6 +36,7 @@ Plug 'majutsushi/tagbar'
 Plug 'SirVer/ultisnips'
 Plug 'ensime/ensime-vim'
 Plug 'christoomey/vim-tmux-runner'
+Plug 'kana/vim-textobj-entire' | Plug 'kana/vim-textobj-user'
 " Plug 'ajkaanbal/vim-scala-utils'
 
 
