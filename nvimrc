@@ -37,10 +37,11 @@ Plug 'SirVer/ultisnips'
 Plug 'ensime/ensime-vim'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'kana/vim-textobj-entire' | Plug 'kana/vim-textobj-user'
+Plug 'tpope/vim-repeat'
+Plug 'wellle/targets.vim'
+Plug 'Yggdroot/indentLine',
 " Plug 'ajkaanbal/vim-scala-utils'
 
-
-"Plug 'Yggdroot/indentLine',
 
 call plug#end()
 
@@ -281,6 +282,13 @@ call plug#end()
   " vim-tmux-runner {{{
     nnoremap R :VtrSendLinesToRunner<CR>
     vnoremap <Enter> :VtrSendLinesToRunner<cr>
+  "}}}
+
+  "indentLine {{{
+    let g:indentLine_faster = 1
+    let g:indentLine_color_term = 236
+    let g:indentLine_noConcealCursor = "nc"
+    let g:indentLine_char ='┆'
   "}}}
 
 " end-plugins-settings}}}
