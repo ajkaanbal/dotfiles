@@ -39,7 +39,8 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'kana/vim-textobj-entire' | Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-repeat'
 Plug 'wellle/targets.vim'
-Plug 'Yggdroot/indentLine',
+Plug 'Yggdroot/indentLine'
+Plug 'justinmk/vim-sneak'
 " Plug 'ajkaanbal/vim-scala-utils'
 
 
@@ -289,6 +290,14 @@ call plug#end()
     let g:indentLine_color_term = 236
     let g:indentLine_noConcealCursor = "nc"
     let g:indentLine_char ='┆'
+  "}}}
+
+  "Sneak {{{
+    let g:sneak#streak = 1
+    hi link SneakPluginTarget ErrorMsg
+    hi link SneakStreakMask  Comment
+    hi link SneakStreakTarget  ErrorMsg
+    hi link SneakStreakStatusLine ErrorMsg
   "}}}
 
 " end-plugins-settings}}}
