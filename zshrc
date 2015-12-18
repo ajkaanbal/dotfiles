@@ -90,10 +90,7 @@ setopt HIST_REDUCE_BLANKS # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY # Don't execute immediately upon history expansion.
 
 
-# LESS
-export LESS="-CQaix4"
-
-# Android-sdk
+ Android-sdk
 export ANDROID_TOOLS="/home/rvilchis/.local/android-sdk-linux/tools"
 export ANDROID_PLATFORM_TOOLS="/home/rvilchis/.local/android-sdk-linux/platforms/"
 PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS
