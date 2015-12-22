@@ -303,6 +303,11 @@ call plug#end()
     hi link SneakStreakStatusLine ErrorMsg
   "}}}
 
+  " vim-ensime {{{
+    let g:EnErrorStyle='EnError'
+  " }}}
+
+
 " end-plugins-settings}}}
 
 " vim:foldmethod=marker shiftwidth=2 tabstop=2
