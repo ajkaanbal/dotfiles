@@ -41,6 +41,7 @@ Plug 'tpope/vim-repeat'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'justinmk/vim-sneak'
+Plug 'elzr/vim-json', {'for': 'json'}
 " Plug 'ajkaanbal/vim-scala-utils'
 
 
@@ -92,6 +93,7 @@ call plug#end()
   set foldlevel=5
   set colorcolumn=80
   set cursorline
+  set concealcursor=""
 
   hi ExtraWhitespace ctermbg=9
   hi Pmenu ctermfg=255 ctermbg=236
@@ -289,6 +291,7 @@ call plug#end()
     let g:indentLine_faster = 1
     let g:indentLine_color_term = 236
     let g:indentLine_noConcealCursor = "nc"
+    let g:indentLine_concealcursor=""
     let g:indentLine_char ='┆'
   "}}}
 
