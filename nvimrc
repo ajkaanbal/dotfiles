@@ -304,7 +304,7 @@ call plug#end()
   "}}}
 
   " vim-ensime {{{
-    let g:EnErrorStyle='EnError'
+    let g:EnErrorStyle='SpellBad'
   " }}}
 
 
