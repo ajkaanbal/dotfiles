@@ -1,16 +1,14 @@
 #!/bin/bash
 
-dnf install openbox rxvt-unicode-256color-ml xsel gmrun xlockmore nitrogen tmux htop dnf-plugins-core gcc python-devel redhat-rpm-config zsh rvm cmake boost llvm gcc-c++ wmctrl tig the_silver_searcher tig
+dnf install openbox rxvt-unicode-256color-ml xsel gmrun xlockmore nitrogen tmux htop dnf-plugins-core gcc python-devel redhat-rpm-config zsh rvm cmake boost llvm gcc-c++ wmctrl tig the_silver_searcher tig caja
 dnf -y copr enable dperson/neovim dnf -y install neovim
 pip install dotfiles neovim virtualenvwrapper
 
 git clone git@github.com:ajkaanbal/dotfiles.git Dotfiles
 cd Dotfiles
-git submodule --init --recursive
+git submodule update --init --recursive
 cd ~
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-git clone git://github.com/tarruda/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
-git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh git clone git://github.com/tarruda/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 ln -s ~/.ajkaanbal.zsh-theme ~/.oh-my-zsh/themes/
 chsh -s /bin/zsh
 ln -s ~/.openbox ~/.config/openbox
