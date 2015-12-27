@@ -9,6 +9,9 @@ cd Dotfiles
 git submodule update --init --recursive
 cd ~
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh git clone git://github.com/tarruda/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+cd ~/.oh-my-zsh/plugins
+git clone https://github.com/Tarrasch/zsh-autoenv
+mv zsh-autoenv/autoenv.plugin.zsh zsh-autoenv/zsh-autoenv.plugin.zsh
 ln -s ~/.ajkaanbal.zsh-theme ~/.oh-my-zsh/themes/
 chsh -s /bin/zsh
 ln -s ~/.openbox ~/.config/openbox
