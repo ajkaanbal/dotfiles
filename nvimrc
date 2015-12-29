@@ -18,7 +18,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jszakmeister/vim-togglecursor'
 Plug 'Shougo/unite.vim' | Plug 'Shougo/vimfiler.vim'
 Plug 'w0ng/vim-hybrid'
-Plug 'othree/yajs.vim', { 'for' : 'javascript' }
+" Plug 'othree/yajs.vim', { 'for' : 'javascript' }
 Plug 'marijnh/tern_for_vim', { 'for' : 'javascript' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'xolox/vim-misc'
