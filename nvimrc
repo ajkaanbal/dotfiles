@@ -58,6 +58,7 @@ call plug#end()
   set expandtab
   set tags=.tags
   set wildignorecase
+  set ignorecase
   set autoindent
 " end-edit}}}
 
