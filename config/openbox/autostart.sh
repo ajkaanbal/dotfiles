@@ -7,3 +7,4 @@ sh ~/.xinitrc &
 sh ~/.autostart.local.sh &
 xmodmap ~/.Xmodmap &
 setxkbmap -option caps:escape &
+setxkbmap -option compose:ralt &

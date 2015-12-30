@@ -1,3 +1,4 @@
+
 # dotfiles
 
 ## MC
@@ -28,3 +29,8 @@ Search skin= and replace by
     git config --global alias.trash '!mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash'
     git config --global mergetool.keepBackup false
     ```
+
+## Setting keyboard layouts
+setxkbmap -layout us
+setxkbmap -option compose:ralt
+
