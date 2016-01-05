@@ -43,6 +43,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'justinmk/vim-sneak'
 Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'wincent/terminus'
+Plug 'tpope/vim-rsi'
 " Plug 'ajkaanbal/vim-scala-utils'
 
 
