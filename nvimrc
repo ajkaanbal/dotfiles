@@ -44,6 +44,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'wincent/terminus'
 Plug 'tpope/vim-rsi'
+Plug 'mattn/emmet-vim/', {'for': ['html']}
 " Plug 'ajkaanbal/vim-scala-utils'
 
 
