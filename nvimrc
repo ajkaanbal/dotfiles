@@ -63,6 +63,7 @@ call plug#end()
   set wildignorecase
   set ignorecase
   set autoindent
+  set hidden
 " end-edit}}}
 
 " KeyMappings: "{{{
