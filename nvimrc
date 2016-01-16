@@ -42,6 +42,7 @@ Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'justinmk/vim-sneak'
 Plug 'elzr/vim-json', {'for': 'json'}
+Plug 'jiangmiao/simple-javascript-indenter', {'for': 'javascript'}
 Plug 'wincent/terminus'
 Plug 'tpope/vim-rsi'
 Plug 'mattn/emmet-vim/', {'for': ['html']}
