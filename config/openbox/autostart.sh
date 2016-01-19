@@ -8,3 +8,4 @@ sh ~/.autostart.local.sh &
 xmodmap ~/.Xmodmap &
 setxkbmap -option caps:escape &
 setxkbmap -option compose:ralt &
+setxkbmap -option lv3:ralt_switch &
