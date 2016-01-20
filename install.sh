@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dnf install openbox rxvt-unicode-256color-ml xsel gmrun xlockmore nitrogen tmux htop dnf-plugins-core gcc python-devel redhat-rpm-config zsh rvm cmake boost llvm gcc-c++ wmctrl tig the_silver_searcher tig caja numlockx
+dnf install openbox rxvt-unicode-256color-ml xsel gmrun xlockmore nitrogen tmux htop dnf-plugins-core gcc python-devel redhat-rpm-config zsh rvm cmake boost llvm gcc-c++ wmctrl tig the_silver_searcher tig caja numlockx cowsay
 dnf -y copr enable dperson/neovim dnf -y install neovim
 pip install dotfiles neovim virtualenvwrapper
 
