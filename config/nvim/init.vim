@@ -138,7 +138,7 @@ call plug#end()
   augroup VIMRC
     autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
     autocmd FileType html setlocal foldmethod=indent tabstop=2 shiftwidth=2
-    autocmd FileType javascript setlocal omnifunc=tern#Complete | setlocal completeopt-=preview | setlocal tabstop=2 shiftwidth=2
+    autocmd FileType javascript,javascript.jsx setlocal omnifunc=tern#Complete | setlocal completeopt-=preview | setlocal tabstop=2 shiftwidth=2
   augroup END
 " }}}
 
