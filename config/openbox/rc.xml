@@ -385,6 +385,11 @@
       <command>gmrun</command>
     </action>
   </keybind>
+  <keybind key="Print">
+    <action name="Execute">
+      <command>gnome-screenshot</command>
+    </action>
+  </keybind>
   <keybind key="W-F12">
     <action name="Reconfigure" />
   </keybind>
