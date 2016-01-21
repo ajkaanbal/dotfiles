@@ -19,6 +19,9 @@ alias tm='tmux attach'
 alias xm='xmodmap ~/.Xmodmap'
 alias vi='vim -u ~/.vimrcmin'
 alias rxvt='urxvt256c-ml'
+if [ -f $HOME/.aliases.zsh ]; then
+    source $HOME/.aliases.zsh
+fi
 #Git
 function guntracked {
     git ls-files --others --exclude-standard
@@ -67,7 +70,9 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 plugins=(colored-man git gitfast virtualenv vagrant zsh-syntax-highlighting history-substring-search web-search tmux yum wd docker ssh-agent zsh-autosuggestions nvm z safe-paste extract zsh-autoenv archlinux)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.zshrc.local
+if [ -f $HOME/.zshrc.local ]; then
+    source $HOME/.zshrc.local
+fi
 
 # Customize to your needs...
 HOMEBIN=$HOME/.local/bin
