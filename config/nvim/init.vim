@@ -288,6 +288,10 @@ call plug#end()
     autocmd FileType scala nnoremap gB :<c-u>EnDocBrowse<cr>
   "}}}
 
+  " Tern {{{
+    autocmd FileType javascript nnoremap gD :<c-u>TernDef<cr>
+  "}}}
+
   " vim-tmux-runner {{{
     nnoremap R :VtrSendLinesToRunner<CR>
     vnoremap <Enter> :VtrSendLinesToRunner<cr>
