@@ -43,7 +43,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'justinmk/vim-sneak'
 Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'jiangmiao/simple-javascript-indenter', {'for': 'javascript'}
-Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'} | Plug 'pangloss/vim-javascript', {'for': 'javascript.jsx'}
+Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript'
 Plug 'wincent/terminus'
 Plug 'tpope/vim-rsi'
 Plug 'mattn/emmet-vim/', {'for': ['html']}
@@ -137,7 +137,7 @@ call plug#end()
 " Syntax {{{
   augroup VIMRC
     autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
-    autocmd FileType html setlocal foldmethod=indent tabstop=2 shiftwidth=2
+    autocmd FileType html,css setlocal foldmethod=indent tabstop=2 shiftwidth=2
     autocmd FileType javascript,javascript.jsx setlocal omnifunc=tern#Complete | setlocal completeopt-=preview | setlocal tabstop=2 shiftwidth=2
   augroup END
 " }}}
@@ -280,7 +280,6 @@ call plug#end()
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
     let g:UltiSnipsListSnippets="<c-tab>"
-    let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
   "}}}
 
