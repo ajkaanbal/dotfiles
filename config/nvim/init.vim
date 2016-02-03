@@ -27,6 +27,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'moll/vim-bbye'
 Plug 'bling/vim-airline',
+Plug 'vim-airline/vim-airline-themes'
 Plug 'derekwyatt/vim-scala'
 Plug 'airblade/vim-gitgutter'
 Plug 'artnez/vim-wipeout', {'on': 'Wipeout'}
