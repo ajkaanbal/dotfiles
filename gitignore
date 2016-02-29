@@ -59,3 +59,6 @@ Session.vim
 *.env*
 .autoenv.zsh
 .tmp
+
+#Scala
+scalastyle-config.xml
