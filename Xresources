@@ -9,14 +9,14 @@ Xft.rgba: none
 
 URxvt.scrollBar: off
 ! Fonts
-#define fonts \
-    xft:Sauce Code Powerline:pixelsize=12, \
-    xft:DejaVu Sans Mono for Powerline:size=9, \
-    xft:Liberation Mono Powerline:size=9, \
-    xft:Droid Sans Mono for Powerline:size=9, \
-    xft:Inconsolata for Powerline:size=9
+
+#define fonts xft:Sauce Code Powerline:pixelsize=12,\
+                xft:terminus:pixelsize:12,\
+                xft:bitstream vera sans mono:pixelsize=12
 URxvt.font: fonts
 URxvt.boldFont: fonts
+URxvt.italicFont: fonts
+URxvt.boldItalicFont: fonts
 xterm*xftAntialias: true
 URxvt.jumpScroll: false
 URxvt.saveLines: 10000
