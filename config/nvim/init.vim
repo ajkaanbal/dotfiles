@@ -204,8 +204,8 @@ call plug#end()
     let g:buftabline_numbers=1
     hi BufTabLineFill ctermbg=235 ctermfg=white
     hi BufTabLineHidden ctermbg=235 ctermfg=243
-    hi link BufTabLineCurrent PmenuSel
-    hi link BufTabLineActive TabLineSel
+    hi link BufTabLineCurrent TabLineSel
+    hi BufTabLineActive ctermbg=236 ctermfg=243
   " }}}
 
   " gitgutter {{{
