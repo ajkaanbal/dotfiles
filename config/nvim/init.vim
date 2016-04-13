@@ -26,8 +26,8 @@ Plug 'xolox/vim-session'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'moll/vim-bbye'
-Plug 'bling/vim-airline',
-Plug 'vim-airline/vim-airline-themes'
+Plug 'ap/vim-buftabline'
+Plug 'itchyny/lightline.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'airblade/vim-gitgutter'
 Plug 'artnez/vim-wipeout', {'on': 'Wipeout'}
@@ -192,43 +192,20 @@ call plug#end()
         nmap <buffer> <ESC>      <Plug>(unite_exit)
     endfunction
 
-  " Airline {{{
-    if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-    endif
+  " lightline {{{
 
-    " unicode symbols
-    let g:airline_left_sep = '»'
-    let g:airline_left_sep = '▶'
-    let g:airline_right_sep = '«'
-    let g:airline_right_sep = '◀'
-    let g:airline_symbols.linenr = '␊'
-    let g:airline_symbols.linenr = '␤'
-    let g:airline_symbols.linenr = '¶'
-    let g:airline_symbols.branch = '⎇'
-    let g:airline_symbols.paste = 'ρ'
-    let g:airline_symbols.whitespace = 'Ξ'
+    let g:lightline = {
+      \ 'colorscheme': 'ajk',
+      \ }
 
-    " powerline symbols
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols.branch = ''
-    let g:airline_symbols.readonly = ''
-    let g:airline_symbols.linenr = ''
+  " }}}
 
-    let g:airline_enable_unite=1
-    let g:airline_theme='lucius'
-    let g:airline#extensions#syntastic#enabled = 1
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#buffer_nr_show = 1
-    let g:airline#extensions#tabline#fnamemod = ':p:t'
-    let g:airline#extensions#tabline#left_sep = ''
-    let g:airline#extensions#tabline#left_alt_sep = ''
-    let g:airline#extensions#tabline#right_sep = ''
-    let g:airline#extensions#tabline#right_alt_sep = ''
-
+  " buftabline {{{
+    let g:buftabline_numbers=1
+    hi BufTabLineFill ctermbg=235 ctermfg=white
+    hi BufTabLineHidden ctermbg=235 ctermfg=243
+    hi link BufTabLineCurrent PmenuSel
+    hi link BufTabLineActive TabLineSel
   " }}}
 
   " gitgutter {{{
