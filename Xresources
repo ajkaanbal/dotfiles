@@ -57,8 +57,8 @@ URxvt*underlineColor:     #92659a
 URxvt*color0:             #2e3436
 URxvt*color8:             #6e706b
 ! red dark/light
-URxvt*color1:             #cc0000
-URxvt*color9:             #ef2929
+URxvt*color1:             #d54e53
+URxvt*color9:             #FF3334
 ! green dark/light
 URxvt*color2:             #4e9a06
 URxvt*color10:            #8ae234
