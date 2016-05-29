@@ -166,6 +166,9 @@ nvm use default >& /dev/null
 #R
 export R_LIBS="$HOME/.R"
 
+#neovim
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
 #remap keybind for clear screen
 bindkey '^@' clear-screen
 
