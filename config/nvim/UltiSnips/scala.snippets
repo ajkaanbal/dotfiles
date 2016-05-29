@@ -1,6 +1,14 @@
 snippet p
 `!p
-snip.rv = 'package ' + '.'.join(path.split('/')[1:-1])
+snip.rv = 'package ' + '.'.join(path.split('/')[3:-1])
 `
+endsnippet
+
+snippet ld
+logger.debug($1)
+endsnippet
+
+snippet pl
+println($1)
 endsnippet
 

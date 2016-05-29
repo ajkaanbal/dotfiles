@@ -13,9 +13,10 @@ Plug 'tpope/vim-eunuch'
 Plug 'ajkaanbal/autoswap.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Shougo/deoplete.nvim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'jszakmeister/vim-togglecursor'
+" Plug 'jszakmeister/vim-togglecursor'
 Plug 'Shougo/unite.vim' | Plug 'Shougo/vimfiler.vim'
 Plug 'w0ng/vim-hybrid'
 " Plug 'othree/yajs.vim', { 'for' : 'javascript' }
@@ -31,7 +32,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'airblade/vim-gitgutter'
 Plug 'artnez/vim-wipeout', {'on': 'Wipeout'}
-Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
 Plug 'cohama/lexima.vim'
 Plug 'majutsushi/tagbar'
 Plug 'SirVer/ultisnips'
@@ -43,11 +44,14 @@ Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'justinmk/vim-sneak'
 Plug 'elzr/vim-json', {'for': 'json'}
-Plug 'jiangmiao/simple-javascript-indenter', {'for': 'javascript'}
+" Plug 'jiangmiao/simple-javascript-indenter', {'for': 'javascript'}
 Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript'
 Plug 'wincent/terminus'
 Plug 'tpope/vim-rsi'
 Plug 'mattn/emmet-vim/', {'for': ['html']}
+Plug 'neo4j-contrib/cypher-vim-syntax'
+Plug 'scrooloose/syntastic'
+Plug 'vim-scripts/SQLUtilities' | Plug 'vim-scripts/Align'
 " Plug 'ajkaanbal/vim-scala-utils'
 
 
@@ -133,13 +137,16 @@ call plug#end()
   "indent with tab and shift tab
   vnoremap <Tab> >gv
   vnoremap <S-Tab> <gv
+
 " }}}
 
 " Syntax {{{
   augroup VIMRC
     autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
-    autocmd FileType html,css setlocal foldmethod=indent tabstop=2 shiftwidth=2
+    autocmd FileType html,css,json setlocal foldmethod=indent tabstop=2 shiftwidth=2 sts=2
     autocmd FileType javascript,javascript.jsx setlocal omnifunc=tern#Complete | setlocal completeopt-=preview | setlocal tabstop=2 shiftwidth=2
+    autocmd FileType scala setlocal colorcolumn=80,100
+    autocmd FileType json setlocal equalprg=json_reformat
   augroup END
 " }}}
 
@@ -251,15 +258,26 @@ call plug#end()
 
   " UltiSnips {{{
 
-    let g:UltiSnipsExpandTrigger="<c-j>"
-    let g:UltiSnipsJumpForwardTrigger="<c-j>"
-    let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
-    let g:UltiSnipsListSnippets="<c-tab>"
 
   "}}}
+
+  " YouCompleteme {{{
+    " let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+  "}}}
+
+  " Deoplete {{{
+    let g:deoplete#enable_at_startup = 1
+    " let g:deoplete#omni_patterns = {}
+    " let g:deoplete#omni_patterns.scala = '[^. *\t]\.\w*'
+    let g:deoplete#omni#input_patterns = {}
+    let g:deoplete#omni#input_patterns.scala = '[^. *\t]\.\w*'
+  " }}}
 
   " Ensime {{{
     autocmd FileType scala nnoremap gD :<c-u>EnDeclaration<cr>
@@ -295,6 +313,18 @@ call plug#end()
     let g:EnErrorStyle='SpellBad'
   " }}}
 
+  " syntastic {{{
+  "
+    let g:syntastic_error_symbol = '✗'
+    let g:syntastic_style_error_symbol = '☢'
+    let g:syntastic_warning_symbol = '⚠'
+    let g:syntastic_style_warning_symbol = '≈'
+    let g:syntastic_javascript_checkers = ['eslint']
+    let g:syntastic_python_checkers = ['frosted', 'pylint','flake8']
+    let g:syntastic_auto_loc_list = 2
+    let g:syntastic_loc_list_height = 3
+
+  " }}}
 
 " end-plugins-settings}}}
 
