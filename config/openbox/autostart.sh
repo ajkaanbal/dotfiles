@@ -6,7 +6,7 @@ urxvt256c-mld -q -f -o
 sh ~/.xinitrc &
 sh ~/.autostart.local.sh &
 xmodmap ~/.Xmodmap &
-setxkbmap -layout latam
+setxkbmap -layout us
 setxkbmap -option caps:escape
-# setxkbmap -option compose:ralt
+setxkbmap -option compose:ralt
 # setxkbmap -option lv3:ralt_switch

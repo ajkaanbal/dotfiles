@@ -1,4 +1,4 @@
-source ~/antigen.zsh
+source ~/.antigen.zsh
 antigen bundle robbyrussell/oh-my-zsh lib/
 antigen bundle git
 antigen bundle gitfast
