@@ -310,7 +310,7 @@
   <!-- key for manage desktop -->
   <keybind key="C-S-l">
     <action name="Execute">
-      <command>xlock -mousemotion +description -mode space -font "-misc-liberation mono-medium-r-normal--0-0-0-0-m-0-iso8859-2"</command>
+      <command>lock</command>
     </action>
   </keybind>
   <keybind key="C-S-s">
@@ -365,6 +365,11 @@
       <command>wmctrl -a Chrome</command>
     </action>
   </keybind>
+  <keybind key="C-A-w">
+    <action name="Execute">
+      <command>wmctrl -a Weechat</command>
+    </action>
+  </keybind>
   <keybind key="C-A-t">
     <action name="Execute">
       <command>wmctrl -a urxvt</command>
@@ -382,7 +387,7 @@
   </keybind>
   <keybind key="A-F2">
     <action name="Execute">
-      <command>gmrun</command>
+      <command>dmenu_run</command>
     </action>
   </keybind>
   <keybind key="Print">

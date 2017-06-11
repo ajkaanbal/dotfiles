@@ -3,6 +3,7 @@ antigen bundle robbyrussell/oh-my-zsh lib/
 antigen bundle git
 antigen bundle gitfast
 antigen bundle virtualenv
+antigen bundle virtualenvwrapper
 antigen bundle tmux
 antigen bundle yum
 antigen bundle wd
@@ -11,6 +12,8 @@ antigen bundle nvm
 antigen bundle z
 antigen bundle safe-paste
 antigen bundle extract
+antigen bundle docker
+antigen bundle gitignore
 antigen bundle Tarrasch/zsh-autoenv
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-autosuggestions
@@ -63,6 +66,7 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 
 #### Custom functions
+source ~/.zshrc.local
 # c short for context
 function c() {
   if [ -n "$1" ]; then
@@ -94,5 +98,23 @@ _c_complete() {
 }
 compctl -K _c_complete c
 
+#Random string
+function genkey() {
+    size=32
+    if [ -z "$1" ]; then
+        size=32
+    else
+        size=$1
+    fi
+
+    cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-$size} | head -n 1
+}
+
 autoload -Uz compinit
 compinit
+setopt complete_in_word
+
+export NVM_DIR="/home/rvilchis/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

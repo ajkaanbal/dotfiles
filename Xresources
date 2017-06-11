@@ -10,7 +10,7 @@ Xft.rgba: none
 URxvt.scrollBar: off
 ! Fonts
 
-#define fonts xft:Sauce Code Powerline:pixelsize=12,\
+#define fonts xft:Sauce Code Pro Nerd Font:pixelsize=12,\
                 xft:terminus:pixelsize:12,\
                 xft:bitstream vera sans mono:pixelsize=12
 URxvt.font: fonts
@@ -137,9 +137,9 @@ xterm*.colorIT:      #87af5f
 xterm*.colorBD:      #d7d7d7
 xterm*.colorUL:      #87afd7
 
-xterm*faceName: Sauce Code Powerline,DejaVu Sans Mono for Powerline
+xterm*faceName: Sauce Code Pro Nerd Font,DejaVu Sans Mono for Powerline
 xterm*fontWarnings: 2
-xterm*faceSize: 9
+xterm*faceSize: 11
 xterm*allowBoldFonts: false
 xterm*assumeAllChars: true
 
@@ -164,7 +164,34 @@ XTerm*TrimSelection: true
 !! Multiple fonts in xterm
 xterm*font2:            5x7
 ! copy and paste with clipboard
+XTerm*geometry: 120x50+0+0
 xterm*translations: #override \
     Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
     Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
 Emacs.font: Source Code Pro-9
+
+
+! xlock
+XLock.mode:          space
+XLock.username:      Username:
+XLock.password:      Password:
+XLock.foreground:    #CCCCCC
+XLock.background:    #242424
+XLock.description:   false
+XLock.info:
+XLock.validate:      Validating login...
+XLock.invalid:       Login failed
+XLock*font:          -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
+XLock.ncolors:      200
+XLock.dpmsstandby:  600
+XLock.dpmssuspend:  1200
+XLock.dpmsoff:      1800
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #393939, #393939, #268bd2
+rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
+rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
+rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c

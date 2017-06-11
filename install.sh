@@ -1,6 +1,13 @@
 #!/bin/bash
 
-dnf install openbox rxvt-unicode-256color-ml xsel gmrun xlockmore nitrogen tmux htop dnf-plugins-core gcc python-devel redhat-rpm-config zsh rvm cmake boost llvm gcc-c++ wmctrl tig the_silver_searcher tig caja numlockx cowsay meld
+dnf install openbox rxvt-unicode-256color-ml xsel gmrun xlockmore nitrogen tmux htop dnf-plugins-core gcc python-devel redhat-rpm-config zsh rvm cmake boost llvm gcc-c++ wmctrl tig the_silver_searcher tig caja numlockx cowsay meld dunst acpi pass
+dnf install ncurses-devel libX11-devel gpm-devel gtk2-devel libSM-devel libXpm-devel libXt-devel libacl-devel lua-devel dmenu weechat slock w3m w3m-img xautolock pyxtrlock
+
+#codecs after enable rpm fusion
+dnf install gstreamer-plugins-bad gstreamer-plugins-bad-free-extras gstreamer-plugins-bad-nonfree gstreamer-plugins-ugly gstreamer-ffmpeg most
+dnf install gstreamer1-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-base-tools gstreamer1-plugins-good-extras gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-good gstreamer1-plugins-base gstreamer1
+
+
 dnf -y copr enable dperson/neovim dnf -y install neovim
 pip install dotfiles neovim virtualenvwrapper  websocket-client
 

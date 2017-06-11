@@ -20,9 +20,17 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 export NEO4J=$HOME/.local/sources/neo4j/bin
 export PATH=$PATH:$NEO4J
 
-# NEO4J
-export GOPATH=$HOME/.local/go
-export PATH=$PATH:$GOPATH/bin
+# GOLANG
+export GOPATH=$HOME/go
+export GOROOT=$HOME/.local/sources/go
+export PATH=$PATH:$GOROOT/bin
+
+# spark
+export SPARK=$HOME/.local/sources/spark
+export PATH=$PATH:$SPARK/bin
 
 #Vault
 export VAULT_ADDR='http://127.0.0.1:8200'
+
+#Color man pages
+export PAGER="/usr/bin/most -s"

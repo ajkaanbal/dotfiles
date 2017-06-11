@@ -1,3 +1,4 @@
+autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
@@ -5,8 +6,7 @@ endif
 call plug#begin('~/.vim/bundle')
 
 
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-vinegar'
+" Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
@@ -15,12 +15,17 @@ Plug 'wakatime/vim-wakatime'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'Shougo/deoplete.nvim'
+" Plug 'zchee/deoplete-jedi'
+Plug 'davidhalter/jedi-vim'
 Plug 'christoomey/vim-tmux-navigator'
 " Plug 'jszakmeister/vim-togglecursor'
-Plug 'Shougo/unite.vim' | Plug 'Shougo/vimfiler.vim'
+" Plug 'Shougo/unite.vim' | Plug 'Shougo/vimfiler.vim'
+Plug 'Shougo/denite.nvim'
 Plug 'w0ng/vim-hybrid'
 " Plug 'othree/yajs.vim', { 'for' : 'javascript' }
 Plug 'marijnh/tern_for_vim', { 'for' : 'javascript' }
+Plug 'posva/vim-vue'
+Plug 'w0rp/ale'
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
@@ -36,8 +41,16 @@ Plug 'tpope/vim-commentary'
 Plug 'cohama/lexima.vim'
 Plug 'majutsushi/tagbar'
 Plug 'SirVer/ultisnips'
-Plug 'ensime/ensime-vim'
+Plug 'honza/vim-snippets',
+Plug 'bps/vim-textobj-python'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'chase/vim-ansible-yaml'
+Plug 'avakhov/vim-yaml'
+" Plug 'ensime/ensime-vim'
 Plug 'christoomey/vim-tmux-runner'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-entire' | Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-repeat'
 Plug 'wellle/targets.vim'
@@ -46,12 +59,18 @@ Plug 'justinmk/vim-sneak'
 Plug 'elzr/vim-json', {'for': 'json'}
 " Plug 'jiangmiao/simple-javascript-indenter', {'for': 'javascript'}
 Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript'
+Plug 'alvan/vim-closetag'
 Plug 'wincent/terminus'
 Plug 'tpope/vim-rsi'
-Plug 'mattn/emmet-vim/', {'for': ['html']}
+Plug 'mattn/emmet-vim/', {'for': ['html', 'javascript.jsx']}
 Plug 'neo4j-contrib/cypher-vim-syntax'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
+Plug 'junegunn/vim-easy-align'
+Plug 'lepture/vim-jinja'
 Plug 'vim-scripts/SQLUtilities' | Plug 'vim-scripts/Align'
+Plug 'tweekmonster/startuptime.vim'
+Plug 'tommcdo/vim-lion'
+Plug 'djoshea/vim-autoread'
 " Plug 'ajkaanbal/vim-scala-utils'
 
 
@@ -65,6 +84,7 @@ call plug#end()
   "options needed for whitespaces instead tabs
   set tabstop=4
   set shiftwidth=4
+  set shiftround
   set expandtab
   set tags=.tags
   set wildignorecase
@@ -128,6 +148,9 @@ call plug#end()
 
 " Utils {{{
   let g:mapleader = ','
+  " Check highlight colors
+  " :help highlight
+  " :source $VIMRUNTIME/syntax/hitest.vim
 " }}}
 
 " Mappings {{{
@@ -137,13 +160,17 @@ call plug#end()
   "indent with tab and shift tab
   vnoremap <Tab> >gv
   vnoremap <S-Tab> <gv
+  " save read-only files
+  cmap w!! w !sudo tee % >/dev/null
 
 " }}}
 
 " Syntax {{{
   augroup VIMRC
+    autocmd FileType,BufRead,BufNewFile *.vue setlocal tabstop=2 shiftwidth=2
+    autocmd BufRead,BufNewFile *.rml set ft=xml
     autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
-    autocmd FileType html,css,json setlocal foldmethod=indent tabstop=2 shiftwidth=2 sts=2
+    autocmd FileType html,css,json,xml,htmldjango setlocal foldmethod=indent tabstop=2 shiftwidth=2 sts=2
     autocmd FileType javascript,javascript.jsx setlocal omnifunc=tern#Complete | setlocal completeopt-=preview | setlocal tabstop=2 shiftwidth=2
     autocmd FileType scala setlocal colorcolumn=80,100
     autocmd FileType json setlocal equalprg=json_reformat
@@ -157,47 +184,65 @@ call plug#end()
     let g:session_autoload = 'no'
   " }}}
 
-  " Unite {{{
-    let g:unite_source_history_yank_enable = 1
-    let g:unite_enable_split_vertically = 0
-    let g:unite_winheight = 12
-    let g:unite_enable_short_source_names = 1
-    let g:unite_source_file_mru_filename_format = ':~:.'
-    let g:unite_source_file_mru_limit = 300
-    let g:unite_source_directory_mru_limit = 300
-    let g:unite_split_rule = 'botright'
-    let g:unite_marked_icon = '✗'
-    let g:unite_prompt = '» '
-    let g:unite_enable_start_insert = 1
+  " Denite {{{
     if executable('ag')
-        "call unite#custom#default_action('directory', 'narrow')
-        let g:unite_source_grep_command = 'ag'
-        let g:unite_source_grep_default_opts =
-        \ '--line-numbers --nocolor --nogroup --all-text'
-        let g:unite_source_grep_recursive_opt = ''
-        let g:unite_source_rec_async_command=['ag', '--follow', '--nocolor', '--nogroup', '-g', '']
+      call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+      call denite#custom#var('grep', 'command', ['ag'])
     endif
-    " nnoremap <leader>f :<C-u>Unite file_rec/async:! -sync -prompt-direction=top<CR>
-    nnoremap <leader>f :<C-u>Unite file_rec/neovim:! -prompt-direction=top<CR>
-    nnoremap <leader>p :<C-u>Unite file_rec/async -prompt-direction=top<cr>
-    nnoremap <leader>b :<C-u>Unite buffer -prompt-direction=top<cr>
-    nnoremap <leader>t :<C-u>Unite tab -prompt-direction=top<cr>
-    nnoremap <leader>r :<C-u>Unite file_mru -prompt-direction=top<CR>
-    nnoremap <leader>m :<C-u>Unite mark -prompt-direction=top<CR>
-    nnoremap <leader>k :<C-u>Unite bookmark -prompt-direction=top<CR>
-    nnoremap <leader>j :<C-u>Unite jump -prompt-direction=top<CR>
-    nnoremap <leader>c :<C-u>Unite change -prompt-direction=top<CR>
-    nnoremap <leader>o :<C-u>Unite outline -prompt-direction=top<CR>
-    nnoremap <leader>/ :<C-u>Unite grep:. -prompt-direction=top<CR>
-    nnoremap <leader>a :<C-u>Unite buffer file_mru bookmark -prompt-direction=top<CR>
-    nnoremap <leader>* :<C-u>UniteWithCursorWord grep:. -prompt-direction=top<cr>
-    autocmd VIMRC filetype unite call s:unite_my_settings()
-    function! s:unite_my_settings()
-        imap <silent><buffer><expr> <C-v>  unite#do_action('right')
-        let @/ = ""
-        execute 'silent DisableWhitespace'
-        nmap <buffer> <ESC>      <Plug>(unite_exit)
-    endfunction
+    call denite#custom#option('default', 'prompt', '» ')
+    call denite#custom#map(
+        \ 'insert',
+        \ '<C-n>',
+        \ '<denite:move_to_next_line>',
+        \ 'noremap'
+        \)
+    call denite#custom#map(
+        \ 'insert',
+        \ '<C-p>',
+        \ '<denite:move_to_previous_line>',
+        \ 'noremap'
+        \)
+    nnoremap <leader>f :<C-u>Denite file_rec<CR>
+    call denite#custom#option('default', 'highlight_mode_insert', 'PmenuSel')
+    call denite#custom#option('default', 'highlight_matched_char', 'Question')
+    call denite#custom#map(
+          \ 'insert',
+          \ '<C-v>',
+          \ '<denite:do_action:vsplit>',
+          \ 'noremap'
+          \)
+  " }}}
+
+  " Unite {{{
+    " let g:unite_source_history_yank_enable = 1
+    " let g:unite_enable_split_vertically = 0
+    " let g:unite_winheight = 12
+    " let g:unite_enable_short_source_names = 1
+    " let g:unite_source_file_mru_filename_format = ':~:.'
+    " let g:unite_source_file_mru_limit = 300
+    " let g:unite_source_directory_mru_limit = 300
+    " let g:unite_split_rule = 'botright'
+    " let g:unite_marked_icon = '✗'
+    " let g:unite_prompt = '» '
+    " let g:unite_enable_start_insert = 1
+    " nnoremap <leader>p :<C-u>Unite file_rec/async -prompt-direction=top<cr>
+    " nnoremap <leader>b :<C-u>Unite buffer -prompt-direction=top<cr>
+    " nnoremap <leader>t :<C-u>Unite tab -prompt-direction=top<cr>
+    " nnoremap <leader>r :<C-u>Unite file_mru -prompt-direction=top<CR>
+    " nnoremap <leader>m :<C-u>Unite mark -prompt-direction=top<CR>
+    " nnoremap <leader>k :<C-u>Unite bookmark -prompt-direction=top<CR>
+    " nnoremap <leader>j :<C-u>Unite jump -prompt-direction=top<CR>
+    " nnoremap <leader>c :<C-u>Unite change -prompt-direction=top<CR>
+    " nnoremap <leader>o :<C-u>Unite outline -prompt-direction=top<CR>
+    " nnoremap <leader>/ :<C-u>Unite grep:. -prompt-direction=top<CR>
+    " nnoremap <leader>a :<C-u>Unite buffer file_mru bookmark -prompt-direction=top<CR>
+    " nnoremap <leader>* :<C-u>UniteWithCursorWord grep:. -prompt-direction=top<cr>
+    " autocmd VIMRC filetype unite call s:unite_my_settings()
+    " function! s:unite_my_settings()
+    "     let @/ = ""
+    "     execute 'silent DisableWhitespace'
+    "     nmap <buffer> <ESC>      <Plug>(unite_exit)
+    " endfunction
 
   " lightline {{{
 
@@ -229,18 +274,18 @@ call plug#end()
   " }}}
 
   " vimviler {{{
-    let g:vimfiler_tree_leaf_icon = ' '
-    let g:vimfiler_tree_opened_icon = '▾'
-    let g:vimfiler_tree_closed_icon = '▸'
-    let g:vimfiler_file_icon = '-'
-    let g:vimfiler_marked_file_icon = '*'
-    let g:vimfiler_options_direction = 'topright'
-    let g:vimfiler_options_direction = 'topright'
+    " let g:vimfiler_tree_leaf_icon = ' '
+    " let g:vimfiler_tree_opened_icon = '▾'
+    " let g:vimfiler_tree_closed_icon = '▸'
+    " let g:vimfiler_file_icon = '-'
+    " let g:vimfiler_marked_file_icon = '*'
+    " let g:vimfiler_options_direction = 'topright'
+    " let g:vimfiler_options_direction = 'topright'
 
-    nnoremap <silent><F2> :<C-u>VimFilerExplorer -find<CR>
-    call vimfiler#custom#profile('default', 'context', {
-      \ 'safe' : 0,
-      \ })
+    " nnoremap <silent><F2> :<C-u>VimFilerExplorer -find<CR>
+    " call vimfiler#custom#profile('default', 'context', {
+    "   \ 'safe' : 0,
+    "   \ })
 
      "}}}
 
@@ -287,6 +332,26 @@ call plug#end()
   " Tern {{{
     autocmd FileType javascript nnoremap gD :<c-u>TernDef<cr>
   "}}}
+
+  " JSX{{
+    let g:jsx_ext_required = 0
+  " }}
+
+  " Closetags {{
+    let g:closetag_filenames = "*.html,*.js,*.pt"
+  " }}
+
+  " EasyAlign {{{
+    xmap ga <Plug>(EasyAlign)
+    nmap ga <Plug>(EasyAlign)
+  "}}}
+
+  " Jedi {{{
+    autocmd FileType python setlocal completeopt-=preview
+    let g:jedi#goto_assignments_command = "gD"
+    hi jediFunction term=NONE cterm=NONE ctermfg=33 ctermbg=0
+    hi jediFat term=bold,underline cterm=bold,underline ctermbg=0 ctermfg=248
+  " }}}
 
   " vim-tmux-runner {{{
     nnoremap R :VtrSendLinesToRunner<CR>
