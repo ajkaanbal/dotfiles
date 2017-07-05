@@ -65,7 +65,7 @@ Plug 'tpope/vim-rsi'
 Plug 'mattn/emmet-vim/', {'for': ['html', 'javascript.jsx']}
 Plug 'neo4j-contrib/cypher-vim-syntax'
 " Plug 'scrooloose/syntastic'
-Plug 'junegunn/vim-easy-align'
+Plug 'tommcdo/vim-lion'
 Plug 'lepture/vim-jinja'
 Plug 'vim-scripts/SQLUtilities' | Plug 'vim-scripts/Align'
 Plug 'tweekmonster/startuptime.vim'
@@ -148,6 +148,14 @@ call plug#end()
     autocmd WinLeave,InsertEnter * set nocursorline
     autocmd WinEnter,InsertLeave * set cursorline
   augroup END
+  " Show line number.
+  set relativenumber
+  augroup RelativeNumber
+    autocmd!
+    autocmd WinLeave,InsertEnter * set norelativenumber number
+    autocmd WinEnter,InsertLeave * set relativenumber
+  augroup END
+
 " end-view}}}
 
 " Utils {{{
@@ -207,6 +215,7 @@ call plug#end()
         \ 'noremap'
         \)
     nnoremap <leader>f :<C-u>Denite file_rec<CR>
+    nnoremap <leader>b :<C-u>Denite buffer<CR>
     call denite#custom#option('default', 'highlight_mode_insert', 'PmenuSel')
     call denite#custom#option('default', 'highlight_matched_char', 'Question')
     call denite#custom#map(
