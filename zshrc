@@ -114,7 +114,7 @@ autoload -Uz compinit
 compinit
 setopt complete_in_word
 
-export NVM_DIR="/home/rvilchis/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
