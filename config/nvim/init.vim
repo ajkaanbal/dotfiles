@@ -14,13 +14,13 @@ Plug 'ajkaanbal/autoswap.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 " Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 Plug 'christoomey/vim-tmux-navigator'
 " Plug 'jszakmeister/vim-togglecursor'
 " Plug 'Shougo/unite.vim' | Plug 'Shougo/vimfiler.vim'
-Plug 'Shougo/denite.nvim'
+Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'w0ng/vim-hybrid'
 " Plug 'othree/yajs.vim', { 'for' : 'javascript' }
 Plug 'marijnh/tern_for_vim', { 'for' : 'javascript' }
@@ -71,6 +71,8 @@ Plug 'vim-scripts/SQLUtilities' | Plug 'vim-scripts/Align'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'tommcdo/vim-lion'
 Plug 'djoshea/vim-autoread'
+Plug 'othree/xml.vim'
+
 " Plug 'ajkaanbal/vim-scala-utils'
 
 
@@ -184,7 +186,7 @@ call plug#end()
     autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
     autocmd FileType html,css,json,xml,htmldjango setlocal foldmethod=indent tabstop=2 shiftwidth=2 sts=2
     autocmd FileType javascript,javascript.jsx setlocal omnifunc=tern#Complete | setlocal completeopt-=preview | setlocal tabstop=2 shiftwidth=2
-    autocmd FileType scala setlocal colorcolumn=80,100
+    autocmd FileType scala setlocal colorcolumn=80,100,120
     autocmd FileType json setlocal equalprg=json_reformat
   augroup END
 " }}}

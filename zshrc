@@ -18,6 +18,7 @@ antigen bundle Tarrasch/zsh-autoenv
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zaw
 antigen theme ajkaanbal/dotfiles ajkaanbal.zsh-theme
 
 alias pwdc='pwd | tr -d "\n" | xsel -b'

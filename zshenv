@@ -34,3 +34,7 @@ export VAULT_ADDR='http://127.0.0.1:8200'
 
 #Color man pages
 export PAGER="/usr/bin/most -s"
+
+#RUST
+export RUSTBIN=$HOME/.cargo/bin
+export PATH=$RUSTBIN:$PATH
