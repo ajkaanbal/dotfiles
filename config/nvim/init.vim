@@ -199,10 +199,16 @@ call plug#end()
   " }}}
 
   " Denite {{{
-    if executable('ag')
-      call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-      call denite#custom#var('grep', 'command', ['ag'])
-    endif
+    call denite#custom#var('file_rec', 'command',['rg', '--threads', '4', '--files', '--glob', '!.git'])
+    " Ag command on grep source
+    " Ripgrep command on grep source
+    call denite#custom#var('grep', 'command', ['rg'])
+    call denite#custom#var('grep', 'default_opts',
+        \ ['--vimgrep', '--no-heading'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
     call denite#custom#option('default', 'prompt', '» ')
     call denite#custom#map(
         \ 'insert',
@@ -218,6 +224,7 @@ call plug#end()
         \)
     nnoremap <leader>f :<C-u>Denite file_rec<CR>
     nnoremap <leader>b :<C-u>Denite buffer<CR>
+    nnoremap <leader>g :Denite grep:::!<CR>
     call denite#custom#option('default', 'highlight_mode_insert', 'PmenuSel')
     call denite#custom#option('default', 'highlight_matched_char', 'Question')
     call denite#custom#map(
