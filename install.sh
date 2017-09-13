@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dnf install openbox rxvt-unicode-256color-ml xsel gmrun xlockmore nitrogen tmux htop dnf-plugins-core gcc python-devel redhat-rpm-config zsh rvm cmake boost llvm gcc-c++ wmctrl tig the_silver_searcher tig caja numlockx cowsay meld dunst acpi pass
+dnf install openbox rxvt-unicode-256color-ml xsel gmrun xlockmore nitrogen tmux htop dnf-plugins-core gcc python-devel redhat-rpm-config zsh rvm cmake boost llvm gcc-c++ wmctrl tig the_silver_searcher tig caja numlockx cowsay meld dunst acpi pass feh
 dnf install ncurses-devel libX11-devel gpm-devel gtk2-devel libSM-devel libXpm-devel libXt-devel libacl-devel lua-devel dmenu weechat slock w3m w3m-img xautolock pyxtrlock
 
 #codecs after enable rpm fusion
