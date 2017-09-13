@@ -63,3 +63,5 @@ Session.vim
 #Scala
 scalastyle-config.xml
 .idea
+## temp
+src/test/resources/logback-test.xml
