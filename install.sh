@@ -8,6 +8,8 @@ dnf install gstreamer-plugins-bad gstreamer-plugins-bad-free-extras gstreamer-pl
 dnf install gstreamer1-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-base-tools gstreamer1-plugins-good-extras gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-good gstreamer1-plugins-base gstreamer1
 
 
+dnf copr enable carlwgeorge/ripgrep
+dnf install ripgrep
 dnf -y copr enable dperson/neovim dnf -y install neovim
 pip install dotfiles neovim virtualenvwrapper  websocket-client
 

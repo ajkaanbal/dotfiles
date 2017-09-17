@@ -13,5 +13,5 @@ setxkbmap -layout us
 setxkbmap us,ru -option -option "grp:rctrl_rshift_toggle" -option caps:escape -option compose:ralt
 # setxkbmap -option lv3:ralt_switch
 rescuetime &
-conky -d
+# conky -d
 xrandr --output HDMI-1 --mode 1920x1080 --right-of eDP-1
