@@ -68,6 +68,19 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 #### Custom functions
 source ~/.zshrc.local
+# some git help
+function yesterworkday()
+{
+    if [[ "1" == "$(date +%u)" ]]
+    then
+        echo "last friday"
+    else
+        echo "yesterday"
+    fi
+}
+
+# git log --since="$(yesterworkday)"
+
 # c short for context
 function c() {
   if [ -n "$1" ]; then

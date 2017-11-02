@@ -72,6 +72,7 @@ Plug 'tweekmonster/startuptime.vim'
 Plug 'tommcdo/vim-lion'
 Plug 'djoshea/vim-autoread'
 Plug 'othree/xml.vim'
+Plug 'jparise/vim-graphql'
 
 " Plug 'ajkaanbal/vim-scala-utils'
 
@@ -225,6 +226,7 @@ call plug#end()
     nnoremap <leader>f :<C-u>Denite file_rec<CR>
     nnoremap <leader>b :<C-u>Denite buffer<CR>
     nnoremap <leader>g :Denite grep:::!<CR>
+    nnoremap <leader>* :DeniteCursorWord grep:.<CR>
     call denite#custom#option('default', 'highlight_mode_insert', 'PmenuSel')
     call denite#custom#option('default', 'highlight_matched_char', 'Question')
     call denite#custom#map(

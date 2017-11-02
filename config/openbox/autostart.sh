@@ -15,4 +15,4 @@ setxkbmap us,ru -option -option "grp:rctrl_rshift_toggle" -option caps:escape -o
 rescuetime &
 # conky -d
 xrandr --output HDMI-1 --mode 1920x1080 --right-of eDP-1
-compton -b -d :0
+#compton -b -d :0
