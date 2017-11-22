@@ -15,11 +15,15 @@ antigen bundle extract
 antigen bundle docker
 antigen bundle gitignore
 antigen bundle Tarrasch/zsh-autoenv
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zaw
-antigen theme ajkaanbal/dotfiles ajkaanbal.zsh-theme
+#antigen theme ajkaanbal/dotfiles ajkaanbal.zsh-theme
+PROMPT='%(12V.%F{242}%12v%f .)'
+PROMPT+='%(?.%F{034}.%F{red})${PURE_PROMPT_SYMBOL:-❯}%f '
 
 alias pwdc='pwd | tr -d "\n" | xsel -b'
 alias tm='tmux attach'
