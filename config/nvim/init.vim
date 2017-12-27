@@ -105,6 +105,17 @@ call plug#end()
     autocmd! CmdwinLeave *  nnoremap <silent> <CR> :<C-u>w<CR>
     autocmd! InsertLeave,BufLeave,FocusLost * silent! update
   augroup END
+  if exists(':tnoremap')  " Neovim
+    tnoremap <silent> <c-h> <c-\><c-n>:TmuxNavigateLeft<cr>
+    tnoremap <silent> <c-j> <c-\><c-n>:TmuxNavigateDown<cr>
+    tnoremap <silent> <c-k> <c-\><c-n>:TmuxNavigateUp<cr>
+    tnoremap <silent> <c-l> <c-\><c-n>:TmuxNavigateRight<cr>
+    tnoremap <Esc> <C-\><C-n>
+    tnoremap <M-[> <Esc>
+    tnoremap <C-v><Esc> <Esc>
+    " Cannot use <c-\> here.
+    " tnoremap <silent> <c-\> <c-\><c-n>:TmuxNavigatePrevious<cr>
+  endif
 
   " Close help buffer with q
   autocmd FileType help :nnoremap <buffer> <silent> q :<C-u>bdelete<CR>
