@@ -65,3 +65,4 @@ scalastyle-config.xml
 .idea
 ## temp
 src/test/resources/logback-test.xml
+config/nvim/spell
