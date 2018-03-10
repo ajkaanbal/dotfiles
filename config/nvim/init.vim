@@ -73,8 +73,14 @@ Plug 'tommcdo/vim-lion'
 Plug 'djoshea/vim-autoread'
 Plug 'othree/xml.vim'
 Plug 'jparise/vim-graphql'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
 
 " Plug 'ajkaanbal/vim-scala-utils'
+"
 
 
 call plug#end()
@@ -359,11 +365,6 @@ call plug#end()
     let g:deoplete#omni#input_patterns.scala = '[^. *\t]\.\w*'
   " }}}
 
-  " Ensime {{{
-    autocmd FileType scala nnoremap gD :<c-u>EnDeclaration<cr>
-    autocmd FileType scala nnoremap gB :<c-u>EnDocBrowse<cr>
-  "}}}
-
   " Tern {{{
     autocmd FileType javascript nnoremap gD :<c-u>TernDef<cr>
   "}}}
@@ -424,6 +425,14 @@ call plug#end()
     let g:syntastic_auto_loc_list = 2
     let g:syntastic_loc_list_height = 3
 
+  " }}}
+
+  " {{{
+    autocmd FileType scala nnoremap <silent> gD :call LanguageClient_textDocument_definition()<CR>
+
+    let g:LanguageClient_serverCommands = {
+        \ 'scala': ['~/.local/bin/scalameta_lsp', '--cwd', '~/dev/abraxas/nous'],
+        \ }
   " }}}
 
 " end-plugins-settings}}}

@@ -4,6 +4,10 @@ export HISTSIZE=100000
 export SAVEHIST=100000
 
 #Virtual env wrapper
+export TERM=xterm-256color
+
+
+#Virtual env wrapper
 export WORKON_HOME=~/.pyenvs
 
 #java vars

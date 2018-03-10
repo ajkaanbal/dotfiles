@@ -106,7 +106,7 @@ render_timer: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
-custom_cursor_colors: false
+custom_cursor_colors: true
 
 # Colors (Tomorrow Night Bright)
 colors:
@@ -117,8 +117,8 @@ colors:
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x000000'
-    cursor: '0xffffff'
+    text: '0x555753'
+    cursor: '0xcecece'
 
   # Normal colors
   normal:
@@ -337,7 +337,7 @@ key_bindings:
   - { key: F8,                      chars: "\x1b[19~"                    }
   - { key: F9,                      chars: "\x1b[20~"                    }
   - { key: F10,                     chars: "\x1b[21~"                    }
-  - { key: F11,                     chars: "\x1b[23~"                    }
+  - { key: F11,                     command: { program: "fullscreen"}    }
   - { key: F12,                     chars: "\x1b[24~"                    }
   - { key: F1,       mods: Shift,   chars: "\x1b[1;2P"                   }
   - { key: F2,       mods: Shift,   chars: "\x1b[1;2Q"                   }
