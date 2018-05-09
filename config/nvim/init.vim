@@ -53,6 +53,8 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-entire' | Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'justinmk/vim-sneak'
@@ -65,7 +67,6 @@ Plug 'tpope/vim-rsi'
 Plug 'mattn/emmet-vim/', {'for': ['html', 'javascript.jsx']}
 Plug 'neo4j-contrib/cypher-vim-syntax'
 " Plug 'scrooloose/syntastic'
-Plug 'tommcdo/vim-lion'
 Plug 'lepture/vim-jinja'
 Plug 'vim-scripts/SQLUtilities' | Plug 'vim-scripts/Align'
 Plug 'tweekmonster/startuptime.vim'
@@ -76,6 +77,7 @@ Plug 'jparise/vim-graphql'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
+    \ 'for': 'scala',
     \ }
 
 
@@ -174,6 +176,7 @@ call plug#end()
     autocmd!
     autocmd WinLeave,InsertEnter * set norelativenumber number
     autocmd WinEnter,InsertLeave * set relativenumber
+    autocmd CursorMoved
   augroup END
 
 " end-view}}}
@@ -305,7 +308,7 @@ call plug#end()
     nmap [h <Plug>GitGutterPrevHunk
     nmap ]h <Plug>GitGutterNextHunk
     nmap ghs <Plug>GitGutterStageHunk
-    nmap ghr <Plug>GitGutterRevertHunk
+    nmap ghu <Plug>GitGutterUndoHunk
     nmap ghp <Plug>GitGutterPreviewHunk
 
     let g:gitgutter_sign_added = '✜'
@@ -377,9 +380,10 @@ call plug#end()
     let g:closetag_filenames = "*.html,*.js,*.pt"
   " }}
 
-  " EasyAlign {{{
+  " Align - lion {{{
     xmap ga <Plug>(EasyAlign)
     nmap ga <Plug>(EasyAlign)
+    " glip=
   "}}}
 
   " Jedi {{{
@@ -427,8 +431,11 @@ call plug#end()
 
   " }}}
 
-  " {{{
+  " LSP {{{
     autocmd FileType scala nnoremap <silent> gD :call LanguageClient_textDocument_definition()<CR>
+    autocmd FileType scala nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+    "autocmd FileType scala set completefunc=LanguageClient#complete
+    autocmd FileType scala setlocal completefunc=LanguageClient#complete
 
     let g:LanguageClient_serverCommands = {
         \ 'scala': ['~/.local/bin/scalameta_lsp', '--cwd', '~/dev/abraxas/nous'],

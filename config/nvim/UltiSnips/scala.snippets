@@ -20,3 +20,8 @@ snippet pld
 println("============================$1=============================")
 endsnippet
 
+snippet amm
+ammonite.Main(predefCode = "println(\"Starting Debugging!\")").run(
+"$1" -> $2
+)
+endsnippet

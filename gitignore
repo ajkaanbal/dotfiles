@@ -66,3 +66,5 @@ scalastyle-config.xml
 ## temp
 src/test/resources/logback-test.xml
 config/nvim/spell
+#graphql-cli
+.graphqlconfig.yaml
