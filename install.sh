@@ -39,3 +39,26 @@ alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 200000
 alternatives --install /usr/bin/jar jar /usr/java/latest/bin/jar 20000
 alternatives --install /usr/bin/jar jar /usr/java/latest/bin/jar 200000
 
+Kvm
+===
+
+Enable kvm virt acceleration for Android Virtual Device emulator
+
+Open Terminal window and type:
+  - su -c "dnf install @virtualization"
+  - su -c "systemctl start libvirtd"
+  
+Verify that the kvm kernel modules were properly loaded
+  - lsmod | grep kvm
+  If you see kvm_amd or kvm_intel, you're on the way!
+  
+Troubleshooting
+===============
+Recommended other packages:
+  - sudo dnf install virt-manager libvirt libvirt-python python-virtinst
+
+If you have another issues, try:
+  - sudo modprobe kvm
+  - sudo modprobe kvm_intel
+  - sudo modprobe kvm_amd
+in base of your processor.

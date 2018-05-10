@@ -13,7 +13,7 @@ export WORKON_HOME=~/.pyenvs
 #java vars
 export JAVA_HOME="/usr/java/latest"
 
-export EDITOR=vim
+export EDITOR=/usr/bin/nvim
 
 #neovim
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
@@ -44,8 +44,13 @@ export PAGER="/usr/bin/most -s"
 export RUSTBIN=$HOME/.cargo/bin
 export PATH=$RUSTBIN:$PATH
 
-#Android
+#FLUTTER
+export FLUTTER=$HOME/.local/sources/flutter/bin
+export PATH=$FLUTTER:$PATH
+
+#ANDROID
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROID_TOOLS=$ANDROID_HOME/tools/bin/
-export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools/
-export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS
+export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools
+export ANDROID_EMULATOR=$ANDROID_HOME/emulator/
+export PATH=$ANDROID_HOME:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:$ANDROID_EMULATOR:$PATH
