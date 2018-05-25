@@ -99,7 +99,7 @@ call plug#end()
   set expandtab
   set tags=.tags
   set wildignorecase
-  set ignorecase
+  set noignorecase
   set autoindent
   set hidden
 " end-edit}}}

@@ -68,3 +68,6 @@ src/test/resources/logback-test.xml
 config/nvim/spell
 #graphql-cli
 .graphqlconfig.yaml
+
+# metals
+.metals
