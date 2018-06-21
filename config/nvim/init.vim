@@ -178,6 +178,11 @@ call plug#end()
     autocmd WinEnter,InsertLeave * set relativenumber
     autocmd CursorMoved
   augroup END
+  augroup SwitchLang
+    autocmd!
+    autocmd WinEnter,InsertLeave * silent exec "!xkb-switch -s us"
+  augroup END
+
 
 " end-view}}}
 
