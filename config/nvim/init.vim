@@ -219,6 +219,10 @@ call plug#end()
 
 " Plugins settings: {{{
 
+  " Ale {{{
+  let g:ale_completion_enabled = 1
+  " }}}
+
   " Vim-session setting {{{
     let g:session_autosave = 'yes'
     let g:session_autoload = 'no'
@@ -401,6 +405,7 @@ call plug#end()
   " vim-tmux-runner {{{
     nnoremap R :VtrSendLinesToRunner<CR>
     vnoremap <Enter> :VtrSendLinesToRunner<cr>
+    let g:VtrDisplayPaneNumbers = 0
   "}}}
 
   "indentLine {{{
