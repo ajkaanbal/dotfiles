@@ -143,3 +143,9 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source "$HOME/.local/lib/azure-cli/az.completion"
 
 export PATH=$HOME/.local/bin/luna-studio:$PATH
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /home/rvilchis/.local/bin/vault vault
+autoload -U compinit
+fpath=($HOME/.bloop/zsh $fpath)
+compinit

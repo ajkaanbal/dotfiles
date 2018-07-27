@@ -71,3 +71,4 @@ config/nvim/spell
 
 # metals
 .metals
+.bloop
