@@ -30,6 +30,10 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
 
 ln -s ~/.nvimrc ~/.config/nvim/init.vim
 
+#GIT config
+git config --global core.excludesfile '~/.gitignore'
+
+
 # Download oracle jdk
 
 alternatives --install /usr/bin/java java /usr/java/latest/jre/bin/java 200000
