@@ -41,7 +41,7 @@ setopt HIST_IGNORE_SPACE # Don't record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS # Don't write duplicate entries in the history file.
 setopt HIST_REDUCE_BLANKS # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY # Don't execute immediately upon history expansion.
-
+antigen apply
 
 
 #History search
@@ -67,7 +67,7 @@ else
   zstyle ':completion:*:default' list-colors ''
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 
@@ -140,7 +140,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #azure completition
-source "$HOME/.local/lib/azure-cli/az.completion"
+# source "$HOME/.local/lib/azure-cli/az.completion"
 
 export PATH=$HOME/.local/bin/luna-studio:$PATH
 
@@ -149,3 +149,4 @@ complete -o nospace -C /home/rvilchis/.local/bin/vault vault
 autoload -U compinit
 fpath=($HOME/.bloop/zsh $fpath)
 compinit
+
