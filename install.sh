@@ -43,6 +43,10 @@ alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 200000
 alternatives --install /usr/bin/jar jar /usr/java/latest/bin/jar 20000
 alternatives --install /usr/bin/jar jar /usr/java/latest/bin/jar 200000
 
+wrk
+===
+https://github.com/wg/wrk.git
+
 Kvm
 ===
 
