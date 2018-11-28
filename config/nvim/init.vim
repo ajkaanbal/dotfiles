@@ -74,11 +74,13 @@ Plug 'tommcdo/vim-lion'
 Plug 'djoshea/vim-autoread'
 Plug 'othree/xml.vim'
 Plug 'jparise/vim-graphql'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ 'for': 'scala',
-    \ }
+Plug 'natebosch/vim-lsc'
+
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ 'for': 'scala',
+"     \ }
 
 
 " Plug 'ajkaanbal/vim-scala-utils'
@@ -221,6 +223,7 @@ call plug#end()
 
   " Ale {{{
   let g:ale_completion_enabled = 1
+  let g:ale_virtualtext_cursor = 0
   " }}}
 
   " Vim-session setting {{{
@@ -442,14 +445,24 @@ call plug#end()
   " }}}
 
   " LSP {{{
-    autocmd FileType scala nnoremap <silent> gD :call LanguageClient_textDocument_definition()<CR>
-    autocmd FileType scala nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-    "autocmd FileType scala set completefunc=LanguageClient#complete
-    autocmd FileType scala setlocal completefunc=LanguageClient#complete
 
-    let g:LanguageClient_serverCommands = {
-        \ 'scala': ['~/.local/bin/scalameta_lsp', '--cwd', '~/dev/abraxas/nous'],
-        \ }
+    "autocmd FileType scala nnoremap <silent> gD :call LanguageClient_textDocument_definition()<CR>
+    "autocmd FileType scala nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+    ""autocmd FileType scala set completefunc=LanguageClient#complete
+    "autocmd FileType scala setlocal completefunc=LanguageClient#complete
+    "let g:LanguageClient_serverCommands = {
+    "    \ 'scala': ['~/.local/bin/metals-vim'],
+    "    \ }
+
+    au BufRead,BufNewFile *.sbt set filetype=scala
+    let g:lsc_enable_autocomplete = v:false
+    let g:lsc_server_commands = {
+      \ 'scala': 'metals-vim'
+      \}
+    let g:lsc_auto_map = {
+        \ 'GoToDefinition': 'gD',
+        \}
+
   " }}}
 
 " end-plugins-settings}}}
