@@ -14,6 +14,7 @@ antigen bundle safe-paste
 antigen bundle extract
 antigen bundle docker
 antigen bundle gitignore
+# antigen bundle kubectl
 antigen bundle Tarrasch/zsh-autoenv
 antigen bundle mafredri/zsh-async
 # antigen bundle sindresorhus/pure
@@ -84,6 +85,9 @@ function yesterworkday()
     fi
 }
 
+# enable direnv
+eval "$(direnv hook zsh)"
+
 # git log --since="$(yesterworkday)"
 
 # c short for context
@@ -129,6 +133,11 @@ function genkey() {
     cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-$size} | head -n 1
 }
 
+# kubectl completition
+# if [ $commands[kubectl] ]; then
+  # source <(kubectl completion zsh)
+# fi
+
 autoload -Uz compinit
 compinit
 setopt complete_in_word
@@ -149,4 +158,5 @@ complete -o nospace -C /home/rvilchis/.local/bin/vault vault
 autoload -U compinit
 fpath=($HOME/.bloop/zsh $fpath)
 compinit
+
 
