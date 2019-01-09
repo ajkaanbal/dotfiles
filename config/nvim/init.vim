@@ -224,6 +224,13 @@ call plug#end()
   " Ale {{{
   let g:ale_completion_enabled = 1
   let g:ale_virtualtext_cursor = 0
+
+  let g:ale_set_signs = 0
+  hi link ALEErrorLine ErrorMsg
+  hi link ALEWarningLine WarningMsg
+  let g:ale_lint_on_text_changed = 'normal'
+  let g:ale_lint_on_insert_leave = 1
+  let g:ale_lint_delay = 0
   " }}}
 
   " Vim-session setting {{{

@@ -14,6 +14,7 @@ antigen bundle safe-paste
 antigen bundle extract
 antigen bundle docker
 antigen bundle gitignore
+antigen bundle aws
 # antigen bundle kubectl
 antigen bundle Tarrasch/zsh-autoenv
 antigen bundle mafredri/zsh-async
@@ -160,3 +161,6 @@ fpath=($HOME/.bloop/zsh $fpath)
 compinit
 
 
+# AWS
+# source ~/.local/h
+# source $HOME/.local/bin/aws_zsh_completer.sh
