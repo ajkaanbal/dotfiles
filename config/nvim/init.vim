@@ -334,6 +334,10 @@ call plug#end()
     let g:gitgutter_sign_modified = '✎'
     let g:gitgutter_sign_removed = '✄'
     let g:gitgutter_sign_modified_removed = '✎✄'
+
+    highlight GitGutterAdd    guifg=#009900 guibg=0 ctermfg=2
+    highlight GitGutterChange guifg=#bbbb00 guibg=0 ctermfg=3
+    highlight GitGutterDelete guifg=#ff2222 guibg=0 ctermfg=1
   " }}}
 
   " vimviler {{{
