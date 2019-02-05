@@ -74,7 +74,7 @@ Plug 'tommcdo/vim-lion'
 Plug 'djoshea/vim-autoread'
 Plug 'othree/xml.vim'
 Plug 'jparise/vim-graphql'
-Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc', {'commit': '77fa2fa5f2ba33c2b7ce8641125236e10b770124'}
 
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
@@ -470,8 +470,11 @@ call plug#end()
     let g:lsc_server_commands = {
       \ 'scala': 'metals-vim'
       \}
+
     let g:lsc_auto_map = {
         \ 'GoToDefinition': 'gD',
+        \ 'DocumentSymbol': 'go',
+        \ 'WorkspaceSymbol': 'gs',
         \}
 
   " }}}

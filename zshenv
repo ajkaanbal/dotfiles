@@ -60,4 +60,5 @@ export BAT_THEME=DarkNeon
 export LD_LIBRARY_PATH=/usr/lib/oracle/18.3/client64/lib:$LD_LIBRARY_PATH
 export PATH=/usr/lib/oracle/18.3/client64/bin:$PATH
 
-
+# For Alacritty
+export WINIT_HIDPI_FACTOR=1.0
