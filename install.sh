@@ -32,6 +32,7 @@ ln -s ~/.nvimrc ~/.config/nvim/init.vim
 
 #GIT config
 git config --global core.excludesfile '~/.gitignore'
+git config --global mergetool.keepBackup false
 
 
 # Download oracle jdk
