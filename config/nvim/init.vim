@@ -76,6 +76,7 @@ Plug 'othree/xml.vim'
 Plug 'jparise/vim-graphql'
 Plug 'natebosch/vim-lsc'
 Plug 'elixir-editors/vim-elixir'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
