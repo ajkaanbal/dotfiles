@@ -27,7 +27,7 @@ export PATH=$PATH:$NEO4J
 # GOLANG
 export GOPATH=$HOME/.go
 export GOROOT=$HOME/.local/sources/go
-export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # spark
 export SPARK=$HOME/.local/sources/spark
