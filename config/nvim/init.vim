@@ -212,6 +212,7 @@ call plug#end()
 " Syntax {{{
   augroup VIMRC
     autocmd FileType,BufRead,BufNewFile *.vue setlocal tabstop=2 shiftwidth=2
+    autocmd FileType,BufRead,BufNewFile *.go setlocal autoindent noexpandtab tabstop=4 shiftwidth=4
     autocmd BufRead,BufNewFile *.rml set ft=xml
     autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
     autocmd FileType html,css,json,xml,htmldjango setlocal foldmethod=indent tabstop=2 shiftwidth=2 sts=2
@@ -241,7 +242,7 @@ call plug#end()
   " }}}
 
   " Denite {{{
-    call denite#custom#var('file_rec', 'command',['rg', '--threads', '4', '--files', '--glob', '!.git'])
+    call denite#custom#var('file/rec', 'command',['rg', '--threads', '4', '--files', '--glob', '!.git'])
     " Ag command on grep source
     " Ripgrep command on grep source
     call denite#custom#var('grep', 'command', ['rg'])
@@ -264,7 +265,7 @@ call plug#end()
         \ '<denite:move_to_previous_line>',
         \ 'noremap'
         \)
-    nnoremap <leader>f :<C-u>Denite file_rec<CR>
+    nnoremap <leader>f :<C-u>Denite file/rec<CR>
     nnoremap <leader>b :<C-u>Denite buffer<CR>
     nnoremap <leader>g :Denite grep:::!<CR>
     nnoremap <leader>* :DeniteCursorWord grep:.<CR>
