@@ -14,7 +14,8 @@ Plug 'ajkaanbal/autoswap.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+" Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 " Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 Plug 'christoomey/vim-tmux-navigator'
