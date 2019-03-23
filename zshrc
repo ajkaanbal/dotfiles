@@ -164,3 +164,7 @@ compinit
 # AWS
 # source ~/.local/h
 # source $HOME/.local/bin/aws_zsh_completer.sh
+
+#PYENV
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
