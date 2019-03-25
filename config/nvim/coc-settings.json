@@ -1,0 +1,11 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["scala"],
+  "suggest.noselect": false,
+  "suggest.enablePreview": true,
+  "languageserver": {
+    "scala": {
+      "command": "metals-vim",
+      "filetypes": [ "scala", "sbt" ]
+    }
+  }
+}
