@@ -1,4 +1,3 @@
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
