@@ -1,4 +1,5 @@
 {
+  "python.jediEnabled": false,
   "coc.preferences.formatOnSaveFiletypes": ["scala"],
   "suggest.noselect": false,
   "suggest.enablePreview": true,
@@ -6,6 +7,13 @@
     "scala": {
       "command": "metals-vim",
       "filetypes": [ "scala", "sbt" ]
+    },
+    "go-langserver": {
+      "command": "gopls",
+      "args": ["serve"],
+      "filetypes": ["go"],
+      "trace.server": "verbose",
+      "enable": true
     }
   }
 }
