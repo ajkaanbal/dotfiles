@@ -8,12 +8,21 @@
       "command": "metals-vim",
       "filetypes": [ "scala", "sbt" ]
     },
-    "go-langserver": {
+    "golang": {
       "command": "gopls",
-      "args": ["serve"],
-      "filetypes": ["go"],
-      "trace.server": "verbose",
-      "enable": true
+       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
     }
   }
 }
