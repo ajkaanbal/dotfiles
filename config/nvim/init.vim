@@ -26,7 +26,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'w0ng/vim-hybrid'
 " Plug 'othree/yajs.vim', { 'for' : 'javascript' }
-Plug 'marijnh/tern_for_vim', { 'for' : 'javascript' }
 Plug 'posva/vim-vue'
 Plug 'w0rp/ale'
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
@@ -77,7 +76,7 @@ Plug 'tommcdo/vim-lion'
 Plug 'djoshea/vim-autoread'
 Plug 'othree/xml.vim'
 Plug 'jparise/vim-graphql'
-Plug 'natebosch/vim-lsc'
+" Plug 'natebosch/vim-lsc'
 Plug 'elixir-editors/vim-elixir'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
@@ -219,7 +218,6 @@ call plug#end()
     autocmd BufRead,BufNewFile *.rml set ft=xml
     autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
     autocmd FileType html,css,json,xml,htmldjango setlocal foldmethod=indent tabstop=2 shiftwidth=2 sts=2
-    autocmd FileType javascript,javascript.jsx setlocal omnifunc=tern#Complete | setlocal completeopt-=preview | setlocal tabstop=2 shiftwidth=2
     autocmd FileType scala setlocal colorcolumn=80,100,120
     autocmd FileType json setlocal equalprg=json_reformat
   augroup END
@@ -422,7 +420,7 @@ call plug#end()
 
 
   " Tern {{{
-    autocmd FileType javascript nnoremap gD :<c-u>TernDef<cr>
+    " autocmd FileType javascript nnoremap gD :<c-u>TernDef<cr>
   "}}}
 
   " JSX{{
@@ -501,13 +499,17 @@ call plug#end()
       \ 'scala': 'metals-vim'
       \}
 
-    let g:lsc_auto_map = {
-        \ 'GoToDefinition': 'gD',
-        \ 'DocumentSymbol': 'go',
-        \ 'WorkspaceSymbol': 'gs',
-        \}
+    " let g:lsc_auto_map = {
+    "     \ 'GoToDefinition': 'gD',
+    "     \ 'DocumentSymbol': 'go',
+    "     \ 'WorkspaceSymbol': 'gs',
+    "     \}
 
   " }}}
+
+  "coc-vim{{{ 
+  nmap <silent> gD <Plug>(coc-definition)
+  "}}}
 
   " {{{
   autocmd FileType netrw setl bufhidden=wipe
