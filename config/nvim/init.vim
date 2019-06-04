@@ -16,7 +16,7 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
@@ -278,6 +278,21 @@ call plug#end()
           \ '<denite:do_action:vsplit>',
           \ 'noremap'
           \)
+    autocmd FileType denite call s:denite_my_settings()
+      function! s:denite_my_settings() abort
+        nnoremap <silent><buffer><expr> <CR>
+        \ denite#do_map('do_action')
+        nnoremap <silent><buffer><expr> d
+        \ denite#do_map('do_action', 'delete')
+        nnoremap <silent><buffer><expr> p
+        \ denite#do_map('do_action', 'preview')
+        nnoremap <silent><buffer><expr> q
+        \ denite#do_map('quit')
+        nnoremap <silent><buffer><expr> i
+        \ denite#do_map('open_filter_buffer')
+        nnoremap <silent><buffer><expr> <Space>
+        \ denite#do_map('toggle_select').'j'
+      endfunction
   " }}}
 
   " Unite {{{
@@ -521,9 +536,6 @@ call plug#end()
     " Some server have issues with backup files, see #649
     set nobackup
     set nowritebackup
-
-    " Better display for messages
-    set cmdheight=2
 
     " Use <c-space> for trigger completion.
     inoremap <silent><expr> <c-space> coc#refresh()
