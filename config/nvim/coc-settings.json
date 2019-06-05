@@ -4,7 +4,7 @@
   "suggest.noselect": false,
   "suggest.enablePreview": true,
   "languageserver": {
-    "scala": {
+    "metals": {
       "command": "metals-vim",
       "rootPatterns": ["build.sbt"],
       "filetypes": [ "scala", "sbt" ]
@@ -18,12 +18,6 @@
       "command": "docker-langserver",
       "filetypes": ["dockerfile"],
       "args": ["--stdio"]
-    },
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
     }
   }
 }
