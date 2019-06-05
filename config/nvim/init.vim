@@ -19,11 +19,12 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'zchee/deoplete-jedi'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 Plug 'christoomey/vim-tmux-navigator'
 " Plug 'jszakmeister/vim-togglecursor'
 " Plug 'Shougo/unite.vim' | Plug 'Shougo/vimfiler.vim'
-Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'}
+"67475c7
+Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins', 'commit': '67475c7'}
 Plug 'w0ng/vim-hybrid'
 " Plug 'othree/yajs.vim', { 'for' : 'javascript' }
 Plug 'posva/vim-vue'
@@ -200,6 +201,7 @@ call plug#end()
 " }}}
 
 " Mappings {{{
+  let g:python3_host_prog = expand('$HOME/.pyenv/versions/3.7.3/bin/python')
   nnoremap <silent> d<space> :StripWhitespace<esc>
   nnoremap <silent>Q :<c-u>Bdelete<CR>
 
@@ -254,9 +256,9 @@ call plug#end()
     call denite#custom#var('grep', 'separator', ['--'])
     call denite#custom#var('grep', 'final_opts', [])
     call denite#custom#option('default', 'prompt', '» ')
-    call denite#custom#option('_', {
-            \ 'start_filter': v:true
-            \ })
+    " call denite#custom#option('_', {
+    "         \ 'start_filter': v:true
+    "         \ })
     call denite#custom#map(
         \ 'insert',
         \ '<C-n>',
@@ -269,7 +271,7 @@ call plug#end()
         \ '<denite:move_to_previous_line>',
         \ 'noremap'
         \)
-    nnoremap <leader>f :<C-u>Denite file/rec -split=floating<CR>
+    nnoremap <leader>f :<C-u>Denite file/rec<CR>
     nnoremap <leader>b :<C-u>Denite buffer<CR>
     nnoremap <leader>g :Denite grep:::!<CR>
     nnoremap <leader>* :DeniteCursorWord grep:.<CR>
@@ -282,25 +284,27 @@ call plug#end()
           \ '<denite:do_action:vsplit>',
           \ 'noremap'
           \)
-    autocmd FileType denite call s:denite_my_settings()
-      function! s:denite_my_settings() abort
-        " highlight CursorLine PmenuSel
-        " hi CursorLine ctermbg=255 ctermfg=24
-        nnoremap <silent><buffer><expr> <CR>
-        \ denite#do_map('do_action')
-        nnoremap <silent><buffer><expr> d
-        \ denite#do_map('do_action', 'delete')
-        nnoremap <silent><buffer><expr> p
-        \ denite#do_map('do_action', 'preview')
-        nnoremap <silent><buffer><expr> <C-v>
-        \ denite#do_map('do_action', 'vsplit')
-        nnoremap <silent><buffer><expr> q
-        \ denite#do_map('quit')
-        nnoremap <silent><buffer><expr> i
-        \ denite#do_map('open_filter_buffer')
-        nnoremap <silent><buffer><expr> <Space>
-        \ denite#do_map('toggle_select').'j'
-      endfunction
+
+    autocmd! FileType denite call s:denite_my_settings()
+
+    function! s:denite_my_settings() abort
+      " autocmd! InsertEnter * hi CursorLine ctermbg=235 guibg=#282a2e
+      " autocmd! InsertLeave denite hi CursorLine ctermbg=24 ctermfg=255
+      nnoremap <silent><buffer><expr> <CR>
+      \ denite#do_map('do_action')
+      nnoremap <silent><buffer><expr> d
+      \ denite#do_map('do_action', 'delete')
+      nnoremap <silent><buffer><expr> p
+      \ denite#do_map('do_action', 'preview')
+      nnoremap <silent><buffer><expr> <C-v>
+      \ denite#do_map('do_action', 'vsplit')
+      nnoremap <silent><buffer><expr> q
+      \ denite#do_map('quit')
+      nnoremap <silent><buffer><expr> i
+      \ denite#do_map('open_filter_buffer')
+      nnoremap <silent><buffer><expr> <Space>
+      \ denite#do_map('toggle_select').'j'
+    endfunction
   " }}}
 
   " Unite {{{
@@ -460,12 +464,12 @@ call plug#end()
     " glip=
   "}}}
 
-  " Jedi {{{
-    autocmd FileType python setlocal completeopt-=preview
-    let g:jedi#goto_assignments_command = "gD"
-    hi jediFunction term=NONE cterm=NONE ctermfg=33 ctermbg=0
-    hi jediFat term=bold,underline cterm=bold,underline ctermbg=0 ctermfg=248
-  " }}}
+  " " Jedi {{{
+  "   autocmd FileType python setlocal completeopt-=preview
+  "   let g:jedi#goto_assignments_command = "gD"
+  "   hi jediFunction term=NONE cterm=NONE ctermfg=33 ctermbg=0
+  "   hi jediFat term=bold,underline cterm=bold,underline ctermbg=0 ctermfg=248
+  " " }}}
 
   " vim-tmux-runner {{{
     nnoremap R :VtrSendLinesToRunner<CR>
