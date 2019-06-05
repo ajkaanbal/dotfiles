@@ -2,8 +2,6 @@ source ~/.antigen.zsh
 antigen bundle robbyrussell/oh-my-zsh lib/
 antigen bundle git
 antigen bundle gitfast
-antigen bundle virtualenv
-antigen bundle virtualenvwrapper
 antigen bundle tmux
 antigen bundle yum
 antigen bundle wd
