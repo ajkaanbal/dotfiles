@@ -4,6 +4,7 @@ setlayout 0 3 2 0 &
 nitrogen --restore &
 dunst &
 urxvt256c-mld -q -f -o
+($HOME/.dropbox-dist/dropboxd &)&
 sh ~/.xinitrc &
 sh ~/.autostart.local.sh &
 xmodmap ~/.Xmodmap &
