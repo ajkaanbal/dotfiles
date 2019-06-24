@@ -510,6 +510,11 @@ call plug#end()
 
   " }}}
 
+  " vim-go {{{
+    let g:go_def_mode='gopls'
+    let g:go_info_mode='gopls'
+  " }}}
+
   " LSP {{{
 
     "autocmd FileType scala nnoremap <silent> gD :call LanguageClient_textDocument_definition()<CR>

@@ -164,5 +164,6 @@ compinit
 # source $HOME/.local/bin/aws_zsh_completer.sh
 
 #PYENV
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
