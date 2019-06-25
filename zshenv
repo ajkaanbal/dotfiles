@@ -65,3 +65,8 @@ export WINIT_HIDPI_FACTOR=1.0
 
 #default python version
 export PYENV_VERSION=3.7.3
+
+#Dart
+export DART_SDK=$HOME/.local/sources/dart-sdk/bin
+export PATH=$DART_SDK:$HOME/.pub-cache/bin:$PATH
+

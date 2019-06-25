@@ -80,6 +80,8 @@ Plug 'jparise/vim-graphql'
 " Plug 'natebosch/vim-lsc'
 Plug 'elixir-editors/vim-elixir'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
 
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
