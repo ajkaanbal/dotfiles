@@ -784,6 +784,7 @@
 <applications>
   <application name="*">
     <decor>no</decor>
+    <focus>yes</focus>
   </application>
 <!--
   # this is an example with comments through out. use these to make your
