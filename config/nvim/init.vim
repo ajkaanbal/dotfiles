@@ -79,7 +79,7 @@ Plug 'othree/xml.vim'
 Plug 'jparise/vim-graphql'
 " Plug 'natebosch/vim-lsc'
 Plug 'elixir-editors/vim-elixir'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 
