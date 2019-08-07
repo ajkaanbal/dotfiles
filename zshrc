@@ -13,6 +13,7 @@ antigen bundle extract
 antigen bundle docker
 antigen bundle gitignore
 antigen bundle aws
+antigen bundle pyenv
 # antigen bundle kubectl
 antigen bundle Tarrasch/zsh-autoenv
 antigen bundle mafredri/zsh-async
@@ -163,7 +164,7 @@ compinit
 # source ~/.local/h
 # source $HOME/.local/bin/aws_zsh_completer.sh
 
-#PYENV
+# PYENV
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
