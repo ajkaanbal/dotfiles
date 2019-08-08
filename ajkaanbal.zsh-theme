@@ -31,7 +31,10 @@ else
 fi
 local current_dir='${PWD/#$HOME/~}'
 local git_info='$(git_prompt_info)'
-virtualenv_info=$([ $VIRTUAL_ENV ] && echo '['`basename $VIRTUAL_ENV`'] ')
+function virtualenv_info {
+    [ $VIRTUAL_ENV ] && echo '['%F{blue}`basename $VIRTUAL_ENV`%f'] '
+}
+
 
 
 
