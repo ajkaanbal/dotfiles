@@ -86,8 +86,6 @@
 #    fi
 #}
 
-## enable direnv
-#eval "$(direnv hook zsh)"
 
 ## git log --since="$(yesterworkday)"
 
@@ -239,3 +237,5 @@ else
   zstyle ':completion:*:default' list-colors ''
 fi
 
+# enable direnv
+eval "$(direnv hook zsh)"
