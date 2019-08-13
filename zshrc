@@ -166,10 +166,6 @@
 ## source $HOME/.local/bin/aws_zsh_completer.sh
 #export FURYHOME=/home/rvilchis/.local/bin/fury && source ~/.furyrc/zsh # Added by Fury
 
-##pyenv
-#export PATH="/home/rvilchis/.pyenv/bin:$PATH"
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
 ###############################################################################
 # ZPLUG
 ###############################################################################
@@ -183,6 +179,8 @@ zplug "plugins/nvm", from:oh-my-zsh
 zplug "plugins/z", from:oh-my-zsh
 zplug "plugins/safe-paste", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
+zplug "plugins/virtualenv", from:oh-my-zsh
+zplug "plugins/pyenv", from:oh-my-zsh
 
 zplug "lib/history", from:oh-my-zsh
 zplug "lib/completion", from:oh-my-zsh
