@@ -149,6 +149,7 @@ zplug "plugins/safe-paste", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
 zplug "plugins/gitignore", from:oh-my-zsh
 zplug "plugins/virtualenv", from:oh-my-zsh
+zplug "plugins/kube-ps1", from:oh-my-zsh
 zplug "plugins/pyenv", from:oh-my-zsh
 
 zplug "lib/history", from:oh-my-zsh
@@ -161,6 +162,9 @@ zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zaw"
+
+zplug "ahmetb/kubectx", as:command, use:"kubens"
+zplug "ahmetb/kubectx", as:command, use:"kubectx"
 
 zplug "~/.zsh", from:local, defer:3
 zplug 'ajkaanbal/dotfiles', use:"ajkaanbal.zsh-theme", as:theme, defer:3
