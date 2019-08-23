@@ -11,7 +11,7 @@ export TERM=xterm-256color
 export WORKON_HOME=~/.pyenvs
 
 #java vars
-export JAVA_HOME="/usr/java/latest"
+export JAVA_HOME=/etc/alternatives/java_sdk
 
 export EDITOR=nvim
 
@@ -70,3 +70,6 @@ export PYENV_VERSION=3.7.3
 export DART_SDK=$HOME/.local/sources/dart-sdk/bin
 export PATH=$DART_SDK:$HOME/.pub-cache/bin:$PATH
 
+#snap
+export SNAP=/var/lib/snapd/snap/bin
+export PATH=$PATH:$SNAP
