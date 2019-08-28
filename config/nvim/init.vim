@@ -185,7 +185,6 @@ call plug#end()
     autocmd!
     autocmd WinLeave,InsertEnter * set norelativenumber number
     autocmd WinEnter,InsertLeave * set relativenumber
-    autocmd CursorMoved
   augroup END
   augroup SwitchLang
     autocmd!
