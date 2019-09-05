@@ -82,6 +82,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
+Plug 'zxqfl/tabnine-vim'
 
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
