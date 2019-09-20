@@ -1,4 +1,4 @@
 alias k='kubectl'
-if ! type __start_kubectl >/dev/null 2>&1; then
-    source <(command kubectl completion zsh)
-fi
+# if ! type __start_kubectl >/dev/null 2>&1; then
+#     source <(command kubectl completion zsh)
+# fi

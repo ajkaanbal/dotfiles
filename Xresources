@@ -49,6 +49,7 @@ URxvt.keysym.F11: perl:fullscreen:switch
 URxvt*background:         #262626
 URxvt*foreground:         #eeeeec
 URxvt*cursorColor:        #606060
+URxvt*cursorColor2:       #262626
 ! foreground color for underline
 URxvt*colorUL:            #8ae234
 ! line color for underline

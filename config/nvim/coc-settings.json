@@ -1,6 +1,7 @@
 {
   "python.jediEnabled": false,
-  "coc.preferences.formatOnSaveFiletypes": ["scala"],
+  "python.formatting.provider": "black",
+  "coc.preferences.formatOnSaveFiletypes": ["scala", "python"],
   "suggest.noselect": false,
   "suggest.enablePreview": true,
   "languageserver": {

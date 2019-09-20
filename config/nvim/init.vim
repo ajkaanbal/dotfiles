@@ -18,6 +18,7 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'zchee/deoplete-jedi'
 " Plug 'davidhalter/jedi-vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -28,7 +29,7 @@ Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins', 'commit': '67475c7'}
 Plug 'w0ng/vim-hybrid'
 " Plug 'othree/yajs.vim', { 'for' : 'javascript' }
 Plug 'posva/vim-vue'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
