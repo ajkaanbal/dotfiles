@@ -25,7 +25,7 @@ Plug 'christoomey/vim-tmux-navigator'
 " Plug 'jszakmeister/vim-togglecursor'
 " Plug 'Shougo/unite.vim' | Plug 'Shougo/vimfiler.vim'
 "67475c7
-Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins', 'commit': '67475c7'}
+" Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins', 'commit': '67475c7'}
 Plug 'w0ng/vim-hybrid'
 " Plug 'othree/yajs.vim', { 'for' : 'javascript' }
 Plug 'posva/vim-vue'
@@ -84,6 +84,7 @@ Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 Plug 'zxqfl/tabnine-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
@@ -247,68 +248,76 @@ call plug#end()
     let g:session_autoload = 'no'
   " }}}
 
-  " Denite {{{
-    call denite#custom#var('file/rec', 'command',['rg', '--threads', '4', '--files', '--glob', '!.git'])
-    " Ag command on grep source
-    " Ripgrep command on grep source
-    call denite#custom#var('grep', 'command', ['rg'])
-    call denite#custom#var('grep', 'default_opts',
-        \ ['--vimgrep', '--no-heading'])
-    call denite#custom#var('grep', 'recursive_opts', [])
-    call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-    call denite#custom#var('grep', 'separator', ['--'])
-    call denite#custom#var('grep', 'final_opts', [])
-    call denite#custom#option('default', 'prompt', '» ')
-    " call denite#custom#option('_', {
-    "         \ 'start_filter': v:true
-    "         \ })
-    call denite#custom#map(
-        \ 'insert',
-        \ '<C-n>',
-        \ '<denite:move_to_next_line>',
-        \ 'noremap'
-        \)
-    call denite#custom#map(
-        \ 'insert',
-        \ '<C-p>',
-        \ '<denite:move_to_previous_line>',
-        \ 'noremap'
-        \)
-    nnoremap <leader>f :<C-u>Denite file/rec<CR>
-    nnoremap <leader>b :<C-u>Denite buffer<CR>
-    nnoremap <leader>g :Denite grep:::!<CR>
-    nnoremap <leader>* :DeniteCursorWord grep:.<CR>
-    call denite#custom#option('_', 'highlight_mode_insert', 'PmenuSel')
-    call denite#custom#option('_', 'highlight_mode_normal', 'PmenuSel')
-    call denite#custom#option('_', 'highlight_matched_char', 'Question')
-    call denite#custom#map(
-          \ 'insert',
-          \ '<C-v>',
-          \ '<denite:do_action:vsplit>',
-          \ 'noremap'
-          \)
-
-    autocmd! FileType denite call s:denite_my_settings()
-
-    function! s:denite_my_settings() abort
-      " autocmd! InsertEnter * hi CursorLine ctermbg=235 guibg=#282a2e
-      " autocmd! InsertLeave denite hi CursorLine ctermbg=24 ctermfg=255
-      nnoremap <silent><buffer><expr> <CR>
-      \ denite#do_map('do_action')
-      nnoremap <silent><buffer><expr> d
-      \ denite#do_map('do_action', 'delete')
-      nnoremap <silent><buffer><expr> p
-      \ denite#do_map('do_action', 'preview')
-      nnoremap <silent><buffer><expr> <C-v>
-      \ denite#do_map('do_action', 'vsplit')
-      nnoremap <silent><buffer><expr> q
-      \ denite#do_map('quit')
-      nnoremap <silent><buffer><expr> i
-      \ denite#do_map('open_filter_buffer')
-      nnoremap <silent><buffer><expr> <Space>
-      \ denite#do_map('toggle_select').'j'
-    endfunction
+  " FZF{{{
+  let g:fzf_layout = { 'down': '~20%' }
+  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  nnoremap <leader>f :<C-u>FZF<CR>
+  au TermOpen * tnoremap <Esc> <c-\><c-n>
+  au FileType fzf tunmap <Esc>
   " }}}
+
+  " Denite {{{
+    " call denite#custom#var('file/rec', 'command',['rg', '--threads', '4', '--files', '--glob', '!.git'])
+    " " Ag command on grep source
+    " " Ripgrep command on grep source
+    " call denite#custom#var('grep', 'command', ['rg'])
+    " call denite#custom#var('grep', 'default_opts',
+    "     \ ['--vimgrep', '--no-heading'])
+    " call denite#custom#var('grep', 'recursive_opts', [])
+    " call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+    " call denite#custom#var('grep', 'separator', ['--'])
+    " call denite#custom#var('grep', 'final_opts', [])
+    " call denite#custom#option('default', 'prompt', '» ')
+    " " call denite#custom#option('_', {
+    " "         \ 'start_filter': v:true
+    " "         \ })
+    " call denite#custom#map(
+    "     \ 'insert',
+    "     \ '<C-n>',
+    "     \ '<denite:move_to_next_line>',
+    "     \ 'noremap'
+    "     \)
+    " call denite#custom#map(
+    "     \ 'insert',
+    "     \ '<C-p>',
+    "     \ '<denite:move_to_previous_line>',
+    "     \ 'noremap'
+    "     \)
+    " nnoremap <leader>f :<C-u>Denite file/rec<CR>
+    " nnoremap <leader>b :<C-u>Denite buffer<CR>
+    " nnoremap <leader>g :Denite grep:::!<CR>
+    " nnoremap <leader>* :DeniteCursorWord grep:.<CR>
+    " call denite#custom#option('_', 'highlight_mode_insert', 'PmenuSel')
+    " call denite#custom#option('_', 'highlight_mode_normal', 'PmenuSel')
+    " call denite#custom#option('_', 'highlight_matched_char', 'Question')
+    " call denite#custom#map(
+    "       \ 'insert',
+    "       \ '<C-v>',
+    "       \ '<denite:do_action:vsplit>',
+    "       \ 'noremap'
+    "       \)
+
+    " autocmd! FileType denite call s:denite_my_settings()
+
+    " function! s:denite_my_settings() abort
+    "   " autocmd! InsertEnter * hi CursorLine ctermbg=235 guibg=#282a2e
+    "   " autocmd! InsertLeave denite hi CursorLine ctermbg=24 ctermfg=255
+    "   nnoremap <silent><buffer><expr> <CR>
+    "   \ denite#do_map('do_action')
+    "   nnoremap <silent><buffer><expr> d
+    "   \ denite#do_map('do_action', 'delete')
+    "   nnoremap <silent><buffer><expr> p
+    "   \ denite#do_map('do_action', 'preview')
+    "   nnoremap <silent><buffer><expr> <C-v>
+    "   \ denite#do_map('do_action', 'vsplit')
+    "   nnoremap <silent><buffer><expr> q
+    "   \ denite#do_map('quit')
+    "   nnoremap <silent><buffer><expr> i
+    "   \ denite#do_map('open_filter_buffer')
+    "   nnoremap <silent><buffer><expr> <Space>
+    "   \ denite#do_map('toggle_select').'j'
+    " endfunction
+  " " }}}
 
   " Unite {{{
     " let g:unite_source_history_yank_enable = 1
