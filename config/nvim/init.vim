@@ -15,10 +15,10 @@ Plug 'wakatime/vim-wakatime'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile', 'for': ['js','python','scala']}
 " Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile', 'for': ['python']}
+Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile', 'for': ['python', 'scala', 'javascript']}
 " Plug 'zchee/deoplete-jedi'
 " Plug 'davidhalter/jedi-vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -226,6 +226,7 @@ call plug#end()
     autocmd FileType html,css,json,xml,htmldjango setlocal foldmethod=indent tabstop=2 shiftwidth=2 sts=2
     autocmd FileType scala setlocal colorcolumn=80,100,120
     autocmd FileType json setlocal equalprg=json_reformat
+    autocmd FileType yaml setlocal syntax=off
   augroup END
 " }}}
 
@@ -601,7 +602,7 @@ call plug#end()
     endfunction
 
     " Highlight symbol under cursor on CursorHold
-    autocmd CursorHold * silent call CocActionAsync('highlight')
+    autocmd CursorHold * silent! call CocActionAsync('highlight')
 
     " Remap for rename current word
     nmap <leader>rn <Plug>(coc-rename)
