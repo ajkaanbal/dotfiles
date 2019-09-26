@@ -49,8 +49,8 @@ Plug 'honza/vim-snippets',
 Plug 'bps/vim-textobj-python'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'chase/vim-ansible-yaml'
-Plug 'avakhov/vim-yaml'
+" Plug 'chase/vim-ansible-yaml'
+" Plug 'avakhov/vim-yaml'
 " Plug 'ensime/ensime-vim'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -83,7 +83,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
-Plug 'zxqfl/tabnine-vim'
+" Plug 'zxqfl/tabnine-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Plug 'autozimu/LanguageClient-neovim', {
