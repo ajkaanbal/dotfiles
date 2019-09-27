@@ -132,7 +132,8 @@ call plug#end()
     tnoremap <silent> <c-l> <c-\><c-n>:TmuxNavigateRight<cr>
     tnoremap <Esc> <C-\><C-n>
     tnoremap <M-[> <Esc>
-    tnoremap <C-v><Esc> <Esc>
+    " Send an scape to a nvim terminal
+    " tnoremap <C-v><Esc> <Esc>
     " Cannot use <c-\> here.
     " tnoremap <silent> <c-\> <c-\><c-n>:TmuxNavigatePrevious<cr>
   endif
@@ -250,6 +251,10 @@ call plug#end()
   " }}}
 
   " FZF{{{
+  let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
   let g:fzf_layout = { 'down': '~20%' }
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
   nnoremap <leader>f :<C-u>FZF<CR>
