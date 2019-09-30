@@ -1,4 +1,4 @@
-HOMEBIN=$HOME/.local/bin
+HOMEBIN=$HOME/.local/bin:$HOME/.bin
 export PATH=$HOMEBIN:$PATH
 export HISTSIZE=100000
 export SAVEHIST=100000
@@ -16,8 +16,6 @@ export JAVA_HOME=/etc/alternatives/java_sdk
 export EDITOR=nvim
 
 #neovim
-export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
 # NEO4J

@@ -11,8 +11,9 @@ URxvt.scrollBar: off
 ! Fonts
 
 #define fonts xft:Sauce Code Pro Nerd Font:pixelsize=12,\
-                xft:terminus:pixelsize:12,\
-                xft:bitstream vera sans mono:pixelsize=12
+                xft:DejaVuSansMono Nerd Font Mono:pixelsize=12,\
+                xft:terminus:pixelsize:9,\
+                xft:bitstream vera sans mono:pixelsize=9
 URxvt.font: fonts
 URxvt.boldFont: fonts
 URxvt.italicFont: fonts
