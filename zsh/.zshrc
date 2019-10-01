@@ -7,7 +7,7 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/gitfas", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/ssh-agent", from:oh-my-zsh
-# zplug "plugins/nvm", from:oh-my-zsh
+zplug "plugins/nvm", from:oh-my-zsh
 zplug "plugins/z", from:oh-my-zsh
 zplug "plugins/safe-paste", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
@@ -20,7 +20,7 @@ zplug "lib/history", from:oh-my-zsh
 zplug "lib/completion", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
 zplug "lib/spectrum", from:oh-my-zsh
-# zplug "lib/nvm", from:oh-my-zsh
+zplug "lib/nvm", from:oh-my-zsh
 
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"
@@ -78,6 +78,6 @@ else
 fi
 
 # enable direnv
-#eval "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

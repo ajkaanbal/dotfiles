@@ -62,7 +62,7 @@ export PATH=/usr/lib/oracle/18.3/client64/bin:$PATH
 export WINIT_HIDPI_FACTOR=1.0
 
 #default python version
-export PYENV_VERSION=3.7.3
+export PYENV_VERSION=3.7.4
 
 #Dart
 export DART_SDK=$HOME/.local/sources/dart-sdk/bin
