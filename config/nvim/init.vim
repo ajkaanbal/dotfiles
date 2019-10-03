@@ -257,7 +257,7 @@ call plug#end()
   \ 'ctrl-v': 'vsplit' }
   let g:fzf_layout = { 'down': '~20%' }
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-  nnoremap <leader>f :<C-u>FZF<CR>
+  nnoremap <leader>f :<C-u>FZF --reverse<CR>
   au TermOpen * tnoremap <Esc> <c-\><c-n>
   au FileType fzf tunmap <Esc>
   " }}}
