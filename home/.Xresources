@@ -139,9 +139,9 @@ xterm*.colorIT:      #87af5f
 xterm*.colorBD:      #d7d7d7
 xterm*.colorUL:      #87afd7
 
-xterm*faceName: Sauce Code Pro Nerd Font,DejaVu Sans Mono for Powerline
+xterm*faceName: DejaVuSansMono Nerd Font Mono
 xterm*fontWarnings: 2
-xterm*faceSize: 11
+xterm*faceSize: 9
 xterm*allowBoldFonts: false
 xterm*assumeAllChars: true
 

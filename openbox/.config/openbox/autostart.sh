@@ -1,5 +1,5 @@
 #!/bin/sh
-pulseaudio &
+pulseaudio -D &
 numlockx on &
 obsetlayout 0 3 2 0 &
 nitrogen --restore &

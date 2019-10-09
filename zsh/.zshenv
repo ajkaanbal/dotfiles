@@ -11,7 +11,7 @@ export TERM=xterm-256color
 export WORKON_HOME=~/.pyenvs
 
 #java vars
-export JAVA_HOME=/etc/alternatives/java_sdk
+export JAVA_HOME=/usr/lib/jvm/default
 
 export EDITOR=nvim
 

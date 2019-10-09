@@ -369,7 +369,7 @@
 
   <keybind key="W-t">
     <action name="Execute">
-      <command>urxvt256c-mlc</command>
+      <command>urxvtc</command>
     </action>
   </keybind>
   <keybind key="C-A-g">
@@ -399,7 +399,7 @@
   </keybind>
   <keybind key="A-F2">
     <action name="Execute">
-      <command>dmenu_run</command>
+      <command>dmenu_run -fn 'SauceCodePro Nerd Font Mono-9'</command>
     </action>
   </keybind>
   <keybind key="Print">

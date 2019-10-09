@@ -15,7 +15,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile', 'for': ['js','python','scala']}
+Plug 'neoclide/coc.nvim', {'do': {-> coc#util#install()}, 'for': ['js','python','scala']}
 " Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile', 'for': ['python']}
 Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile', 'for': ['python', 'scala', 'javascript']}
@@ -257,7 +257,7 @@ call plug#end()
   \ 'ctrl-v': 'vsplit' }
   let g:fzf_layout = { 'down': '~20%' }
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-  nnoremap <leader>f :<C-u>FZF<CR>
+  nnoremap <leader>f :<C-u>FZF --reverse<CR>
   au TermOpen * tnoremap <Esc> <c-\><c-n>
   au FileType fzf tunmap <Esc>
   " }}}
@@ -373,11 +373,11 @@ call plug#end()
   " }}}
 
   " gitgutter {{{
-    nmap [h <Plug>GitGutterPrevHunk
-    nmap ]h <Plug>GitGutterNextHunk
-    nmap ghs <Plug>GitGutterStageHunk
-    nmap ghu <Plug>GitGutterUndoHunk
-    nmap ghp <Plug>GitGutterPreviewHunk
+    nmap [h <Plug>(GitGutterPrevHunk)
+    nmap ]h <Plug>(GitGutterNextHunk)
+    nmap ghs <Plug>(GitGutterStageHunk)
+    nmap ghu <Plug>(GitGutterUndoHunk)
+    nmap ghp <Plug>(GitGutterPreviewHunk)
 
     let g:gitgutter_sign_added = '✜'
     let g:gitgutter_sign_modified = '✎'

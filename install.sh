@@ -50,6 +50,8 @@ sudo pacman -S \
  fd \
  nodejs \
  npm \
+ jre8-openjdk \
+ jdk8-openjdk
 
 yay -S \
    nerd-fonts-source-code-pro \
