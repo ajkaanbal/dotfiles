@@ -85,6 +85,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 " Plug 'zxqfl/tabnine-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
@@ -226,7 +227,7 @@ call plug#end()
     autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
     autocmd FileType html,css,json,xml,htmldjango setlocal foldmethod=indent tabstop=2 shiftwidth=2 sts=2
     autocmd FileType scala setlocal colorcolumn=80,100,120
-    autocmd FileType json setlocal equalprg=json_reformat
+    autocmd FileType json setlocal equalprg=jq
     autocmd FileType yaml setlocal syntax=off
   augroup END
 " }}}
@@ -257,7 +258,11 @@ call plug#end()
   \ 'ctrl-v': 'vsplit' }
   let g:fzf_layout = { 'down': '~20%' }
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  command! -bang Buffers call fzf#run(fzf#wrap('buffers',
+    \ {'source': map(range(1, bufnr('$')), 'bufname(v:val)'), 'options': '--reverse'}, <bang>0))
   nnoremap <leader>f :<C-u>FZF --reverse<CR>
+  nnoremap <leader>b :<C-u>Buffers<CR>
+  nnoremap <leader>* :<C-u>Ag <C-R><C-W><CR>
   au TermOpen * tnoremap <Esc> <c-\><c-n>
   au FileType fzf tunmap <Esc>
   " }}}

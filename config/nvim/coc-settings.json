@@ -1,5 +1,5 @@
 {
-  "python.jediEnabled": false,
+  "python.jediEnabled": true,
   "python.formatting.provider": "black",
   "coc.preferences.formatOnSaveFiletypes": ["scala", "python"],
   "suggest.noselect": false,
