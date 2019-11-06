@@ -13,20 +13,10 @@ Plug 'tpope/vim-eunuch'
 Plug 'ajkaanbal/autoswap.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-" Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'neoclide/coc.nvim', {'do': {-> coc#util#install()}, 'for': ['js','python','scala', 'vim']}
-Plug 'neoclide/coc-snippets', {'do': {-> coc#util#install()}, 'for': ['js','python','scala', 'vim']}
-" Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile', 'for': ['python']}
-Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile', 'for': ['python', 'scala', 'javascript', 'vim']}
-" Plug 'zchee/deoplete-jedi'
-" Plug 'davidhalter/jedi-vim'
+" managing Coc with PLug doesn't work but g:coc_global_extensions should be enough
+let g:coc_global_extensions = ['coc-python', 'coc-tabnine', 'coc-snippets']
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'jszakmeister/vim-togglecursor'
-" Plug 'Shougo/unite.vim' | Plug 'Shougo/vimfiler.vim'
-"67475c7
-" Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins', 'commit': '67475c7'}
 Plug 'w0ng/vim-hybrid'
 " Plug 'othree/yajs.vim', { 'for' : 'javascript' }
 Plug 'posva/vim-vue'
@@ -45,7 +35,7 @@ Plug 'artnez/vim-wipeout', {'on': 'Wipeout'}
 Plug 'tpope/vim-commentary'
 Plug 'cohama/lexima.vim'
 Plug 'majutsushi/tagbar'
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips' CocCommand snippets.editSnippets
 Plug 'honza/vim-snippets',
 Plug 'bps/vim-textobj-python'
 Plug 'hynek/vim-python-pep8-indent'
