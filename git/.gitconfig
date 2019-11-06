@@ -20,3 +20,5 @@
     whitespace = red reverse
 [mergetool]
     keebBackup = false
+[alias]
+	cof = !git for-each-ref --format='%(refname:short)' refs/ | fzf | xargs git checkout

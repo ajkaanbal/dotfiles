@@ -15,10 +15,11 @@ Plug 'wakatime/vim-wakatime'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'neoclide/coc.nvim', {'do': {-> coc#util#install()}, 'for': ['js','python','scala']}
+Plug 'neoclide/coc.nvim', {'do': {-> coc#util#install()}, 'for': ['js','python','scala', 'vim']}
+Plug 'neoclide/coc-snippets', {'do': {-> coc#util#install()}, 'for': ['js','python','scala', 'vim']}
 " Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile', 'for': ['python']}
-Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile', 'for': ['python', 'scala', 'javascript']}
+Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile', 'for': ['python', 'scala', 'javascript', 'vim']}
 " Plug 'zchee/deoplete-jedi'
 " Plug 'davidhalter/jedi-vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -71,12 +72,11 @@ Plug 'tpope/vim-rsi'
 Plug 'mattn/emmet-vim/', {'for': ['html', 'javascript.jsx']}
 Plug 'neo4j-contrib/cypher-vim-syntax'
 " Plug 'scrooloose/syntastic'
-Plug 'lepture/vim-jinja'
 Plug 'vim-scripts/SQLUtilities' | Plug 'vim-scripts/Align'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'tommcdo/vim-lion'
 Plug 'djoshea/vim-autoread'
-Plug 'othree/xml.vim'
+Plug 'othree/xml.vim', {'for': ['xml', 'html']}
 Plug 'jparise/vim-graphql'
 " Plug 'natebosch/vim-lsc'
 Plug 'elixir-editors/vim-elixir'
@@ -206,7 +206,7 @@ call plug#end()
 " }}}
 
 " Mappings {{{
-  let g:python3_host_prog = expand('$HOME/.pyenv/versions/3.7.3/bin/python')
+  " let g:python3_host_prog = expand('$HOME/.pyenv/versions/3.7.3/bin/python')
   nnoremap <silent> d<space> :StripWhitespace<esc>
   nnoremap <silent>Q :<c-u>Bdelete<CR>
 
@@ -226,7 +226,7 @@ call plug#end()
     autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
     autocmd FileType html,css,json,xml,htmldjango setlocal foldmethod=indent tabstop=2 shiftwidth=2 sts=2
     autocmd FileType scala setlocal colorcolumn=80,100,120
-    autocmd FileType json setlocal equalprg=json_reformat
+    autocmd FileType json setlocal equalprg=jq
     autocmd FileType yaml setlocal syntax=off
   augroup END
 " }}}
@@ -257,9 +257,14 @@ call plug#end()
   \ 'ctrl-v': 'vsplit' }
   let g:fzf_layout = { 'down': '~20%' }
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  command! -bang Buffers call fzf#run(fzf#wrap('buffers',
+    \ {'source': map(range(1, bufnr('$')), 'bufname(v:val)'), 'options': '--reverse'}, <bang>0))
   nnoremap <leader>f :<C-u>FZF --reverse<CR>
+  nnoremap <leader>b :<C-u>Buffers<CR>
+  nnoremap <leader>* :<C-u>Ag <C-R><C-W><CR>
   au TermOpen * tnoremap <Esc> <c-\><c-n>
   au FileType fzf tunmap <Esc>
+
   " }}}
 
   " Denite {{{
@@ -454,6 +459,7 @@ call plug#end()
           \ <SID>check_back_space() ? "\<TAB>" :
           \ coc#refresh()
     inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
     function! s:check_back_space() abort
       let col = col('.') - 1
       return !col || getline('.')[col - 1]  =~# '\s'
