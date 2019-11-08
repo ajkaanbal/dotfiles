@@ -177,7 +177,7 @@ call plug#end()
   hi link SpecialKey NonText
   hi MatchParen cterm=bold ctermfg=255 ctermbg=27
   hi ColorColumn ctermbg=235 ctermfg=white guibg=#592929
-  hi OverLength ctermbg=246 ctermfg=white guibg=#592929
+  " hi OverLength ctermbg=246 ctermfg=white guibg=#592929
   match OverLength /\%81v.\+/
   augroup VIMRC
     autocmd!
@@ -227,7 +227,7 @@ call plug#end()
     autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
     autocmd FileType html,css,json,xml,htmldjango setlocal foldmethod=indent tabstop=2 shiftwidth=2 sts=2
     autocmd FileType scala setlocal colorcolumn=80,100,120
-    autocmd FileType json setlocal equalprg=jq
+    autocmd FileType json setlocal equalprg=json_reformat
     autocmd FileType yaml setlocal syntax=off
   augroup END
 " }}}
