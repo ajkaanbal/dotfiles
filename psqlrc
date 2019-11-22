@@ -1,7 +1,7 @@
 \set QUIET 1
 
 -- formatting
-\x auto
+\x off
 -- replace nulls
 \pset null ¤
 \pset border 2

@@ -228,6 +228,7 @@ call plug#end()
     autocmd FileType html,css,json,xml,htmldjango setlocal foldmethod=indent tabstop=2 shiftwidth=2 sts=2
     autocmd FileType scala setlocal colorcolumn=80,100,120
     autocmd FileType json setlocal equalprg=json_reformat
+    autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
     autocmd FileType yaml setlocal syntax=off
   augroup END
 " }}}
