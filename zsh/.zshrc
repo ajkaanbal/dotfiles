@@ -39,6 +39,7 @@ alias pwdc='pwd | tr -d "\n" | xsel -b'
 alias tm='tmux attach'
 alias vim='vim -u NONE'
 alias ls='exa'
+alias v='nvim'
 
 setopt BANG_HIST # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY # Write the history file in the ":start:elapsed;command" format.

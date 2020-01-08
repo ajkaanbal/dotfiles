@@ -12,7 +12,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
 Plug 'ajkaanbal/autoswap.vim'
 Plug 'wakatime/vim-wakatime'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'neoclide/coc.nvim', {'do': {-> coc#util#install()}, 'for': ['js','python','scala', 'vim']}
 " managing Coc with PLug doesn't work but g:coc_global_extensions should be enough
 let g:coc_global_extensions = ['coc-python', 'coc-tabnine', 'coc-snippets']
@@ -166,8 +166,6 @@ call plug#end()
   hi link SpecialKey NonText
   hi MatchParen cterm=bold ctermfg=255 ctermbg=27
   hi ColorColumn ctermbg=235 ctermfg=white guibg=#592929
-  hi OverLength ctermbg=246 ctermfg=white guibg=#592929
-  match OverLength /\%81v.\+/
   augroup VIMRC
     autocmd!
     autocmd WinLeave,InsertEnter * set nocursorline
@@ -246,7 +244,7 @@ call plug#end()
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
   let g:fzf_layout = { 'down': '~20%' }
-  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  let $FZF_DEFAULT_COMMAND='fd --type f'
   command! -bang Buffers call fzf#run(fzf#wrap('buffers',
     \ {'source': map(range(1, bufnr('$')), 'bufname(v:val)'), 'options': '--reverse'}, <bang>0))
   nnoremap <leader>f :<C-u>FZF --reverse<CR>
@@ -620,6 +618,14 @@ call plug#end()
     nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
     " Resume latest coc list
     nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+    " Metals specific commands
+    " Start Metals Doctor
+    command! -nargs=0 MetalsDoctor :call CocRequestAsync('metals', 'workspace/executeCommand', { 'command': 'doctor-run' })
+    " Manually start build import
+    command! -nargs=0 MetalsImport :call CocRequestAsync('metals', 'workspace/executeCommand', { 'command': 'build-import' })
+    " Manually connect with the build server
+    command! -nargs=0 MetalsConnect :call CocRequestAsync('metals', 'workspace/executeCommand', { 'command': 'build-connect' })
+
   "}}}
 
   " {{{

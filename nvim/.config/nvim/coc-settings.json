@@ -1,15 +1,16 @@
 {
   "python.jediEnabled": true,
   "python.formatting.provider": "black",
-  "coc.preferences.formatOnSaveFiletypes": ["scala", "python"],
+  "coc.preferences.formatOnSaveFiletypes": ["python"],
   "suggest.noselect": false,
   "suggest.enablePreview": true,
+  "metals.serverVersion": "0.7.6+639-c2c6ada8-SNAPSHOT",
+  "metals.serverProperties": [
+    "-Dmetals.verbose=on",
+    "-Dmetals.pc.debug=on"
+  ],
+  "coc.preferences.workspace.applyEdit": true,
   "languageserver": {
-    "metals": {
-      "command": "metals-vim",
-      "rootPatterns": ["build.sbt"],
-      "filetypes": [ "scala", "sbt" ]
-    },
     "golang": {
       "command": "gopls",
        "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
