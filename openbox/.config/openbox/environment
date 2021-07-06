@@ -1,0 +1,3 @@
+# Required for some QT apps
+# See https://wiki.archlinux.org/index.php/Qt#Configuration_of_Qt5_apps_under_environments_other_than_KDE_Plasma
+export QT_QPA_PLATFORMTHEME="qt5ct"

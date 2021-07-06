@@ -8,7 +8,7 @@ zplug "plugins/gitfas", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/ssh-agent", from:oh-my-zsh
 zplug "plugins/nvm", from:oh-my-zsh
-zplug "plugins/z", from:oh-my-zsh
+# zplug "plugins/z", from:oh-my-zsh
 zplug "plugins/safe-paste", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
 zplug "plugins/gitignore", from:oh-my-zsh
@@ -39,7 +39,10 @@ alias pwdc='pwd | tr -d "\n" | xsel -b'
 alias tm='tmux attach'
 alias vim='vim -u NONE'
 alias ls='exa'
+alias lsa="exa -abghHliS"
+alias tree="exa --tree"
 alias v='nvim'
+alias week='date +%V'
 
 setopt BANG_HIST # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY # Write the history file in the ":start:elapsed;command" format.
@@ -81,4 +84,15 @@ fi
 # enable direnv
 eval "$(direnv hook zsh)"
 
+# enable z jum
+eval "$(zoxide init zsh)"
+
+# printf '\033[5 q\r'
+echo -ne '\e[5 q'  # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C $HOME/.local/bin/mc mc
+
+complete -o nospace -C /usr/bin/mcli mcli

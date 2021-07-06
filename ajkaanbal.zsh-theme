@@ -20,6 +20,9 @@ function box_name {
     [ -f ~/.box-name ] && cat ~/.box-name || hostname -s
 }
 
+function dvtm_prompt {
+    [[ -z "${DVTM}" ]] && echo '' || echo "‹dvtm-${DVTM[0,5]}› "
+}
 
 local rvm_ruby=''
 if which rvm-prompt &> /dev/null; then
@@ -45,7 +48,7 @@ if [ "$TERM" = "linux" ]; then
     c2=$( printf "\e[35m")
 fi
 
-PROMPT="╭─%{$FG[040]%}%n%{$reset_color%}${venv_info} %{$FG[239]%}at%{$reset_color%} %{$FG[033]%}$(box_name)%{$reset_color%} %{$FG[239]%}in%{$reset_color%} %{$terminfo[bold]$fg_bold[blue]%}${current_dir}%{$reset_color%}${git_info} %{$FG[239]%}using%{$FG[243]%} ${rvm_ruby} ${nvm_node} ${kube_info}
+PROMPT="╭─%{$FG[040]%}%n%{$reset_color%}${venv_info} %{$FG[239]%}at%{$reset_color%} %{$FG[033]%}$(box_name)%{$reset_color%} %{$FG[239]%}in%{$reset_color%} %{$terminfo[bold]$fg_bold[blue]%}${current_dir}%{$reset_color%}${git_info} %{$FG[239]%}using%{$FG[243]%} ${rvm_ruby} $(dvtm_prompt) ${nvm_node} ${kube_info}
 ╰─%{$c2%}$(prompt_char) "
 
 

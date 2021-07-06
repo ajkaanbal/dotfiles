@@ -52,6 +52,11 @@ Use =evil=.
 
 #+BEGIN_SRC emacs-lisp
   (use-package evil
+    :init
+    (setq evil-want-integration t)
+    (setq evil-want-keybinding nil)
+    (setq evil-want-C-u-scroll t)
+    (setq evil-want-C-i-jump nil)
     :config
     (evil-mode 1))
 #+END_SRC
@@ -134,6 +139,66 @@ frame is themed appropriately.
     (ajk/apply-theme))
 #+END_SRC
 
+** Fonts and Bullets
+
+Use bullet characters instead of asterisks, plus set the header font sizes to something more palatable.  A fair amount of inspiration has been taken from [[https://zzamboni.org/post/beautifying-org-mode-in-emacs/][this blog post]].
+
+#+begin_src emacs-lisp
+
+(use-package org-superstar
+  :after org
+  :hook (org-mode . org-superstar-mode)
+  :custom
+  (org-superstar-remove-leading-stars t)
+  (org-superstar-headline-bullets-list '("◉" "○" "●" "○" "●" "○" "●")))
+
+;; Replace list hyphen with dot
+;; (font-lock-add-keywords 'org-mode
+;;                         '(("^ *\\([-]\\) "
+;;                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
+(dolist (face '((org-level-1 . 1.2)
+                (org-level-2 . 1.1)
+                (org-level-3 . 1.05)
+                (org-level-4 . 1.0)
+                (org-level-5 . 1.1)
+                (org-level-6 . 1.1)
+                (org-level-7 . 1.1)
+                (org-level-8 . 1.1)))
+    (set-face-attribute (car face) nil :font "JuliaMono" :weight 'regular :height (cdr face)))
+
+;; Make sure org-indent face is available
+(require 'org-indent)
+
+;; Ensure that anything that should be fixed-pitch in Org files appears that way
+(set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+(set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
+(set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+(set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+(set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+
+;; TODO: Others to consider
+;; '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+;; '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+;; '(org-property-value ((t (:inherit fixed-pitch))) t)
+;; '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+;; '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
+;; '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
+;; '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
+
+#+end_src
+
+*Guix Packages*
+
+#+begin_src scheme :noweb-ref packages :noweb-sep ""
+
+"emacs-org-bullets"
+"emacs-org-superstar"
+
+#+end_src
+
 ** Disable visual bell
 
 =sensible-defaults= replaces the audible bell with a visual one, but I really
@@ -157,8 +222,8 @@ Note that this overrides the default font-related keybindings from
 =sensible-defaults=.
 
 #+BEGIN_SRC emacs-lisp
-  (setq hrs/default-font "Source Code Pro")
-  (setq hrs/default-font-size 9)
+  (setq hrs/default-font "JuliaMono")
+  (setq hrs/default-font-size 8)
   (setq hrs/current-font-size hrs/default-font-size)
 
   (setq hrs/font-change-increment 1.1)
@@ -340,3 +405,21 @@ Hit =M-n= to quickly open up a capture template for a new todo.
   (add-hook 'haskell-mode-hook
             (lambda () (local-set-key (kbd "M-n") 'org-capture-todo)))
 #+END_SRC
+
+ESC cancels ALL
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+#+END_SRC
+
+Rebind C-u
+
+** Rebind C-u
+
+Since I let =evil-mode= take over =C-u= for buffer scrolling, I need to re-bind the =universal-argument= command to another key sequence.  I'm choosing =C-M-u= for this purpose.
+
+#+begin_src emacs-lisp
+
+(global-set-key (kbd "C-M-u") 'universal-argument)
+
+#+end_src

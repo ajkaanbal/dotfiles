@@ -2,4 +2,5 @@ layout_activate() {
     if [ -n "$(which pyenv)" ]; then
         source $(pyenv root)/versions/$1/bin/activate
     fi
+    unset PS1
 }

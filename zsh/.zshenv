@@ -35,7 +35,8 @@ export PATH=$PATH:$SPARK/bin
 export VAULT_ADDR='http://127.0.0.1:8200'
 
 #Color man pages
-export PAGER="/usr/bin/most -s"
+# export PAGER="/usr/bin/most -s"
+export PAGER=less
 
 #RUST
 export RUSTBIN=$HOME/.cargo/bin
@@ -71,3 +72,8 @@ export PATH=$DART_SDK:$HOME/.pub-cache/bin:$PATH
 #snap
 export SNAP=/var/lib/snapd/snap/bin
 export PATH=$PATH:$SNAP
+if [ -e /home/ajkaanbal/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ajkaanbal/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+#COURSIER
+
+export PATH="$PATH:$HOME/.local/share/coursier/bin"

@@ -1,6 +1,6 @@
 !to know with xdyinfo | grep dotsG
 Xft.dpi: 96
-Xft.autohint: 0
+Xft.autohint: 1
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
 Xft.hinting: 1
@@ -10,7 +10,9 @@ Xft.rgba: none
 URxvt.scrollBar: off
 ! Fonts
 
-#define fonts xft:Sauce Code Pro Nerd Font:pixelsize=12,\
+#define fonts   xft:Sauce Code Pro Nerd Font:pixelsize=12,\
+                xft:Fira Code Medium:pixelsize=12,\
+                xft:Droid Sans Mono for Powerline:pixelsize=12,\
                 xft:DejaVuSansMono Nerd Font Mono:pixelsize=12,\
                 xft:terminus:pixelsize:9,\
                 xft:bitstream vera sans mono:pixelsize=9
@@ -27,7 +29,7 @@ URxvt*loginShell: true
 URxvt.intensityStyles: false
 URxvt.cursorBlink: true
 !Copy to clipboard using Ctrl-Shift-c
-URxvt.perl-ext-common:  default,clipboard,keyboard-select,fullscreen,url-select,font-size,tabbedex
+URxvt.perl-ext-common:  default,clipboard,keyboard-select,fullscreen,url-select,font-size,tabbedex,ibeamcursor
 URxvt.iso14755 : false
 URxvt.clipboard.autocopy: true
 URxvt.keysym.C-C: perl:clipboard:copy

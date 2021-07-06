@@ -1,5 +1,5 @@
 #!/bin/sh
-pulseaudio -D &
+# sleep 5 && pulseaudio -D &
 numlockx on &
 obsetlayout 0 3 2 0 &
 nitrogen --restore &
@@ -16,5 +16,7 @@ setxkbmap us,ru -option -option "grp:rctrl_rshift_toggle" -option caps:escape -o
 # setxkbmap -option lv3:ralt_switch
 rescuetime &
 # conky -d
-xrandr --output HDMI-1 --mode 1920x1080 --right-of eDP-1
+# xrandr --output HDMI-1 --mode 1920x1080 --right-of eDP-1
+xrandr --output DP1 --primary --auto --left-of HDMI1
 #compton -b -d :0
+picom -b

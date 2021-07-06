@@ -1,4 +1,5 @@
 [core]
+    pager = delta
 	excludesfile = ~/dotfiles/git/.gitignore
 [user]
 	email = ajkaanbal@gmail.com
@@ -24,3 +25,15 @@
 	cof = !git for-each-ref --format='%(refname:short)' refs/ | fzf | xargs git checkout
 [protocol "keybase"]
 	allow = always
+[init]
+	templateDir = /home/ajkaanbal/.config/git/template
+
+[delta]
+    plus-color = "#012800"
+    minus-color = "#340001"
+    syntax-theme = Monokai Extended
+
+[interactive]
+    diffFilter = delta --color-only
+[pull]
+	rebase = false

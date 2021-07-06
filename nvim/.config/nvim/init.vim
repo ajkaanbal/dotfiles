@@ -13,9 +13,9 @@ Plug 'tpope/vim-eunuch'
 Plug 'ajkaanbal/autoswap.vim'
 Plug 'wakatime/vim-wakatime'
 " Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'neoclide/coc.nvim', {'do': {-> coc#util#install()}, 'for': ['js','python','scala', 'vim']}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " managing Coc with PLug doesn't work but g:coc_global_extensions should be enough
-let g:coc_global_extensions = ['coc-python', 'coc-tabnine', 'coc-snippets']
+let g:coc_global_extensions = ['coc-snippets', 'coc-yaml']
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'w0ng/vim-hybrid'
 " Plug 'othree/yajs.vim', { 'for' : 'javascript' }
@@ -23,7 +23,8 @@ Plug 'posva/vim-vue'
 " Plug 'w0rp/ale'
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
+" Plug 'xolox/vim-session'
+Plug 'tpope/vim-obsession'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'moll/vim-bbye'
@@ -44,7 +45,7 @@ Plug 'michaeljsmith/vim-indent-object'
 " Plug 'avakhov/vim-yaml'
 " Plug 'ensime/ensime-vim'
 Plug 'christoomey/vim-tmux-runner'
-Plug 'tmux-plugins/vim-tmux-focus-events'
+" Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-entire' | Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-repeat'
@@ -55,7 +56,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'justinmk/vim-sneak'
 Plug 'elzr/vim-json', {'for': 'json'}
 " Plug 'jiangmiao/simple-javascript-indenter', {'for': 'javascript'}
-Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'alvan/vim-closetag'
 Plug 'wincent/terminus'
 Plug 'tpope/vim-rsi'
@@ -75,6 +77,22 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 " Plug 'zxqfl/tabnine-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'vmchale/dhall-vim'
+Plug 'vito-c/jq.vim' ", {'for': 'jq'}
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'aklt/plantuml-syntax'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
+Plug 'dag/vim-fish'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'towolf/vim-helm'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
@@ -105,11 +123,29 @@ call plug#end()
   set autoindent
   set hidden
 " end-edit}}}
+"
+
+" LUA{{{
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "brainfuck" },  -- list of language that will be disabled
+  },
+}
+EOF
+
+" }}}
 
 " KeyMappings: "{{{
 
   " Useful save mappings.
+
+  " autocmd BufRead,BufReadPre,BufNewFile * :nnoremap <silent> <CR> :<C-u>w<CR>
   nnoremap <silent> <CR> :<C-u>w<CR>
+
+
   augroup autosave
     autocmd! CmdwinEnter *  nunmap <CR>
     autocmd! CmdwinLeave *  nnoremap <silent> <CR> :<C-u>w<CR>
@@ -135,6 +171,26 @@ call plug#end()
   " Clear last searching highlight
   nnoremap <silent><space><space> :<c-u>let @/ = ""<return><esc>
 
+  " Don't override register on paste.
+  ""These are to cancel the default behavior of d, D, c, C
+"  to put the text they delete in the default register.
+"  Note that this means e.g. "ad won't copy the text into
+"  register a anymore.  You have to explicitly yank it.
+  xnoremap p "_dP
+  xnoremap <silent> p p:let @+=@0<CR>
+
+  " nnoremap d "_d
+  " vnoremap d "_d
+  " nnoremap D "_D
+  " vnoremap D "_D
+  nnoremap c "_c
+  vnoremap c "_c
+  nnoremap C "_C
+  vnoremap C "_C
+
+  " preview substitutions
+  set inccommand=nosplit
+
 " end-keymapping}}}
 
 " View {{{
@@ -154,6 +210,7 @@ call plug#end()
   set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
     \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
     \,sm:block-blinkwait175-blinkoff150-blinkon175
+  set lazyredraw
 
 
   hi ExtraWhitespace ctermbg=9
@@ -182,6 +239,7 @@ call plug#end()
     autocmd!
     autocmd WinEnter,InsertLeave * silent exec "!xkb-switch -s us"
   augroup END
+  set clipboard+=unnamedplus
 
 
 " end-view}}}
@@ -211,11 +269,13 @@ call plug#end()
     autocmd FileType,BufRead,BufNewFile *.vue setlocal tabstop=2 shiftwidth=2
     autocmd FileType,BufRead,BufNewFile *.go setlocal autoindent noexpandtab tabstop=4 shiftwidth=4
     autocmd BufRead,BufNewFile *.rml set ft=xml
+    autocmd BufRead,BufNewFile *.msg set ft=json
     autocmd FileType vim setlocal foldmethod=marker tabstop=2 shiftwidth=2
-    autocmd FileType html,css,json,xml,htmldjango setlocal foldmethod=indent tabstop=2 shiftwidth=2 sts=2
+    autocmd FileType html,css,json,xml,htmldjango,js,javascript.jsx setlocal foldmethod=indent tabstop=2 shiftwidth=2 sts=2
     autocmd FileType scala setlocal colorcolumn=80,100,120
     autocmd FileType json setlocal equalprg=jq
-    autocmd FileType yaml setlocal syntax=off
+    autocmd FileType yaml setlocal foldmethod=indent foldlevel=0 tabstop=2 shiftwidth=2 sts=2
+    autocmd FileType dhall setlocal foldlevel=0 tabstop=2 shiftwidth=2 sts=2
   augroup END
 " }}}
 
@@ -239,6 +299,11 @@ call plug#end()
   " }}}
 
   " FZF{{{
+  "
+  command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --word-regexp --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
   let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
@@ -249,116 +314,51 @@ call plug#end()
     \ {'source': map(range(1, bufnr('$')), 'bufname(v:val)'), 'options': '--reverse'}, <bang>0))
   nnoremap <leader>f :<C-u>FZF --reverse<CR>
   nnoremap <leader>b :<C-u>Buffers<CR>
-  nnoremap <leader>* :<C-u>Ag <C-R><C-W><CR>
+  nnoremap <leader>* :<C-u>Rg <C-R><C-W><CR>
   au TermOpen * tnoremap <Esc> <c-\><c-n>
   au FileType fzf tunmap <Esc>
+  let g:fzf_preview_window = []
 
   " }}}
-
-  " Denite {{{
-    " call denite#custom#var('file/rec', 'command',['rg', '--threads', '4', '--files', '--glob', '!.git'])
-    " " Ag command on grep source
-    " " Ripgrep command on grep source
-    " call denite#custom#var('grep', 'command', ['rg'])
-    " call denite#custom#var('grep', 'default_opts',
-    "     \ ['--vimgrep', '--no-heading'])
-    " call denite#custom#var('grep', 'recursive_opts', [])
-    " call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-    " call denite#custom#var('grep', 'separator', ['--'])
-    " call denite#custom#var('grep', 'final_opts', [])
-    " call denite#custom#option('default', 'prompt', '» ')
-    " " call denite#custom#option('_', {
-    " "         \ 'start_filter': v:true
-    " "         \ })
-    " call denite#custom#map(
-    "     \ 'insert',
-    "     \ '<C-n>',
-    "     \ '<denite:move_to_next_line>',
-    "     \ 'noremap'
-    "     \)
-    " call denite#custom#map(
-    "     \ 'insert',
-    "     \ '<C-p>',
-    "     \ '<denite:move_to_previous_line>',
-    "     \ 'noremap'
-    "     \)
-    " nnoremap <leader>f :<C-u>Denite file/rec<CR>
-    " nnoremap <leader>b :<C-u>Denite buffer<CR>
-    " nnoremap <leader>g :Denite grep:::!<CR>
-    " nnoremap <leader>* :DeniteCursorWord grep:.<CR>
-    " call denite#custom#option('_', 'highlight_mode_insert', 'PmenuSel')
-    " call denite#custom#option('_', 'highlight_mode_normal', 'PmenuSel')
-    " call denite#custom#option('_', 'highlight_matched_char', 'Question')
-    " call denite#custom#map(
-    "       \ 'insert',
-    "       \ '<C-v>',
-    "       \ '<denite:do_action:vsplit>',
-    "       \ 'noremap'
-    "       \)
-
-    " autocmd! FileType denite call s:denite_my_settings()
-
-    " function! s:denite_my_settings() abort
-    "   " autocmd! InsertEnter * hi CursorLine ctermbg=235 guibg=#282a2e
-    "   " autocmd! InsertLeave denite hi CursorLine ctermbg=24 ctermfg=255
-    "   nnoremap <silent><buffer><expr> <CR>
-    "   \ denite#do_map('do_action')
-    "   nnoremap <silent><buffer><expr> d
-    "   \ denite#do_map('do_action', 'delete')
-    "   nnoremap <silent><buffer><expr> p
-    "   \ denite#do_map('do_action', 'preview')
-    "   nnoremap <silent><buffer><expr> <C-v>
-    "   \ denite#do_map('do_action', 'vsplit')
-    "   nnoremap <silent><buffer><expr> q
-    "   \ denite#do_map('quit')
-    "   nnoremap <silent><buffer><expr> i
-    "   \ denite#do_map('open_filter_buffer')
-    "   nnoremap <silent><buffer><expr> <Space>
-    "   \ denite#do_map('toggle_select').'j'
-    " endfunction
-  " " }}}
-
-  " Unite {{{
-    " let g:unite_source_history_yank_enable = 1
-    " let g:unite_enable_split_vertically = 0
-    " let g:unite_winheight = 12
-    " let g:unite_enable_short_source_names = 1
-    " let g:unite_source_file_mru_filename_format = ':~:.'
-    " let g:unite_source_file_mru_limit = 300
-    " let g:unite_source_directory_mru_limit = 300
-    " let g:unite_split_rule = 'botright'
-    " let g:unite_marked_icon = '✗'
-    " let g:unite_prompt = '» '
-    " let g:unite_enable_start_insert = 1
-    " nnoremap <leader>p :<C-u>Unite file_rec/async -prompt-direction=top<cr>
-    " nnoremap <leader>b :<C-u>Unite buffer -prompt-direction=top<cr>
-    " nnoremap <leader>t :<C-u>Unite tab -prompt-direction=top<cr>
-    " nnoremap <leader>r :<C-u>Unite file_mru -prompt-direction=top<CR>
-    " nnoremap <leader>m :<C-u>Unite mark -prompt-direction=top<CR>
-    " nnoremap <leader>k :<C-u>Unite bookmark -prompt-direction=top<CR>
-    " nnoremap <leader>j :<C-u>Unite jump -prompt-direction=top<CR>
-    " nnoremap <leader>c :<C-u>Unite change -prompt-direction=top<CR>
-    " nnoremap <leader>o :<C-u>Unite outline -prompt-direction=top<CR>
-    " nnoremap <leader>/ :<C-u>Unite grep:. -prompt-direction=top<CR>
-    " nnoremap <leader>a :<C-u>Unite buffer file_mru bookmark -prompt-direction=top<CR>
-    " nnoremap <leader>* :<C-u>UniteWithCursorWord grep:. -prompt-direction=top<cr>
-    " autocmd VIMRC filetype unite call s:unite_my_settings()
-    " function! s:unite_my_settings()
-    "     let @/ = ""
-    "     execute 'silent DisableWhitespace'
-    "     nmap <buffer> <ESC>      <Plug>(unite_exit)
-    " endfunction
 
   " lightline {{{
 
     let g:lightline = {
       \ 'colorscheme': 'ajk',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ },
       \ }
+
+    " Use autocmd to force lightline update.
+    autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
 
   " }}}
 
+  hi Substitute ctermbg=3 ctermfg=0
   " buftabline {{{
-    let g:buftabline_numbers=1
+    let g:buftabline_numbers=2 " use ordinal numbers not internal vim buffer number
+    nmap <leader>1 <Plug>BufTabLine.Go(1)
+    nmap <leader>2 <Plug>BufTabLine.Go(2)
+    nmap <leader>3 <Plug>BufTabLine.Go(3)
+    nmap <leader>4 <Plug>BufTabLine.Go(4)
+    nmap <leader>5 <Plug>BufTabLine.Go(5)
+    nmap <leader>6 <Plug>BufTabLine.Go(6)
+    nmap <leader>7 <Plug>BufTabLine.Go(7)
+    nmap <leader>8 <Plug>BufTabLine.Go(8)
+    nmap <leader>9 <Plug>BufTabLine.Go(9)
+    nmap <leader>0 <Plug>BufTabLine.Go(-1)
+    function! BuftablineGo(agg)
+        let s:b = a:agg - 1
+        execute printf("exe 'b'.get(buftabline#user_buffers(),%d,'')", s:b)
+    endfunction
+    command! -nargs=1 B call BuftablineGo(<args>)
+    " command! -nargs=1 Go exe printf("'b'.get(buftabline#user_buffers(),%d,'')<cr>", 2)
     hi BufTabLineFill ctermbg=235 ctermfg=white
     hi BufTabLineHidden ctermbg=235 ctermfg=243
     hi link BufTabLineCurrent TabLineSel
@@ -425,6 +425,10 @@ call plug#end()
     " let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
   "}}}
 
+  "{{{ vim-commentary
+  autocmd FileType sql setlocal commentstring=--\ %s
+  "}}}
+
   " Deoplete {{{
     let g:deoplete#enable_at_startup = 1
     " let g:deoplete#omni_patterns = {}
@@ -441,6 +445,10 @@ call plug#end()
   " coc {{{
     " Use tab for trigger completion with characters ahead and navigate.
     " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+    "
+    let g:coc_node_path = '/usr/bin/node'
+    hi CocRustTypeHint ctermfg=237 ctermbg=none
+    hi CocRustChainingHint ctermfg=237 ctermbg=none
 
     inoremap <silent><expr> <TAB>
           \ pumvisible() ? "\<C-n>" :
@@ -527,29 +535,6 @@ call plug#end()
     let g:go_info_mode='gopls'
   " }}}
 
-  " LSP {{{
-
-    "autocmd FileType scala nnoremap <silent> gD :call LanguageClient_textDocument_definition()<CR>
-    "autocmd FileType scala nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-    ""autocmd FileType scala set completefunc=LanguageClient#complete
-    "autocmd FileType scala setlocal completefunc=LanguageClient#complete
-    "let g:LanguageClient_serverCommands = {
-    "    \ 'scala': ['~/.local/bin/metals-vim'],
-    "    \ }
-
-    " au BufRead,BufNewFile *.sbt set filetype=scala
-    " let g:lsc_enable_autocomplete = v:false
-    " let g:lsc_server_commands = {
-    "   \ 'scala': 'metals-vim'
-    "   \}
-
-    " let g:lsc_auto_map = {
-    "     \ 'GoToDefinition': 'gD',
-    "     \ 'DocumentSymbol': 'go',
-    "     \ 'WorkspaceSymbol': 'gs',
-    "     \}
-
-  " }}}
 
   "coc-vim{{{
     au BufRead,BufNewFile *.sbt set filetype=scala
@@ -583,8 +568,9 @@ call plug#end()
     nmap <silent> gi <Plug>(coc-implementation)
     nmap <silent> gr <Plug>(coc-references)
 
+    nnoremap <leader>c :<C-u> CocCommand<CR>
     " Remap for do codeAction of current line
-    nmap <leader>ac <Plug>(coc-codeaction)
+    nmap <leader>ca :<C-u>call CocActionAsync('codeAction', 'cursor')<CR>
 
     " Remap for do action format
     nnoremap <silent> F :call CocAction('format')<CR>
@@ -593,10 +579,12 @@ call plug#end()
     nnoremap <silent> K :call <SID>show_documentation()<CR>
 
     function! s:show_documentation()
-      if &filetype == 'vim'
+      if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
+      elseif (coc#rpc#ready())
+        call CocActionAsync('doHover')
       else
-        call CocAction('doHover')
+        execute '!' . &keywordprg . " " . expand('<cword>')
       endif
     endfunction
 
@@ -605,6 +593,14 @@ call plug#end()
 
     " Remap for rename current word
     nmap <leader>rn <Plug>(coc-rename)
+
+    augroup mygroup
+      autocmd!
+      " Setup formatexpr specified filetype(s).
+      autocmd FileType scala setl formatexpr=CocAction('formatSelected')
+      " Update signature help on jump placeholder
+      autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    augroup end
 
     " Show all diagnostics
     nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
@@ -618,15 +614,42 @@ call plug#end()
     nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
     " Resume latest coc list
     nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+    " Organize imports
+
+    " autocmd BufWrite *.scala :call CocActionAsync('organizeImport')
+    nnoremap <silent> <leader>oi  :<C-u>CocCommand editor.action.organizeImport<CR>
+
+
+
+    " Use `:Format` to format current buffer
+    command! -nargs=0 Format :call CocAction('format')
+
+    " Use `:Fold` to fold current buffer
+    command! -nargs=? Fold :call CocAction('fold', <f-args>)
+
+
     " Metals specific commands
-    " Start Metals Doctor
-    command! -nargs=0 MetalsDoctor :call CocRequestAsync('metals', 'workspace/executeCommand', { 'command': 'doctor-run' })
-    " Manually start build import
-    command! -nargs=0 MetalsImport :call CocRequestAsync('metals', 'workspace/executeCommand', { 'command': 'build-import' })
-    " Manually connect with the build server
-    command! -nargs=0 MetalsConnect :call CocRequestAsync('metals', 'workspace/executeCommand', { 'command': 'build-connect' })
+
+    " Toggle panel with Tree Views
+    nnoremap <silent> <space>t :<C-u>CocCommand metals.tvp<CR>
+    " Toggle Tree View 'metalsPackages'
+    nnoremap <silent> <space>tp :<C-u>CocCommand metals.tvp metalsPackages<CR>
+    " Toggle Tree View 'metalsCompile'
+    nnoremap <silent> <space>tc :<C-u>CocCommand metals.tvp metalsCompile<CR>
+    " Toggle Tree View 'metalsBuild'
+    nnoremap <silent> <space>tb :<C-u>CocCommand metals.tvp metalsBuild<CR>
+    " Reveal current current class (trait or object) in Tree View 'metalsPackages'
+    nnoremap <silent> <space>tf :<C-u>CocCommand metals.revealInTreeView metalsPackages<CR>
 
   "}}}
+
+
+  " dadbod {{{
+  " Default storage path: ~/.local/share/db_ui
+  autocmd FileType sql if exists('g:autoloaded_db') | :nnoremap <silent> <CR> :<C-u> echo 'Save on enter disabled'<CR>
+
+  " }}}
 
   " {{{
   autocmd FileType netrw setl bufhidden=wipe

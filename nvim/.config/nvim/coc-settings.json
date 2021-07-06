@@ -1,16 +1,52 @@
 {
+  "metals.serverVersion": "0.10.4",
+  "metals.excludedPackages": [
+    "akka.actor.typed.javadsl",
+    "com.github.swagger.akka.javadsl"
+  ],
+
+  "coc.preferences.formatOnType": true,
+  "codeLens.enable": true,
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "metals.statusBarEnabled": true,
+  "diagnostic.checkCurrentLine": true,
+  "metals.superMethodLensesEnabled": false,
+  "metals.showImplicitArguments": true,
+  "metals.showInferredType": true,
+  "metals.showImplicitConversionsAndClasses": true,
+  "metals.signature-help.documentation": true,
+  "metals.hover.documentation": true,
+  "list.nextKeymap": "<C-n>",
+  "list.previousKeymap":"<C-p>",
+  "yaml": {
+    "format": true,
+    "validate": true,
+    "schemas": {},
+    "schemaStore": {
+      "enable": false
+    }
+  },
+  "[yaml]": {
+    "insertSpaces": true,
+    "tabSize": 2
+  },
   "python.jediEnabled": true,
   "python.formatting.provider": "black",
-  "coc.preferences.formatOnSaveFiletypes": ["python"],
+  "coc.preferences.formatOnSaveFiletypes": ["python", "scala", "dhall", "rust"],
+  "coc.preferences.messageLevel":"debug",
   "suggest.noselect": false,
   "suggest.enablePreview": true,
-  "metals.serverVersion": "0.7.6+639-c2c6ada8-SNAPSHOT",
   "metals.serverProperties": [
     "-Dmetals.verbose=on",
     "-Dmetals.pc.debug=on"
   ],
   "coc.preferences.workspace.applyEdit": true,
   "languageserver": {
+    "dhall": {
+      "command": "dhall-lsp-server",
+      "filetypes": ["dhall"]
+    },
     "golang": {
       "command": "gopls",
        "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
